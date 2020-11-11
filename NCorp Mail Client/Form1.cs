@@ -20,11 +20,12 @@ namespace NCorp_Mail_Client
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            TitleContainer.MouseDown += Title_bar_MouseDown;
-            TitleLabel.MouseDown += Title_bar_MouseDown;
-            TitleContainer.DoubleClick += Max_btn_Click;
-            MaxBtn.MouseClick += Max_btn_Click;
-            MinBtn.MouseClick += Min_btn_Click;
+            TitleBarMail.MouseDown += Title_bar_MouseDown;
+            TitleBarList.MouseDown += Title_bar_MouseDown;
+            TitleBarSettings.MouseDown += Title_bar_MouseDown;
+            CloseBtn.Click += CloseBtn_Click;
+            MaxBtn.MouseClick += MaxBtn_Click;
+            MinBtn.MouseClick += MinBtn_Click;
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -44,7 +45,7 @@ namespace NCorp_Mail_Client
             }
         }
 
-        private void Max_btn_Click(object sender, EventArgs e)
+        private void MaxBtn_Click(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Normal)
             {
@@ -56,14 +57,19 @@ namespace NCorp_Mail_Client
             }
         }
 
-        private void Min_btn_Click(object sender, EventArgs e)
+        private void MinBtn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void Close_btn_Click(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FolderBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
