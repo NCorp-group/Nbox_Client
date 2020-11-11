@@ -47,10 +47,12 @@
             this.MailControlsPanel = new System.Windows.Forms.Panel();
             this.TitleContainer = new System.Windows.Forms.Panel();
             this.TitleLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.TitleBar.SuspendLayout();
             this.ControlPanel.SuspendLayout();
             this.MailPanel.SuspendLayout();
             this.ShowMailPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.TitleContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,6 +130,7 @@
             // 
             // SettingsBtn
             // 
+            this.SettingsBtn.BackColor = System.Drawing.Color.Transparent;
             this.SettingsBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SettingsBtn.FlatAppearance.BorderSize = 0;
             this.SettingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -138,10 +141,11 @@
             this.SettingsBtn.Size = new System.Drawing.Size(80, 80);
             this.SettingsBtn.TabIndex = 7;
             this.SettingsBtn.Text = "";
-            this.SettingsBtn.UseVisualStyleBackColor = true;
+            this.SettingsBtn.UseVisualStyleBackColor = false;
             // 
             // FolderBtn
             // 
+            this.FolderBtn.BackColor = System.Drawing.Color.Transparent;
             this.FolderBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.FolderBtn.FlatAppearance.BorderSize = 0;
             this.FolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -152,10 +156,11 @@
             this.FolderBtn.Size = new System.Drawing.Size(80, 80);
             this.FolderBtn.TabIndex = 6;
             this.FolderBtn.Text = "";
-            this.FolderBtn.UseVisualStyleBackColor = true;
+            this.FolderBtn.UseVisualStyleBackColor = false;
             // 
             // BurgerBtn
             // 
+            this.BurgerBtn.BackColor = System.Drawing.Color.Transparent;
             this.BurgerBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.BurgerBtn.FlatAppearance.BorderSize = 0;
             this.BurgerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -166,10 +171,11 @@
             this.BurgerBtn.Size = new System.Drawing.Size(80, 80);
             this.BurgerBtn.TabIndex = 5;
             this.BurgerBtn.Text = "";
-            this.BurgerBtn.UseVisualStyleBackColor = true;
+            this.BurgerBtn.UseVisualStyleBackColor = false;
             // 
             // LogoBtn
             // 
+            this.LogoBtn.BackColor = System.Drawing.Color.Transparent;
             this.LogoBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.LogoBtn.FlatAppearance.BorderSize = 0;
             this.LogoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -180,7 +186,7 @@
             this.LogoBtn.Name = "LogoBtn";
             this.LogoBtn.Size = new System.Drawing.Size(80, 80);
             this.LogoBtn.TabIndex = 4;
-            this.LogoBtn.UseVisualStyleBackColor = true;
+            this.LogoBtn.UseVisualStyleBackColor = false;
             // 
             // MailPanel
             // 
@@ -225,6 +231,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 150);
             this.panel1.Name = "panel1";
@@ -268,6 +275,16 @@
             this.TitleLabel.TabIndex = 0;
             this.TitleLabel.Text = "Nbox by NCorp";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Coral;
+            this.label1.Location = new System.Drawing.Point(242, 186);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
             // EmailClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,6 +305,8 @@
             this.ControlPanel.ResumeLayout(false);
             this.MailPanel.ResumeLayout(false);
             this.ShowMailPanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.TitleContainer.ResumeLayout(false);
             this.TitleContainer.PerformLayout();
             this.ResumeLayout(false);
@@ -314,6 +333,7 @@
         private System.Windows.Forms.Panel MailControlsPanel;
         private System.Windows.Forms.Panel TitleContainer;
         private System.Windows.Forms.Label TitleLabel;
+        private System.Windows.Forms.Label label1;
     }
 }
 
