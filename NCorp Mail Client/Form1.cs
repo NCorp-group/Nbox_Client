@@ -20,8 +20,9 @@ namespace NCorp_Mail_Client
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            TitleBar.MouseDown += Title_bar_MouseDown;
-            TitleBar.DoubleClick += Max_btn_Click;
+            TitleContainer.MouseDown += Title_bar_MouseDown;
+            TitleLabel.MouseDown += Title_bar_MouseDown;
+            TitleContainer.DoubleClick += Max_btn_Click;
             MaxBtn.MouseClick += Max_btn_Click;
             MinBtn.MouseClick += Min_btn_Click;
         }

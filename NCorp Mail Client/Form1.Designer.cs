@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmailClient));
             this.TitleBar = new System.Windows.Forms.Panel();
-            this.WindowName = new System.Windows.Forms.Label();
             this.MinBtn = new System.Windows.Forms.Button();
             this.MaxBtn = new System.Windows.Forms.Button();
             this.CloseBtn = new System.Windows.Forms.Button();
@@ -46,17 +45,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.MailHeader = new System.Windows.Forms.Panel();
             this.MailControlsPanel = new System.Windows.Forms.Panel();
+            this.TitleContainer = new System.Windows.Forms.Panel();
+            this.TitleLabel = new System.Windows.Forms.Label();
             this.TitleBar.SuspendLayout();
             this.ControlPanel.SuspendLayout();
             this.MailPanel.SuspendLayout();
             this.ShowMailPanel.SuspendLayout();
+            this.TitleContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleBar
             // 
             this.TitleBar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.TitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
-            this.TitleBar.Controls.Add(this.WindowName);
+            this.TitleBar.Controls.Add(this.TitleContainer);
             this.TitleBar.Controls.Add(this.MinBtn);
             this.TitleBar.Controls.Add(this.MaxBtn);
             this.TitleBar.Controls.Add(this.CloseBtn);
@@ -66,19 +68,6 @@
             this.TitleBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.TitleBar.Size = new System.Drawing.Size(1280, 26);
             this.TitleBar.TabIndex = 2;
-            // 
-            // WindowName
-            // 
-            this.WindowName.AutoSize = true;
-            this.WindowName.BackColor = System.Drawing.Color.Transparent;
-            this.WindowName.Dock = System.Windows.Forms.DockStyle.Left;
-            this.WindowName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WindowName.ForeColor = System.Drawing.Color.White;
-            this.WindowName.Location = new System.Drawing.Point(0, 0);
-            this.WindowName.Name = "WindowName";
-            this.WindowName.Size = new System.Drawing.Size(84, 13);
-            this.WindowName.TabIndex = 3;
-            this.WindowName.Text = "NBox by NCorp";
             // 
             // MinBtn
             // 
@@ -206,7 +195,8 @@
             // 
             // MailListPanel
             // 
-            this.MailListPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MailListPanel.BackColor = System.Drawing.Color.Transparent;
+            this.MailListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MailListPanel.Location = new System.Drawing.Point(0, 100);
             this.MailListPanel.Name = "MailListPanel";
             this.MailListPanel.Size = new System.Drawing.Size(400, 594);
@@ -214,6 +204,7 @@
             // 
             // FilterPanel
             // 
+            this.FilterPanel.BackColor = System.Drawing.Color.Transparent;
             this.FilterPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.FilterPanel.Location = new System.Drawing.Point(0, 0);
             this.FilterPanel.Name = "FilterPanel";
@@ -234,7 +225,7 @@
             // 
             // panel1
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 150);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 544);
@@ -256,6 +247,27 @@
             this.MailControlsPanel.Size = new System.Drawing.Size(800, 50);
             this.MailControlsPanel.TabIndex = 0;
             // 
+            // TitleContainer
+            // 
+            this.TitleContainer.BackColor = System.Drawing.Color.Transparent;
+            this.TitleContainer.Controls.Add(this.TitleLabel);
+            this.TitleContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TitleContainer.Location = new System.Drawing.Point(0, 0);
+            this.TitleContainer.Name = "TitleContainer";
+            this.TitleContainer.Size = new System.Drawing.Size(1172, 26);
+            this.TitleContainer.TabIndex = 4;
+            // 
+            // TitleLabel
+            // 
+            this.TitleLabel.AutoSize = true;
+            this.TitleLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLabel.ForeColor = System.Drawing.Color.White;
+            this.TitleLabel.Location = new System.Drawing.Point(3, 6);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(85, 13);
+            this.TitleLabel.TabIndex = 0;
+            this.TitleLabel.Text = "Nbox by NCorp";
+            // 
             // EmailClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,10 +285,11 @@
             this.Text = "     ";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.TitleBar.ResumeLayout(false);
-            this.TitleBar.PerformLayout();
             this.ControlPanel.ResumeLayout(false);
             this.MailPanel.ResumeLayout(false);
             this.ShowMailPanel.ResumeLayout(false);
+            this.TitleContainer.ResumeLayout(false);
+            this.TitleContainer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -299,7 +312,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel MailHeader;
         private System.Windows.Forms.Panel MailControlsPanel;
-        private System.Windows.Forms.Label WindowName;
+        private System.Windows.Forms.Panel TitleContainer;
+        private System.Windows.Forms.Label TitleLabel;
     }
 }
 
