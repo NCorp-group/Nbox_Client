@@ -112,7 +112,7 @@
             this.MinBtn.Name = "MinBtn";
             this.MinBtn.Size = new System.Drawing.Size(46, 32);
             this.MinBtn.TabIndex = 2;
-            this.MinBtn.Text = "";
+            this.MinBtn.Text = "";
             this.MinBtn.UseVisualStyleBackColor = false;
             // 
             // MaxBtn
@@ -126,7 +126,7 @@
             this.MaxBtn.Name = "MaxBtn";
             this.MaxBtn.Size = new System.Drawing.Size(46, 32);
             this.MaxBtn.TabIndex = 1;
-            this.MaxBtn.Text = "";
+            this.MaxBtn.Text = "";
             this.MaxBtn.UseVisualStyleBackColor = false;
             // 
             // CloseBtn
@@ -217,11 +217,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.ControlBox = false;
             this.Controls.Add(this.TitleBarMail);
             this.Controls.Add(this.MailPanel);
             this.Controls.Add(this.ControlPanel);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmailClient";
             this.Text = "     ";

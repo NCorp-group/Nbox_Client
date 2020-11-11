@@ -50,10 +50,12 @@ namespace NCorp_Mail_Client
             if (this.WindowState == FormWindowState.Normal)
             {
                 this.WindowState = FormWindowState.Maximized;
+                MaxBtn.Text = "";
             }
             else
             {
                 this.WindowState = FormWindowState.Normal;
+                MaxBtn.Text = "";
             }
         }
 
