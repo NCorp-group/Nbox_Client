@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmailClient));
             this.ControlPanel = new System.Windows.Forms.Panel();
+            this.FolderBtn = new System.Windows.Forms.Button();
+            this.BurgerBtn = new System.Windows.Forms.Button();
+            this.LogoBtn = new System.Windows.Forms.Button();
+            this.TitleBarSettings = new System.Windows.Forms.Panel();
             this.SettingsBtn = new System.Windows.Forms.Button();
             this.MailPanel = new System.Windows.Forms.Panel();
+            this.TitleBarList = new System.Windows.Forms.Panel();
             this.TitleBarMail = new System.Windows.Forms.Panel();
             this.MinBtn = new System.Windows.Forms.Button();
             this.MaxBtn = new System.Windows.Forms.Button();
             this.CloseBtn = new System.Windows.Forms.Button();
-            this.TitleBarList = new System.Windows.Forms.Panel();
-            this.TitleBarSettings = new System.Windows.Forms.Panel();
-            this.LogoBtn = new System.Windows.Forms.Button();
-            this.BurgerBtn = new System.Windows.Forms.Button();
-            this.FolderBtn = new System.Windows.Forms.Button();
             this.ControlPanel.SuspendLayout();
             this.MailPanel.SuspendLayout();
             this.TitleBarMail.SuspendLayout();
@@ -59,6 +59,65 @@
             this.ControlPanel.Name = "ControlPanel";
             this.ControlPanel.Size = new System.Drawing.Size(60, 720);
             this.ControlPanel.TabIndex = 3;
+            // 
+            // FolderBtn
+            // 
+            this.FolderBtn.BackColor = System.Drawing.Color.Transparent;
+            this.FolderBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FolderBtn.FlatAppearance.BorderSize = 0;
+            this.FolderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.FolderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.FolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FolderBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FolderBtn.ForeColor = System.Drawing.Color.White;
+            this.FolderBtn.Location = new System.Drawing.Point(0, 152);
+            this.FolderBtn.Name = "FolderBtn";
+            this.FolderBtn.Size = new System.Drawing.Size(60, 60);
+            this.FolderBtn.TabIndex = 11;
+            this.FolderBtn.Text = "";
+            this.FolderBtn.UseVisualStyleBackColor = false;
+            // 
+            // BurgerBtn
+            // 
+            this.BurgerBtn.BackColor = System.Drawing.Color.Transparent;
+            this.BurgerBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BurgerBtn.FlatAppearance.BorderSize = 0;
+            this.BurgerBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.BurgerBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.BurgerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BurgerBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BurgerBtn.ForeColor = System.Drawing.Color.White;
+            this.BurgerBtn.Location = new System.Drawing.Point(0, 92);
+            this.BurgerBtn.Name = "BurgerBtn";
+            this.BurgerBtn.Size = new System.Drawing.Size(60, 60);
+            this.BurgerBtn.TabIndex = 10;
+            this.BurgerBtn.Text = "";
+            this.BurgerBtn.UseVisualStyleBackColor = false;
+            // 
+            // LogoBtn
+            // 
+            this.LogoBtn.BackColor = System.Drawing.Color.Transparent;
+            this.LogoBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LogoBtn.FlatAppearance.BorderSize = 0;
+            this.LogoBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.LogoBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.LogoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogoBtn.ForeColor = System.Drawing.Color.White;
+            this.LogoBtn.Image = ((System.Drawing.Image)(resources.GetObject("LogoBtn.Image")));
+            this.LogoBtn.Location = new System.Drawing.Point(0, 32);
+            this.LogoBtn.Name = "LogoBtn";
+            this.LogoBtn.Size = new System.Drawing.Size(60, 60);
+            this.LogoBtn.TabIndex = 9;
+            this.LogoBtn.UseVisualStyleBackColor = false;
+            // 
+            // TitleBarSettings
+            // 
+            this.TitleBarSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TitleBarSettings.Location = new System.Drawing.Point(0, 0);
+            this.TitleBarSettings.Name = "TitleBarSettings";
+            this.TitleBarSettings.Size = new System.Drawing.Size(60, 32);
+            this.TitleBarSettings.TabIndex = 8;
             // 
             // SettingsBtn
             // 
@@ -87,6 +146,14 @@
             this.MailPanel.Size = new System.Drawing.Size(400, 720);
             this.MailPanel.TabIndex = 4;
             // 
+            // TitleBarList
+            // 
+            this.TitleBarList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TitleBarList.Location = new System.Drawing.Point(0, 0);
+            this.TitleBarList.Name = "TitleBarList";
+            this.TitleBarList.Size = new System.Drawing.Size(400, 32);
+            this.TitleBarList.TabIndex = 0;
+            // 
             // TitleBarMail
             // 
             this.TitleBarMail.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -105,6 +172,8 @@
             // 
             this.MinBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.MinBtn.FlatAppearance.BorderSize = 0;
+            this.MinBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.MinBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.MinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinBtn.ForeColor = System.Drawing.Color.White;
@@ -119,6 +188,8 @@
             // 
             this.MaxBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.MaxBtn.FlatAppearance.BorderSize = 0;
+            this.MaxBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.MaxBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.MaxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MaxBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaxBtn.ForeColor = System.Drawing.Color.White;
@@ -133,6 +204,7 @@
             // 
             this.CloseBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.CloseBtn.FlatAppearance.BorderSize = 0;
+            this.CloseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             this.CloseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
             this.CloseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -143,73 +215,6 @@
             this.CloseBtn.TabIndex = 0;
             this.CloseBtn.Text = "";
             this.CloseBtn.UseVisualStyleBackColor = false;
-            // 
-            // TitleBarList
-            // 
-            this.TitleBarList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TitleBarList.Location = new System.Drawing.Point(0, 0);
-            this.TitleBarList.Name = "TitleBarList";
-            this.TitleBarList.Size = new System.Drawing.Size(400, 32);
-            this.TitleBarList.TabIndex = 0;
-            // 
-            // TitleBarSettings
-            // 
-            this.TitleBarSettings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TitleBarSettings.Location = new System.Drawing.Point(0, 0);
-            this.TitleBarSettings.Name = "TitleBarSettings";
-            this.TitleBarSettings.Size = new System.Drawing.Size(60, 32);
-            this.TitleBarSettings.TabIndex = 8;
-            // 
-            // LogoBtn
-            // 
-            this.LogoBtn.BackColor = System.Drawing.Color.Transparent;
-            this.LogoBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LogoBtn.FlatAppearance.BorderSize = 0;
-            this.LogoBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.LogoBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.LogoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoBtn.ForeColor = System.Drawing.Color.White;
-            this.LogoBtn.Image = ((System.Drawing.Image)(resources.GetObject("LogoBtn.Image")));
-            this.LogoBtn.Location = new System.Drawing.Point(0, 32);
-            this.LogoBtn.Name = "LogoBtn";
-            this.LogoBtn.Size = new System.Drawing.Size(60, 60);
-            this.LogoBtn.TabIndex = 9;
-            this.LogoBtn.UseVisualStyleBackColor = false;
-            // 
-            // BurgerBtn
-            // 
-            this.BurgerBtn.BackColor = System.Drawing.Color.Transparent;
-            this.BurgerBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BurgerBtn.FlatAppearance.BorderSize = 0;
-            this.BurgerBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.BurgerBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.BurgerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BurgerBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BurgerBtn.ForeColor = System.Drawing.Color.White;
-            this.BurgerBtn.Location = new System.Drawing.Point(0, 92);
-            this.BurgerBtn.Name = "BurgerBtn";
-            this.BurgerBtn.Size = new System.Drawing.Size(60, 60);
-            this.BurgerBtn.TabIndex = 10;
-            this.BurgerBtn.Text = "";
-            this.BurgerBtn.UseVisualStyleBackColor = false;
-            // 
-            // FolderBtn
-            // 
-            this.FolderBtn.BackColor = System.Drawing.Color.Transparent;
-            this.FolderBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.FolderBtn.FlatAppearance.BorderSize = 0;
-            this.FolderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.FolderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.FolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FolderBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FolderBtn.ForeColor = System.Drawing.Color.White;
-            this.FolderBtn.Location = new System.Drawing.Point(0, 152);
-            this.FolderBtn.Name = "FolderBtn";
-            this.FolderBtn.Size = new System.Drawing.Size(60, 60);
-            this.FolderBtn.TabIndex = 11;
-            this.FolderBtn.Text = "";
-            this.FolderBtn.UseVisualStyleBackColor = false;
             // 
             // EmailClient
             // 
