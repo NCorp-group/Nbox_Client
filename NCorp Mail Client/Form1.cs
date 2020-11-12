@@ -21,8 +21,10 @@ namespace NCorp_Mail_Client
         private void Form1_Load(object sender, EventArgs e)
         {
             TitleBarMail.MouseDown += Title_bar_MouseDown;
-            TitleBarList.MouseDown += Title_bar_MouseDown;
-            TitleBarSettings.MouseDown += Title_bar_MouseDown;
+            //TitleBarList.MouseDown += Title_bar_MouseDown;
+            //TitleBarSettings.MouseDown += Title_bar_MouseDown;
+            SearchText.GotFocus += RemoveSearchPlaceholder;
+            SearchText.LostFocus += AddSearchPlaceholder;
             CloseBtn.Click += CloseBtn_Click;
             MaxBtn.MouseClick += MaxBtn_Click;
             MinBtn.MouseClick += MinBtn_Click;
@@ -72,6 +74,22 @@ namespace NCorp_Mail_Client
         private void FolderBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void RemoveSearchPlaceholder(object sender, EventArgs e)
+        {
+            if (SearchText.Text == "Search")
+            {
+                SearchText.Text = "";
+            }
+        }
+
+        public void AddSearchPlaceholder(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(SearchText.Text))
+            {
+                SearchText.Text = "Search";
+            }
         }
     }
 }
