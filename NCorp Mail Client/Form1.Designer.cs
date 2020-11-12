@@ -3,11 +3,6 @@ using System.Drawing.Printing;
 
 namespace NCorp_Mail_Client
 {
-    public class UIColor
-    {
-
-    }
-
     partial class EmailClient
     {
         /// <summary>
@@ -44,8 +39,15 @@ namespace NCorp_Mail_Client
             this.SettingsBtn = new System.Windows.Forms.Button();
             this.MailPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.FilterPanel = new System.Windows.Forms.Panel();
+            this.FilterBottom = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.FilterDropdown = new System.Windows.Forms.Panel();
+            this.FilterDropdownIcon = new System.Windows.Forms.Panel();
+            this.FilterIcon = new System.Windows.Forms.Label();
+            this.FilterDropdownText = new System.Windows.Forms.Panel();
+            this.FilterDesc = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.SearchUnderline = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -58,8 +60,11 @@ namespace NCorp_Mail_Client
             this.CloseBtn = new System.Windows.Forms.Button();
             this.ControlPanel.SuspendLayout();
             this.MailPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.FilterPanel.SuspendLayout();
+            this.FilterBottom.SuspendLayout();
+            this.FilterDropdown.SuspendLayout();
+            this.FilterDropdownIcon.SuspendLayout();
+            this.FilterDropdownText.SuspendLayout();
             this.SearchPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SearchTextPanel.SuspendLayout();
@@ -68,7 +73,7 @@ namespace NCorp_Mail_Client
             // 
             // ControlPanel
             // 
-            this.ControlPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.ControlPanel.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_00dp;
             this.ControlPanel.Controls.Add(this.FolderBtn);
             this.ControlPanel.Controls.Add(this.BurgerBtn);
             this.ControlPanel.Controls.Add(this.LogoBtn);
@@ -85,7 +90,7 @@ namespace NCorp_Mail_Client
             this.FolderBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.FolderBtn.FlatAppearance.BorderSize = 0;
             this.FolderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.FolderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.FolderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
             this.FolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FolderBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FolderBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -102,7 +107,7 @@ namespace NCorp_Mail_Client
             this.BurgerBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.BurgerBtn.FlatAppearance.BorderSize = 0;
             this.BurgerBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.BurgerBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.BurgerBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
             this.BurgerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BurgerBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BurgerBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -119,7 +124,7 @@ namespace NCorp_Mail_Client
             this.LogoBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.LogoBtn.FlatAppearance.BorderSize = 0;
             this.LogoBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.LogoBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.LogoBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
             this.LogoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LogoBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -136,7 +141,7 @@ namespace NCorp_Mail_Client
             this.SettingsBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SettingsBtn.FlatAppearance.BorderSize = 0;
             this.SettingsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.SettingsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.SettingsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
             this.SettingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SettingsBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SettingsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -149,7 +154,7 @@ namespace NCorp_Mail_Client
             // 
             // MailPanel
             // 
-            this.MailPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.MailPanel.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_01dp;
             this.MailPanel.Controls.Add(this.panel2);
             this.MailPanel.Controls.Add(this.FilterPanel);
             this.MailPanel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -160,30 +165,130 @@ namespace NCorp_Mail_Client
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.listBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 105);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(400, 615);
+            this.panel2.Size = new System.Drawing.Size(400, 261);
             this.panel2.TabIndex = 3;
-            // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(400, 615);
-            this.listBox1.TabIndex = 0;
             // 
             // FilterPanel
             // 
+            this.FilterPanel.Controls.Add(this.FilterBottom);
             this.FilterPanel.Controls.Add(this.SearchPanel);
             this.FilterPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.FilterPanel.Location = new System.Drawing.Point(0, 0);
             this.FilterPanel.Name = "FilterPanel";
             this.FilterPanel.Size = new System.Drawing.Size(400, 105);
             this.FilterPanel.TabIndex = 2;
+            // 
+            // FilterBottom
+            // 
+            this.FilterBottom.Controls.Add(this.button1);
+            this.FilterBottom.Controls.Add(this.FilterDropdown);
+            this.FilterBottom.Controls.Add(this.button3);
+            this.FilterBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FilterBottom.Location = new System.Drawing.Point(0, 55);
+            this.FilterBottom.Name = "FilterBottom";
+            this.FilterBottom.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.FilterBottom.Size = new System.Drawing.Size(400, 50);
+            this.FilterBottom.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.button1.Location = new System.Drawing.Point(270, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(50, 50);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // FilterDropdown
+            // 
+            this.FilterDropdown.AutoSize = true;
+            this.FilterDropdown.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.FilterDropdown.Controls.Add(this.FilterDropdownIcon);
+            this.FilterDropdown.Controls.Add(this.FilterDropdownText);
+            this.FilterDropdown.Dock = System.Windows.Forms.DockStyle.Left;
+            this.FilterDropdown.Location = new System.Drawing.Point(30, 0);
+            this.FilterDropdown.Name = "FilterDropdown";
+            this.FilterDropdown.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.FilterDropdown.Size = new System.Drawing.Size(115, 50);
+            this.FilterDropdown.TabIndex = 4;
+            // 
+            // FilterDropdownIcon
+            // 
+            this.FilterDropdownIcon.AutoSize = true;
+            this.FilterDropdownIcon.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.FilterDropdownIcon.Controls.Add(this.FilterIcon);
+            this.FilterDropdownIcon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.FilterDropdownIcon.Location = new System.Drawing.Point(91, 10);
+            this.FilterDropdownIcon.Name = "FilterDropdownIcon";
+            this.FilterDropdownIcon.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.FilterDropdownIcon.Size = new System.Drawing.Size(24, 30);
+            this.FilterDropdownIcon.TabIndex = 3;
+            // 
+            // FilterIcon
+            // 
+            this.FilterIcon.AutoSize = true;
+            this.FilterIcon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.FilterIcon.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FilterIcon.ForeColor = System.Drawing.Color.White;
+            this.FilterIcon.Location = new System.Drawing.Point(0, 3);
+            this.FilterIcon.Name = "FilterIcon";
+            this.FilterIcon.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.FilterIcon.Size = new System.Drawing.Size(24, 21);
+            this.FilterIcon.TabIndex = 1;
+            this.FilterIcon.Text = "";
+            // 
+            // FilterDropdownText
+            // 
+            this.FilterDropdownText.AutoSize = true;
+            this.FilterDropdownText.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.FilterDropdownText.Controls.Add(this.FilterDesc);
+            this.FilterDropdownText.Dock = System.Windows.Forms.DockStyle.Left;
+            this.FilterDropdownText.Location = new System.Drawing.Point(0, 10);
+            this.FilterDropdownText.Name = "FilterDropdownText";
+            this.FilterDropdownText.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.FilterDropdownText.Size = new System.Drawing.Size(91, 30);
+            this.FilterDropdownText.TabIndex = 0;
+            // 
+            // FilterDesc
+            // 
+            this.FilterDesc.AutoSize = true;
+            this.FilterDesc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.FilterDesc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FilterDesc.ForeColor = System.Drawing.Color.White;
+            this.FilterDesc.Location = new System.Drawing.Point(0, 3);
+            this.FilterDesc.Name = "FilterDesc";
+            this.FilterDesc.Size = new System.Drawing.Size(91, 21);
+            this.FilterDesc.TabIndex = 1;
+            this.FilterDesc.Text = "Filter By: All";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.button3.Location = new System.Drawing.Point(320, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(50, 50);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "";
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // SearchPanel
             // 
@@ -198,7 +303,7 @@ namespace NCorp_Mail_Client
             // 
             // SearchUnderline
             // 
-            this.SearchUnderline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
+            this.SearchUnderline.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_08dp;
             this.SearchUnderline.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SearchUnderline.Location = new System.Drawing.Point(30, 50);
             this.SearchUnderline.Name = "SearchUnderline";
@@ -228,7 +333,7 @@ namespace NCorp_Mail_Client
             // 
             // SearchText
             // 
-            this.SearchText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.SearchText.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_01dp;
             this.SearchText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SearchText.Dock = System.Windows.Forms.DockStyle.Left;
             this.SearchText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -242,11 +347,11 @@ namespace NCorp_Mail_Client
             // 
             // SearchBtn
             // 
-            this.SearchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.SearchBtn.BackColor = System.Drawing.Color.Transparent;
             this.SearchBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.SearchBtn.FlatAppearance.BorderSize = 0;
             this.SearchBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
-            this.SearchBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.SearchBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -275,8 +380,8 @@ namespace NCorp_Mail_Client
             // 
             this.MinBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.MinBtn.FlatAppearance.BorderSize = 0;
-            this.MinBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
-            this.MinBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.MinBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.MinBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
             this.MinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -291,8 +396,8 @@ namespace NCorp_Mail_Client
             // 
             this.MaxBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.MaxBtn.FlatAppearance.BorderSize = 0;
-            this.MaxBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
-            this.MaxBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.MaxBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.MaxBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
             this.MaxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MaxBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaxBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -307,7 +412,7 @@ namespace NCorp_Mail_Client
             // 
             this.CloseBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.CloseBtn.FlatAppearance.BorderSize = 0;
-            this.CloseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.CloseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.CloseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
             this.CloseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -338,8 +443,15 @@ namespace NCorp_Mail_Client
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ControlPanel.ResumeLayout(false);
             this.MailPanel.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.FilterPanel.ResumeLayout(false);
+            this.FilterBottom.ResumeLayout(false);
+            this.FilterBottom.PerformLayout();
+            this.FilterDropdown.ResumeLayout(false);
+            this.FilterDropdown.PerformLayout();
+            this.FilterDropdownIcon.ResumeLayout(false);
+            this.FilterDropdownIcon.PerformLayout();
+            this.FilterDropdownText.ResumeLayout(false);
+            this.FilterDropdownText.PerformLayout();
             this.SearchPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.SearchTextPanel.ResumeLayout(false);
@@ -368,7 +480,14 @@ namespace NCorp_Mail_Client
         private System.Windows.Forms.TextBox SearchText;
         private System.Windows.Forms.Panel SearchUnderline;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Panel FilterBottom;
+        private System.Windows.Forms.Panel FilterDropdown;
+        private System.Windows.Forms.Panel FilterDropdownIcon;
+        private System.Windows.Forms.Label FilterIcon;
+        private System.Windows.Forms.Panel FilterDropdownText;
+        private System.Windows.Forms.Label FilterDesc;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
     }
 }
 

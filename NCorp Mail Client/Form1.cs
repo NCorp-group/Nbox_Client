@@ -28,6 +28,10 @@ namespace NCorp_Mail_Client
             CloseBtn.Click += CloseBtn_Click;
             MaxBtn.MouseClick += MaxBtn_Click;
             MinBtn.MouseClick += MinBtn_Click;
+            FilterDropdown.MouseEnter += Panel_MouseIn;
+            FilterDropdown.MouseLeave += Panel_MouseOut;
+            FilterDropdown.MouseDown += Panel_Click;
+            FilterDropdown.MouseUp += Panel_Reset;
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -90,6 +94,27 @@ namespace NCorp_Mail_Client
             {
                 SearchText.Text = "Search";
             }
+        }
+
+        public void Panel_MouseIn(object sender, EventArgs e)
+        {
+            Panel panel = sender as Panel;
+            panel.BackColor = Properties.Settings.Default.bgd_02dp;
+        }
+        public void Panel_MouseOut(object sender, EventArgs e)
+        {
+            Panel panel = sender as Panel;
+            panel.BackColor = Color.Transparent;
+        }
+        public void Panel_Click(object sender, EventArgs e)
+        {
+            Panel panel = sender as Panel;
+            panel.BackColor = Properties.Settings.Default.bgd_08dp;
+        }
+        public void Panel_Reset(object sender, EventArgs e)
+        {
+            Panel panel = sender as Panel;
+            panel.BackColor = Properties.Settings.Default.bgd_02dp;
         }
     }
 }

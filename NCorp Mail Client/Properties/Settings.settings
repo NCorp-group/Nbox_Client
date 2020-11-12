@@ -1,7 +1,36 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NCorp_Mail_Client.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="bgd_00dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">10, 14, 29</Value>
+    </Setting>
+    <Setting Name="bgd_01dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">22, 26, 41</Value>
+    </Setting>
+    <Setting Name="bgd_02dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">27, 31, 45</Value>
+    </Setting>
+    <Setting Name="bgd_03dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">29, 33, 47</Value>
+    </Setting>
+    <Setting Name="bgd_04dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">32, 36, 49</Value>
+    </Setting>
+    <Setting Name="bgd_06dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">37, 40, 54</Value>
+    </Setting>
+    <Setting Name="bgd_08dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">40, 43, 56</Value>
+    </Setting>
+    <Setting Name="bgd_12dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">45, 48, 61</Value>
+    </Setting>
+    <Setting Name="bgd_16dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">47, 50, 63</Value>
+    </Setting>
+    <Setting Name="bgd_24dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">49, 53, 65</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
