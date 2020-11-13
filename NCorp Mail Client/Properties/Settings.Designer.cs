@@ -112,5 +112,275 @@ namespace NCorp_Mail_Client.Properties {
                 return ((global::System.Drawing.Color)(this["bgd_24dp"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("223, 224, 226")]
+        public global::System.Drawing.Color tds_00dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tds_00dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("157, 159, 165")]
+        public global::System.Drawing.Color tdm_00dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdm_00dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("103, 106, 115")]
+        public global::System.Drawing.Color tdw_00dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdw_00dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("224, 225, 227")]
+        public global::System.Drawing.Color tds_01dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tds_01dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("161, 163, 169")]
+        public global::System.Drawing.Color tdm_01dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdm_01dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("110, 113, 122")]
+        public global::System.Drawing.Color tdw_01dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdw_01dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("225, 226, 227")]
+        public global::System.Drawing.Color tds_02dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tds_02dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("163, 165, 171")]
+        public global::System.Drawing.Color tdm_02dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdm_02dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("113, 116, 124")]
+        public global::System.Drawing.Color tdw_02dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdw_02dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("225, 226, 228")]
+        public global::System.Drawing.Color tds_03dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tds_03dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("164, 166, 171")]
+        public global::System.Drawing.Color tdm_03dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdm_03dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("115, 117, 126")]
+        public global::System.Drawing.Color tdw_03dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdw_03dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("226, 226, 228")]
+        public global::System.Drawing.Color tds_04dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tds_04dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("165, 167, 172")]
+        public global::System.Drawing.Color tdm_04dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdm_04dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("116, 119, 127")]
+        public global::System.Drawing.Color tdw_04dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdw_04dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("226, 227, 229")]
+        public global::System.Drawing.Color tds_06dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tds_06dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("167, 169, 174")]
+        public global::System.Drawing.Color tdm_06dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdm_06dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("119, 121, 130")]
+        public global::System.Drawing.Color tdw_06dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdw_06dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("227, 227, 229")]
+        public global::System.Drawing.Color tds_08dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tds_08dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("169, 170, 175")]
+        public global::System.Drawing.Color tdm_08dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdm_08dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("121, 123, 131")]
+        public global::System.Drawing.Color tdw_08dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdw_08dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("227, 228, 230")]
+        public global::System.Drawing.Color tds_12dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tds_12dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("171, 172, 177")]
+        public global::System.Drawing.Color tdm_12dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdm_12dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("124, 126, 134")]
+        public global::System.Drawing.Color tdw_12dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdw_12dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("228, 228, 230")]
+        public global::System.Drawing.Color tds_16dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tds_16dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("171, 173, 178")]
+        public global::System.Drawing.Color tdm_16dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdm_16dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("126, 128, 136")]
+        public global::System.Drawing.Color tdw_16dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdw_16dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("228, 229, 230")]
+        public global::System.Drawing.Color tds_24dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tds_24dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("172, 174, 179")]
+        public global::System.Drawing.Color tdm_24dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdm_24dp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("127, 129, 137")]
+        public global::System.Drawing.Color tdw_24dp {
+            get {
+                return ((global::System.Drawing.Color)(this["tdw_24dp"]));
+            }
+        }
     }
 }

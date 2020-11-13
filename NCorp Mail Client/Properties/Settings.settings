@@ -32,5 +32,95 @@
     <Setting Name="bgd_24dp" Type="System.Drawing.Color" Scope="Application">
       <Value Profile="(Default)">49, 53, 65</Value>
     </Setting>
+    <Setting Name="tds_00dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">223, 224, 226</Value>
+    </Setting>
+    <Setting Name="tdm_00dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">157, 159, 165</Value>
+    </Setting>
+    <Setting Name="tdw_00dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">103, 106, 115</Value>
+    </Setting>
+    <Setting Name="tds_01dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">224, 225, 227</Value>
+    </Setting>
+    <Setting Name="tdm_01dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">161, 163, 169</Value>
+    </Setting>
+    <Setting Name="tdw_01dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">110, 113, 122</Value>
+    </Setting>
+    <Setting Name="tds_02dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">225, 226, 227</Value>
+    </Setting>
+    <Setting Name="tdm_02dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">163, 165, 171</Value>
+    </Setting>
+    <Setting Name="tdw_02dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">113, 116, 124</Value>
+    </Setting>
+    <Setting Name="tds_03dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">225, 226, 228</Value>
+    </Setting>
+    <Setting Name="tdm_03dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">164, 166, 171</Value>
+    </Setting>
+    <Setting Name="tdw_03dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">115, 117, 126</Value>
+    </Setting>
+    <Setting Name="tds_04dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">226, 226, 228</Value>
+    </Setting>
+    <Setting Name="tdm_04dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">165, 167, 172</Value>
+    </Setting>
+    <Setting Name="tdw_04dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">116, 119, 127</Value>
+    </Setting>
+    <Setting Name="tds_06dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">226, 227, 229</Value>
+    </Setting>
+    <Setting Name="tdm_06dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">167, 169, 174</Value>
+    </Setting>
+    <Setting Name="tdw_06dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">119, 121, 130</Value>
+    </Setting>
+    <Setting Name="tds_08dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">227, 227, 229</Value>
+    </Setting>
+    <Setting Name="tdm_08dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">169, 170, 175</Value>
+    </Setting>
+    <Setting Name="tdw_08dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">121, 123, 131</Value>
+    </Setting>
+    <Setting Name="tds_12dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">227, 228, 230</Value>
+    </Setting>
+    <Setting Name="tdm_12dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">171, 172, 177</Value>
+    </Setting>
+    <Setting Name="tdw_12dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">124, 126, 134</Value>
+    </Setting>
+    <Setting Name="tds_16dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">228, 228, 230</Value>
+    </Setting>
+    <Setting Name="tdm_16dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">171, 173, 178</Value>
+    </Setting>
+    <Setting Name="tdw_16dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">126, 128, 136</Value>
+    </Setting>
+    <Setting Name="tds_24dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">228, 229, 230</Value>
+    </Setting>
+    <Setting Name="tdm_24dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">172, 174, 179</Value>
+    </Setting>
+    <Setting Name="tdw_24dp" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">127, 129, 137</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
