@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Drawing.Printing;
+using System.Windows.Forms;
 
 namespace NCorp_Mail_Client
 {
@@ -40,11 +41,21 @@ namespace NCorp_Mail_Client
             this.SettingsBtn = new System.Windows.Forms.Button();
             this.MailPanel = new System.Windows.Forms.Panel();
             this.MailListPanel = new System.Windows.Forms.Panel();
+            this.MailThumbnailContainer = new System.Windows.Forms.Panel();
             this.MailThumbnail = new System.Windows.Forms.Panel();
-            this.MailView = new System.Windows.Forms.Panel();
-            this.MailPreviewText = new System.Windows.Forms.RichTextBox();
+            this.TextWrapper = new System.Windows.Forms.Panel();
+            this.ThumbnailBody = new System.Windows.Forms.Panel();
+            this.ThumbBodyContainer = new System.Windows.Forms.Panel();
+            this.ThumbBody = new System.Windows.Forms.TextBox();
+            this.ThumbSubject = new System.Windows.Forms.TextBox();
+            this.ThumbSender = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ThumbTime = new System.Windows.Forms.Panel();
+            this.ThumbTimeText = new System.Windows.Forms.TextBox();
+            this.ThumbControls = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ColourMark = new System.Windows.Forms.Panel();
             this.UnreadMark = new System.Windows.Forms.Panel();
-            this.ColorMarkPanel = new System.Windows.Forms.Panel();
             this.FilterPanel = new System.Windows.Forms.Panel();
             this.FilterBottom = new System.Windows.Forms.Panel();
             this.MarkBtn = new System.Windows.Forms.Button();
@@ -67,8 +78,14 @@ namespace NCorp_Mail_Client
             this.ControlPanel.SuspendLayout();
             this.MailPanel.SuspendLayout();
             this.MailListPanel.SuspendLayout();
+            this.MailThumbnailContainer.SuspendLayout();
             this.MailThumbnail.SuspendLayout();
-            this.MailView.SuspendLayout();
+            this.TextWrapper.SuspendLayout();
+            this.ThumbnailBody.SuspendLayout();
+            this.ThumbBodyContainer.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.ThumbTime.SuspendLayout();
+            this.ThumbControls.SuspendLayout();
             this.FilterPanel.SuspendLayout();
             this.FilterBottom.SuspendLayout();
             this.FilterDropdownPanel.SuspendLayout();
@@ -193,65 +210,183 @@ namespace NCorp_Mail_Client
             // MailListPanel
             // 
             this.MailListPanel.BackColor = System.Drawing.Color.Transparent;
-            this.MailListPanel.Controls.Add(this.MailThumbnail);
+            this.MailListPanel.Controls.Add(this.MailThumbnailContainer);
             this.MailListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MailListPanel.Location = new System.Drawing.Point(0, 105);
             this.MailListPanel.Name = "MailListPanel";
             this.MailListPanel.Size = new System.Drawing.Size(400, 615);
             this.MailListPanel.TabIndex = 3;
             // 
+            // MailThumbnailContainer
+            // 
+            this.MailThumbnailContainer.Controls.Add(this.MailThumbnail);
+            this.MailThumbnailContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MailThumbnailContainer.Location = new System.Drawing.Point(0, 0);
+            this.MailThumbnailContainer.Name = "MailThumbnailContainer";
+            this.MailThumbnailContainer.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.MailThumbnailContainer.Size = new System.Drawing.Size(400, 100);
+            this.MailThumbnailContainer.TabIndex = 0;
+            // 
             // MailThumbnail
             // 
-            this.MailThumbnail.Controls.Add(this.MailView);
-            this.MailThumbnail.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MailThumbnail.Location = new System.Drawing.Point(0, 0);
+            this.MailThumbnail.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_24dp;
+            this.MailThumbnail.Controls.Add(this.TextWrapper);
+            this.MailThumbnail.Controls.Add(this.ColourMark);
+            this.MailThumbnail.Controls.Add(this.UnreadMark);
+            this.MailThumbnail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MailThumbnail.Location = new System.Drawing.Point(0, 5);
             this.MailThumbnail.Name = "MailThumbnail";
-            this.MailThumbnail.Padding = new System.Windows.Forms.Padding(0, 5, 30, 5);
             this.MailThumbnail.Size = new System.Drawing.Size(400, 90);
             this.MailThumbnail.TabIndex = 0;
             // 
-            // MailView
+            // TextWrapper
             // 
-            this.MailView.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_02dp;
-            this.MailView.Controls.Add(this.MailPreviewText);
-            this.MailView.Controls.Add(this.UnreadMark);
-            this.MailView.Controls.Add(this.ColorMarkPanel);
-            this.MailView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MailView.Location = new System.Drawing.Point(0, 5);
-            this.MailView.Name = "MailView";
-            this.MailView.Size = new System.Drawing.Size(370, 80);
-            this.MailView.TabIndex = 0;
+            this.TextWrapper.Controls.Add(this.ThumbnailBody);
+            this.TextWrapper.Controls.Add(this.panel1);
+            this.TextWrapper.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TextWrapper.Location = new System.Drawing.Point(6, 0);
+            this.TextWrapper.Name = "TextWrapper";
+            this.TextWrapper.Padding = new System.Windows.Forms.Padding(24, 0, 30, 0);
+            this.TextWrapper.Size = new System.Drawing.Size(394, 86);
+            this.TextWrapper.TabIndex = 3;
             // 
-            // MailPreviewText
+            // ThumbnailBody
             // 
-            this.MailPreviewText.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_02dp;
-            this.MailPreviewText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MailPreviewText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MailPreviewText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MailPreviewText.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_01dp;
-            this.MailPreviewText.Location = new System.Drawing.Point(5, 0);
-            this.MailPreviewText.Name = "MailPreviewText";
-            this.MailPreviewText.Size = new System.Drawing.Size(365, 75);
-            this.MailPreviewText.TabIndex = 15;
-            this.MailPreviewText.Text = "senderofmail@example.com\nMail Title\nThe body of the mail, but only part of it...";
+            this.ThumbnailBody.Controls.Add(this.ThumbBodyContainer);
+            this.ThumbnailBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ThumbnailBody.Location = new System.Drawing.Point(24, 0);
+            this.ThumbnailBody.Name = "ThumbnailBody";
+            this.ThumbnailBody.Padding = new System.Windows.Forms.Padding(0, 8, 0, 10);
+            this.ThumbnailBody.Size = new System.Drawing.Size(260, 86);
+            this.ThumbnailBody.TabIndex = 1;
+            // 
+            // ThumbBodyContainer
+            // 
+            this.ThumbBodyContainer.Controls.Add(this.ThumbBody);
+            this.ThumbBodyContainer.Controls.Add(this.ThumbSubject);
+            this.ThumbBodyContainer.Controls.Add(this.ThumbSender);
+            this.ThumbBodyContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ThumbBodyContainer.Location = new System.Drawing.Point(0, 8);
+            this.ThumbBodyContainer.Name = "ThumbBodyContainer";
+            this.ThumbBodyContainer.Size = new System.Drawing.Size(260, 68);
+            this.ThumbBodyContainer.TabIndex = 0;
+            // 
+            // ThumbBody
+            // 
+            this.ThumbBody.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_24dp;
+            this.ThumbBody.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ThumbBody.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ThumbBody.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThumbBody.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tdm_24dp;
+            this.ThumbBody.Location = new System.Drawing.Point(0, 44);
+            this.ThumbBody.Name = "ThumbBody";
+            this.ThumbBody.Size = new System.Drawing.Size(260, 22);
+            this.ThumbBody.TabIndex = 2;
+            this.ThumbBody.Text = "Preview of the email\'s body, which";
+            // 
+            // ThumbSubject
+            // 
+            this.ThumbSubject.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_24dp;
+            this.ThumbSubject.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ThumbSubject.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ThumbSubject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThumbSubject.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_24dp;
+            this.ThumbSubject.Location = new System.Drawing.Point(0, 22);
+            this.ThumbSubject.Name = "ThumbSubject";
+            this.ThumbSubject.Size = new System.Drawing.Size(260, 22);
+            this.ThumbSubject.TabIndex = 1;
+            this.ThumbSubject.Text = "The subject of the email";
+            // 
+            // ThumbSender
+            // 
+            this.ThumbSender.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_24dp;
+            this.ThumbSender.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ThumbSender.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ThumbSender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThumbSender.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_24dp;
+            this.ThumbSender.Location = new System.Drawing.Point(0, 0);
+            this.ThumbSender.Name = "ThumbSender";
+            this.ThumbSender.Size = new System.Drawing.Size(260, 22);
+            this.ThumbSender.TabIndex = 0;
+            this.ThumbSender.Text = "sender.mail@example.com";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.ThumbTime);
+            this.panel1.Controls.Add(this.ThumbControls);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(284, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(0, 8, 0, 10);
+            this.panel1.Size = new System.Drawing.Size(80, 86);
+            this.panel1.TabIndex = 0;
+            // 
+            // ThumbTime
+            // 
+            this.ThumbTime.Controls.Add(this.ThumbTimeText);
+            this.ThumbTime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ThumbTime.Location = new System.Drawing.Point(0, 38);
+            this.ThumbTime.Name = "ThumbTime";
+            this.ThumbTime.Size = new System.Drawing.Size(80, 38);
+            this.ThumbTime.TabIndex = 1;
+            // 
+            // ThumbTimeText
+            // 
+            this.ThumbTimeText.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_24dp;
+            this.ThumbTimeText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ThumbTimeText.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ThumbTimeText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThumbTimeText.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_24dp;
+            this.ThumbTimeText.Location = new System.Drawing.Point(0, 0);
+            this.ThumbTimeText.Name = "ThumbTimeText";
+            this.ThumbTimeText.Size = new System.Drawing.Size(80, 22);
+            this.ThumbTimeText.TabIndex = 0;
+            this.ThumbTimeText.Text = "21:39";
+            this.ThumbTimeText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // ThumbControls
+            // 
+            this.ThumbControls.Controls.Add(this.button1);
+            this.ThumbControls.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ThumbControls.Location = new System.Drawing.Point(0, 8);
+            this.ThumbControls.Name = "ThumbControls";
+            this.ThumbControls.Size = new System.Drawing.Size(80, 30);
+            this.ThumbControls.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_01dp;
+            this.button1.Location = new System.Drawing.Point(50, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 30);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // ColourMark
+            // 
+            this.ColourMark.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(94)))), ((int)(((byte)(214)))));
+            this.ColourMark.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ColourMark.Location = new System.Drawing.Point(0, 0);
+            this.ColourMark.Name = "ColourMark";
+            this.ColourMark.Size = new System.Drawing.Size(6, 86);
+            this.ColourMark.TabIndex = 2;
             // 
             // UnreadMark
             // 
             this.UnreadMark.BackColor = System.Drawing.Color.White;
             this.UnreadMark.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.UnreadMark.Location = new System.Drawing.Point(5, 75);
+            this.UnreadMark.Location = new System.Drawing.Point(0, 86);
             this.UnreadMark.Name = "UnreadMark";
-            this.UnreadMark.Size = new System.Drawing.Size(365, 5);
-            this.UnreadMark.TabIndex = 14;
-            // 
-            // ColorMarkPanel
-            // 
-            this.ColorMarkPanel.BackColor = System.Drawing.Color.OliveDrab;
-            this.ColorMarkPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ColorMarkPanel.Location = new System.Drawing.Point(0, 0);
-            this.ColorMarkPanel.Name = "ColorMarkPanel";
-            this.ColorMarkPanel.Size = new System.Drawing.Size(5, 80);
-            this.ColorMarkPanel.TabIndex = 13;
+            this.UnreadMark.Size = new System.Drawing.Size(400, 4);
+            this.UnreadMark.TabIndex = 1;
             // 
             // FilterPanel
             // 
@@ -534,8 +669,16 @@ namespace NCorp_Mail_Client
             this.ControlPanel.ResumeLayout(false);
             this.MailPanel.ResumeLayout(false);
             this.MailListPanel.ResumeLayout(false);
+            this.MailThumbnailContainer.ResumeLayout(false);
             this.MailThumbnail.ResumeLayout(false);
-            this.MailView.ResumeLayout(false);
+            this.TextWrapper.ResumeLayout(false);
+            this.ThumbnailBody.ResumeLayout(false);
+            this.ThumbBodyContainer.ResumeLayout(false);
+            this.ThumbBodyContainer.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.ThumbTime.ResumeLayout(false);
+            this.ThumbTime.PerformLayout();
+            this.ThumbControls.ResumeLayout(false);
             this.FilterPanel.ResumeLayout(false);
             this.FilterBottom.ResumeLayout(false);
             this.FilterBottom.PerformLayout();
@@ -569,7 +712,6 @@ namespace NCorp_Mail_Client
         private System.Windows.Forms.Panel FilterTopPanel;
         private System.Windows.Forms.Button SearchBtn;
         private System.Windows.Forms.Panel SearchUnderline;
-        private System.Windows.Forms.Panel MailListPanel;
         private System.Windows.Forms.Panel FilterBottom;
         private System.Windows.Forms.Panel FilterDropdownPanel;
         private System.Windows.Forms.Panel FilterDropdownIcon;
@@ -582,11 +724,22 @@ namespace NCorp_Mail_Client
         private System.Windows.Forms.Button AccountsBtn;
         private System.Windows.Forms.Panel SearchTextPanel;
         private System.Windows.Forms.TextBox SearchText;
+        private System.Windows.Forms.Panel MailListPanel;
+        private System.Windows.Forms.Panel MailThumbnailContainer;
         private System.Windows.Forms.Panel MailThumbnail;
-        private System.Windows.Forms.Panel MailView;
-        private System.Windows.Forms.RichTextBox MailPreviewText;
+        private System.Windows.Forms.Panel TextWrapper;
+        private System.Windows.Forms.Panel ColourMark;
         private System.Windows.Forms.Panel UnreadMark;
-        private System.Windows.Forms.Panel ColorMarkPanel;
+        private System.Windows.Forms.Panel ThumbnailBody;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel ThumbTime;
+        private System.Windows.Forms.Panel ThumbControls;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox ThumbTimeText;
+        private Panel ThumbBodyContainer;
+        private TextBox ThumbSender;
+        private TextBox ThumbBody;
+        private TextBox ThumbSubject;
     }
 }
 
