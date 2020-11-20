@@ -48,7 +48,7 @@ namespace NCorp_Mail_Client
             this.ThumbBody = new System.Windows.Forms.TextBox();
             this.ThumbSubject = new System.Windows.Forms.TextBox();
             this.ThumbSender = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ThumbInfoPanel = new System.Windows.Forms.Panel();
             this.ThumbTime = new System.Windows.Forms.Panel();
             this.ThumbTimeText = new System.Windows.Forms.TextBox();
             this.ThumbControls = new System.Windows.Forms.Panel();
@@ -82,7 +82,7 @@ namespace NCorp_Mail_Client
             this.TextWrapper.SuspendLayout();
             this.ThumbnailBody.SuspendLayout();
             this.ThumbBodyContainer.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.ThumbInfoPanel.SuspendLayout();
             this.ThumbTime.SuspendLayout();
             this.ThumbControls.SuspendLayout();
             this.FilterPanel.SuspendLayout();
@@ -232,7 +232,7 @@ namespace NCorp_Mail_Client
             // TextWrapper
             // 
             this.TextWrapper.Controls.Add(this.ThumbnailBody);
-            this.TextWrapper.Controls.Add(this.panel1);
+            this.TextWrapper.Controls.Add(this.ThumbInfoPanel);
             this.TextWrapper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TextWrapper.Location = new System.Drawing.Point(6, 0);
             this.TextWrapper.Name = "TextWrapper";
@@ -300,16 +300,16 @@ namespace NCorp_Mail_Client
             this.ThumbSender.TabIndex = 0;
             this.ThumbSender.Text = "sender.mail@example.com";
             // 
-            // panel1
+            // ThumbInfoPanel
             // 
-            this.panel1.Controls.Add(this.ThumbTime);
-            this.panel1.Controls.Add(this.ThumbControls);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(284, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(0, 8, 0, 10);
-            this.panel1.Size = new System.Drawing.Size(80, 86);
-            this.panel1.TabIndex = 0;
+            this.ThumbInfoPanel.Controls.Add(this.ThumbTime);
+            this.ThumbInfoPanel.Controls.Add(this.ThumbControls);
+            this.ThumbInfoPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ThumbInfoPanel.Location = new System.Drawing.Point(284, 0);
+            this.ThumbInfoPanel.Name = "ThumbInfoPanel";
+            this.ThumbInfoPanel.Padding = new System.Windows.Forms.Padding(0, 8, 0, 10);
+            this.ThumbInfoPanel.Size = new System.Drawing.Size(80, 86);
+            this.ThumbInfoPanel.TabIndex = 0;
             // 
             // ThumbTime
             // 
@@ -676,7 +676,7 @@ namespace NCorp_Mail_Client
             this.ThumbnailBody.ResumeLayout(false);
             this.ThumbBodyContainer.ResumeLayout(false);
             this.ThumbBodyContainer.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.ThumbInfoPanel.ResumeLayout(false);
             this.ThumbTime.ResumeLayout(false);
             this.ThumbTime.PerformLayout();
             this.ThumbControls.ResumeLayout(false);
@@ -733,7 +733,7 @@ namespace NCorp_Mail_Client
         private TextBox ThumbBody;
         private TextBox ThumbSubject;
         private TextBox ThumbSender;
-        private Panel panel1;
+        private Panel ThumbInfoPanel;
         private Panel ThumbTime;
         private TextBox ThumbTimeText;
         private Panel ThumbControls;
