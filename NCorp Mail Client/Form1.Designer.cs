@@ -71,10 +71,12 @@ namespace NCorp_Mail_Client
             this.SearchTextPanel = new System.Windows.Forms.Panel();
             this.SearchText = new System.Windows.Forms.TextBox();
             this.SearchBtn = new System.Windows.Forms.Button();
-            this.TitleBar = new System.Windows.Forms.Panel();
-            this.MinBtn = new System.Windows.Forms.Button();
-            this.MaxBtn = new System.Windows.Forms.Button();
             this.CloseBtn = new System.Windows.Forms.Button();
+            this.MaxBtn = new System.Windows.Forms.Button();
+            this.MinBtn = new System.Windows.Forms.Button();
+            this.TitleBar = new System.Windows.Forms.Panel();
+            this.LoginScreen = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.ControlPanel.SuspendLayout();
             this.MailPanel.SuspendLayout();
             this.MailThumbnailContainer.SuspendLayout();
@@ -94,6 +96,7 @@ namespace NCorp_Mail_Client
             this.FilterTopPanel.SuspendLayout();
             this.SearchTextPanel.SuspendLayout();
             this.TitleBar.SuspendLayout();
+            this.LoginScreen.SuspendLayout();
             this.SuspendLayout();
             // 
             // ControlPanel
@@ -585,37 +588,22 @@ namespace NCorp_Mail_Client
             this.SearchBtn.Text = "";
             this.SearchBtn.UseVisualStyleBackColor = false;
             // 
-            // TitleBar
+            // CloseBtn
             // 
-            this.TitleBar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.TitleBar.BackColor = System.Drawing.Color.Transparent;
-            this.TitleBar.Controls.Add(this.MinBtn);
-            this.TitleBar.Controls.Add(this.MaxBtn);
-            this.TitleBar.Controls.Add(this.CloseBtn);
-            this.TitleBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TitleBar.Location = new System.Drawing.Point(460, 0);
-            this.TitleBar.Name = "TitleBar";
-            this.TitleBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.TitleBar.Size = new System.Drawing.Size(820, 32);
-            this.TitleBar.TabIndex = 8;
-            this.TitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleBar_MouseDown);
-            // 
-            // MinBtn
-            // 
-            this.MinBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.MinBtn.FlatAppearance.BorderSize = 0;
-            this.MinBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.MinBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
-            this.MinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinBtn.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_01dp;
-            this.MinBtn.Location = new System.Drawing.Point(682, 0);
-            this.MinBtn.Name = "MinBtn";
-            this.MinBtn.Size = new System.Drawing.Size(46, 32);
-            this.MinBtn.TabIndex = 2;
-            this.MinBtn.Text = "";
-            this.MinBtn.UseVisualStyleBackColor = false;
-            this.MinBtn.Click += new System.EventHandler(this.MinBtn_Click);
+            this.CloseBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.CloseBtn.FlatAppearance.BorderSize = 0;
+            this.CloseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.CloseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.CloseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseBtn.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_01dp;
+            this.CloseBtn.Location = new System.Drawing.Point(774, 0);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(46, 32);
+            this.CloseBtn.TabIndex = 0;
+            this.CloseBtn.Text = "";
+            this.CloseBtn.UseVisualStyleBackColor = false;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // MaxBtn
             // 
@@ -634,22 +622,58 @@ namespace NCorp_Mail_Client
             this.MaxBtn.UseVisualStyleBackColor = false;
             this.MaxBtn.Click += new System.EventHandler(this.MaxBtn_Click);
             // 
-            // CloseBtn
+            // MinBtn
             // 
-            this.CloseBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CloseBtn.FlatAppearance.BorderSize = 0;
-            this.CloseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.CloseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.CloseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseBtn.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_01dp;
-            this.CloseBtn.Location = new System.Drawing.Point(774, 0);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(46, 32);
-            this.CloseBtn.TabIndex = 0;
-            this.CloseBtn.Text = "";
-            this.CloseBtn.UseVisualStyleBackColor = false;
-            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            this.MinBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.MinBtn.FlatAppearance.BorderSize = 0;
+            this.MinBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.MinBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.MinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinBtn.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_01dp;
+            this.MinBtn.Location = new System.Drawing.Point(682, 0);
+            this.MinBtn.Name = "MinBtn";
+            this.MinBtn.Size = new System.Drawing.Size(46, 32);
+            this.MinBtn.TabIndex = 2;
+            this.MinBtn.Text = "";
+            this.MinBtn.UseVisualStyleBackColor = false;
+            this.MinBtn.Click += new System.EventHandler(this.MinBtn_Click);
+            // 
+            // TitleBar
+            // 
+            this.TitleBar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.TitleBar.BackColor = System.Drawing.Color.Transparent;
+            this.TitleBar.Controls.Add(this.MinBtn);
+            this.TitleBar.Controls.Add(this.MaxBtn);
+            this.TitleBar.Controls.Add(this.CloseBtn);
+            this.TitleBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TitleBar.Location = new System.Drawing.Point(460, 0);
+            this.TitleBar.Name = "TitleBar";
+            this.TitleBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.TitleBar.Size = new System.Drawing.Size(820, 32);
+            this.TitleBar.TabIndex = 8;
+            this.TitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleBar_MouseDown);
+            // 
+            // LoginScreen
+            // 
+            this.LoginScreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LoginScreen.BackgroundImage")));
+            this.LoginScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.LoginScreen.Controls.Add(this.button2);
+            this.LoginScreen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoginScreen.Location = new System.Drawing.Point(460, 32);
+            this.LoginScreen.Name = "LoginScreen";
+            this.LoginScreen.Size = new System.Drawing.Size(820, 688);
+            this.LoginScreen.TabIndex = 9;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(373, 312);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Login";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // EmailClient
             // 
@@ -660,6 +684,7 @@ namespace NCorp_Mail_Client
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.ControlBox = false;
+            this.Controls.Add(this.LoginScreen);
             this.Controls.Add(this.TitleBar);
             this.Controls.Add(this.MailPanel);
             this.Controls.Add(this.ControlPanel);
@@ -694,6 +719,7 @@ namespace NCorp_Mail_Client
             this.SearchTextPanel.ResumeLayout(false);
             this.SearchTextPanel.PerformLayout();
             this.TitleBar.ResumeLayout(false);
+            this.LoginScreen.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -702,10 +728,6 @@ namespace NCorp_Mail_Client
         private System.Windows.Forms.Panel ControlPanel;
         private System.Windows.Forms.Button SettingsBtn;
         private System.Windows.Forms.Panel MailPanel;
-        private System.Windows.Forms.Panel TitleBar;
-        private System.Windows.Forms.Button MinBtn;
-        private System.Windows.Forms.Button MaxBtn;
-        private System.Windows.Forms.Button CloseBtn;
         private System.Windows.Forms.Button BurgerBtn;
         private System.Windows.Forms.Button LogoBtn;
         private System.Windows.Forms.Panel FilterPanel;
@@ -741,6 +763,12 @@ namespace NCorp_Mail_Client
         private Panel ColourMark;
         private Panel UnreadMark;
         private ListBox MailListView;
+        private Button CloseBtn;
+        private Button MaxBtn;
+        private Button MinBtn;
+        private Panel TitleBar;
+        private Panel LoginScreen;
+        private Button button2;
     }
 }
 
