@@ -40,7 +40,6 @@ namespace NCorp_Mail_Client
             this.LogoBtn = new System.Windows.Forms.Button();
             this.SettingsBtn = new System.Windows.Forms.Button();
             this.MailPanel = new System.Windows.Forms.Panel();
-            this.MailListPanel = new System.Windows.Forms.Panel();
             this.MailThumbnailContainer = new System.Windows.Forms.Panel();
             this.MailThumbnail = new System.Windows.Forms.Panel();
             this.TextWrapper = new System.Windows.Forms.Panel();
@@ -56,6 +55,7 @@ namespace NCorp_Mail_Client
             this.button1 = new System.Windows.Forms.Button();
             this.ColourMark = new System.Windows.Forms.Panel();
             this.UnreadMark = new System.Windows.Forms.Panel();
+            this.MailListView = new System.Windows.Forms.ListBox();
             this.FilterPanel = new System.Windows.Forms.Panel();
             this.FilterBottom = new System.Windows.Forms.Panel();
             this.MarkBtn = new System.Windows.Forms.Button();
@@ -77,7 +77,6 @@ namespace NCorp_Mail_Client
             this.CloseBtn = new System.Windows.Forms.Button();
             this.ControlPanel.SuspendLayout();
             this.MailPanel.SuspendLayout();
-            this.MailListPanel.SuspendLayout();
             this.MailThumbnailContainer.SuspendLayout();
             this.MailThumbnail.SuspendLayout();
             this.TextWrapper.SuspendLayout();
@@ -199,7 +198,8 @@ namespace NCorp_Mail_Client
             // MailPanel
             // 
             this.MailPanel.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_01dp;
-            this.MailPanel.Controls.Add(this.MailListPanel);
+            this.MailPanel.Controls.Add(this.MailThumbnailContainer);
+            this.MailPanel.Controls.Add(this.MailListView);
             this.MailPanel.Controls.Add(this.FilterPanel);
             this.MailPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MailPanel.Location = new System.Drawing.Point(60, 0);
@@ -207,25 +207,15 @@ namespace NCorp_Mail_Client
             this.MailPanel.Size = new System.Drawing.Size(400, 720);
             this.MailPanel.TabIndex = 4;
             // 
-            // MailListPanel
-            // 
-            this.MailListPanel.BackColor = System.Drawing.Color.Transparent;
-            this.MailListPanel.Controls.Add(this.MailThumbnailContainer);
-            this.MailListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MailListPanel.Location = new System.Drawing.Point(0, 105);
-            this.MailListPanel.Name = "MailListPanel";
-            this.MailListPanel.Size = new System.Drawing.Size(400, 615);
-            this.MailListPanel.TabIndex = 3;
-            // 
             // MailThumbnailContainer
             // 
             this.MailThumbnailContainer.Controls.Add(this.MailThumbnail);
             this.MailThumbnailContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MailThumbnailContainer.Location = new System.Drawing.Point(0, 0);
+            this.MailThumbnailContainer.Location = new System.Drawing.Point(0, 105);
             this.MailThumbnailContainer.Name = "MailThumbnailContainer";
             this.MailThumbnailContainer.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.MailThumbnailContainer.Size = new System.Drawing.Size(400, 100);
-            this.MailThumbnailContainer.TabIndex = 0;
+            this.MailThumbnailContainer.TabIndex = 4;
             // 
             // MailThumbnail
             // 
@@ -387,6 +377,17 @@ namespace NCorp_Mail_Client
             this.UnreadMark.Name = "UnreadMark";
             this.UnreadMark.Size = new System.Drawing.Size(400, 4);
             this.UnreadMark.TabIndex = 1;
+            // 
+            // MailListView
+            // 
+            this.MailListView.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_01dp;
+            this.MailListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MailListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MailListView.FormattingEnabled = true;
+            this.MailListView.Location = new System.Drawing.Point(0, 105);
+            this.MailListView.Name = "MailListView";
+            this.MailListView.Size = new System.Drawing.Size(400, 615);
+            this.MailListView.TabIndex = 3;
             // 
             // FilterPanel
             // 
@@ -614,7 +615,7 @@ namespace NCorp_Mail_Client
             this.MinBtn.TabIndex = 2;
             this.MinBtn.Text = "";
             this.MinBtn.UseVisualStyleBackColor = false;
-            this.MinBtn.Click += new System.EventHandler(this.MaxBtn_Click);
+            this.MinBtn.Click += new System.EventHandler(this.MinBtn_Click);
             // 
             // MaxBtn
             // 
@@ -631,6 +632,7 @@ namespace NCorp_Mail_Client
             this.MaxBtn.TabIndex = 1;
             this.MaxBtn.Text = "";
             this.MaxBtn.UseVisualStyleBackColor = false;
+            this.MaxBtn.Click += new System.EventHandler(this.MaxBtn_Click);
             // 
             // CloseBtn
             // 
@@ -668,7 +670,6 @@ namespace NCorp_Mail_Client
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ControlPanel.ResumeLayout(false);
             this.MailPanel.ResumeLayout(false);
-            this.MailListPanel.ResumeLayout(false);
             this.MailThumbnailContainer.ResumeLayout(false);
             this.MailThumbnail.ResumeLayout(false);
             this.TextWrapper.ResumeLayout(false);
@@ -724,22 +725,22 @@ namespace NCorp_Mail_Client
         private System.Windows.Forms.Button AccountsBtn;
         private System.Windows.Forms.Panel SearchTextPanel;
         private System.Windows.Forms.TextBox SearchText;
-        private System.Windows.Forms.Panel MailListPanel;
-        private System.Windows.Forms.Panel MailThumbnailContainer;
-        private System.Windows.Forms.Panel MailThumbnail;
-        private System.Windows.Forms.Panel TextWrapper;
-        private System.Windows.Forms.Panel ColourMark;
-        private System.Windows.Forms.Panel UnreadMark;
-        private System.Windows.Forms.Panel ThumbnailBody;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel ThumbTime;
-        private System.Windows.Forms.Panel ThumbControls;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox ThumbTimeText;
+        private Panel MailThumbnailContainer;
+        private Panel MailThumbnail;
+        private Panel TextWrapper;
+        private Panel ThumbnailBody;
         private Panel ThumbBodyContainer;
-        private TextBox ThumbSender;
         private TextBox ThumbBody;
         private TextBox ThumbSubject;
+        private TextBox ThumbSender;
+        private Panel panel1;
+        private Panel ThumbTime;
+        private TextBox ThumbTimeText;
+        private Panel ThumbControls;
+        private Button button1;
+        private Panel ColourMark;
+        private Panel UnreadMark;
+        private ListBox MailListView;
     }
 }
 
