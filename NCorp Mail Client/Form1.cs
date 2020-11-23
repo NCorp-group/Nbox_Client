@@ -20,7 +20,7 @@ namespace NCorp_Mail_Client
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //this.MailScreen.BringToFront();
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -103,9 +103,9 @@ namespace NCorp_Mail_Client
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void LoginBtn_Click(object sender, EventArgs e)
         {
-            this.LoginScreen.SendToBack();
+            this.LoginScreen.Hide();
         }
     }
 }
