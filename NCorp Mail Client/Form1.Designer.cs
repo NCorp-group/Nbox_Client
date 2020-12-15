@@ -35,6 +35,7 @@ namespace NCorp_Mail_Client
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmailClient));
             this.ControlPanel = new System.Windows.Forms.Panel();
             this.FolderBtn = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.AccountsBtn = new System.Windows.Forms.Button();
             this.BurgerBtn = new System.Windows.Forms.Button();
             this.LogoBtn = new System.Windows.Forms.Button();
@@ -87,9 +88,9 @@ namespace NCorp_Mail_Client
             this.MVPTitleTextPanel = new System.Windows.Forms.Panel();
             this.MVPTitleLabel = new System.Windows.Forms.Label();
             this.MVPControlsPanel = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.ReplyBtn = new System.Windows.Forms.Button();
+            this.ForwardBtn = new System.Windows.Forms.Button();
+            this.FlagBtn = new System.Windows.Forms.Button();
             this.ControlPanel.SuspendLayout();
             this.MailPanel.SuspendLayout();
             this.MailThumbnailContainer.SuspendLayout();
@@ -123,6 +124,7 @@ namespace NCorp_Mail_Client
             // 
             this.ControlPanel.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_00dp;
             this.ControlPanel.Controls.Add(this.FolderBtn);
+            this.ControlPanel.Controls.Add(this.button5);
             this.ControlPanel.Controls.Add(this.AccountsBtn);
             this.ControlPanel.Controls.Add(this.BurgerBtn);
             this.ControlPanel.Controls.Add(this.LogoBtn);
@@ -143,12 +145,29 @@ namespace NCorp_Mail_Client
             this.FolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FolderBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FolderBtn.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_00dp;
-            this.FolderBtn.Location = new System.Drawing.Point(0, 180);
+            this.FolderBtn.Location = new System.Drawing.Point(0, 240);
             this.FolderBtn.Name = "FolderBtn";
             this.FolderBtn.Size = new System.Drawing.Size(60, 60);
-            this.FolderBtn.TabIndex = 13;
+            this.FolderBtn.TabIndex = 15;
             this.FolderBtn.Text = "";
             this.FolderBtn.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_00dp;
+            this.button5.Location = new System.Drawing.Point(0, 180);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(60, 60);
+            this.button5.TabIndex = 14;
+            this.button5.Text = "";
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // AccountsBtn
             // 
@@ -164,7 +183,7 @@ namespace NCorp_Mail_Client
             this.AccountsBtn.Name = "AccountsBtn";
             this.AccountsBtn.Size = new System.Drawing.Size(60, 60);
             this.AccountsBtn.TabIndex = 12;
-            this.AccountsBtn.Text = "";
+            this.AccountsBtn.Text = "";
             this.AccountsBtn.UseVisualStyleBackColor = false;
             // 
             // BurgerBtn
@@ -796,65 +815,65 @@ namespace NCorp_Mail_Client
             // 
             // MVPControlsPanel
             // 
-            this.MVPControlsPanel.Controls.Add(this.button3);
-            this.MVPControlsPanel.Controls.Add(this.button2);
-            this.MVPControlsPanel.Controls.Add(this.button4);
+            this.MVPControlsPanel.Controls.Add(this.ReplyBtn);
+            this.MVPControlsPanel.Controls.Add(this.ForwardBtn);
+            this.MVPControlsPanel.Controls.Add(this.FlagBtn);
             this.MVPControlsPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.MVPControlsPanel.Location = new System.Drawing.Point(528, 0);
             this.MVPControlsPanel.Name = "MVPControlsPanel";
             this.MVPControlsPanel.Size = new System.Drawing.Size(232, 50);
             this.MVPControlsPanel.TabIndex = 0;
             // 
-            // button3
+            // ReplyBtn
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_01dp;
-            this.button3.Location = new System.Drawing.Point(82, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(50, 50);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "";
-            this.button3.UseVisualStyleBackColor = false;
+            this.ReplyBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ReplyBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ReplyBtn.FlatAppearance.BorderSize = 0;
+            this.ReplyBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
+            this.ReplyBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.ReplyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReplyBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReplyBtn.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_01dp;
+            this.ReplyBtn.Location = new System.Drawing.Point(82, 0);
+            this.ReplyBtn.Name = "ReplyBtn";
+            this.ReplyBtn.Size = new System.Drawing.Size(50, 50);
+            this.ReplyBtn.TabIndex = 8;
+            this.ReplyBtn.Text = "";
+            this.ReplyBtn.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // ForwardBtn
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_01dp;
-            this.button2.Location = new System.Drawing.Point(132, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 50);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "";
-            this.button2.UseVisualStyleBackColor = false;
+            this.ForwardBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ForwardBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ForwardBtn.FlatAppearance.BorderSize = 0;
+            this.ForwardBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
+            this.ForwardBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.ForwardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ForwardBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForwardBtn.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_01dp;
+            this.ForwardBtn.Location = new System.Drawing.Point(132, 0);
+            this.ForwardBtn.Name = "ForwardBtn";
+            this.ForwardBtn.Size = new System.Drawing.Size(50, 50);
+            this.ForwardBtn.TabIndex = 7;
+            this.ForwardBtn.Text = "";
+            this.ForwardBtn.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // FlagBtn
             // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_01dp;
-            this.button4.Location = new System.Drawing.Point(182, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(50, 50);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "";
-            this.button4.UseVisualStyleBackColor = false;
+            this.FlagBtn.BackColor = System.Drawing.Color.Transparent;
+            this.FlagBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.FlagBtn.FlatAppearance.BorderSize = 0;
+            this.FlagBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
+            this.FlagBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.FlagBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FlagBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FlagBtn.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_01dp;
+            this.FlagBtn.Location = new System.Drawing.Point(182, 0);
+            this.FlagBtn.Name = "FlagBtn";
+            this.FlagBtn.Size = new System.Drawing.Size(50, 50);
+            this.FlagBtn.TabIndex = 5;
+            this.FlagBtn.Text = "";
+            this.FlagBtn.UseVisualStyleBackColor = false;
             // 
             // EmailClient
             // 
@@ -930,7 +949,6 @@ namespace NCorp_Mail_Client
         private System.Windows.Forms.Label FilterDesc;
         private System.Windows.Forms.Button RefreshBtn;
         private System.Windows.Forms.Button MarkBtn;
-        private System.Windows.Forms.Button FolderBtn;
         private System.Windows.Forms.Button AccountsBtn;
         private System.Windows.Forms.Panel SearchTextPanel;
         private System.Windows.Forms.TextBox SearchText;
@@ -962,12 +980,14 @@ namespace NCorp_Mail_Client
         private Panel MVPTitleControlsPanel;
         private Panel MVPTitleTextPanel;
         private Panel MVPControlsPanel;
-        private Button button3;
-        private Button button2;
-        private Button button4;
+        private Button ReplyBtn;
+        private Button ForwardBtn;
+        private Button FlagBtn;
         private Label MVPTitleLabel;
         private Panel MVPBodyPanel;
         private Panel panel1;
         private Label label1;
+        private Button FolderBtn;
+        private Button button5;
     }
 }
