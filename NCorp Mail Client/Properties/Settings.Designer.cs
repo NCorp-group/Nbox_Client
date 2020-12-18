@@ -382,5 +382,86 @@ namespace NCorp_Mail_Client.Properties {
                 return ((global::System.Drawing.Color)(this["tdw_24dp"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Segoe UI, 12pt")]
+        public global::System.Drawing.Font std_font {
+            get {
+                return ((global::System.Drawing.Font)(this["std_font"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50, 94, 214")]
+        public global::System.Drawing.Color cm_blue {
+            get {
+                return ((global::System.Drawing.Color)(this["cm_blue"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("57, 192, 197")]
+        public global::System.Drawing.Color cm_cyan {
+            get {
+                return ((global::System.Drawing.Color)(this["cm_cyan"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("127, 181, 66")]
+        public global::System.Drawing.Color cm_green {
+            get {
+                return ((global::System.Drawing.Color)(this["cm_green"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("207, 202, 57")]
+        public global::System.Drawing.Color cm_yellow {
+            get {
+                return ((global::System.Drawing.Color)(this["cm_yellow"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("214, 103, 54")]
+        public global::System.Drawing.Color cm_orange {
+            get {
+                return ((global::System.Drawing.Color)(this["cm_orange"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("225, 51, 69")]
+        public global::System.Drawing.Color cm_red {
+            get {
+                return ((global::System.Drawing.Color)(this["cm_red"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("197, 57, 169")]
+        public global::System.Drawing.Color cm_magenta {
+            get {
+                return ((global::System.Drawing.Color)(this["cm_magenta"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("122, 57, 197")]
+        public global::System.Drawing.Color cm_purple {
+            get {
+                return ((global::System.Drawing.Color)(this["cm_purple"]));
+            }
+        }
     }
 }

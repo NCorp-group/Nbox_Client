@@ -122,5 +122,32 @@
     <Setting Name="tdw_24dp" Type="System.Drawing.Color" Scope="Application">
       <Value Profile="(Default)">127, 129, 137</Value>
     </Setting>
+    <Setting Name="std_font" Type="System.Drawing.Font" Scope="Application">
+      <Value Profile="(Default)">Segoe UI, 12pt</Value>
+    </Setting>
+    <Setting Name="cm_blue" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">50, 94, 214</Value>
+    </Setting>
+    <Setting Name="cm_cyan" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">57, 192, 197</Value>
+    </Setting>
+    <Setting Name="cm_green" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">127, 181, 66</Value>
+    </Setting>
+    <Setting Name="cm_yellow" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">207, 202, 57</Value>
+    </Setting>
+    <Setting Name="cm_orange" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">214, 103, 54</Value>
+    </Setting>
+    <Setting Name="cm_red" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">225, 51, 69</Value>
+    </Setting>
+    <Setting Name="cm_magenta" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">197, 57, 169</Value>
+    </Setting>
+    <Setting Name="cm_purple" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">122, 57, 197</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

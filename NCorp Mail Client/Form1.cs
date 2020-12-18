@@ -8,14 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace NCorp_Mail_Client
 {
     public partial class EmailClient : Form
     {
+        private Controller FormControl;
+        private List<Mail> Mails = new List<Mail>();
         public EmailClient()
         {
             InitializeComponent();
+            FormControl = new Controller(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -106,6 +110,76 @@ namespace NCorp_Mail_Client
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             this.LoginScreen.Hide();
+        }
+
+        // ClearMailList method
+        // Clear the mail list view
+        // Removes everything from the MailListView Panel
+        private void ClearMailList()
+        {
+            this.MailListView.Controls.Clear();
+        }
+
+        // ShowMails method
+        // Show all mails on client side
+        // Inserts all mails from the Mail list mails into the MailListView
+        private void ShowMails()
+        {
+            foreach (Mail mail in this.Mails)
+            {
+                Panel thumbnail = FormControl.NewMail(mail);
+                this.MailListView.Controls.Add(thumbnail);
+            }
+        }
+
+        // RefreshMailList method
+        // Refresh mails in list
+        // Takes the mails list of Mails and shows them in the list view, clearing it first
+        // TODO: Fetch new mails from server
+        /*
+        private void RefreshMailList()
+        {
+            this.ClearMailList();
+            this.ShowMails();
+        }
+        */
+
+        // Refresh button
+        // Take all files in path C:/Program Files/NCorp/Nbox/mails/ and read them into Mail objects.
+        private void RefreshBtn_Click(object sender, EventArgs e)
+        {
+            List<string> paths = Directory.EnumerateFiles(@"C:/Program Files/NCorp/Nbox/mails/", "*.json").ToList();
+            foreach (string filepath in paths)
+            {
+                string json;
+                using (var sr = new StreamReader(filepath))
+                {
+                    json = sr.ReadToEnd();
+                }
+
+                this.ClearMailList();
+
+                bool have_mail = false;
+                Mail new_mail = new Mail(json);
+                foreach (Mail mail in this.Mails)
+                {
+                    if (new_mail.metadata.mail_GUID == mail.metadata.mail_GUID)
+                    {
+                        have_mail = true;
+                    }
+                }
+                if (!have_mail)
+                {
+                    Mails.Add(new_mail);
+                }
+                this.ShowMails();
+                /*
+                Mail new_mail = new Mail(json);
+
+                Panel new_mail_thumb = FormControl.NewMail(new_mail);
+                this.MailListView.Controls.Add(new_mail_thumb);
+                */
+            }
         }
     }
 }
