@@ -7,10 +7,10 @@ using System.Windows.Forms;
 
 namespace NCorp_Mail_Client
 {
-    class Controller
+    class Builder
     {
         public Form FormView;
-        public Controller(Form view)
+        public Builder(Form view)
         {
             FormView = view;
         }

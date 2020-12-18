@@ -14,12 +14,12 @@ namespace NCorp_Mail_Client
 {
     public partial class EmailClient : Form
     {
-        private Controller FormControl;
+        private Builder FormControl;
         private List<Mail> Mails = new List<Mail>();
         public EmailClient()
         {
             InitializeComponent();
-            FormControl = new Controller(this);
+            FormControl = new Builder(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -149,6 +149,7 @@ namespace NCorp_Mail_Client
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             List<string> paths = Directory.EnumerateFiles(@"C:/Program Files/NCorp/Nbox/mails/", "*.json").ToList();
+            List<Mail> NewMails = new List<Mail>();
             foreach (string filepath in paths)
             {
                 string json;
@@ -157,29 +158,48 @@ namespace NCorp_Mail_Client
                     json = sr.ReadToEnd();
                 }
 
-                this.ClearMailList();
-
-                bool have_mail = false;
                 Mail new_mail = new Mail(json);
-                foreach (Mail mail in this.Mails)
+
+                this.MailListView.Controls.Clear();
+
+                bool exists = false;
+                foreach (Mail mail in Mails)
                 {
-                    if (new_mail.metadata.mail_GUID == mail.metadata.mail_GUID)
+                    if (mail.metadata.mail_GUID == new_mail.metadata.mail_GUID)
                     {
-                        have_mail = true;
+                        exists = true;
                     }
                 }
-                if (!have_mail)
-                {
-                    Mails.Add(new_mail);
-                }
-                this.ShowMails();
-                /*
-                Mail new_mail = new Mail(json);
 
-                Panel new_mail_thumb = FormControl.NewMail(new_mail);
-                this.MailListView.Controls.Add(new_mail_thumb);
-                */
+                if (!exists)
+                {
+                    this.Mails.Add(new_mail);
+                }
+
+                NewMails.Add(new_mail);
             }
+            
+            // Delete emails that are no longer as files
+            foreach (Mail mail in this.Mails)
+            {
+                bool match = false;
+                foreach (Mail new_mail in NewMails)
+                {
+                    if (mail.metadata.mail_GUID == new_mail.metadata.mail_GUID)
+                    {
+                        match = true;
+                    }
+                }
+
+                // If the file for the mail is no longer there
+                // remove it from the internal list
+                if (!match)
+                {
+                    Mails.Remove(mail);
+                }
+            }
+
+            this.ShowMails();
         }
     }
 }
