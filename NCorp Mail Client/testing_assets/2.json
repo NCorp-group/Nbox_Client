@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "mail_GUID": "54a53e3c-33a4-44f6-adba-978b0574fdb9",
+    "user_GUID": "00000000-0000-0000-0000-000000000000",
+    "read": true,
+    "seen": true,
+    "draft": false,
+    "deleted": false,
+    "folder": "Inbox",
+    "colour": "blue"
+  },
+  "from": "alsonotascam@scam.com",
+  "to": [
+    "kevork@example.com",
+    "lorenzo@example.com"
+  ],
+  "cc": [
+    "kristoffer@example.com",
+    "lorenzo@example.com"
+  ],
+  "subject": "Bitcoin is waiting for you",
+  "body": "Your bitcoin is waiting for you just press the link below",
+  "timestamp": "2020-12-14T12:17:34+01:00"
+}

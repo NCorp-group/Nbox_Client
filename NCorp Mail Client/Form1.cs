@@ -14,13 +14,12 @@ namespace NCorp_Mail_Client
 {
     public partial class EmailClient : Form
     {
-        private Builder FormControl;
+        private Builder Builder = new Builder();
         private List<Mail> Mails = new List<Mail>();
         private TCPHandler TCPconnection = new TCPHandler();
         public EmailClient()
         {
             InitializeComponent();
-            FormControl = new Builder(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -129,7 +128,7 @@ namespace NCorp_Mail_Client
         {
             foreach (Mail mail in this.Mails)
             {
-                Panel thumbnail = FormControl.NewMail(mail);
+                Panel thumbnail = Builder.Thumbnail(mail);
                 this.MailListView.Controls.Add(thumbnail);
             }
         }
@@ -150,7 +149,7 @@ namespace NCorp_Mail_Client
         // Take all files in path C:/Program Files/NCorp/Nbox/mails/ and read them into Mail objects.
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
-            List<string> paths = Directory.EnumerateFiles(@"C:/Program Files/NCorp/Nbox/mails/", "*.json").ToList();
+            List<string> paths = Directory.EnumerateFiles(@"..\\..\\testing_assets", "*.json").ToList();
             List<Mail> NewMails = new List<Mail>();
             foreach (string filepath in paths)
             {

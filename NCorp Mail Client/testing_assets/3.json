@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "mail_GUID": "f576d345-e3b5-47ea-ad48-339db8ed8505",
+    "user_GUID": "00000000-0000-0000-0000-000000000000",
+    "read": false,
+    "seen": true,
+    "draft": false,
+    "deleted": false,
+    "folder": "Inbox",
+    "colour": "none"
+  },
+  "from": "kuvert@gmail.com",
+  "to": [
+    "jens.jens@live.com"
+  ],
+  "cc": [
+  ],
+  "subject": "Hello friend",
+  "body": "Hello there, here is the stuff you wanted me to send over.",
+  "timestamp": "2020-12-17T15:11:55+01:00"
+}

@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "mail_GUID": "f6ec6174-68f0-42aa-93b0-5778e700a763",
+    "user_GUID": "00000000-0000-0000-0000-000000000000",
+    "read": true,
+    "seen": true,
+    "draft": false,
+    "deleted": false,
+    "folder": "Inbox",
+    "colour": "orange"
+  },
+  "from": "winner@noscam.com",
+  "to": [
+    "kevork@example.com",
+    "lorenzo@example.com"
+  ],
+  "cc": [
+    "kristoffer@example.com",
+    "lorenzo@example.com"
+  ],
+  "subject": "YOU WIN 1MIL BITCOIN",
+  "body": "Congratulations! You have won 1 million bitcoin in the survey.",
+  "timestamp": "2020-12-14T23:54:23+01:00"
+}

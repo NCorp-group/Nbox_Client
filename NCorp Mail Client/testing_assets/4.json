@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "mail_GUID": "b72766f6-933a-4360-b61e-e99a9bb1fbe5",
+    "user_GUID": "00000000-0000-0000-0000-000000000000",
+    "read": false,
+    "seen": true,
+    "draft": false,
+    "deleted": false,
+    "folder": "Inbox",
+    "colour": "none"
+  },
+  "from": "kuvert@gmail.com",
+  "to": [
+    "jens.jens@live.com"
+  ],
+  "cc": [
+  ],
+  "subject": "Whoops",
+  "body": "So I accidentally sent you the wrong files, here are the correct ones.",
+  "timestamp": "2020-12-17T16:32:21+01:00"
+}

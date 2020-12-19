@@ -9,12 +9,10 @@ namespace NCorp_Mail_Client
 {
     class Builder
     {
-        public Form FormView;
-        public Builder(Form view)
+        public Builder()
         {
-            FormView = view;
         }
-        public Panel NewMail(Mail new_mail)
+        public Panel Thumbnail(Mail new_mail)
         {
             Panel outer_wrapper_panel = new Panel();    // Outer wrapper panel
             Panel outer_panel = new Panel();            // Outer content panel
