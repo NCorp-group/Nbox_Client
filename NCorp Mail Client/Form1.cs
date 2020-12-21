@@ -14,12 +14,13 @@ namespace NCorp_Mail_Client
 {
     public partial class EmailClient : Form
     {
-        private Builder Builder = new Builder();
+        //private Builder Builder;
         private List<Mail> Mails = new List<Mail>();
-        private TCPHandler TCPconnection = new TCPHandler();
+        //private TCPHandler TCPconnection = new TCPHandler();
         public EmailClient()
         {
             InitializeComponent();
+            //Builder = new Builder(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -86,7 +87,7 @@ namespace NCorp_Mail_Client
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-            TCPconnection.close_connection();
+            //TCPconnection.close_connection();
         }
 
         private void MinBtn_Click(object sender, EventArgs e)
@@ -128,8 +129,9 @@ namespace NCorp_Mail_Client
         {
             foreach (Mail mail in this.Mails)
             {
-                Panel thumbnail = Builder.Thumbnail(mail);
-                this.MailListView.Controls.Add(thumbnail);
+                //Panel thumbnail = Builder.Thumbnail(mail);
+                this.CreateThumbnail(mail);
+                //this.MailListView.Controls.Add(thumbnail);
             }
         }
 
@@ -203,9 +205,18 @@ namespace NCorp_Mail_Client
             this.ShowMails();
         }
 
+        private void Thumbnail_Click(object sender, EventArgs e)
+        {
+            // TODO: Implement a way of getting to the Mail object tied to the thumbnail clicked
+            //Thumbnail tn = (Thumbnail)sender;
+            //Mail tn_mail = tn.Mail;
+            //this.CreateMailViewport(tn_mail);
+        }
+
         private void FolderBtn_Click(object sender, EventArgs e)
         {
-            string folderJSON = TCPconnection.message("fetch_folders");
+
+            //string folderJSON = TCPconnection.message("fetch_folders");
 
             // Ready to be deserialized into an object
         }
