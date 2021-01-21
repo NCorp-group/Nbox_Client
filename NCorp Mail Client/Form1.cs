@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.IO;
+using NCorp_Mail_Client.UserControls;
 
 namespace NCorp_Mail_Client
 {
@@ -16,7 +17,7 @@ namespace NCorp_Mail_Client
     {
         private Builder Builder = new Builder();
         private List<Mail> Mails = new List<Mail>();
-        private TCPHandler TCPconnection = new TCPHandler();
+        //private TCPHandler TCPconnection = new TCPHandler();
         public EmailClient()
         {
             InitializeComponent();
@@ -86,7 +87,7 @@ namespace NCorp_Mail_Client
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-            TCPconnection.close_connection();
+            //TCPconnection.close_connection();
         }
 
         private void MinBtn_Click(object sender, EventArgs e)
@@ -128,8 +129,11 @@ namespace NCorp_Mail_Client
         {
             foreach (Mail mail in this.Mails)
             {
-                Panel thumbnail = Builder.Thumbnail(mail);
-                this.MailListView.Controls.Add(thumbnail);
+                var newThumbnail = new MailThumbnail(mail);
+                newThumbnail.Dock = DockStyle.Top;
+                this.MailListView.Controls.Add(newThumbnail);
+                //Panel thumbnail = Builder.Thumbnail(mail);
+                //this.MailListView.Controls.Add(thumbnail);
             }
         }
 
@@ -203,9 +207,14 @@ namespace NCorp_Mail_Client
             this.ShowMails();
         }
 
+        private void MailThumbnail_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void FolderBtn_Click(object sender, EventArgs e)
         {
-            string folderJSON = TCPconnection.message("fetch_folders");
+            //string folderJSON = TCPconnection.message("fetch_folders");
 
             // Ready to be deserialized into an object
         }

@@ -7,18 +7,18 @@ using Newtonsoft.Json;
 
 namespace NCorp_Mail_Client
 {
-    class Metadata
+    public class Metadata
     {
-        public Guid mail_GUID;
-        public Guid user_GUID;
+        public Guid mail_GUID { get; set; }
+        public Guid user_GUID { get; set; }
 
-        public bool read;
-        public bool seen;
-        public bool draft;
-        public bool deleted;
+        public bool read { get; set; }
+        public bool seen { get; set; }
+        public bool draft { get; set; }
+        public bool deleted { get; set; }
 
-        public string folder;
-        public string colour;
+        public string folder { get; set; }
+        public string colour { get; set; }
 
         public Metadata(string folder, string colour)
         {
@@ -31,32 +31,26 @@ namespace NCorp_Mail_Client
             this.colour = colour;
         }
     }
-    class Mail
+    public class Mail
     {
         public Metadata metadata;
 
-        public string from;
-        public List<string> to;
-        public List<string> cc;
-        public string subject;
-        public string body;
-        public DateTime timestamp;
+        public string from { get; set; }
+        public List<string> to = new List<string>();
+        public List<string> cc = new List<string>();
+        public string subject { get; set; }
+        public string body { get; set; }
+        public DateTime timestamp { get; set; }
 
         public Mail(string in_mail_string)
         {
             this.metadata = new Metadata("Inbox", "none");
-            this.to = new List<string>();
-            this.cc = new List<string>();
             this.from_json(in_mail_string);
         }
 
         public Mail(string folder, string colour)
         {
-            this.to = new List<string>();
-            this.cc = new List<string>();
-
             this.timestamp = DateTime.Now;
-
             this.metadata = new Metadata(folder, colour);
         }
 
