@@ -12,7 +12,9 @@ namespace NCorp_Mail_Client.UserControls
 {
     public partial class MailThumbnail : UserControl
     {
+        public Control Viewport { get; set; }
         private Mail _mail;
+
         // TODO: Proper binding with a binding class to specify all colours and such
         // This specific binding class will be instantiated when the MailThumbnail is created
         /*
@@ -34,19 +36,70 @@ namespace NCorp_Mail_Client.UserControls
         private Binding bindingSender;
         private Binding bindingSubject;
         private Binding bindingBody;
+
+        private Color GetColour()
+        {
+            // Colour mark calibration
+            switch (_mail.metadata.colour)
+            {
+                case "blue":
+                    return Properties.Settings.Default.cm_blue;
+                case "cyan":
+                    return Properties.Settings.Default.cm_cyan;
+                case "green":
+                    return Properties.Settings.Default.cm_green;
+                case "yellow":
+                    return Properties.Settings.Default.cm_yellow;
+                case "orange":
+                    return Properties.Settings.Default.cm_orange;
+                case "red":
+                    return Properties.Settings.Default.cm_red;
+                case "magenta":
+                    return Properties.Settings.Default.cm_magenta;
+                case "purple":
+                    return Properties.Settings.Default.cm_purple;
+                default:
+                    return _mail.metadata.read == false ? Properties.Settings.Default.bgd_24dp : Properties.Settings.Default.bgd_08dp;
+            }
+        }
+
+        private string GetFlagIcon()
+        {
+            return _mail.metadata.folder == "Spam" ? Properties.Settings.Default.icon_flagged : Properties.Settings.Default.icon_unflagged;
+        }
+
         private void MailThumbnail_Click(object sender, EventArgs e)
         {
             _mail.metadata.read = true;
-            this.CheckRead();
-            /*
-            _mail.subject = "I WAS CLICKED";
-            this.bindingSubject.ReadValue();    // Forces view to update to binding
-            */
+            CheckRead();
+            Viewport.Controls["MVPBodyPanel"]
+                    .Controls["MVPBody"]
+                    .Text = _mail.body;
+            
+            Viewport.Controls["MVPHeaderPanel"]
+                    .Controls["MVPTitleControlsPanel"]
+                    .Controls["MVPTitleTextPanel"]
+                    .Controls["MVPTitleLabel"]
+                    .Text = _mail.subject;
+
+            Viewport.Controls["MVPHeaderPanel"]
+                    .Controls["MVPTitleControlsPanel"]
+                    .Controls["MVPControlsPanel"]
+                    .Controls["ColourBtn"]
+                    .ForeColor = GetColour();
+            
+            Viewport.Controls["MVPHeaderPanel"]
+                    .Controls["MVPTitleControlsPanel"]
+                    .Controls["MVPControlsPanel"]
+                    .Controls["FlagBtn"]
+                    .Text = GetFlagIcon();
         }
 
         private void CheckColour()
         {
             // Colour mark calibration
+            this.ColourMark.BackColor = GetColour();
+            /*
             switch (_mail.metadata.colour)
             {
                 case "blue":
@@ -84,6 +137,7 @@ namespace NCorp_Mail_Client.UserControls
                     }
                     break;
             }
+            */
         }
 
         private void CheckRead()

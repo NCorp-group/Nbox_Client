@@ -28,6 +28,7 @@ namespace NCorp_Mail_Client
             //this.MailScreen.BringToFront();
         }
 
+        // MAKING THE WINDOW DRAGGABLE
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -44,7 +45,8 @@ namespace NCorp_Mail_Client
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-
+        
+        // SEARCH FIELD
         public void RemoveSearchPlaceholder(object sender, EventArgs e)
         {
             if (SearchText.Text == "Search")
@@ -63,6 +65,7 @@ namespace NCorp_Mail_Client
             }
         }
 
+        // PANEL MOUSE INTERACTIONS
         public void Panel_MouseIn(object sender, EventArgs e)
         {
             Panel panel = sender as Panel;
@@ -84,6 +87,7 @@ namespace NCorp_Mail_Client
             panel.BackColor = Properties.Settings.Default.bgd_02dp;
         }
 
+        // TITLE BAR BUTTONS
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -109,10 +113,13 @@ namespace NCorp_Mail_Client
             }
         }
 
+        // LOGIN SCREEN
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             this.LoginScreen.Hide();
         }
+        
+        // MAIL MANIPULATION
 
         // ClearMailList method
         // Clear the mail list view
@@ -131,6 +138,7 @@ namespace NCorp_Mail_Client
             {
                 var newThumbnail = new MailThumbnail(mail);
                 newThumbnail.Dock = DockStyle.Top;
+                newThumbnail.Viewport = this.MailViewport;
                 this.MailListView.Controls.Add(newThumbnail);
                 //Panel thumbnail = Builder.Thumbnail(mail);
                 //this.MailListView.Controls.Add(thumbnail);
@@ -207,10 +215,12 @@ namespace NCorp_Mail_Client
             this.ShowMails();
         }
 
+        /*
         private void MailThumbnail_Click(object sender, EventArgs e)
         {
             
         }
+        */
 
         private void FolderBtn_Click(object sender, EventArgs e)
         {

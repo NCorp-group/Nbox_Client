@@ -32,7 +32,6 @@ namespace NCorp_Mail_Client
         /// </summary>
         private void InitializeComponent()
         {
-            NCorp_Mail_Client.Properties.Settings settings1 = new NCorp_Mail_Client.Properties.Settings();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmailClient));
             this.ControlPanel = new System.Windows.Forms.Panel();
             this.FolderBtn = new System.Windows.Forms.Button();
@@ -89,6 +88,7 @@ namespace NCorp_Mail_Client
             this.MVPTitleTextPanel = new System.Windows.Forms.Panel();
             this.MVPTitleLabel = new System.Windows.Forms.Label();
             this.MVPControlsPanel = new System.Windows.Forms.Panel();
+            this.ColourBtn = new System.Windows.Forms.Button();
             this.ReplyBtn = new System.Windows.Forms.Button();
             this.ForwardBtn = new System.Windows.Forms.Button();
             this.FlagBtn = new System.Windows.Forms.Button();
@@ -124,8 +124,7 @@ namespace NCorp_Mail_Client
             // 
             // ControlPanel
             // 
-            settings1.SettingsKey = "";
-            this.ControlPanel.BackColor = settings1.bgd_00dp;
+            this.ControlPanel.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (10)))), ((int) (((byte) (14)))), ((int) (((byte) (29)))));
             this.ControlPanel.Controls.Add(this.FolderBtn);
             this.ControlPanel.Controls.Add(this.button5);
             this.ControlPanel.Controls.Add(this.AccountsBtn);
@@ -143,11 +142,11 @@ namespace NCorp_Mail_Client
             this.FolderBtn.BackColor = System.Drawing.Color.Transparent;
             this.FolderBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.FolderBtn.FlatAppearance.BorderSize = 0;
-            this.FolderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.FolderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.FolderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
+            this.FolderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (22)))), ((int) (((byte) (26)))), ((int) (((byte) (41)))));
             this.FolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FolderBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FolderBtn.ForeColor = settings1.tds_00dp;
+            this.FolderBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.FolderBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (223)))), ((int) (((byte) (224)))), ((int) (((byte) (226)))));
             this.FolderBtn.Location = new System.Drawing.Point(0, 240);
             this.FolderBtn.Name = "FolderBtn";
             this.FolderBtn.Size = new System.Drawing.Size(60, 60);
@@ -161,11 +160,11 @@ namespace NCorp_Mail_Client
             this.button5.BackColor = System.Drawing.Color.Transparent;
             this.button5.Dock = System.Windows.Forms.DockStyle.Top;
             this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (22)))), ((int) (((byte) (26)))), ((int) (((byte) (41)))));
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = settings1.tds_00dp;
+            this.button5.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (223)))), ((int) (((byte) (224)))), ((int) (((byte) (226)))));
             this.button5.Location = new System.Drawing.Point(0, 180);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(60, 60);
@@ -178,11 +177,11 @@ namespace NCorp_Mail_Client
             this.AccountsBtn.BackColor = System.Drawing.Color.Transparent;
             this.AccountsBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.AccountsBtn.FlatAppearance.BorderSize = 0;
-            this.AccountsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.AccountsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.AccountsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
+            this.AccountsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (22)))), ((int) (((byte) (26)))), ((int) (((byte) (41)))));
             this.AccountsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AccountsBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AccountsBtn.ForeColor = settings1.tds_00dp;
+            this.AccountsBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.AccountsBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (223)))), ((int) (((byte) (224)))), ((int) (((byte) (226)))));
             this.AccountsBtn.Location = new System.Drawing.Point(0, 120);
             this.AccountsBtn.Name = "AccountsBtn";
             this.AccountsBtn.Size = new System.Drawing.Size(60, 60);
@@ -195,11 +194,11 @@ namespace NCorp_Mail_Client
             this.BurgerBtn.BackColor = System.Drawing.Color.Transparent;
             this.BurgerBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.BurgerBtn.FlatAppearance.BorderSize = 0;
-            this.BurgerBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.BurgerBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.BurgerBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
+            this.BurgerBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (22)))), ((int) (((byte) (26)))), ((int) (((byte) (41)))));
             this.BurgerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BurgerBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BurgerBtn.ForeColor = settings1.tds_00dp;
+            this.BurgerBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.BurgerBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (223)))), ((int) (((byte) (224)))), ((int) (((byte) (226)))));
             this.BurgerBtn.Location = new System.Drawing.Point(0, 60);
             this.BurgerBtn.Name = "BurgerBtn";
             this.BurgerBtn.Size = new System.Drawing.Size(60, 60);
@@ -212,12 +211,12 @@ namespace NCorp_Mail_Client
             this.LogoBtn.BackColor = System.Drawing.Color.Transparent;
             this.LogoBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.LogoBtn.FlatAppearance.BorderSize = 0;
-            this.LogoBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.LogoBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.LogoBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
+            this.LogoBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (22)))), ((int) (((byte) (26)))), ((int) (((byte) (41)))));
             this.LogoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoBtn.ForeColor = settings1.tds_00dp;
-            this.LogoBtn.Image = ((System.Drawing.Image)(resources.GetObject("LogoBtn.Image")));
+            this.LogoBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.LogoBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (223)))), ((int) (((byte) (224)))), ((int) (((byte) (226)))));
+            this.LogoBtn.Image = ((System.Drawing.Image) (resources.GetObject("LogoBtn.Image")));
             this.LogoBtn.Location = new System.Drawing.Point(0, 0);
             this.LogoBtn.Name = "LogoBtn";
             this.LogoBtn.Size = new System.Drawing.Size(60, 60);
@@ -229,11 +228,11 @@ namespace NCorp_Mail_Client
             this.SettingsBtn.BackColor = System.Drawing.Color.Transparent;
             this.SettingsBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SettingsBtn.FlatAppearance.BorderSize = 0;
-            this.SettingsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.SettingsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.SettingsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
+            this.SettingsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (22)))), ((int) (((byte) (26)))), ((int) (((byte) (41)))));
             this.SettingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SettingsBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SettingsBtn.ForeColor = settings1.tds_00dp;
+            this.SettingsBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.SettingsBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (223)))), ((int) (((byte) (224)))), ((int) (((byte) (226)))));
             this.SettingsBtn.Location = new System.Drawing.Point(0, 660);
             this.SettingsBtn.Name = "SettingsBtn";
             this.SettingsBtn.Size = new System.Drawing.Size(60, 60);
@@ -243,7 +242,7 @@ namespace NCorp_Mail_Client
             // 
             // MailPanel
             // 
-            this.MailPanel.BackColor = settings1.bgd_01dp;
+            this.MailPanel.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (22)))), ((int) (((byte) (26)))), ((int) (((byte) (41)))));
             this.MailPanel.Controls.Add(this.MailListView);
             this.MailPanel.Controls.Add(this.FilterPanel);
             this.MailPanel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -255,7 +254,7 @@ namespace NCorp_Mail_Client
             // MailListView
             // 
             this.MailListView.AutoScroll = true;
-            this.MailListView.BackColor = settings1.bgd_01dp;
+            this.MailListView.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (22)))), ((int) (((byte) (26)))), ((int) (((byte) (41)))));
             this.MailListView.Controls.Add(this.MailThumbnailContainer);
             this.MailListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MailListView.Location = new System.Drawing.Point(0, 105);
@@ -275,7 +274,7 @@ namespace NCorp_Mail_Client
             // 
             // MailThumbnail
             // 
-            this.MailThumbnail.BackColor = settings1.bgd_24dp;
+            this.MailThumbnail.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (49)))), ((int) (((byte) (53)))), ((int) (((byte) (65)))));
             this.MailThumbnail.Controls.Add(this.TextWrapper);
             this.MailThumbnail.Controls.Add(this.ColourMark);
             this.MailThumbnail.Controls.Add(this.UnreadMark);
@@ -319,11 +318,11 @@ namespace NCorp_Mail_Client
             // 
             // ThumbBody
             // 
-            this.ThumbBody.BackColor = settings1.bgd_24dp;
+            this.ThumbBody.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (49)))), ((int) (((byte) (53)))), ((int) (((byte) (65)))));
             this.ThumbBody.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ThumbBody.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ThumbBody.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThumbBody.ForeColor = settings1.tdm_24dp;
+            this.ThumbBody.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.ThumbBody.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (172)))), ((int) (((byte) (174)))), ((int) (((byte) (179)))));
             this.ThumbBody.Location = new System.Drawing.Point(0, 44);
             this.ThumbBody.Name = "ThumbBody";
             this.ThumbBody.Size = new System.Drawing.Size(260, 22);
@@ -332,11 +331,11 @@ namespace NCorp_Mail_Client
             // 
             // ThumbSubject
             // 
-            this.ThumbSubject.BackColor = settings1.bgd_24dp;
+            this.ThumbSubject.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (49)))), ((int) (((byte) (53)))), ((int) (((byte) (65)))));
             this.ThumbSubject.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ThumbSubject.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ThumbSubject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThumbSubject.ForeColor = settings1.tds_24dp;
+            this.ThumbSubject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.ThumbSubject.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (228)))), ((int) (((byte) (229)))), ((int) (((byte) (230)))));
             this.ThumbSubject.Location = new System.Drawing.Point(0, 22);
             this.ThumbSubject.Name = "ThumbSubject";
             this.ThumbSubject.Size = new System.Drawing.Size(260, 22);
@@ -345,11 +344,11 @@ namespace NCorp_Mail_Client
             // 
             // ThumbSender
             // 
-            this.ThumbSender.BackColor = settings1.bgd_24dp;
+            this.ThumbSender.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (49)))), ((int) (((byte) (53)))), ((int) (((byte) (65)))));
             this.ThumbSender.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ThumbSender.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ThumbSender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThumbSender.ForeColor = settings1.tds_24dp;
+            this.ThumbSender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.ThumbSender.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (228)))), ((int) (((byte) (229)))), ((int) (((byte) (230)))));
             this.ThumbSender.Location = new System.Drawing.Point(0, 0);
             this.ThumbSender.Name = "ThumbSender";
             this.ThumbSender.ReadOnly = true;
@@ -379,11 +378,11 @@ namespace NCorp_Mail_Client
             // 
             // ThumbTimeText
             // 
-            this.ThumbTimeText.BackColor = settings1.bgd_24dp;
+            this.ThumbTimeText.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (49)))), ((int) (((byte) (53)))), ((int) (((byte) (65)))));
             this.ThumbTimeText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ThumbTimeText.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ThumbTimeText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThumbTimeText.ForeColor = settings1.tds_24dp;
+            this.ThumbTimeText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.ThumbTimeText.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (228)))), ((int) (((byte) (229)))), ((int) (((byte) (230)))));
             this.ThumbTimeText.Location = new System.Drawing.Point(0, 0);
             this.ThumbTimeText.Name = "ThumbTimeText";
             this.ThumbTimeText.Size = new System.Drawing.Size(80, 22);
@@ -405,11 +404,11 @@ namespace NCorp_Mail_Client
             this.InstantReplyBtn.BackColor = System.Drawing.Color.Transparent;
             this.InstantReplyBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.InstantReplyBtn.FlatAppearance.BorderSize = 0;
-            this.InstantReplyBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
-            this.InstantReplyBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.InstantReplyBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (40)))), ((int) (((byte) (43)))), ((int) (((byte) (56)))));
+            this.InstantReplyBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
             this.InstantReplyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InstantReplyBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InstantReplyBtn.ForeColor = settings1.tds_01dp;
+            this.InstantReplyBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.InstantReplyBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (225)))), ((int) (((byte) (227)))));
             this.InstantReplyBtn.Location = new System.Drawing.Point(50, 0);
             this.InstantReplyBtn.Name = "InstantReplyBtn";
             this.InstantReplyBtn.Size = new System.Drawing.Size(30, 30);
@@ -419,7 +418,7 @@ namespace NCorp_Mail_Client
             // 
             // ColourMark
             // 
-            this.ColourMark.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(94)))), ((int)(((byte)(214)))));
+            this.ColourMark.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (50)))), ((int) (((byte) (94)))), ((int) (((byte) (214)))));
             this.ColourMark.Dock = System.Windows.Forms.DockStyle.Left;
             this.ColourMark.Location = new System.Drawing.Point(0, 0);
             this.ColourMark.Name = "ColourMark";
@@ -462,11 +461,11 @@ namespace NCorp_Mail_Client
             this.MarkBtn.BackColor = System.Drawing.Color.Transparent;
             this.MarkBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.MarkBtn.FlatAppearance.BorderSize = 0;
-            this.MarkBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
-            this.MarkBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.MarkBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (40)))), ((int) (((byte) (43)))), ((int) (((byte) (56)))));
+            this.MarkBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
             this.MarkBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MarkBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MarkBtn.ForeColor = settings1.tds_01dp;
+            this.MarkBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.MarkBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (225)))), ((int) (((byte) (227)))));
             this.MarkBtn.Location = new System.Drawing.Point(270, 0);
             this.MarkBtn.Name = "MarkBtn";
             this.MarkBtn.Size = new System.Drawing.Size(50, 50);
@@ -507,8 +506,8 @@ namespace NCorp_Mail_Client
             // 
             this.FilterIcon.AutoSize = true;
             this.FilterIcon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.FilterIcon.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FilterIcon.ForeColor = settings1.tds_01dp;
+            this.FilterIcon.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.FilterIcon.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (225)))), ((int) (((byte) (227)))));
             this.FilterIcon.Location = new System.Drawing.Point(0, 3);
             this.FilterIcon.Name = "FilterIcon";
             this.FilterIcon.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -532,8 +531,8 @@ namespace NCorp_Mail_Client
             // 
             this.FilterDesc.AutoSize = true;
             this.FilterDesc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.FilterDesc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FilterDesc.ForeColor = settings1.tds_01dp;
+            this.FilterDesc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.FilterDesc.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (225)))), ((int) (((byte) (227)))));
             this.FilterDesc.Location = new System.Drawing.Point(0, 3);
             this.FilterDesc.Name = "FilterDesc";
             this.FilterDesc.Size = new System.Drawing.Size(91, 21);
@@ -545,11 +544,11 @@ namespace NCorp_Mail_Client
             this.RefreshBtn.BackColor = System.Drawing.Color.Transparent;
             this.RefreshBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.RefreshBtn.FlatAppearance.BorderSize = 0;
-            this.RefreshBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
-            this.RefreshBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.RefreshBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (40)))), ((int) (((byte) (43)))), ((int) (((byte) (56)))));
+            this.RefreshBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
             this.RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RefreshBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RefreshBtn.ForeColor = settings1.tds_01dp;
+            this.RefreshBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.RefreshBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (225)))), ((int) (((byte) (227)))));
             this.RefreshBtn.Location = new System.Drawing.Point(320, 0);
             this.RefreshBtn.Name = "RefreshBtn";
             this.RefreshBtn.Size = new System.Drawing.Size(50, 50);
@@ -571,7 +570,7 @@ namespace NCorp_Mail_Client
             // 
             // SearchUnderline
             // 
-            this.SearchUnderline.BackColor = settings1.bgd_08dp;
+            this.SearchUnderline.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (40)))), ((int) (((byte) (43)))), ((int) (((byte) (56)))));
             this.SearchUnderline.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SearchUnderline.Location = new System.Drawing.Point(30, 50);
             this.SearchUnderline.Name = "SearchUnderline";
@@ -601,11 +600,11 @@ namespace NCorp_Mail_Client
             // 
             // SearchText
             // 
-            this.SearchText.BackColor = settings1.bgd_01dp;
+            this.SearchText.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (22)))), ((int) (((byte) (26)))), ((int) (((byte) (41)))));
             this.SearchText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SearchText.Dock = System.Windows.Forms.DockStyle.Left;
-            this.SearchText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchText.ForeColor = settings1.tdw_01dp;
+            this.SearchText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.SearchText.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (110)))), ((int) (((byte) (113)))), ((int) (((byte) (122)))));
             this.SearchText.Location = new System.Drawing.Point(0, 15);
             this.SearchText.Margin = new System.Windows.Forms.Padding(3, 3, 50, 3);
             this.SearchText.Name = "SearchText";
@@ -620,11 +619,11 @@ namespace NCorp_Mail_Client
             this.SearchBtn.BackColor = System.Drawing.Color.Transparent;
             this.SearchBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.SearchBtn.FlatAppearance.BorderSize = 0;
-            this.SearchBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
-            this.SearchBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.SearchBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (40)))), ((int) (((byte) (43)))), ((int) (((byte) (56)))));
+            this.SearchBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
             this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBtn.ForeColor = settings1.tds_01dp;
+            this.SearchBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.SearchBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (225)))), ((int) (((byte) (227)))));
             this.SearchBtn.Location = new System.Drawing.Point(290, 0);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(50, 50);
@@ -636,11 +635,11 @@ namespace NCorp_Mail_Client
             // 
             this.CloseBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.CloseBtn.FlatAppearance.BorderSize = 0;
-            this.CloseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.CloseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.CloseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
+            this.CloseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (54)))), ((int) (((byte) (54)))));
             this.CloseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseBtn.ForeColor = settings1.tds_01dp;
+            this.CloseBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.CloseBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (225)))), ((int) (((byte) (227)))));
             this.CloseBtn.Location = new System.Drawing.Point(774, 0);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(46, 32);
@@ -653,11 +652,11 @@ namespace NCorp_Mail_Client
             // 
             this.MaxBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.MaxBtn.FlatAppearance.BorderSize = 0;
-            this.MaxBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.MaxBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.MaxBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
+            this.MaxBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (22)))), ((int) (((byte) (26)))), ((int) (((byte) (41)))));
             this.MaxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MaxBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaxBtn.ForeColor = settings1.tds_01dp;
+            this.MaxBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.MaxBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (225)))), ((int) (((byte) (227)))));
             this.MaxBtn.Location = new System.Drawing.Point(728, 0);
             this.MaxBtn.Name = "MaxBtn";
             this.MaxBtn.Size = new System.Drawing.Size(46, 32);
@@ -670,11 +669,11 @@ namespace NCorp_Mail_Client
             // 
             this.MinBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.MinBtn.FlatAppearance.BorderSize = 0;
-            this.MinBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.MinBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.MinBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
+            this.MinBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (22)))), ((int) (((byte) (26)))), ((int) (((byte) (41)))));
             this.MinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinBtn.ForeColor = settings1.tds_01dp;
+            this.MinBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.MinBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (225)))), ((int) (((byte) (227)))));
             this.MinBtn.Location = new System.Drawing.Point(682, 0);
             this.MinBtn.Name = "MinBtn";
             this.MinBtn.Size = new System.Drawing.Size(46, 32);
@@ -700,7 +699,7 @@ namespace NCorp_Mail_Client
             // 
             // LoginScreen
             // 
-            this.LoginScreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LoginScreen.BackgroundImage")));
+            this.LoginScreen.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("LoginScreen.BackgroundImage")));
             this.LoginScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.LoginScreen.Controls.Add(this.LoginButton);
             this.LoginScreen.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -722,7 +721,7 @@ namespace NCorp_Mail_Client
             // 
             // MailScreen
             // 
-            this.MailScreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MailScreen.BackgroundImage")));
+            this.MailScreen.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("MailScreen.BackgroundImage")));
             this.MailScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MailScreen.Controls.Add(this.MailViewport);
             this.MailScreen.Controls.Add(this.TitleBar);
@@ -758,7 +757,7 @@ namespace NCorp_Mail_Client
             // MVPBody
             // 
             this.MVPBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MVPBody.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MVPBody.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.MVPBody.ForeColor = System.Drawing.Color.White;
             this.MVPBody.Location = new System.Drawing.Point(30, 0);
             this.MVPBody.Name = "MVPBody";
@@ -809,7 +808,7 @@ namespace NCorp_Mail_Client
             // 
             this.MVPTitleLabel.AutoSize = true;
             this.MVPTitleLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.MVPTitleLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MVPTitleLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.MVPTitleLabel.ForeColor = System.Drawing.Color.White;
             this.MVPTitleLabel.Location = new System.Drawing.Point(0, 10);
             this.MVPTitleLabel.Name = "MVPTitleLabel";
@@ -819,6 +818,7 @@ namespace NCorp_Mail_Client
             // 
             // MVPControlsPanel
             // 
+            this.MVPControlsPanel.Controls.Add(this.ColourBtn);
             this.MVPControlsPanel.Controls.Add(this.ReplyBtn);
             this.MVPControlsPanel.Controls.Add(this.ForwardBtn);
             this.MVPControlsPanel.Controls.Add(this.FlagBtn);
@@ -828,16 +828,33 @@ namespace NCorp_Mail_Client
             this.MVPControlsPanel.Size = new System.Drawing.Size(232, 50);
             this.MVPControlsPanel.TabIndex = 0;
             // 
+            // ColourBtn
+            // 
+            this.ColourBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ColourBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ColourBtn.FlatAppearance.BorderSize = 0;
+            this.ColourBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (40)))), ((int) (((byte) (43)))), ((int) (((byte) (56)))));
+            this.ColourBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
+            this.ColourBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColourBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.ColourBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (225)))), ((int) (((byte) (227)))));
+            this.ColourBtn.Location = new System.Drawing.Point(32, 0);
+            this.ColourBtn.Name = "ColourBtn";
+            this.ColourBtn.Size = new System.Drawing.Size(50, 50);
+            this.ColourBtn.TabIndex = 9;
+            this.ColourBtn.Text = "";
+            this.ColourBtn.UseVisualStyleBackColor = false;
+            // 
             // ReplyBtn
             // 
             this.ReplyBtn.BackColor = System.Drawing.Color.Transparent;
             this.ReplyBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.ReplyBtn.FlatAppearance.BorderSize = 0;
-            this.ReplyBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
-            this.ReplyBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.ReplyBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (40)))), ((int) (((byte) (43)))), ((int) (((byte) (56)))));
+            this.ReplyBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
             this.ReplyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReplyBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReplyBtn.ForeColor = settings1.tds_01dp;
+            this.ReplyBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.ReplyBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (225)))), ((int) (((byte) (227)))));
             this.ReplyBtn.Location = new System.Drawing.Point(82, 0);
             this.ReplyBtn.Name = "ReplyBtn";
             this.ReplyBtn.Size = new System.Drawing.Size(50, 50);
@@ -850,11 +867,11 @@ namespace NCorp_Mail_Client
             this.ForwardBtn.BackColor = System.Drawing.Color.Transparent;
             this.ForwardBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.ForwardBtn.FlatAppearance.BorderSize = 0;
-            this.ForwardBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
-            this.ForwardBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.ForwardBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (40)))), ((int) (((byte) (43)))), ((int) (((byte) (56)))));
+            this.ForwardBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
             this.ForwardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ForwardBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForwardBtn.ForeColor = settings1.tds_01dp;
+            this.ForwardBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.ForwardBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (225)))), ((int) (((byte) (227)))));
             this.ForwardBtn.Location = new System.Drawing.Point(132, 0);
             this.ForwardBtn.Name = "ForwardBtn";
             this.ForwardBtn.Size = new System.Drawing.Size(50, 50);
@@ -867,11 +884,11 @@ namespace NCorp_Mail_Client
             this.FlagBtn.BackColor = System.Drawing.Color.Transparent;
             this.FlagBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.FlagBtn.FlatAppearance.BorderSize = 0;
-            this.FlagBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
-            this.FlagBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.FlagBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (40)))), ((int) (((byte) (43)))), ((int) (((byte) (56)))));
+            this.FlagBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (31)))), ((int) (((byte) (45)))));
             this.FlagBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FlagBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FlagBtn.ForeColor = settings1.tds_01dp;
+            this.FlagBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.FlagBtn.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (225)))), ((int) (((byte) (227)))));
             this.FlagBtn.Location = new System.Drawing.Point(182, 0);
             this.FlagBtn.Name = "FlagBtn";
             this.FlagBtn.Size = new System.Drawing.Size(50, 50);
@@ -884,7 +901,7 @@ namespace NCorp_Mail_Client
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.ControlBox = false;
@@ -932,8 +949,9 @@ namespace NCorp_Mail_Client
             this.MVPTitleTextPanel.PerformLayout();
             this.MVPControlsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
+
+        private System.Windows.Forms.Button ColourBtn;
 
         #endregion
         private System.Windows.Forms.Panel ControlPanel;
