@@ -105,6 +105,12 @@
     <Compile Include="UserControls\MailThumbnail.Designer.cs">
       <DependentUpon>MailThumbnail.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MenuButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MenuButton.Designer.cs">
+      <DependentUpon>MenuButton.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +125,9 @@
     </Compile>
     <EmbeddedResource Include="UserControls\MailThumbnail.resx">
       <DependentUpon>MailThumbnail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MenuButton.resx">
+      <DependentUpon>MenuButton.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Mail.datasource" />

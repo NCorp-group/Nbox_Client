@@ -30,6 +30,11 @@ namespace NCorp_Mail_Client
             openTimer.Tick += new EventHandler(enterTimer_Tick);
             closeTimer.Interval = 10;
             closeTimer.Tick += new EventHandler(leaveTimer_Tick);
+
+            this.MenuBurgerBtn.IconPanel.Click += new System.EventHandler(BurgerBtn_Click);
+            this.MenuBurgerBtn.TextPanel.Click += new System.EventHandler(BurgerBtn_Click);
+            this.MenuBurgerBtn.ButtonLabel.Click += new System.EventHandler(BurgerBtn_Click);
+            this.MenuBurgerBtn.IconLabel.Click += new System.EventHandler(BurgerBtn_Click);
             //this.MailScreen.BringToFront();
         }
 
@@ -253,31 +258,38 @@ namespace NCorp_Mail_Client
 
         void enterTimer_Tick(object sender, EventArgs e)
         {
-            if (ControlPanel.Width >= 300)
+            if (!menuExpanded)
             {
-                openTimer.Stop();
-            }
-            else
-            {
-                this.ControlPanel.Width += 50;
+                if (ControlPanel.Width >= 200)
+                {
+                    openTimer.Stop();
+                    menuExpanded = !menuExpanded;
+                }
+                else
+                {
+                    this.ControlPanel.Width += 60;
+                }
             }
         }
 
         void leaveTimer_Tick(object sender, EventArgs e)
         {
-            if (ControlPanel.Width <= 60)
+            if (menuExpanded)
             {
-                closeTimer.Stop();
-            }
-            else
-            {
-                this.ControlPanel.Width -= 50;
+                if (ControlPanel.Width <= 60)
+                {
+                    closeTimer.Stop();
+                    menuExpanded = !menuExpanded;
+                }
+                else
+                {
+                    this.ControlPanel.Width -= 60;
+                }
             }
         }
 
         private void BurgerBtn_Click(object sender, EventArgs e)
         {
-            menuExpanded = !menuExpanded;
             if (menuExpanded)
             {
                 closeTimer.Start();
