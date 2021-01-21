@@ -17,6 +17,7 @@ namespace NCorp_Mail_Client
     {
         private Builder Builder = new Builder();
         private List<Mail> Mails = new List<Mail>();
+        private bool menuExpanded = true;
         //private TCPHandler TCPconnection = new TCPHandler();
         public EmailClient()
         {
@@ -25,10 +26,17 @@ namespace NCorp_Mail_Client
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            openTimer.Interval = 10;
+            openTimer.Tick += new EventHandler(enterTimer_Tick);
+            closeTimer.Interval = 10;
+            closeTimer.Tick += new EventHandler(leaveTimer_Tick);
             //this.MailScreen.BringToFront();
         }
 
-        // MAKING THE WINDOW DRAGGABLE
+        // 
+        // DRAGGABLE WINDOW
+        //
+
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -45,8 +53,11 @@ namespace NCorp_Mail_Client
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-        
+
+        //
         // SEARCH FIELD
+        //
+
         public void RemoveSearchPlaceholder(object sender, EventArgs e)
         {
             if (SearchText.Text == "Search")
@@ -65,7 +76,10 @@ namespace NCorp_Mail_Client
             }
         }
 
-        // PANEL MOUSE INTERACTIONS
+        //
+        // PANEL MOUSE INTERACTION
+        //
+
         public void Panel_MouseIn(object sender, EventArgs e)
         {
             Panel panel = sender as Panel;
@@ -87,7 +101,10 @@ namespace NCorp_Mail_Client
             panel.BackColor = Properties.Settings.Default.bgd_02dp;
         }
 
+        //
         // TITLE BAR BUTTONS
+        //
+
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -113,13 +130,9 @@ namespace NCorp_Mail_Client
             }
         }
 
-        // LOGIN SCREEN
-        private void LoginBtn_Click(object sender, EventArgs e)
-        {
-            this.LoginScreen.Hide();
-        }
-        
-        // MAIL MANIPULATION
+        //
+        // EMAIL MANIPULATION
+        //
 
         // ClearMailList method
         // Clear the mail list view
@@ -138,7 +151,7 @@ namespace NCorp_Mail_Client
             {
                 var newThumbnail = new MailThumbnail(mail);
                 newThumbnail.Dock = DockStyle.Top;
-                newThumbnail.Viewport = this.MailViewport;
+                newThumbnail._viewport = this.MVPPanel;
                 this.MailListView.Controls.Add(newThumbnail);
                 //Panel thumbnail = Builder.Thumbnail(mail);
                 //this.MailListView.Controls.Add(thumbnail);
@@ -215,18 +228,64 @@ namespace NCorp_Mail_Client
             this.ShowMails();
         }
 
-        /*
-        private void MailThumbnail_Click(object sender, EventArgs e)
+        //
+        // CONTROLS BUTTONS
+        //
+
+        private void LoginBtn_Click(object sender, EventArgs e)
         {
-            
+            this.LoginScreen.Hide();
         }
-        */
 
         private void FolderBtn_Click(object sender, EventArgs e)
         {
             //string folderJSON = TCPconnection.message("fetch_folders");
 
             // Ready to be deserialized into an object
+        }
+
+        //
+        // MENU TRANSITION
+        //
+
+        Timer openTimer = new Timer();
+        Timer closeTimer = new Timer();
+
+        void enterTimer_Tick(object sender, EventArgs e)
+        {
+            if (ControlPanel.Width >= 300)
+            {
+                openTimer.Stop();
+            }
+            else
+            {
+                this.ControlPanel.Width += 50;
+            }
+        }
+
+        void leaveTimer_Tick(object sender, EventArgs e)
+        {
+            if (ControlPanel.Width <= 60)
+            {
+                closeTimer.Stop();
+            }
+            else
+            {
+                this.ControlPanel.Width -= 50;
+            }
+        }
+
+        private void BurgerBtn_Click(object sender, EventArgs e)
+        {
+            menuExpanded = !menuExpanded;
+            if (menuExpanded)
+            {
+                closeTimer.Start();
+            }
+            else
+            {
+                openTimer.Start();
+            }
         }
     }
 }

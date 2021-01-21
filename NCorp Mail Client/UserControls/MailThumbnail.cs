@@ -12,34 +12,19 @@ namespace NCorp_Mail_Client.UserControls
 {
     public partial class MailThumbnail : UserControl
     {
-        public Control Viewport { get; set; }
+        public Control _viewport { get; set; }
         private Mail _mail;
 
         // TODO: Proper binding with a binding class to specify all colours and such
         // This specific binding class will be instantiated when the MailThumbnail is created
-        /*
-        private Mail mail;
-        //private BindingSource binding = new BindingSource();
-        public Mail Mail
-        {
-            get
-            {
-                return mail;
-            }
-            set
-            {
-                mail = value;
-                //binding.DataSource = value;
-            }
-        }
-        */
+
         private Binding bindingSender;
         private Binding bindingSubject;
         private Binding bindingBody;
 
+        // Reads the mail's metadata colour, returning it in a System.Drawing.Color type
         private Color GetColour()
         {
-            // Colour mark calibration
             switch (_mail.metadata.colour)
             {
                 case "blue":
@@ -72,72 +57,35 @@ namespace NCorp_Mail_Client.UserControls
         {
             _mail.metadata.read = true;
             CheckRead();
-            Viewport.Controls["MVPBodyPanel"]
-                    .Controls["MVPBody"]
-                    .Text = _mail.body;
+            _viewport.Controls["MVPBodyLabel"]
+                     .Text = _mail.body;
             
-            Viewport.Controls["MVPHeaderPanel"]
-                    .Controls["MVPTitleControlsPanel"]
-                    .Controls["MVPTitleTextPanel"]
-                    .Controls["MVPTitleLabel"]
-                    .Text = _mail.subject;
+            // Title
+            // Setting the mail subject into the title of the viewport
+            _viewport.Controls["MVPHeaderPanel"]
+                     .Controls["MVPTitlePanel"]
+                     .Controls["MVPTitleLabel"]
+                     .Text = _mail.subject;
 
-            Viewport.Controls["MVPHeaderPanel"]
-                    .Controls["MVPTitleControlsPanel"]
-                    .Controls["MVPControlsPanel"]
-                    .Controls["ColourBtn"]
-                    .ForeColor = GetColour();
+            // Colour
+            // Setting the viewport colour button's colour to the mail's colour
+            _viewport.Controls["MVPHeaderPanel"]
+                     .Controls["MVPActionsPanel"]
+                     .Controls["ColourBtn"]
+                     .ForeColor = GetColour();
             
-            Viewport.Controls["MVPHeaderPanel"]
-                    .Controls["MVPTitleControlsPanel"]
-                    .Controls["MVPControlsPanel"]
-                    .Controls["FlagBtn"]
-                    .Text = GetFlagIcon();
+            // Body
+            // Setting the body from the mail object into the viewport body
+            _viewport.Controls["MVPHeaderPanel"]
+                     .Controls["MVPActionsPanel"]
+                     .Controls["FlagBtn"]
+                     .Text = GetFlagIcon();
         }
 
         private void CheckColour()
         {
             // Colour mark calibration
             this.ColourMark.BackColor = GetColour();
-            /*
-            switch (_mail.metadata.colour)
-            {
-                case "blue":
-                    this.ColourMark.BackColor = Properties.Settings.Default.cm_blue;
-                    break;
-                case "cyan":
-                    this.ColourMark.BackColor = Properties.Settings.Default.cm_cyan;
-                    break;
-                case "green":
-                    this.ColourMark.BackColor = Properties.Settings.Default.cm_green;
-                    break;
-                case "yellow":
-                    this.ColourMark.BackColor = Properties.Settings.Default.cm_yellow;
-                    break;
-                case "orange":
-                    this.ColourMark.BackColor = Properties.Settings.Default.cm_orange;
-                    break;
-                case "red":
-                    this.ColourMark.BackColor = Properties.Settings.Default.cm_red;
-                    break;
-                case "magenta":
-                    this.ColourMark.BackColor = Properties.Settings.Default.cm_magenta;
-                    break;
-                case "purple":
-                    this.ColourMark.BackColor = Properties.Settings.Default.cm_purple;
-                    break;
-                default:
-                    if (_mail.metadata.read == false)
-                    {
-                        this.ColourMark.BackColor = Properties.Settings.Default.bgd_24dp;
-                    }
-                    else
-                    {
-                        this.ColourMark.BackColor = Properties.Settings.Default.bgd_08dp;
-                    }
-                    break;
-            }
-            */
         }
 
         private void CheckRead()
