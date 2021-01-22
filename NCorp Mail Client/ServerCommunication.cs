@@ -11,13 +11,13 @@ namespace NCorp_Mail_Client
     class NMAPRequest
     {
         public String command { get; set; }
-        public List<String> attributes { get; set; }
+        public List<String> arguments { get; set; }
         public List<String> body { get; set; }
 
         public NMAPRequest(String command, List<String> attributes, List<String> body)
         {
             this.command = command;
-            this.attributes = attributes;
+            this.arguments = attributes;
             this.body = body;
         }
     };
@@ -47,9 +47,12 @@ namespace NCorp_Mail_Client
             var opts = new List<String>();
             if (deep) opts.Add("deep");
 
-            NMAPRequest message = new NMAPRequest("fetch_emails", opts, null);
+            var body = new List<string>();
+            NMAPRequest message = new NMAPRequest("fetch_mail", opts, body);
             string json_msg = JsonConvert.SerializeObject(message);
-            string response_raw = TCPconnection.message(json_msg);
+            (bool success, string response_raw) = TCPconnection.message(json_msg);
+            if (!success) return;
+
             NMAPResponse response_obj = JsonConvert.DeserializeObject<NMAPResponse>(response_raw);
 
             if (response_obj.status != 200)
@@ -61,18 +64,18 @@ namespace NCorp_Mail_Client
             String strings = String.Join("", response_obj.body);
             List<Mail> fetchedMails = JsonConvert.DeserializeObject<List<Mail>>(strings);  // Deserialize fetched mails intoo bjects into a list of mails
 
-            string path = "mails.json"; // TODO: Make path dependant on user
+            string mailPath = Path.Combine(MAILDIR_ROOT, this.currentUser.username + ".json"); // TODO: Make path dependant on user
             List<Mail> existingMails = new List<Mail>();
 
-            if (File.Exists(path))
+            if (File.Exists(mailPath))
             {
-                string text = File.ReadAllText(path);                                   // Reading all existing mails in the found file
+                string text = File.ReadAllText(mailPath);                                   // Reading all existing mails in the found file
                 existingMails = JsonConvert.DeserializeObject<List<Mail>>(text);        // Deserialize existing mails into objects into a list of mails
                 fetchedMails.ForEach(mail => existingMails.Append(mail));               // Dump all existing fetchedMails into existingMails
             }
 
             string emailListString = JsonConvert.SerializeObject(existingMails);
-            File.WriteAllText(path, emailListString);
+            File.WriteAllText(mailPath, emailListString);
 
             // TODO how does the application access the mails (RAM, or read entire file)???
         }
@@ -83,16 +86,33 @@ namespace NCorp_Mail_Client
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns>Returns the error code, which should be handled by the caller.</returns>
-        public int login(string username = "test", string password = "test")
+        public int login(string email = "test", string password = "test")
         {
-            var user_credentials = new List<String> { username, password };
-            NMAPRequest message = new NMAPRequest("login", user_credentials, null);
+            var user_credentials = new List<String> { email, password };
+            var body = new List<string>();
+            NMAPRequest message = new NMAPRequest("login", user_credentials, body );
             string json_msg = JsonConvert.SerializeObject(message);
-            string response_raw = TCPconnection.message(json_msg);
+            (bool success, string response_raw) = TCPconnection.message(json_msg);
+            if (!success) return 501;
             NMAPResponse response_obj = JsonConvert.DeserializeObject<NMAPResponse>(response_raw);
 
-            return response_obj.status;
-
+            return 200;
         }
+
+
+
+        private HashSet<string> getFolders()
+        {
+            string path = Path.Combine(MAILDIR_ROOT, currentUser.username + ".json");
+            var folders = new HashSet<string>();
+            if (File.Exists(path))
+            {
+                var text = File.ReadAllText(path);
+                var mails = JsonConvert.DeserializeObject<List<Mail>>(text);
+                mails.ForEach(mail => folders.Add(mail.metadata.folder));
+            }
+            return folders;
+        }
+
     }
 }

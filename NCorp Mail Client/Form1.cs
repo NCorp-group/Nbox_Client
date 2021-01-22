@@ -15,12 +15,18 @@ namespace NCorp_Mail_Client
 {
     public partial class EmailClient : Form
     {
+        private readonly string MAILDIR_ROOT = Path.Combine(Environment.GetEnvironmentVariable("appdata"), "NBox");
         private User currentUser;
         private List<Mail> Mails = new List<Mail>();
         private bool menuExpanded = false;
-        //private TCPHandler TCPconnection = new TCPHandler();
+        private TCPHandler TCPconnection = new TCPHandler();
         public EmailClient()
         {
+            TCPconnection.Handshake();
+            if (!Directory.Exists(MAILDIR_ROOT))
+            {
+                Directory.CreateDirectory(MAILDIR_ROOT);
+            }
             InitializeComponent();
         }
 
@@ -242,14 +248,28 @@ namespace NCorp_Mail_Client
         // CONTROLS BUTTONS
         //
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             string mail = this.LoginMailTextBox.Text;
             string password = this.LoginPassTexBox.Text;
+            int status = login(mail, password);
 
+            Console.WriteLine("mail: {0}\npassword: {1}", mail, password);
 
-
-            this.LoginScreen.Hide();
+            
+            if (status == 200)
+            {
+                this.currentUser = new User(mail);
+                // sync with server to get new unseen mails
+                fetchEmails();
+                this.currentUser.folders.AddRange(getFolders());
+                this.LoginScreen.Hide();
+            }
         }
 
         private void FolderBtn_Click(object sender, EventArgs e)

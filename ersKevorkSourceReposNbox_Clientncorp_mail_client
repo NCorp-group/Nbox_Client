@@ -1,0 +1,114 @@
+[1mdiff --cc NCorp Mail Client/Form1.Designer.cs[m
+[1mindex 336eed8,9cbc38c..0000000[m
+[1m--- a/NCorp Mail Client/Form1.Designer.cs[m
+[1m+++ b/NCorp Mail Client/Form1.Designer.cs[m
+[36m@@@ -177,13 -175,13 +179,14 @@@[m [mnamespace NCorp_Mail_Clien[m
+              this.MenuNewMailBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));[m
+              this.MenuNewMailBtn.Dock = System.Windows.Forms.DockStyle.Top;[m
+              this.MenuNewMailBtn.icon = "";[m
+[31m -            this.MenuNewMailBtn.Location = new System.Drawing.Point(0, 120);[m
+[32m +            this.MenuNewMailBtn.Location = new System.Drawing.Point(0, 184);[m
+[32m +            this.MenuNewMailBtn.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);[m
+              this.MenuNewMailBtn.Name = "MenuNewMailBtn";[m
+[31m -            this.MenuNewMailBtn.Padding = new System.Windows.Forms.Padding(0, 18, 0, 18);[m
+[31m -            this.MenuNewMailBtn.Size = new System.Drawing.Size(60, 60);[m
+[32m +            this.MenuNewMailBtn.Padding = new System.Windows.Forms.Padding(0, 28, 0, 28);[m
+[32m +            this.MenuNewMailBtn.Size = new System.Drawing.Size(90, 92);[m
+              this.MenuNewMailBtn.TabIndex = 29;[m
+              this.MenuNewMailBtn.text = "New Mail";[m
+[32m+             this.MenuNewMailBtn.Load += new System.EventHandler(this.MenuNewMailBtn_Click);[m
+              // [m
+              // MenuBurgerBtn[m
+              // [m
+[36m@@@ -212,11 -209,11 +215,12 @@@[m
+              this.LogoBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));[m
+              this.LogoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));[m
+              this.LogoBtn.Location = new System.Drawing.Point(0, 0);[m
+[32m +            this.LogoBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);[m
+              this.LogoBtn.Name = "LogoBtn";[m
+[31m -            this.LogoBtn.Size = new System.Drawing.Size(60, 60);[m
+[32m +            this.LogoBtn.Size = new System.Drawing.Size(90, 92);[m
+              this.LogoBtn.TabIndex = 22;[m
+              this.LogoBtn.UseVisualStyleBackColor = false;[m
+[32m+             this.LogoBtn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleBar_MouseDown);[m
+              // [m
+              // MailPanel[m
+              // [m
+[36m@@@ -743,22 -703,29 +747,39 @@@[m
+              this.MailScreen.Controls.Add(this.ControlPanel);[m
+              this.MailScreen.Dock = System.Windows.Forms.DockStyle.Fill;[m
+              this.MailScreen.Location = new System.Drawing.Point(0, 0);[m
+[32m +            this.MailScreen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);[m
+              this.MailScreen.Name = "MailScreen";[m
+[31m -            this.MailScreen.Size = new System.Drawing.Size(1280, 720);[m
+[32m +            this.MailScreen.Size = new System.Drawing.Size(1920, 1108);[m
+              this.MailScreen.TabIndex = 0;[m
+              // [m
+[32m+             // MVPWrapperPanel[m
+[32m+             // [m
+[32m+             this.MVPWrapperPanel.Controls.Add(this.MVPPanel);[m
+[32m+             this.MVPWrapperPanel.Dock = System.Windows.Forms.DockStyle.Fill;[m
+[32m+             this.MVPWrapperPanel.Location = new System.Drawing.Point(460, 32);[m
+[32m+             this.MVPWrapperPanel.Name = "MVPWrapperPanel";[m
+[32m+             this.MVPWrapperPanel.Size = new System.Drawing.Size(820, 688);[m
+[32m+             this.MVPWrapperPanel.TabIndex = 9;[m
+[32m+             // [m
+              // MVPPanel[m
+              // [m
+              this.MVPPanel.Controls.Add(this.MVPBodyLabel);[m
+              this.MVPPanel.Controls.Add(this.MVPHeaderPanel);[m
+              this.MVPPanel.Dock = System.Windows.Forms.DockStyle.Fill;[m
+[32m++<<<<<<< HEAD[m
+[32m +            this.MVPPanel.Location = new System.Drawing.Point(690, 49);[m
+[32m +            this.MVPPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);[m
+[32m +            this.MVPPanel.Name = "MVPPanel";[m
+[32m +            this.MVPPanel.Padding = new System.Windows.Forms.Padding(45, 0, 45, 0);[m
+[32m +            this.MVPPanel.Size = new System.Drawing.Size(1230, 1059);[m
+[32m +            this.MVPPanel.TabIndex = 10;[m
+[32m++=======[m
+[32m+             this.MVPPanel.Location = new System.Drawing.Point(0, 0);[m
+[32m+             this.MVPPanel.Name = "MVPPanel";[m
+[32m+             this.MVPPanel.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);[m
+[32m+             this.MVPPanel.Size = new System.Drawing.Size(820, 688);[m
+[32m+             this.MVPPanel.TabIndex = 11;[m
+[32m++>>>>>>> 95934f88e0d2ebd54697cdb5f818c5083e8c351e[m
+              // [m
+              // MVPBodyLabel[m
+              // [m
+[1mdiff --cc NCorp Mail Client/Form1.cs[m
+[1mindex 54347e3,9bc1381..0000000[m
+[1m--- a/NCorp Mail Client/Form1.cs[m
+[1m+++ b/NCorp Mail Client/Form1.cs[m
+[36m@@@ -17,8 -17,8 +17,13 @@@[m [mnamespace NCorp_Mail_Clien[m
+      {[m
+          private Builder Builder = new Builder();[m
+          private List<Mail> Mails = new List<Mail>();[m
+[32m++<<<<<<< HEAD[m
+[32m +        private bool menuExpanded = true;[m
+[32m +        private TCPHandler TCPconnection = new TCPHandler();[m
+[32m++=======[m
+[32m+         private bool menuExpanded = false;[m
+[32m+         //private TCPHandler TCPconnection = new TCPHandler();[m
+[32m++>>>>>>> 95934f88e0d2ebd54697cdb5f818c5083e8c351e[m
+          public EmailClient()[m
+          {[m
+              InitializeComponent();[m
+[1mdiff --cc NCorp Mail Client/NBox_Mail_Client.csproj[m
+[1mindex 42f35d3,b0bc1b0..0000000[m
+[1m--- a/NCorp Mail Client/NBox_Mail_Client.csproj[m
+[1m+++ b/NCorp Mail Client/NBox_Mail_Client.csproj[m
+[36m@@@ -88,7 -88,10 +88,14 @@@[m
+    </ItemGroup>[m
+    <ItemGroup>[m
+      <Compile Include="Builder.cs" />[m
+[32m++<<<<<<< HEAD[m
+[32m +    <Compile Include="serverCommunication.cs" />[m
+[32m++=======[m
+[32m+     <Compile Include="User.cs" />[m
+[32m+     <Compile Include="EmailFunctions.cs">[m
+[32m+       <SubType>Form</SubType>[m
+[32m+     </Compile>[m
+[32m++>>>>>>> 95934f88e0d2ebd54697cdb5f818c5083e8c351e[m
+      <Compile Include="TCPHandler.cs" />[m
+      <Compile Include="Mail.cs" />[m
+      <Compile Include="Form1.cs">[m

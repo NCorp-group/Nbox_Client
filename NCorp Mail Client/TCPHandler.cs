@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Net;
 using System.Net.Sockets;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace NCorp_Mail_Client
 {
@@ -12,16 +9,27 @@ namespace NCorp_Mail_Client
     {
         private TcpClient client;
         private int privatePort;
+        private int serverPort;
+        private string serverIP;
         public TCPHandler()
+        {
+            serverIP = "127.0.0.1";
+            serverPort = 61100;
+        }
+        /// <summary>
+        /// Use this for getting a private port and after timeouts.
+        /// </summary>
+        /// <returns>Returns true if a new private port is registered.</returns>
+        public bool Handshake()
         {
             try
             {
-                this.client = new TcpClient("127.0.0.1", 61100);
+                this.client = new TcpClient(this.serverIP, this.serverPort);
             }
             catch (SocketException exp)
             {
                 Console.WriteLine("{0}", exp.Message);
-                return;
+                return false;
             }
             NetworkStream stream = client.GetStream();
 
@@ -47,23 +55,34 @@ namespace NCorp_Mail_Client
             catch (FormatException)
             {
                 Console.WriteLine("Input string is invalid.");
-                return;
+                return false;
             }
+            return true;
         }
-        /*~TCPHandler()
-        {
-            this.close_connection();
-        }
-        public void close_connection()
-        {
-            client.Close();
-        }*/
-        public string message(string message_str)
+        public (bool, string) message(string message_str)
         {
             //
             // Following the Single-responsibility principle, this function encapsulates and simplifies the way clients interacts with the servers.
             //
-            this.client = new TcpClient("127.0.0.1", privatePort);
+
+            try
+            {
+                this.client = new TcpClient("127.0.0.1", privatePort);
+            }
+            catch (SocketException exp)
+            {
+                Console.WriteLine("exception caught: {0}", exp.Message);
+                Console.WriteLine("Trying to reconnect to mail server...");
+                if (Handshake())
+                {
+                    this.client = new TcpClient("127.0.0.1", privatePort);
+                }
+                else
+                {
+                    Console.WriteLine("failed to reconnect to server, no further action is taken");
+                    return (false, "");
+                }      
+            }
 
             NetworkStream stream = this.client.GetStream();
             byte[] message_bytes = Encoding.ASCII.GetBytes(message_str);
@@ -73,13 +92,14 @@ namespace NCorp_Mail_Client
 
             Byte[] response = new Byte[256];
             String responseStr = String.Empty;
+            Console.WriteLine("response length {0}", response.Length);
 
             // Read the first batch of the TcpServer response bytes
             Int32 bytes = stream.Read(response, 0, response.Length);
             // Translating bytes to the responseData string variable
             responseStr = System.Text.Encoding.ASCII.GetString(response, 0, bytes);
 
-            return responseStr;
+            return (true, responseStr);
         }
 
     }
