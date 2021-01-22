@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,19 +10,9 @@ using System.Windows.Forms;
 
 namespace NCorp_Mail_Client.UserControls
 {
-    public partial class MenuButton : UserControl
+    public partial class FolderButton : UserControl
     {
-        public string text
-        {
-            get { return this.ButtonLabel.Text; }
-            set { this.ButtonLabel.Text = value; }
-        }
-        public string icon 
-        { 
-            get { return this.IconLabel.Text; }
-            set { this.IconLabel.Text = value; }
-        }
-        public MenuButton()
+        public FolderButton()
         {
             InitializeComponent();
         }
