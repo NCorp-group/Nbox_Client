@@ -244,6 +244,11 @@ namespace NCorp_Mail_Client
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
+            string mail = this.LoginMailTextBox.Text;
+            string password = this.LoginPassTexBox.Text;
+
+
+
             this.LoginScreen.Hide();
         }
 
