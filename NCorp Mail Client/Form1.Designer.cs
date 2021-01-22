@@ -34,9 +34,12 @@ namespace NCorp_Mail_Client
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmailClient));
             this.ControlPanel = new System.Windows.Forms.Panel();
-            this.MenuSettingsBtn = new NCorp_Mail_Client.UserControls.MenuButton();
+            this.FoldersListPanel = new System.Windows.Forms.Panel();
+            this.FolderListView = new System.Windows.Forms.Panel();
+            this.NewFolderBtn = new System.Windows.Forms.Button();
+            this.FolderUnderline = new System.Windows.Forms.Panel();
             this.MenuFoldersBtn = new NCorp_Mail_Client.UserControls.MenuButton();
-            this.MenuAccountsBtn = new NCorp_Mail_Client.UserControls.MenuButton();
+            this.MenuSettingsBtn = new NCorp_Mail_Client.UserControls.MenuButton();
             this.MenuNewMailBtn = new NCorp_Mail_Client.UserControls.MenuButton();
             this.MenuBurgerBtn = new NCorp_Mail_Client.UserControls.MenuButton();
             this.LogoBtn = new System.Windows.Forms.Button();
@@ -85,6 +88,7 @@ namespace NCorp_Mail_Client
             this.MVPBodyLabel = new System.Windows.Forms.Label();
             this.MVPHeaderPanel = new System.Windows.Forms.Panel();
             this.MVPTitlePanel = new System.Windows.Forms.Panel();
+            this.MVPSenderLabel = new System.Windows.Forms.Label();
             this.MVPTitleLabel = new System.Windows.Forms.Label();
             this.MVPActionsPanel = new System.Windows.Forms.Panel();
             this.ColourBtn = new System.Windows.Forms.Button();
@@ -92,6 +96,8 @@ namespace NCorp_Mail_Client
             this.ForwardBtn = new System.Windows.Forms.Button();
             this.FlagBtn = new System.Windows.Forms.Button();
             this.ControlPanel.SuspendLayout();
+            this.FoldersListPanel.SuspendLayout();
+            this.FolderListView.SuspendLayout();
             this.MailPanel.SuspendLayout();
             this.FilterPanel.SuspendLayout();
             this.FilterBottom.SuspendLayout();
@@ -119,9 +125,8 @@ namespace NCorp_Mail_Client
             // ControlPanel
             // 
             this.ControlPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
+            this.ControlPanel.Controls.Add(this.FoldersListPanel);
             this.ControlPanel.Controls.Add(this.MenuSettingsBtn);
-            this.ControlPanel.Controls.Add(this.MenuFoldersBtn);
-            this.ControlPanel.Controls.Add(this.MenuAccountsBtn);
             this.ControlPanel.Controls.Add(this.MenuNewMailBtn);
             this.ControlPanel.Controls.Add(this.MenuBurgerBtn);
             this.ControlPanel.Controls.Add(this.LogoBtn);
@@ -130,6 +135,67 @@ namespace NCorp_Mail_Client
             this.ControlPanel.Name = "ControlPanel";
             this.ControlPanel.Size = new System.Drawing.Size(60, 720);
             this.ControlPanel.TabIndex = 3;
+            // 
+            // FoldersListPanel
+            // 
+            this.FoldersListPanel.Controls.Add(this.FolderListView);
+            this.FoldersListPanel.Controls.Add(this.FolderUnderline);
+            this.FoldersListPanel.Controls.Add(this.MenuFoldersBtn);
+            this.FoldersListPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FoldersListPanel.Location = new System.Drawing.Point(0, 180);
+            this.FoldersListPanel.Name = "FoldersListPanel";
+            this.FoldersListPanel.Size = new System.Drawing.Size(60, 60);
+            this.FoldersListPanel.TabIndex = 33;
+            // 
+            // FolderListView
+            // 
+            this.FolderListView.Controls.Add(this.NewFolderBtn);
+            this.FolderListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FolderListView.Location = new System.Drawing.Point(0, 65);
+            this.FolderListView.Name = "FolderListView";
+            this.FolderListView.Size = new System.Drawing.Size(60, 0);
+            this.FolderListView.TabIndex = 37;
+            // 
+            // NewFolderBtn
+            // 
+            this.NewFolderBtn.BackColor = System.Drawing.Color.Transparent;
+            this.NewFolderBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.NewFolderBtn.FlatAppearance.BorderSize = 0;
+            this.NewFolderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
+            this.NewFolderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.NewFolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NewFolderBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewFolderBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
+            this.NewFolderBtn.Location = new System.Drawing.Point(0, -30);
+            this.NewFolderBtn.Name = "NewFolderBtn";
+            this.NewFolderBtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.NewFolderBtn.Size = new System.Drawing.Size(60, 30);
+            this.NewFolderBtn.TabIndex = 18;
+            this.NewFolderBtn.Text = "";
+            this.NewFolderBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NewFolderBtn.UseVisualStyleBackColor = false;
+            // 
+            // FolderUnderline
+            // 
+            this.FolderUnderline.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_01dp;
+            this.FolderUnderline.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FolderUnderline.Location = new System.Drawing.Point(0, 60);
+            this.FolderUnderline.Name = "FolderUnderline";
+            this.FolderUnderline.Size = new System.Drawing.Size(60, 5);
+            this.FolderUnderline.TabIndex = 33;
+            // 
+            // MenuFoldersBtn
+            // 
+            this.MenuFoldersBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
+            this.MenuFoldersBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MenuFoldersBtn.icon = "";
+            this.MenuFoldersBtn.Location = new System.Drawing.Point(0, 0);
+            this.MenuFoldersBtn.Name = "MenuFoldersBtn";
+            this.MenuFoldersBtn.Padding = new System.Windows.Forms.Padding(0, 18, 0, 18);
+            this.MenuFoldersBtn.Size = new System.Drawing.Size(60, 60);
+            this.MenuFoldersBtn.TabIndex = 32;
+            this.MenuFoldersBtn.text = "Folders";
+            this.MenuFoldersBtn.Click += new System.EventHandler(this.MenuFoldersBtn_Click);
             // 
             // MenuSettingsBtn
             // 
@@ -142,30 +208,6 @@ namespace NCorp_Mail_Client
             this.MenuSettingsBtn.Size = new System.Drawing.Size(60, 60);
             this.MenuSettingsBtn.TabIndex = 32;
             this.MenuSettingsBtn.text = "Settings";
-            // 
-            // MenuFoldersBtn
-            // 
-            this.MenuFoldersBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
-            this.MenuFoldersBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MenuFoldersBtn.icon = "";
-            this.MenuFoldersBtn.Location = new System.Drawing.Point(0, 240);
-            this.MenuFoldersBtn.Name = "MenuFoldersBtn";
-            this.MenuFoldersBtn.Padding = new System.Windows.Forms.Padding(0, 18, 0, 18);
-            this.MenuFoldersBtn.Size = new System.Drawing.Size(60, 60);
-            this.MenuFoldersBtn.TabIndex = 31;
-            this.MenuFoldersBtn.text = "Folders";
-            // 
-            // MenuAccountsBtn
-            // 
-            this.MenuAccountsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
-            this.MenuAccountsBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MenuAccountsBtn.icon = "";
-            this.MenuAccountsBtn.Location = new System.Drawing.Point(0, 180);
-            this.MenuAccountsBtn.Name = "MenuAccountsBtn";
-            this.MenuAccountsBtn.Padding = new System.Windows.Forms.Padding(0, 18, 0, 18);
-            this.MenuAccountsBtn.Size = new System.Drawing.Size(60, 60);
-            this.MenuAccountsBtn.TabIndex = 30;
-            this.MenuAccountsBtn.text = "Accounts";
             // 
             // MenuNewMailBtn
             // 
@@ -758,11 +800,11 @@ namespace NCorp_Mail_Client
             this.MVPBodyLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MVPBodyLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MVPBodyLabel.ForeColor = System.Drawing.Color.White;
-            this.MVPBodyLabel.Location = new System.Drawing.Point(30, 70);
+            this.MVPBodyLabel.Location = new System.Drawing.Point(30, 90);
             this.MVPBodyLabel.Name = "MVPBodyLabel";
-            this.MVPBodyLabel.Size = new System.Drawing.Size(760, 618);
+            this.MVPBodyLabel.Size = new System.Drawing.Size(760, 598);
             this.MVPBodyLabel.TabIndex = 1;
-            this.MVPBodyLabel.Text = resources.GetString("MVPBodyLabel.Text");
+            this.MVPBodyLabel.Text = "This is the body";
             // 
             // MVPHeaderPanel
             // 
@@ -772,27 +814,39 @@ namespace NCorp_Mail_Client
             this.MVPHeaderPanel.Location = new System.Drawing.Point(30, 0);
             this.MVPHeaderPanel.Name = "MVPHeaderPanel";
             this.MVPHeaderPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
-            this.MVPHeaderPanel.Size = new System.Drawing.Size(760, 70);
+            this.MVPHeaderPanel.Size = new System.Drawing.Size(760, 90);
             this.MVPHeaderPanel.TabIndex = 0;
             // 
             // MVPTitlePanel
             // 
+            this.MVPTitlePanel.Controls.Add(this.MVPSenderLabel);
             this.MVPTitlePanel.Controls.Add(this.MVPTitleLabel);
             this.MVPTitlePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MVPTitlePanel.Location = new System.Drawing.Point(0, 0);
             this.MVPTitlePanel.Name = "MVPTitlePanel";
             this.MVPTitlePanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.MVPTitlePanel.Size = new System.Drawing.Size(560, 50);
+            this.MVPTitlePanel.Size = new System.Drawing.Size(560, 70);
             this.MVPTitlePanel.TabIndex = 1;
+            // 
+            // MVPSenderLabel
+            // 
+            this.MVPSenderLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MVPSenderLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MVPSenderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
+            this.MVPSenderLabel.Location = new System.Drawing.Point(0, 40);
+            this.MVPSenderLabel.Name = "MVPSenderLabel";
+            this.MVPSenderLabel.Size = new System.Drawing.Size(560, 21);
+            this.MVPSenderLabel.TabIndex = 2;
+            this.MVPSenderLabel.Text = "sender@mail.com";
             // 
             // MVPTitleLabel
             // 
-            this.MVPTitleLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.MVPTitleLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MVPTitleLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MVPTitleLabel.ForeColor = System.Drawing.Color.White;
             this.MVPTitleLabel.Location = new System.Drawing.Point(0, 10);
             this.MVPTitleLabel.Name = "MVPTitleLabel";
-            this.MVPTitleLabel.Size = new System.Drawing.Size(108, 30);
+            this.MVPTitleLabel.Size = new System.Drawing.Size(560, 30);
             this.MVPTitleLabel.TabIndex = 1;
             this.MVPTitleLabel.Text = "Email Title";
             // 
@@ -805,7 +859,7 @@ namespace NCorp_Mail_Client
             this.MVPActionsPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.MVPActionsPanel.Location = new System.Drawing.Point(560, 0);
             this.MVPActionsPanel.Name = "MVPActionsPanel";
-            this.MVPActionsPanel.Size = new System.Drawing.Size(200, 50);
+            this.MVPActionsPanel.Size = new System.Drawing.Size(200, 70);
             this.MVPActionsPanel.TabIndex = 0;
             // 
             // ColourBtn
@@ -820,7 +874,7 @@ namespace NCorp_Mail_Client
             this.ColourBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
             this.ColourBtn.Location = new System.Drawing.Point(0, 0);
             this.ColourBtn.Name = "ColourBtn";
-            this.ColourBtn.Size = new System.Drawing.Size(50, 50);
+            this.ColourBtn.Size = new System.Drawing.Size(50, 70);
             this.ColourBtn.TabIndex = 18;
             this.ColourBtn.Text = "";
             this.ColourBtn.UseVisualStyleBackColor = false;
@@ -837,10 +891,11 @@ namespace NCorp_Mail_Client
             this.ReplyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
             this.ReplyBtn.Location = new System.Drawing.Point(50, 0);
             this.ReplyBtn.Name = "ReplyBtn";
-            this.ReplyBtn.Size = new System.Drawing.Size(50, 50);
+            this.ReplyBtn.Size = new System.Drawing.Size(50, 70);
             this.ReplyBtn.TabIndex = 17;
             this.ReplyBtn.Text = "";
             this.ReplyBtn.UseVisualStyleBackColor = false;
+            this.ReplyBtn.Click += new System.EventHandler(this.ReplyBtn_Click);
             // 
             // ForwardBtn
             // 
@@ -854,7 +909,7 @@ namespace NCorp_Mail_Client
             this.ForwardBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
             this.ForwardBtn.Location = new System.Drawing.Point(100, 0);
             this.ForwardBtn.Name = "ForwardBtn";
-            this.ForwardBtn.Size = new System.Drawing.Size(50, 50);
+            this.ForwardBtn.Size = new System.Drawing.Size(50, 70);
             this.ForwardBtn.TabIndex = 16;
             this.ForwardBtn.Text = "";
             this.ForwardBtn.UseVisualStyleBackColor = false;
@@ -871,7 +926,7 @@ namespace NCorp_Mail_Client
             this.FlagBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
             this.FlagBtn.Location = new System.Drawing.Point(150, 0);
             this.FlagBtn.Name = "FlagBtn";
-            this.FlagBtn.Size = new System.Drawing.Size(50, 50);
+            this.FlagBtn.Size = new System.Drawing.Size(50, 70);
             this.FlagBtn.TabIndex = 15;
             this.FlagBtn.Text = "";
             this.FlagBtn.UseVisualStyleBackColor = false;
@@ -885,14 +940,16 @@ namespace NCorp_Mail_Client
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.ControlBox = false;
-            this.Controls.Add(this.LoginScreen);
             this.Controls.Add(this.MailScreen);
+            this.Controls.Add(this.LoginScreen);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmailClient";
             this.Text = "     ";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ControlPanel.ResumeLayout(false);
+            this.FoldersListPanel.ResumeLayout(false);
+            this.FolderListView.ResumeLayout(false);
             this.MailPanel.ResumeLayout(false);
             this.FilterPanel.ResumeLayout(false);
             this.FilterBottom.ResumeLayout(false);
@@ -950,10 +1007,6 @@ namespace NCorp_Mail_Client
         private Panel TitleBar;
         private Panel LoginScreen;
         private Panel MailScreen;
-        private UserControls.MenuButton MenuFoldersBtn;
-        private UserControls.MenuButton MenuAccountsBtn;
-        private UserControls.MenuButton MenuNewMailBtn;
-        private UserControls.MenuButton MenuBurgerBtn;
         private UserControls.MenuButton MenuSettingsBtn;
         private Button LogoBtn;
         private Panel MVPWrapperPanel;
@@ -985,5 +1038,13 @@ namespace NCorp_Mail_Client
         public Panel LoginPassUnderline;
         private Label LoginPassLabel;
         private Panel LoginLeftSpacer;
+        private Panel FoldersListPanel;
+        private Panel FolderUnderline;
+        private UserControls.MenuButton MenuFoldersBtn;
+        private UserControls.MenuButton MenuNewMailBtn;
+        private UserControls.MenuButton MenuBurgerBtn;
+        private Panel FolderListView;
+        private Button NewFolderBtn;
+        private Label MVPSenderLabel;
     }
 }

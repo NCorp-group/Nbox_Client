@@ -9,20 +9,12 @@ namespace NCorp_Mail_Client
 {
     public class User
     {
-        public class Metadata
-        {
-            public Guid user_GUID;
-            public string mail_address;
-        }
-        public Metadata metadata;
+        public string username;
         public List<Mail> mails = new List<Mail>();
-
-        public void NewUser(string address)
+        public List<string> folders = new List<string>();
+        public User(string username)
         {
-            metadata = new Metadata();
-            this.metadata.user_GUID = Guid.NewGuid();
-            this.metadata.mail_address = address;
+            this.username = username;
         }
-        public User() { }
     }
 }

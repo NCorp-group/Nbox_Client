@@ -73,7 +73,6 @@ namespace NCorp_Mail_Client.UserControls
             this.TextPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TextPanel.Location = new System.Drawing.Point(60, 18);
             this.TextPanel.Name = "TextPanel";
-            this.TextPanel.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.TextPanel.Size = new System.Drawing.Size(200, 24);
             this.TextPanel.TabIndex = 2;
             this.TextPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
@@ -86,9 +85,9 @@ namespace NCorp_Mail_Client.UserControls
             this.ButtonLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ButtonLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonLabel.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_00dp;
-            this.ButtonLabel.Location = new System.Drawing.Point(13, 0);
+            this.ButtonLabel.Location = new System.Drawing.Point(0, 0);
             this.ButtonLabel.Name = "ButtonLabel";
-            this.ButtonLabel.Size = new System.Drawing.Size(187, 24);
+            this.ButtonLabel.Size = new System.Drawing.Size(200, 24);
             this.ButtonLabel.TabIndex = 2;
             this.ButtonLabel.Text = "Menu";
             this.ButtonLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);

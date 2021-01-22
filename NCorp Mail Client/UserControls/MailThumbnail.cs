@@ -74,6 +74,12 @@ namespace NCorp_Mail_Client.UserControls
                      .Controls["MVPTitlePanel"]
                      .Controls["MVPTitleLabel"]
                      .Text = _mail.subject;
+            // Sender
+            // Setting the mail subject into the title of the viewport
+            viewport.Controls["MVPHeaderPanel"]
+                     .Controls["MVPTitlePanel"]
+                     .Controls["MVPSenderLabel"]
+                     .Text = _mail.from;
 
             // Colour
             // Setting the viewport colour button's colour to the mail's colour

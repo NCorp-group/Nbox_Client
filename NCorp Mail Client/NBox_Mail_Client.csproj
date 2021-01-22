@@ -90,9 +90,6 @@
     <Compile Include="Builder.cs" />
     <Compile Include="ServerCommunication.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="EmailFunctions.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="TCPHandler.cs" />
     <Compile Include="Mail.cs" />
     <Compile Include="Form1.cs">
@@ -122,6 +119,12 @@
     <Compile Include="UserControls\MailComposer.Designer.cs">
       <DependentUpon>MailComposer.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FolderButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FolderButton.Designer.cs">
+      <DependentUpon>FolderButton.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +137,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\FolderButton.resx">
+      <DependentUpon>FolderButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MailThumbnail.resx">
       <DependentUpon>MailThumbnail.cs</DependentUpon>
     </EmbeddedResource>

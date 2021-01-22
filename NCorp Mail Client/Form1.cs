@@ -16,20 +16,36 @@ namespace NCorp_Mail_Client
     public partial class EmailClient : Form
     {
         private User currentUser;
-        private List<Mail> Mails = new List<Mail>();
+        //private List<Mail> Mails = new List<Mail>();
+        //private List<string> Folders = new List<string>();
+
         private bool menuExpanded = false;
-        //private TCPHandler TCPconnection = new TCPHandler();
+        public bool foldersExpanded = false;
+
+        private TCPHandler TCPconnection = new TCPHandler();
         public EmailClient()
         {
+            //
+            // Dummy testing code for user
+            // 
+            currentUser = new User("kevork");
+            currentUser.folders.Add("folder1");
+            currentUser.folders.Add("folder2");
+
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            openTimer.Interval = 10;
-            openTimer.Tick += new EventHandler(openTimer_Tick);
-            closeTimer.Interval = 10;
-            closeTimer.Tick += new EventHandler(closeTimer_Tick);
+            openMenuTimer.Interval = 10;
+            openMenuTimer.Tick += new EventHandler(openMenuTimer_Tick);
+            closeMenuTimer.Interval = 10;
+            closeMenuTimer.Tick += new EventHandler(closeMenuTimer_Tick);
+
+            openFoldersTimer.Interval = 10;
+            openFoldersTimer.Tick += new EventHandler(openFoldersTimer_Tick);
+            closeFoldersTimer.Interval = 10;
+            closeFoldersTimer.Tick += new EventHandler(closeFoldersTimer_Tick);
 
             this.MenuBurgerBtn.IconPanel.Click += new System.EventHandler(BurgerBtn_Click);
             this.MenuBurgerBtn.TextPanel.Click += new System.EventHandler(BurgerBtn_Click);
@@ -40,6 +56,13 @@ namespace NCorp_Mail_Client
             this.MenuNewMailBtn.TextPanel.Click += new System.EventHandler(MenuNewMailBtn_Click);
             this.MenuNewMailBtn.ButtonLabel.Click += new System.EventHandler(MenuNewMailBtn_Click);
             this.MenuNewMailBtn.IconLabel.Click += new System.EventHandler(MenuNewMailBtn_Click);
+
+            this.MenuFoldersBtn.IconPanel.Click += new System.EventHandler(MenuFoldersBtn_Click);
+            this.MenuFoldersBtn.TextPanel.Click += new System.EventHandler(MenuFoldersBtn_Click);
+            this.MenuFoldersBtn.ButtonLabel.Click += new System.EventHandler(MenuFoldersBtn_Click);
+            this.MenuFoldersBtn.IconLabel.Click += new System.EventHandler(MenuFoldersBtn_Click);
+
+            this.ShowFolders();
             //this.LoginScreen.BringToFront();
         }
 
@@ -157,7 +180,7 @@ namespace NCorp_Mail_Client
         // Inserts all mails from the Mail list mails into the MailListView
         private void ShowMails()
         {
-            foreach (Mail mail in this.Mails)
+            foreach (Mail mail in this.currentUser.mails)
             {
                 var newThumbnail = new MailThumbnail(mail);
                 newThumbnail.Dock = DockStyle.Top;
@@ -199,7 +222,7 @@ namespace NCorp_Mail_Client
                 this.MailListView.Controls.Clear();
 
                 bool exists = false;
-                foreach (Mail mail in Mails)
+                foreach (Mail mail in currentUser.mails)
                 {
                     if (mail.metadata.mail_GUID == new_mail.metadata.mail_GUID)
                     {
@@ -209,14 +232,14 @@ namespace NCorp_Mail_Client
 
                 if (!exists)
                 {
-                    this.Mails.Add(new_mail);
+                    this.currentUser.mails.Add(new_mail);
                 }
 
                 NewMails.Add(new_mail);
             }
             
             // Delete emails that are no longer as files
-            foreach (Mail mail in this.Mails)
+            foreach (Mail mail in this.currentUser.mails)
             {
                 bool match = false;
                 foreach (Mail new_mail in NewMails)
@@ -231,7 +254,7 @@ namespace NCorp_Mail_Client
                 // remove it from the internal list
                 if (!match)
                 {
-                    Mails.Remove(mail);
+                    currentUser.mails.Remove(mail);
                 }
             }
 
@@ -258,62 +281,212 @@ namespace NCorp_Mail_Client
         // MENU TRANSITION
         //
 
-        Timer openTimer = new Timer();
-        Timer closeTimer = new Timer();
+        Timer openMenuTimer = new Timer();
+        Timer closeMenuTimer = new Timer();
 
-        void openTimer_Tick(object sender, EventArgs e)
+        void openMenuTimer_Tick(object sender, EventArgs e)
         {
             if (ControlPanel.Width >= 220)
             {
-                openTimer.Stop();
+                openMenuTimer.Stop();
             }
             else
             {
-                this.ControlPanel.Width += 40;
+                this.ControlPanel.Width += 20;
             }
         }
 
-        void closeTimer_Tick(object sender, EventArgs e)
+        void closeMenuTimer_Tick(object sender, EventArgs e)
         {
+            if (closeFoldersTimer.Enabled)
+            {
+                return;
+            }
             if (ControlPanel.Width <= 60)
             {
-                closeTimer.Stop();
+                closeMenuTimer.Stop();
             }
             else
             {
-                this.ControlPanel.Width -= 40;
+                this.ControlPanel.Width -= 20;
             }
         }
 
-        private void BurgerBtn_Click(object sender, EventArgs e)
+        private void ExpandMenu()
         {
-            if (openTimer.Enabled)
+            if (openMenuTimer.Enabled)
             {
-                openTimer.Stop();
+                openMenuTimer.Stop();
             }
-            if (closeTimer.Enabled)
+            if (closeMenuTimer.Enabled)
             {
-                closeTimer.Stop();
+                closeMenuTimer.Stop();
             }
 
             if (menuExpanded)
             {
-                closeTimer.Start();
+                if (foldersExpanded)
+                {
+                    this.ExpandFolders();
+                }
+                closeMenuTimer.Start();
             }
             else
             {
-                openTimer.Start();
+                openMenuTimer.Start();
             }
             menuExpanded = !menuExpanded;
         }
 
+        private void BurgerBtn_Click(object sender, EventArgs e)
+        {
+            this.ExpandMenu();
+        }
+        private void ComposeMail()
+        {
+            // TODO: When the mail composer is hidden it should store the input values in a draft mail and delete the mailcomposer.
+            //       If nothing was typed in the mail composer a draft should not be created.
+            //       
+            //       Fix when clicking the Folder menu button the folders should be revealed instead of collapsing the button itself.
+            MailComposer theMailComposer = (MailComposer)this.Controls["MailComposer"];
+            
+            if (theMailComposer == null)
+            {
+                MailComposer newMail = new MailComposer();
+                newMail.Dock = System.Windows.Forms.DockStyle.Fill;
+                newMail.Location = MVPPanel.Location;
+                newMail.Name = "MailComposer";
+                newMail.FromTextBox.Text = currentUser.username + "@nbox.com";
+                newMail._parentForm = this;
+                this.MVPWrapperPanel.Controls.Add(newMail);
+            }
+            else
+            {
+                theMailComposer.ToTextBox.Clear();
+                theMailComposer.Show();
+            }
+
+            if (MVPPanel.Visible)
+            {
+                MVPPanel.Hide();
+            }
+        }
+        private void ComposeMail_Reply()
+        {
+            MailComposer theMailComposer = (MailComposer)this.Controls["MailComposer"];
+            if (theMailComposer == null)
+            {
+                MailComposer newMail = new MailComposer();
+                newMail.Dock = System.Windows.Forms.DockStyle.Fill;
+                newMail.Location = MVPPanel.Location;
+                newMail.Name = "MailComposer";
+                newMail.FromTextBox.Text = currentUser.username + "@nbox.com";
+                newMail.ToTextBox.Text = this.MVPSenderLabel.Text;
+                newMail._parentForm = this;
+                this.MVPWrapperPanel.Controls.Add(newMail);
+            }
+            else
+            {
+                theMailComposer.ToTextBox.Clear();
+                theMailComposer.Show();
+                theMailComposer.ToTextBox.Text = this.MVPSenderLabel.Text;
+            }
+
+            if (MVPPanel.Visible)
+            {
+                MVPPanel.Hide();
+            }
+        }
+
         private void MenuNewMailBtn_Click(object sender, EventArgs e)
         {
-            if (this.MVPPanel.Visible)
-            {
-                //MVPPanel.Visible = false;
-            }
             this.ComposeMail();
+        }
+
+        private void ReplyBtn_Click(object sender, EventArgs e)
+        {
+            this.ComposeMail_Reply();
+        }
+
+        private void ShowFolders()
+        {
+            foreach (string folder in currentUser.folders)
+            {
+                FolderButton newFolderButton = new FolderButton();
+                newFolderButton.Controls["FolderNameLabel"].Text = folder;
+                newFolderButton.Dock = DockStyle.Top;
+                this.FolderListView.Controls.Add(newFolderButton);
+            }
+        }
+
+        public Timer openFoldersTimer = new Timer();
+        public Timer closeFoldersTimer = new Timer();
+
+        void openFoldersTimer_Tick(object sender, EventArgs e)
+        {
+            if (openMenuTimer.Enabled)
+            {
+                return;
+            }
+            if (FoldersListPanel.Height >= (currentUser.folders.Count * 30) + 95)
+            {
+                openFoldersTimer.Stop();
+            }
+            else if (FoldersListPanel.Height >= (currentUser.folders.Count * 30) + 90)
+            {
+                this.FoldersListPanel.Height += 5;
+            }
+            else
+            {
+                this.FoldersListPanel.Height += 15;
+            }
+        }
+
+        void closeFoldersTimer_Tick(object sender, EventArgs e)
+        {
+            if (FoldersListPanel.Height <= 60)
+            {
+                closeFoldersTimer.Stop();
+            }
+            else if (FoldersListPanel.Height <= 65)
+            {
+                this.FoldersListPanel.Height -= 5;
+            }
+            else
+            {
+                this.FoldersListPanel.Height -= 15;
+            }
+        }
+
+        private void ExpandFolders()
+        {
+            if (openFoldersTimer.Enabled)
+            {
+                openFoldersTimer.Stop();
+            }
+            if (closeFoldersTimer.Enabled)
+            {
+                closeFoldersTimer.Stop();
+            }
+
+            if (foldersExpanded)
+            {
+                closeFoldersTimer.Start();
+            }
+            else
+            {
+                openFoldersTimer.Start();
+            }
+            foldersExpanded = !foldersExpanded;
+        }
+
+        private void MenuFoldersBtn_Click(object sender, EventArgs e)
+        {
+            if (!menuExpanded)
+            {
+                this.ExpandMenu();
+            }
+            this.ExpandFolders();
         }
     }
 }
