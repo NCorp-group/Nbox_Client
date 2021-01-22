@@ -15,7 +15,7 @@ namespace NCorp_Mail_Client
 {
     public partial class EmailClient : Form
     {
-        private Builder Builder = new Builder();
+        private User currentUser;
         private List<Mail> Mails = new List<Mail>();
         private bool menuExpanded = false;
         //private TCPHandler TCPconnection = new TCPHandler();
@@ -40,7 +40,7 @@ namespace NCorp_Mail_Client
             this.MenuNewMailBtn.TextPanel.Click += new System.EventHandler(MenuNewMailBtn_Click);
             this.MenuNewMailBtn.ButtonLabel.Click += new System.EventHandler(MenuNewMailBtn_Click);
             this.MenuNewMailBtn.IconLabel.Click += new System.EventHandler(MenuNewMailBtn_Click);
-            //this.MailScreen.BringToFront();
+            //this.LoginScreen.BringToFront();
         }
 
         // 
@@ -161,7 +161,7 @@ namespace NCorp_Mail_Client
             {
                 var newThumbnail = new MailThumbnail(mail);
                 newThumbnail.Dock = DockStyle.Top;
-                newThumbnail._viewport = this.MVPPanel;
+                newThumbnail._viewportWrapper = this.MVPWrapperPanel;
                 this.MailListView.Controls.Add(newThumbnail);
                 //Panel thumbnail = Builder.Thumbnail(mail);
                 //this.MailListView.Controls.Add(thumbnail);

@@ -14,7 +14,11 @@ namespace NCorp_Mail_Client
         {
             MailComposer newMail = new MailComposer();
             newMail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Controls.Add(newMail);
+            newMail.Location = MVPPanel.Location;
+            newMail.Name = "MailComposer";
+            newMail._parentForm = this;
+            this.MVPWrapperPanel.Controls.Add(newMail);
+            MVPPanel.Hide();
         }
     }
 }

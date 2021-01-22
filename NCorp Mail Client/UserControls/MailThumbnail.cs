@@ -12,7 +12,7 @@ namespace NCorp_Mail_Client.UserControls
 {
     public partial class MailThumbnail : UserControl
     {
-        public Control _viewport { get; set; }
+        public Control _viewportWrapper { get; set; }
         private Mail _mail;
 
         // TODO: Proper binding with a binding class to specify all colours and such
@@ -57,26 +57,34 @@ namespace NCorp_Mail_Client.UserControls
         {
             _mail.metadata.read = true;
             CheckRead();
-            _viewport.Controls["MVPBodyLabel"]
+            Control viewport = _viewportWrapper.Controls["MVPPanel"];
+
+            if (!viewport.Visible)
+            {
+                _viewportWrapper.Controls["MailComposer"].Hide();
+                viewport.Show();
+            }
+
+            viewport.Controls["MVPBodyLabel"]
                      .Text = _mail.body;
-            
+
             // Title
             // Setting the mail subject into the title of the viewport
-            _viewport.Controls["MVPHeaderPanel"]
+            viewport.Controls["MVPHeaderPanel"]
                      .Controls["MVPTitlePanel"]
                      .Controls["MVPTitleLabel"]
                      .Text = _mail.subject;
 
             // Colour
             // Setting the viewport colour button's colour to the mail's colour
-            _viewport.Controls["MVPHeaderPanel"]
+            viewport.Controls["MVPHeaderPanel"]
                      .Controls["MVPActionsPanel"]
                      .Controls["ColourBtn"]
                      .ForeColor = GetColour();
-            
+
             // Body
             // Setting the body from the mail object into the viewport body
-            _viewport.Controls["MVPHeaderPanel"]
+            viewport.Controls["MVPHeaderPanel"]
                      .Controls["MVPActionsPanel"]
                      .Controls["FlagBtn"]
                      .Text = GetFlagIcon();

@@ -42,21 +42,6 @@ namespace NCorp_Mail_Client
             this.LogoBtn = new System.Windows.Forms.Button();
             this.MailPanel = new System.Windows.Forms.Panel();
             this.MailListView = new System.Windows.Forms.Panel();
-            this.MailThumbnailContainer = new System.Windows.Forms.Panel();
-            this.MailThumbnail = new System.Windows.Forms.Panel();
-            this.TextWrapper = new System.Windows.Forms.Panel();
-            this.ThumbnailBody = new System.Windows.Forms.Panel();
-            this.ThumbBodyContainer = new System.Windows.Forms.Panel();
-            this.ThumbBody = new System.Windows.Forms.TextBox();
-            this.ThumbSubject = new System.Windows.Forms.TextBox();
-            this.ThumbSender = new System.Windows.Forms.TextBox();
-            this.ThumbInfoPanel = new System.Windows.Forms.Panel();
-            this.ThumbTime = new System.Windows.Forms.Panel();
-            this.ThumbTimeText = new System.Windows.Forms.TextBox();
-            this.ThumbControls = new System.Windows.Forms.Panel();
-            this.InstantReplyBtn = new System.Windows.Forms.Button();
-            this.ColourMark = new System.Windows.Forms.Panel();
-            this.UnreadMark = new System.Windows.Forms.Panel();
             this.FilterPanel = new System.Windows.Forms.Panel();
             this.FilterBottom = new System.Windows.Forms.Panel();
             this.MarkBtn = new System.Windows.Forms.Button();
@@ -77,7 +62,23 @@ namespace NCorp_Mail_Client
             this.MinBtn = new System.Windows.Forms.Button();
             this.TitleBar = new System.Windows.Forms.Panel();
             this.LoginScreen = new System.Windows.Forms.Panel();
-            this.LoginButton = new System.Windows.Forms.Button();
+            this.LoginTitleBar = new System.Windows.Forms.Panel();
+            this.LoginMinBtn = new System.Windows.Forms.Button();
+            this.LoginMaxBtn = new System.Windows.Forms.Button();
+            this.LoginCloseBtn = new System.Windows.Forms.Button();
+            this.LoginLeftPanel = new System.Windows.Forms.Panel();
+            this.LoginInputPanelWrapper = new System.Windows.Forms.Panel();
+            this.LoginPassPanel = new System.Windows.Forms.Panel();
+            this.LoginPassTexBox = new System.Windows.Forms.TextBox();
+            this.LoginPassUnderline = new System.Windows.Forms.Panel();
+            this.LoginPassLabel = new System.Windows.Forms.Label();
+            this.LoginLeftSpacer = new System.Windows.Forms.Panel();
+            this.LoginMailPanel = new System.Windows.Forms.Panel();
+            this.LoginMailTextBox = new System.Windows.Forms.TextBox();
+            this.LoginMailUnderline = new System.Windows.Forms.Panel();
+            this.LoginMailLabel = new System.Windows.Forms.Label();
+            this.LoginBtn = new System.Windows.Forms.Button();
+            this.LoginLeftTitleBar = new System.Windows.Forms.Panel();
             this.MailScreen = new System.Windows.Forms.Panel();
             this.MVPWrapperPanel = new System.Windows.Forms.Panel();
             this.MVPPanel = new System.Windows.Forms.Panel();
@@ -92,15 +93,6 @@ namespace NCorp_Mail_Client
             this.FlagBtn = new System.Windows.Forms.Button();
             this.ControlPanel.SuspendLayout();
             this.MailPanel.SuspendLayout();
-            this.MailListView.SuspendLayout();
-            this.MailThumbnailContainer.SuspendLayout();
-            this.MailThumbnail.SuspendLayout();
-            this.TextWrapper.SuspendLayout();
-            this.ThumbnailBody.SuspendLayout();
-            this.ThumbBodyContainer.SuspendLayout();
-            this.ThumbInfoPanel.SuspendLayout();
-            this.ThumbTime.SuspendLayout();
-            this.ThumbControls.SuspendLayout();
             this.FilterPanel.SuspendLayout();
             this.FilterBottom.SuspendLayout();
             this.FilterDropdownPanel.SuspendLayout();
@@ -111,6 +103,11 @@ namespace NCorp_Mail_Client
             this.SearchTextPanel.SuspendLayout();
             this.TitleBar.SuspendLayout();
             this.LoginScreen.SuspendLayout();
+            this.LoginTitleBar.SuspendLayout();
+            this.LoginLeftPanel.SuspendLayout();
+            this.LoginInputPanelWrapper.SuspendLayout();
+            this.LoginPassPanel.SuspendLayout();
+            this.LoginMailPanel.SuspendLayout();
             this.MailScreen.SuspendLayout();
             this.MVPWrapperPanel.SuspendLayout();
             this.MVPPanel.SuspendLayout();
@@ -230,184 +227,11 @@ namespace NCorp_Mail_Client
             // 
             this.MailListView.AutoScroll = true;
             this.MailListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
-            this.MailListView.Controls.Add(this.MailThumbnailContainer);
             this.MailListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MailListView.Location = new System.Drawing.Point(0, 105);
             this.MailListView.Name = "MailListView";
             this.MailListView.Size = new System.Drawing.Size(400, 615);
             this.MailListView.TabIndex = 3;
-            // 
-            // MailThumbnailContainer
-            // 
-            this.MailThumbnailContainer.Controls.Add(this.MailThumbnail);
-            this.MailThumbnailContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MailThumbnailContainer.Location = new System.Drawing.Point(0, 0);
-            this.MailThumbnailContainer.Name = "MailThumbnailContainer";
-            this.MailThumbnailContainer.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.MailThumbnailContainer.Size = new System.Drawing.Size(400, 100);
-            this.MailThumbnailContainer.TabIndex = 4;
-            // 
-            // MailThumbnail
-            // 
-            this.MailThumbnail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.MailThumbnail.Controls.Add(this.TextWrapper);
-            this.MailThumbnail.Controls.Add(this.ColourMark);
-            this.MailThumbnail.Controls.Add(this.UnreadMark);
-            this.MailThumbnail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MailThumbnail.Location = new System.Drawing.Point(0, 5);
-            this.MailThumbnail.Name = "MailThumbnail";
-            this.MailThumbnail.Size = new System.Drawing.Size(400, 90);
-            this.MailThumbnail.TabIndex = 0;
-            // 
-            // TextWrapper
-            // 
-            this.TextWrapper.Controls.Add(this.ThumbnailBody);
-            this.TextWrapper.Controls.Add(this.ThumbInfoPanel);
-            this.TextWrapper.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TextWrapper.Location = new System.Drawing.Point(6, 0);
-            this.TextWrapper.Name = "TextWrapper";
-            this.TextWrapper.Padding = new System.Windows.Forms.Padding(24, 0, 30, 0);
-            this.TextWrapper.Size = new System.Drawing.Size(394, 86);
-            this.TextWrapper.TabIndex = 3;
-            // 
-            // ThumbnailBody
-            // 
-            this.ThumbnailBody.Controls.Add(this.ThumbBodyContainer);
-            this.ThumbnailBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ThumbnailBody.Location = new System.Drawing.Point(24, 0);
-            this.ThumbnailBody.Name = "ThumbnailBody";
-            this.ThumbnailBody.Padding = new System.Windows.Forms.Padding(0, 8, 0, 10);
-            this.ThumbnailBody.Size = new System.Drawing.Size(260, 86);
-            this.ThumbnailBody.TabIndex = 1;
-            // 
-            // ThumbBodyContainer
-            // 
-            this.ThumbBodyContainer.Controls.Add(this.ThumbBody);
-            this.ThumbBodyContainer.Controls.Add(this.ThumbSubject);
-            this.ThumbBodyContainer.Controls.Add(this.ThumbSender);
-            this.ThumbBodyContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ThumbBodyContainer.Location = new System.Drawing.Point(0, 8);
-            this.ThumbBodyContainer.Name = "ThumbBodyContainer";
-            this.ThumbBodyContainer.Size = new System.Drawing.Size(260, 68);
-            this.ThumbBodyContainer.TabIndex = 0;
-            // 
-            // ThumbBody
-            // 
-            this.ThumbBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.ThumbBody.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ThumbBody.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ThumbBody.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThumbBody.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(174)))), ((int)(((byte)(179)))));
-            this.ThumbBody.Location = new System.Drawing.Point(0, 44);
-            this.ThumbBody.Name = "ThumbBody";
-            this.ThumbBody.Size = new System.Drawing.Size(260, 22);
-            this.ThumbBody.TabIndex = 2;
-            this.ThumbBody.Text = "Preview of the email\'s body, which";
-            // 
-            // ThumbSubject
-            // 
-            this.ThumbSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.ThumbSubject.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ThumbSubject.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ThumbSubject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThumbSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(229)))), ((int)(((byte)(230)))));
-            this.ThumbSubject.Location = new System.Drawing.Point(0, 22);
-            this.ThumbSubject.Name = "ThumbSubject";
-            this.ThumbSubject.Size = new System.Drawing.Size(260, 22);
-            this.ThumbSubject.TabIndex = 1;
-            this.ThumbSubject.Text = "The subject of the email";
-            // 
-            // ThumbSender
-            // 
-            this.ThumbSender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.ThumbSender.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ThumbSender.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ThumbSender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThumbSender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(229)))), ((int)(((byte)(230)))));
-            this.ThumbSender.Location = new System.Drawing.Point(0, 0);
-            this.ThumbSender.Name = "ThumbSender";
-            this.ThumbSender.ReadOnly = true;
-            this.ThumbSender.Size = new System.Drawing.Size(260, 22);
-            this.ThumbSender.TabIndex = 0;
-            this.ThumbSender.Text = "sender.mail@example.com";
-            // 
-            // ThumbInfoPanel
-            // 
-            this.ThumbInfoPanel.Controls.Add(this.ThumbTime);
-            this.ThumbInfoPanel.Controls.Add(this.ThumbControls);
-            this.ThumbInfoPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ThumbInfoPanel.Location = new System.Drawing.Point(284, 0);
-            this.ThumbInfoPanel.Name = "ThumbInfoPanel";
-            this.ThumbInfoPanel.Padding = new System.Windows.Forms.Padding(0, 8, 0, 10);
-            this.ThumbInfoPanel.Size = new System.Drawing.Size(80, 86);
-            this.ThumbInfoPanel.TabIndex = 0;
-            // 
-            // ThumbTime
-            // 
-            this.ThumbTime.Controls.Add(this.ThumbTimeText);
-            this.ThumbTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ThumbTime.Location = new System.Drawing.Point(0, 38);
-            this.ThumbTime.Name = "ThumbTime";
-            this.ThumbTime.Size = new System.Drawing.Size(80, 38);
-            this.ThumbTime.TabIndex = 1;
-            // 
-            // ThumbTimeText
-            // 
-            this.ThumbTimeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.ThumbTimeText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ThumbTimeText.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ThumbTimeText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThumbTimeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(229)))), ((int)(((byte)(230)))));
-            this.ThumbTimeText.Location = new System.Drawing.Point(0, 0);
-            this.ThumbTimeText.Name = "ThumbTimeText";
-            this.ThumbTimeText.Size = new System.Drawing.Size(80, 22);
-            this.ThumbTimeText.TabIndex = 0;
-            this.ThumbTimeText.Text = "21:39";
-            this.ThumbTimeText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // ThumbControls
-            // 
-            this.ThumbControls.Controls.Add(this.InstantReplyBtn);
-            this.ThumbControls.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ThumbControls.Location = new System.Drawing.Point(0, 8);
-            this.ThumbControls.Name = "ThumbControls";
-            this.ThumbControls.Size = new System.Drawing.Size(80, 30);
-            this.ThumbControls.TabIndex = 0;
-            // 
-            // InstantReplyBtn
-            // 
-            this.InstantReplyBtn.BackColor = System.Drawing.Color.Transparent;
-            this.InstantReplyBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.InstantReplyBtn.FlatAppearance.BorderSize = 0;
-            this.InstantReplyBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
-            this.InstantReplyBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.InstantReplyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InstantReplyBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InstantReplyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
-            this.InstantReplyBtn.Location = new System.Drawing.Point(50, 0);
-            this.InstantReplyBtn.Name = "InstantReplyBtn";
-            this.InstantReplyBtn.Size = new System.Drawing.Size(30, 30);
-            this.InstantReplyBtn.TabIndex = 4;
-            this.InstantReplyBtn.Text = "";
-            this.InstantReplyBtn.UseVisualStyleBackColor = false;
-            // 
-            // ColourMark
-            // 
-            this.ColourMark.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(94)))), ((int)(((byte)(214)))));
-            this.ColourMark.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ColourMark.Location = new System.Drawing.Point(0, 0);
-            this.ColourMark.Name = "ColourMark";
-            this.ColourMark.Size = new System.Drawing.Size(6, 86);
-            this.ColourMark.TabIndex = 2;
-            // 
-            // UnreadMark
-            // 
-            this.UnreadMark.BackColor = System.Drawing.Color.White;
-            this.UnreadMark.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.UnreadMark.Location = new System.Drawing.Point(0, 86);
-            this.UnreadMark.Name = "UnreadMark";
-            this.UnreadMark.Size = new System.Drawing.Size(400, 4);
-            this.UnreadMark.TabIndex = 1;
             // 
             // FilterPanel
             // 
@@ -675,23 +499,225 @@ namespace NCorp_Mail_Client
             // 
             this.LoginScreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LoginScreen.BackgroundImage")));
             this.LoginScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.LoginScreen.Controls.Add(this.LoginButton);
+            this.LoginScreen.Controls.Add(this.LoginTitleBar);
+            this.LoginScreen.Controls.Add(this.LoginLeftPanel);
             this.LoginScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LoginScreen.Location = new System.Drawing.Point(0, 0);
             this.LoginScreen.Name = "LoginScreen";
             this.LoginScreen.Size = new System.Drawing.Size(1280, 720);
             this.LoginScreen.TabIndex = 0;
             // 
-            // LoginButton
+            // LoginTitleBar
             // 
-            this.LoginButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LoginButton.Location = new System.Drawing.Point(0, 697);
-            this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(1280, 23);
-            this.LoginButton.TabIndex = 0;
-            this.LoginButton.Text = "Login";
-            this.LoginButton.UseVisualStyleBackColor = true;
-            this.LoginButton.Click += new System.EventHandler(this.LoginBtn_Click);
+            this.LoginTitleBar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.LoginTitleBar.BackColor = System.Drawing.Color.Transparent;
+            this.LoginTitleBar.Controls.Add(this.LoginMinBtn);
+            this.LoginTitleBar.Controls.Add(this.LoginMaxBtn);
+            this.LoginTitleBar.Controls.Add(this.LoginCloseBtn);
+            this.LoginTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LoginTitleBar.Location = new System.Drawing.Point(460, 0);
+            this.LoginTitleBar.Name = "LoginTitleBar";
+            this.LoginTitleBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.LoginTitleBar.Size = new System.Drawing.Size(820, 32);
+            this.LoginTitleBar.TabIndex = 12;
+            this.LoginTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleBar_MouseDown);
+            // 
+            // LoginMinBtn
+            // 
+            this.LoginMinBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LoginMinBtn.FlatAppearance.BorderSize = 0;
+            this.LoginMinBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.LoginMinBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.LoginMinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginMinBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginMinBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
+            this.LoginMinBtn.Location = new System.Drawing.Point(682, 0);
+            this.LoginMinBtn.Name = "LoginMinBtn";
+            this.LoginMinBtn.Size = new System.Drawing.Size(46, 32);
+            this.LoginMinBtn.TabIndex = 2;
+            this.LoginMinBtn.Text = "";
+            this.LoginMinBtn.UseVisualStyleBackColor = false;
+            this.LoginMinBtn.Click += new System.EventHandler(this.MinBtn_Click);
+            // 
+            // LoginMaxBtn
+            // 
+            this.LoginMaxBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LoginMaxBtn.FlatAppearance.BorderSize = 0;
+            this.LoginMaxBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.LoginMaxBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.LoginMaxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginMaxBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginMaxBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
+            this.LoginMaxBtn.Location = new System.Drawing.Point(728, 0);
+            this.LoginMaxBtn.Name = "LoginMaxBtn";
+            this.LoginMaxBtn.Size = new System.Drawing.Size(46, 32);
+            this.LoginMaxBtn.TabIndex = 1;
+            this.LoginMaxBtn.Text = "";
+            this.LoginMaxBtn.UseVisualStyleBackColor = false;
+            this.LoginMaxBtn.Click += new System.EventHandler(this.MaxBtn_Click);
+            // 
+            // LoginCloseBtn
+            // 
+            this.LoginCloseBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LoginCloseBtn.FlatAppearance.BorderSize = 0;
+            this.LoginCloseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.LoginCloseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.LoginCloseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginCloseBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginCloseBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
+            this.LoginCloseBtn.Location = new System.Drawing.Point(774, 0);
+            this.LoginCloseBtn.Name = "LoginCloseBtn";
+            this.LoginCloseBtn.Size = new System.Drawing.Size(46, 32);
+            this.LoginCloseBtn.TabIndex = 0;
+            this.LoginCloseBtn.Text = "";
+            this.LoginCloseBtn.UseVisualStyleBackColor = false;
+            this.LoginCloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // LoginLeftPanel
+            // 
+            this.LoginLeftPanel.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_00dp;
+            this.LoginLeftPanel.Controls.Add(this.LoginInputPanelWrapper);
+            this.LoginLeftPanel.Controls.Add(this.LoginLeftTitleBar);
+            this.LoginLeftPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LoginLeftPanel.Location = new System.Drawing.Point(0, 0);
+            this.LoginLeftPanel.Name = "LoginLeftPanel";
+            this.LoginLeftPanel.Size = new System.Drawing.Size(460, 720);
+            this.LoginLeftPanel.TabIndex = 11;
+            // 
+            // LoginInputPanelWrapper
+            // 
+            this.LoginInputPanelWrapper.Controls.Add(this.LoginPassPanel);
+            this.LoginInputPanelWrapper.Controls.Add(this.LoginPassLabel);
+            this.LoginInputPanelWrapper.Controls.Add(this.LoginLeftSpacer);
+            this.LoginInputPanelWrapper.Controls.Add(this.LoginMailPanel);
+            this.LoginInputPanelWrapper.Controls.Add(this.LoginMailLabel);
+            this.LoginInputPanelWrapper.Controls.Add(this.LoginBtn);
+            this.LoginInputPanelWrapper.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoginInputPanelWrapper.Location = new System.Drawing.Point(0, 32);
+            this.LoginInputPanelWrapper.Name = "LoginInputPanelWrapper";
+            this.LoginInputPanelWrapper.Padding = new System.Windows.Forms.Padding(20);
+            this.LoginInputPanelWrapper.Size = new System.Drawing.Size(460, 688);
+            this.LoginInputPanelWrapper.TabIndex = 7;
+            // 
+            // LoginPassPanel
+            // 
+            this.LoginPassPanel.Controls.Add(this.LoginPassTexBox);
+            this.LoginPassPanel.Controls.Add(this.LoginPassUnderline);
+            this.LoginPassPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LoginPassPanel.Location = new System.Drawing.Point(20, 138);
+            this.LoginPassPanel.Name = "LoginPassPanel";
+            this.LoginPassPanel.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.LoginPassPanel.Size = new System.Drawing.Size(420, 32);
+            this.LoginPassPanel.TabIndex = 16;
+            // 
+            // LoginPassTexBox
+            // 
+            this.LoginPassTexBox.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_00dp;
+            this.LoginPassTexBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LoginPassTexBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoginPassTexBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginPassTexBox.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_00dp;
+            this.LoginPassTexBox.Location = new System.Drawing.Point(4, 0);
+            this.LoginPassTexBox.Name = "LoginPassTexBox";
+            this.LoginPassTexBox.Size = new System.Drawing.Size(416, 22);
+            this.LoginPassTexBox.TabIndex = 7;
+            // 
+            // LoginPassUnderline
+            // 
+            this.LoginPassUnderline.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_02dp;
+            this.LoginPassUnderline.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LoginPassUnderline.Location = new System.Drawing.Point(4, 28);
+            this.LoginPassUnderline.Name = "LoginPassUnderline";
+            this.LoginPassUnderline.Size = new System.Drawing.Size(416, 4);
+            this.LoginPassUnderline.TabIndex = 5;
+            // 
+            // LoginPassLabel
+            // 
+            this.LoginPassLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LoginPassLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginPassLabel.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_00dp;
+            this.LoginPassLabel.Location = new System.Drawing.Point(20, 110);
+            this.LoginPassLabel.Name = "LoginPassLabel";
+            this.LoginPassLabel.Size = new System.Drawing.Size(420, 28);
+            this.LoginPassLabel.TabIndex = 15;
+            this.LoginPassLabel.Text = "Password";
+            // 
+            // LoginLeftSpacer
+            // 
+            this.LoginLeftSpacer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LoginLeftSpacer.Location = new System.Drawing.Point(20, 80);
+            this.LoginLeftSpacer.Name = "LoginLeftSpacer";
+            this.LoginLeftSpacer.Size = new System.Drawing.Size(420, 30);
+            this.LoginLeftSpacer.TabIndex = 13;
+            // 
+            // LoginMailPanel
+            // 
+            this.LoginMailPanel.Controls.Add(this.LoginMailTextBox);
+            this.LoginMailPanel.Controls.Add(this.LoginMailUnderline);
+            this.LoginMailPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LoginMailPanel.Location = new System.Drawing.Point(20, 48);
+            this.LoginMailPanel.Name = "LoginMailPanel";
+            this.LoginMailPanel.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.LoginMailPanel.Size = new System.Drawing.Size(420, 32);
+            this.LoginMailPanel.TabIndex = 12;
+            // 
+            // LoginMailTextBox
+            // 
+            this.LoginMailTextBox.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_00dp;
+            this.LoginMailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LoginMailTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoginMailTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginMailTextBox.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_00dp;
+            this.LoginMailTextBox.Location = new System.Drawing.Point(4, 0);
+            this.LoginMailTextBox.Name = "LoginMailTextBox";
+            this.LoginMailTextBox.Size = new System.Drawing.Size(416, 22);
+            this.LoginMailTextBox.TabIndex = 7;
+            // 
+            // LoginMailUnderline
+            // 
+            this.LoginMailUnderline.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_02dp;
+            this.LoginMailUnderline.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LoginMailUnderline.Location = new System.Drawing.Point(4, 28);
+            this.LoginMailUnderline.Name = "LoginMailUnderline";
+            this.LoginMailUnderline.Size = new System.Drawing.Size(416, 4);
+            this.LoginMailUnderline.TabIndex = 5;
+            // 
+            // LoginMailLabel
+            // 
+            this.LoginMailLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LoginMailLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginMailLabel.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_00dp;
+            this.LoginMailLabel.Location = new System.Drawing.Point(20, 20);
+            this.LoginMailLabel.Name = "LoginMailLabel";
+            this.LoginMailLabel.Size = new System.Drawing.Size(420, 28);
+            this.LoginMailLabel.TabIndex = 11;
+            this.LoginMailLabel.Text = "Mail Address";
+            // 
+            // LoginBtn
+            // 
+            this.LoginBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LoginBtn.FlatAppearance.BorderSize = 0;
+            this.LoginBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.LoginBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginBtn.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_00dp;
+            this.LoginBtn.Location = new System.Drawing.Point(20, 638);
+            this.LoginBtn.Name = "LoginBtn";
+            this.LoginBtn.Size = new System.Drawing.Size(420, 30);
+            this.LoginBtn.TabIndex = 2;
+            this.LoginBtn.Text = "Login";
+            this.LoginBtn.UseVisualStyleBackColor = true;
+            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
+            // 
+            // LoginLeftTitleBar
+            // 
+            this.LoginLeftTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LoginLeftTitleBar.Location = new System.Drawing.Point(0, 0);
+            this.LoginLeftTitleBar.Name = "LoginLeftTitleBar";
+            this.LoginLeftTitleBar.Size = new System.Drawing.Size(460, 32);
+            this.LoginLeftTitleBar.TabIndex = 0;
+            this.LoginLeftTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleBar_MouseDown);
             // 
             // MailScreen
             // 
@@ -725,7 +751,7 @@ namespace NCorp_Mail_Client
             this.MVPPanel.Name = "MVPPanel";
             this.MVPPanel.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
             this.MVPPanel.Size = new System.Drawing.Size(820, 688);
-            this.MVPPanel.TabIndex = 11;
+            this.MVPPanel.TabIndex = 13;
             // 
             // MVPBodyLabel
             // 
@@ -859,8 +885,8 @@ namespace NCorp_Mail_Client
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.ControlBox = false;
-            this.Controls.Add(this.MailScreen);
             this.Controls.Add(this.LoginScreen);
+            this.Controls.Add(this.MailScreen);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmailClient";
@@ -868,17 +894,6 @@ namespace NCorp_Mail_Client
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ControlPanel.ResumeLayout(false);
             this.MailPanel.ResumeLayout(false);
-            this.MailListView.ResumeLayout(false);
-            this.MailThumbnailContainer.ResumeLayout(false);
-            this.MailThumbnail.ResumeLayout(false);
-            this.TextWrapper.ResumeLayout(false);
-            this.ThumbnailBody.ResumeLayout(false);
-            this.ThumbBodyContainer.ResumeLayout(false);
-            this.ThumbBodyContainer.PerformLayout();
-            this.ThumbInfoPanel.ResumeLayout(false);
-            this.ThumbTime.ResumeLayout(false);
-            this.ThumbTime.PerformLayout();
-            this.ThumbControls.ResumeLayout(false);
             this.FilterPanel.ResumeLayout(false);
             this.FilterBottom.ResumeLayout(false);
             this.FilterBottom.PerformLayout();
@@ -894,6 +909,13 @@ namespace NCorp_Mail_Client
             this.SearchTextPanel.PerformLayout();
             this.TitleBar.ResumeLayout(false);
             this.LoginScreen.ResumeLayout(false);
+            this.LoginTitleBar.ResumeLayout(false);
+            this.LoginLeftPanel.ResumeLayout(false);
+            this.LoginInputPanelWrapper.ResumeLayout(false);
+            this.LoginPassPanel.ResumeLayout(false);
+            this.LoginPassPanel.PerformLayout();
+            this.LoginMailPanel.ResumeLayout(false);
+            this.LoginMailPanel.PerformLayout();
             this.MailScreen.ResumeLayout(false);
             this.MVPWrapperPanel.ResumeLayout(false);
             this.MVPPanel.ResumeLayout(false);
@@ -922,29 +944,12 @@ namespace NCorp_Mail_Client
         private System.Windows.Forms.Button MarkBtn;
         private System.Windows.Forms.Panel SearchTextPanel;
         private System.Windows.Forms.TextBox SearchText;
-        private Panel MailThumbnailContainer;
-        private Panel MailThumbnail;
-        private Panel TextWrapper;
-        private Panel ThumbnailBody;
-        private Panel ThumbBodyContainer;
-        private TextBox ThumbBody;
-        private TextBox ThumbSubject;
-        private TextBox ThumbSender;
-        private Panel ThumbInfoPanel;
-        private Panel ThumbTime;
-        private TextBox ThumbTimeText;
-        private Panel ThumbControls;
-        private Button InstantReplyBtn;
-        private Panel ColourMark;
-        private Panel UnreadMark;
-        private Panel MailListView;
         private Button CloseBtn;
         private Button MaxBtn;
         private Button MinBtn;
         private Panel TitleBar;
         private Panel LoginScreen;
         private Panel MailScreen;
-        private Button LoginButton;
         private UserControls.MenuButton MenuFoldersBtn;
         private UserControls.MenuButton MenuAccountsBtn;
         private UserControls.MenuButton MenuNewMailBtn;
@@ -962,5 +967,23 @@ namespace NCorp_Mail_Client
         private Button ReplyBtn;
         private Button ForwardBtn;
         private Button FlagBtn;
+        private Panel LoginTitleBar;
+        private Button LoginMinBtn;
+        private Button LoginMaxBtn;
+        private Button LoginCloseBtn;
+        private Panel LoginLeftPanel;
+        private Panel LoginLeftTitleBar;
+        private Panel MailListView;
+        private Panel LoginInputPanelWrapper;
+        public Panel LoginMailPanel;
+        public TextBox LoginMailTextBox;
+        public Panel LoginMailUnderline;
+        private Label LoginMailLabel;
+        private Button LoginBtn;
+        public Panel LoginPassPanel;
+        public TextBox LoginPassTexBox;
+        public Panel LoginPassUnderline;
+        private Label LoginPassLabel;
+        private Panel LoginLeftSpacer;
     }
 }

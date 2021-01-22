@@ -16,5 +16,13 @@ namespace NCorp_Mail_Client
         }
         public Metadata metadata;
         public List<Mail> mails = new List<Mail>();
+
+        public void NewUser(string address)
+        {
+            metadata = new Metadata();
+            this.metadata.user_GUID = Guid.NewGuid();
+            this.metadata.mail_address = address;
+        }
+        public User() { }
     }
 }
