@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builder.cs" />
+    <Compile Include="serverCommunication.cs" />
     <Compile Include="TCPHandler.cs" />
     <Compile Include="Mail.cs" />
     <Compile Include="Form1.cs">

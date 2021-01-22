@@ -18,7 +18,7 @@ namespace NCorp_Mail_Client
         private Builder Builder = new Builder();
         private List<Mail> Mails = new List<Mail>();
         private bool menuExpanded = true;
-        //private TCPHandler TCPconnection = new TCPHandler();
+        private TCPHandler TCPconnection = new TCPHandler();
         public EmailClient()
         {
             InitializeComponent();
