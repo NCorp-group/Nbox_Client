@@ -27,14 +27,19 @@ namespace NCorp_Mail_Client
         private void Form1_Load(object sender, EventArgs e)
         {
             openTimer.Interval = 10;
-            openTimer.Tick += new EventHandler(enterTimer_Tick);
+            openTimer.Tick += new EventHandler(openTimer_Tick);
             closeTimer.Interval = 10;
-            closeTimer.Tick += new EventHandler(leaveTimer_Tick);
+            closeTimer.Tick += new EventHandler(closeTimer_Tick);
 
             this.MenuBurgerBtn.IconPanel.Click += new System.EventHandler(BurgerBtn_Click);
             this.MenuBurgerBtn.TextPanel.Click += new System.EventHandler(BurgerBtn_Click);
             this.MenuBurgerBtn.ButtonLabel.Click += new System.EventHandler(BurgerBtn_Click);
             this.MenuBurgerBtn.IconLabel.Click += new System.EventHandler(BurgerBtn_Click);
+
+            this.MenuNewMailBtn.IconPanel.Click += new System.EventHandler(MenuNewMailBtn_Click);
+            this.MenuNewMailBtn.TextPanel.Click += new System.EventHandler(MenuNewMailBtn_Click);
+            this.MenuNewMailBtn.ButtonLabel.Click += new System.EventHandler(MenuNewMailBtn_Click);
+            this.MenuNewMailBtn.IconLabel.Click += new System.EventHandler(MenuNewMailBtn_Click);
             //this.MailScreen.BringToFront();
         }
 
@@ -256,40 +261,41 @@ namespace NCorp_Mail_Client
         Timer openTimer = new Timer();
         Timer closeTimer = new Timer();
 
-        void enterTimer_Tick(object sender, EventArgs e)
+        void openTimer_Tick(object sender, EventArgs e)
         {
-            if (!menuExpanded)
+            if (ControlPanel.Width >= 220)
             {
-                if (ControlPanel.Width >= 200)
-                {
-                    openTimer.Stop();
-                    menuExpanded = !menuExpanded;
-                }
-                else
-                {
-                    this.ControlPanel.Width += 60;
-                }
+                openTimer.Stop();
+            }
+            else
+            {
+                this.ControlPanel.Width += 40;
             }
         }
 
-        void leaveTimer_Tick(object sender, EventArgs e)
+        void closeTimer_Tick(object sender, EventArgs e)
         {
-            if (menuExpanded)
+            if (ControlPanel.Width <= 60)
             {
-                if (ControlPanel.Width <= 60)
-                {
-                    closeTimer.Stop();
-                    menuExpanded = !menuExpanded;
-                }
-                else
-                {
-                    this.ControlPanel.Width -= 60;
-                }
+                closeTimer.Stop();
+            }
+            else
+            {
+                this.ControlPanel.Width -= 40;
             }
         }
 
         private void BurgerBtn_Click(object sender, EventArgs e)
         {
+            if (openTimer.Enabled)
+            {
+                openTimer.Stop();
+            }
+            if (closeTimer.Enabled)
+            {
+                closeTimer.Stop();
+            }
+
             if (menuExpanded)
             {
                 closeTimer.Start();
@@ -298,6 +304,16 @@ namespace NCorp_Mail_Client
             {
                 openTimer.Start();
             }
+            menuExpanded = !menuExpanded;
+        }
+
+        private void MenuNewMailBtn_Click(object sender, EventArgs e)
+        {
+            if (this.MVPPanel.Visible)
+            {
+                //MVPPanel.Visible = false;
+            }
+            this.ComposeMail();
         }
     }
 }

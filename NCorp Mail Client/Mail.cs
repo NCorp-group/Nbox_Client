@@ -6,33 +6,32 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace NCorp_Mail_Client
-{
-    public class Metadata
+{    public class Mail
     {
-        public Guid mail_GUID { get; set; }
-        public Guid user_GUID { get; set; }
-
-        public bool read { get; set; }
-        public bool seen { get; set; }
-        public bool draft { get; set; }
-        public bool deleted { get; set; }
-
-        public string folder { get; set; }
-        public string colour { get; set; }
-
-        public Metadata(string folder, string colour)
+        public class Metadata
         {
-            mail_GUID = Guid.NewGuid();
-            this.read = false;
-            this.seen = true;
-            this.draft = false;
-            this.deleted = false;
-            this.folder = folder;
-            this.colour = colour;
+            public Guid mail_GUID { get; set; }
+            public Guid user_GUID { get; set; }
+
+            public bool read { get; set; }
+            public bool seen { get; set; }
+            public bool draft { get; set; }
+            public bool deleted { get; set; }
+
+            public string folder { get; set; }
+            public string colour { get; set; }
+
+            public Metadata(string folder, string colour)
+            {
+                mail_GUID = Guid.NewGuid();
+                this.read = false;
+                this.seen = true;
+                this.draft = false;
+                this.deleted = false;
+                this.folder = folder;
+                this.colour = colour;
+            }
         }
-    }
-    public class Mail
-    {
         public Metadata metadata;
 
         public string from { get; set; }
