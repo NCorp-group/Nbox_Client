@@ -79,6 +79,7 @@ namespace NCorp_Mail_Client
             this.LoginScreen = new System.Windows.Forms.Panel();
             this.LoginButton = new System.Windows.Forms.Button();
             this.MailScreen = new System.Windows.Forms.Panel();
+            this.MVPWrapperPanel = new System.Windows.Forms.Panel();
             this.MVPPanel = new System.Windows.Forms.Panel();
             this.MVPBodyLabel = new System.Windows.Forms.Label();
             this.MVPHeaderPanel = new System.Windows.Forms.Panel();
@@ -111,6 +112,7 @@ namespace NCorp_Mail_Client
             this.TitleBar.SuspendLayout();
             this.LoginScreen.SuspendLayout();
             this.MailScreen.SuspendLayout();
+            this.MVPWrapperPanel.SuspendLayout();
             this.MVPPanel.SuspendLayout();
             this.MVPHeaderPanel.SuspendLayout();
             this.MVPTitlePanel.SuspendLayout();
@@ -179,6 +181,7 @@ namespace NCorp_Mail_Client
             this.MenuNewMailBtn.Size = new System.Drawing.Size(60, 60);
             this.MenuNewMailBtn.TabIndex = 29;
             this.MenuNewMailBtn.text = "New Mail";
+            this.MenuNewMailBtn.Load += new System.EventHandler(this.MenuNewMailBtn_Click);
             // 
             // MenuBurgerBtn
             // 
@@ -210,6 +213,7 @@ namespace NCorp_Mail_Client
             this.LogoBtn.Size = new System.Drawing.Size(60, 60);
             this.LogoBtn.TabIndex = 22;
             this.LogoBtn.UseVisualStyleBackColor = false;
+            this.LogoBtn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleBar_MouseDown);
             // 
             // MailPanel
             // 
@@ -693,7 +697,7 @@ namespace NCorp_Mail_Client
             // 
             this.MailScreen.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_00dp;
             this.MailScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MailScreen.Controls.Add(this.MVPPanel);
+            this.MailScreen.Controls.Add(this.MVPWrapperPanel);
             this.MailScreen.Controls.Add(this.TitleBar);
             this.MailScreen.Controls.Add(this.MailPanel);
             this.MailScreen.Controls.Add(this.ControlPanel);
@@ -703,16 +707,25 @@ namespace NCorp_Mail_Client
             this.MailScreen.Size = new System.Drawing.Size(1280, 720);
             this.MailScreen.TabIndex = 0;
             // 
+            // MVPWrapperPanel
+            // 
+            this.MVPWrapperPanel.Controls.Add(this.MVPPanel);
+            this.MVPWrapperPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MVPWrapperPanel.Location = new System.Drawing.Point(460, 32);
+            this.MVPWrapperPanel.Name = "MVPWrapperPanel";
+            this.MVPWrapperPanel.Size = new System.Drawing.Size(820, 688);
+            this.MVPWrapperPanel.TabIndex = 9;
+            // 
             // MVPPanel
             // 
             this.MVPPanel.Controls.Add(this.MVPBodyLabel);
             this.MVPPanel.Controls.Add(this.MVPHeaderPanel);
             this.MVPPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MVPPanel.Location = new System.Drawing.Point(460, 32);
+            this.MVPPanel.Location = new System.Drawing.Point(0, 0);
             this.MVPPanel.Name = "MVPPanel";
             this.MVPPanel.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
             this.MVPPanel.Size = new System.Drawing.Size(820, 688);
-            this.MVPPanel.TabIndex = 10;
+            this.MVPPanel.TabIndex = 11;
             // 
             // MVPBodyLabel
             // 
@@ -882,6 +895,7 @@ namespace NCorp_Mail_Client
             this.TitleBar.ResumeLayout(false);
             this.LoginScreen.ResumeLayout(false);
             this.MailScreen.ResumeLayout(false);
+            this.MVPWrapperPanel.ResumeLayout(false);
             this.MVPPanel.ResumeLayout(false);
             this.MVPHeaderPanel.ResumeLayout(false);
             this.MVPTitlePanel.ResumeLayout(false);
@@ -931,21 +945,22 @@ namespace NCorp_Mail_Client
         private Panel LoginScreen;
         private Panel MailScreen;
         private Button LoginButton;
+        private UserControls.MenuButton MenuFoldersBtn;
+        private UserControls.MenuButton MenuAccountsBtn;
+        private UserControls.MenuButton MenuNewMailBtn;
+        private UserControls.MenuButton MenuBurgerBtn;
+        private UserControls.MenuButton MenuSettingsBtn;
+        private Button LogoBtn;
+        private Panel MVPWrapperPanel;
         private Panel MVPPanel;
         private Label MVPBodyLabel;
         private Panel MVPHeaderPanel;
         private Panel MVPTitlePanel;
         private Label MVPTitleLabel;
         private Panel MVPActionsPanel;
+        private Button ColourBtn;
         private Button ReplyBtn;
         private Button ForwardBtn;
         private Button FlagBtn;
-        private Button ColourBtn;
-        private UserControls.MenuButton MenuFoldersBtn;
-        private UserControls.MenuButton MenuAccountsBtn;
-        private UserControls.MenuButton MenuNewMailBtn;
-        private UserControls.MenuButton MenuBurgerBtn;
-        private Button LogoBtn;
-        private UserControls.MenuButton MenuSettingsBtn;
     }
 }

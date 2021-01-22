@@ -88,6 +88,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builder.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="EmailFunctions.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TCPHandler.cs" />
     <Compile Include="Mail.cs" />
     <Compile Include="Form1.cs">
@@ -111,6 +115,12 @@
     <Compile Include="UserControls\MenuButton.Designer.cs">
       <DependentUpon>MenuButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MailComposer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MailComposer.Designer.cs">
+      <DependentUpon>MailComposer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MenuButton.resx">
       <DependentUpon>MenuButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MailComposer.resx">
+      <DependentUpon>MailComposer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Mail.datasource" />
