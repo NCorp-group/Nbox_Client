@@ -718,7 +718,7 @@ namespace NCorp_Mail_Client
             this.LoginMailLabel.Name = "LoginMailLabel";
             this.LoginMailLabel.Size = new System.Drawing.Size(420, 28);
             this.LoginMailLabel.TabIndex = 11;
-            this.LoginMailLabel.Text = "Mail Address";
+            this.LoginMailLabel.Text = "Username";
             // 
             // LoginBtn
             // 
