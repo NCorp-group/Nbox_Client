@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Drawing;
 
 namespace NCorp_Mail_Client
 {    public class Mail
@@ -98,19 +99,34 @@ namespace NCorp_Mail_Client
             string out_string = JsonConvert.SerializeObject(this, Formatting.Indented);
             return out_string;
         }
-        public void Read()
-        {
-            this.metadata.read = true;
-        }
 
-        public void MoveToFolder(string to_folder)
+        public Color GetColour()
         {
-            this.metadata.folder = to_folder;
+            switch (this.metadata.colour)
+            {
+                case "blue":
+                    return Properties.Settings.Default.cm_blue;
+                case "cyan":
+                    return Properties.Settings.Default.cm_cyan;
+                case "green":
+                    return Properties.Settings.Default.cm_green;
+                case "yellow":
+                    return Properties.Settings.Default.cm_yellow;
+                case "orange":
+                    return Properties.Settings.Default.cm_orange;
+                case "red":
+                    return Properties.Settings.Default.cm_red;
+                case "magenta":
+                    return Properties.Settings.Default.cm_magenta;
+                case "purple":
+                    return Properties.Settings.Default.cm_purple;
+                default:
+                    return this.metadata.read == false ? Properties.Settings.Default.bgd_24dp : Properties.Settings.Default.bgd_08dp;
+            }
         }
-
-        public void MarkColour(string colour)
+        public string GetFlagIcon()
         {
-            this.metadata.colour = colour;
+            return this.metadata.folder == "Spam" ? Properties.Settings.Default.icon_flagged : Properties.Settings.Default.icon_unflagged;
         }
     }
 }

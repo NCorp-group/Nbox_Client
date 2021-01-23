@@ -46,9 +46,11 @@
             this.FolderNameLabel.TabIndex = 1;
             this.FolderNameLabel.Text = "Folder";
             this.FolderNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FolderNameLabel.Click += new System.EventHandler(FolderButton_Click);
             // 
             // FolderButton
             // 
+            this.Click += new System.EventHandler(FolderButton_Click);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
             this.MouseEnter += new System.EventHandler(this.Panel_MouseIn);
             this.MouseLeave += new System.EventHandler(this.Panel_MouseOut);
@@ -57,7 +59,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.FolderNameLabel);
             this.Name = "FolderButton";
-            this.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
+            this.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
             this.Size = new System.Drawing.Size(220, 30);
             this.ResumeLayout(false);
 
