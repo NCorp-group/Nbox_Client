@@ -15,6 +15,10 @@ namespace NCorp_Mail_Client
         public User(string username)
         {
             this.username = username;
+            this.folders.Add("Spam");
+            this.folders.Add("Drafts");
+            this.folders.Add("Outbox");
+            this.folders.Add("Inbox");
         }
     }
 }

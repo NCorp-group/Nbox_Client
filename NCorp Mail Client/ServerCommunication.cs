@@ -42,7 +42,7 @@ namespace NCorp_Mail_Client
         /// have not been fetched before.
         /// </summary>
         /// <param name="deep"> </param>
-        public void fetchEmails(bool deep = false)
+        public void FetchMails(bool deep = false)
         {
             var opts = new List<String>();
             if (deep) opts.Add("deep");

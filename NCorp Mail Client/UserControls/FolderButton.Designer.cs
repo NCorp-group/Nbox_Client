@@ -57,7 +57,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.FolderNameLabel);
             this.Name = "FolderButton";
-            this.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
             this.Size = new System.Drawing.Size(220, 30);
             this.ResumeLayout(false);
 

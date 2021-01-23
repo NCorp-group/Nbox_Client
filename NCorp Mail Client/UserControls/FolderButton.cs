@@ -12,6 +12,12 @@ namespace NCorp_Mail_Client.UserControls
 {
     public partial class FolderButton : UserControl
     {
+        public string labelText
+        {
+            get { return this.FolderNameLabel.Text; }
+            set { this.FolderNameLabel.Text = value; }
+        }
+
         public FolderButton()
         {
             InitializeComponent();

@@ -12,6 +12,7 @@ namespace NCorp_Mail_Client.UserControls
 {
     public partial class MailThumbnail : UserControl
     {
+        public Mail _currentMail { get; set; }
         public Control _viewportWrapper { get; set; }
         private Mail _mail;
 
@@ -57,43 +58,21 @@ namespace NCorp_Mail_Client.UserControls
         {
             _mail.metadata.read = true;
             CheckRead();
-            Control viewport = _viewportWrapper.Controls["MVPPanel"];
+            Guid tmpGuid = _currentMail.metadata.mail_GUID;
+            _currentMail = this._mail;
+            _viewportWrapper.Controls.Clear();
 
-            if (!viewport.Visible)
+            MailViewport newViewport = new MailViewport
             {
-                _viewportWrapper.Controls["MailComposer"].Hide();
-                viewport.Show();
-            }
-
-            viewport.Controls["MVPBodyLabel"]
-                     .Text = _mail.body;
-
-            // Title
-            // Setting the mail subject into the title of the viewport
-            viewport.Controls["MVPHeaderPanel"]
-                     .Controls["MVPTitlePanel"]
-                     .Controls["MVPTitleLabel"]
-                     .Text = _mail.subject;
-            // Sender
-            // Setting the mail subject into the title of the viewport
-            viewport.Controls["MVPHeaderPanel"]
-                     .Controls["MVPTitlePanel"]
-                     .Controls["MVPSenderLabel"]
-                     .Text = _mail.from;
-
-            // Colour
-            // Setting the viewport colour button's colour to the mail's colour
-            viewport.Controls["MVPHeaderPanel"]
-                     .Controls["MVPActionsPanel"]
-                     .Controls["ColourBtn"]
-                     .ForeColor = GetColour();
-
-            // Body
-            // Setting the body from the mail object into the viewport body
-            viewport.Controls["MVPHeaderPanel"]
-                     .Controls["MVPActionsPanel"]
-                     .Controls["FlagBtn"]
-                     .Text = GetFlagIcon();
+                Dock = DockStyle.Fill,
+                Name = "MailViewport"
+            };
+            newViewport.viewportWrapper = _viewportWrapper;
+            newViewport.TitleLabel.Text = _currentMail.subject;
+            newViewport.SenderLabel.Text = _currentMail.from;
+            newViewport.ColourBtn.ForeColor = GetColour();
+            newViewport.FlagBtn.Text = GetFlagIcon();
+            _viewportWrapper.Controls.Add(newViewport);
         }
 
         private void CheckColour()

@@ -21,12 +21,12 @@ namespace NCorp_Mail_Client
             public string folder { get; set; }
             public string colour { get; set; }
 
-            public Metadata(string folder, string colour)
+            public Metadata(string folder, string colour, bool draft)
             {
                 mail_GUID = Guid.NewGuid();
                 this.read = false;
                 this.seen = true;
-                this.draft = false;
+                this.draft = draft;
                 this.deleted = false;
                 this.folder = folder;
                 this.colour = colour;
@@ -43,14 +43,14 @@ namespace NCorp_Mail_Client
 
         public Mail(string in_mail_string)
         {
-            this.metadata = new Metadata("Inbox", "none");
+            this.metadata = new Metadata("Inbox", "none", false);
             this.from_json(in_mail_string);
         }
 
-        public Mail(string folder, string colour)
+        public Mail(string folder, string colour, bool draft)
         {
             this.timestamp = DateTime.Now;
-            this.metadata = new Metadata(folder, colour);
+            this.metadata = new Metadata(folder, colour, draft);
         }
 
         public Mail()
