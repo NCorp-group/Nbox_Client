@@ -146,7 +146,7 @@ namespace NCorp_Mail_Client
             // The timestamp text settings
             info_time_panel.Controls.Add(timestamp_label);
             timestamp_label.Dock = DockStyle.Top;
-            timestamp_label.Text = new_mail.timestamp.ToShortTimeString();
+            timestamp_label.Text = new_mail.metadata.timestamp.ToShortTimeString();
             timestamp_label.Font = Properties.Settings.Default.std_font;
             timestamp_label.ForeColor = Properties.Settings.Default.tds_24dp;
 

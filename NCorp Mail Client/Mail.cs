@@ -12,15 +12,13 @@ namespace NCorp_Mail_Client
         {
             public Guid mail_GUID { get; set; }
             public Guid user_GUID { get; set; }
-
             public bool read { get; set; }
             public bool seen { get; set; }
             public bool draft { get; set; }
             public bool deleted { get; set; }
-
             public string folder { get; set; }
             public string colour { get; set; }
-
+            public DateTime timestamp { get; set; }
             public Metadata(string folder, string colour, bool draft)
             {
                 mail_GUID = Guid.NewGuid();
@@ -30,6 +28,8 @@ namespace NCorp_Mail_Client
                 this.deleted = false;
                 this.folder = folder;
                 this.colour = colour;
+                this.timestamp = DateTime.Now;
+
             }
         }
         public Metadata metadata;
@@ -39,7 +39,6 @@ namespace NCorp_Mail_Client
         public List<string> cc = new List<string>();
         public string subject { get; set; }
         public string body { get; set; }
-        public DateTime timestamp { get; set; }
 
         public Mail(string in_mail_string)
         {
@@ -49,7 +48,7 @@ namespace NCorp_Mail_Client
 
         public Mail(string folder, string colour, bool draft)
         {
-            this.timestamp = DateTime.Now;
+            this.metadata.timestamp = DateTime.Now;
             this.metadata = new Metadata(folder, colour, draft);
         }
 
@@ -68,7 +67,7 @@ namespace NCorp_Mail_Client
             this.cc = in_obj.cc;
             this.subject = in_obj.subject;
             this.body = in_obj.body;
-            this.timestamp = in_obj.timestamp;
+            this.metadata.timestamp = in_obj.metadata.timestamp;
 
             // Metadata fields
             // GUID for mail and metadata

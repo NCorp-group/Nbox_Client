@@ -37,9 +37,10 @@ namespace NCorp_Mail_Client
             //
             // Dummy testing code for user
             // 
-            currentUser = new User("kevork");
-            currentUser.folders.Add("Important stuff");
-            currentUser.folders.Add("Important stuff 2");
+            if (!Directory.Exists(MAILDIR_ROOT))
+            {
+                Directory.CreateDirectory(MAILDIR_ROOT);
+            }
 
             InitializeComponent();
 
@@ -290,7 +291,9 @@ namespace NCorp_Mail_Client
         // Take all files in path C:/Program Files/NCorp/Nbox/mails/ and read them into Mail objects.
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
-            this.GetMails();
+            this.FetchMails();
+            //this.GetMails();
+            this.ClearMailList();
             this.ShowMails();
         }
 
@@ -300,7 +303,18 @@ namespace NCorp_Mail_Client
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
-            this.LoginScreen.Hide();
+            string user = LoginMailTextBox.Text;
+            string pass = LoginPassTexBox.Text;
+            int status = login(user, pass);
+            if (status == 200)
+            {
+                this.LoginScreen.Hide();
+                this.currentUser.username = user;
+            }
+            else
+            {
+                Console.WriteLine(String.Format("Could not login, error code {0}", status));
+            }
         }
 
         //

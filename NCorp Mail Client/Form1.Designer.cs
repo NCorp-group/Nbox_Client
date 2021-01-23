@@ -873,8 +873,8 @@ namespace NCorp_Mail_Client
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1920, 1108);
             this.ControlBox = false;
-            this.Controls.Add(this.MailScreen);
             this.Controls.Add(this.LoginScreen);
+            this.Controls.Add(this.MailScreen);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

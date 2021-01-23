@@ -35,7 +35,6 @@ namespace NCorp_Mail_Client.UserControls
                 from = from,
                 subject = subject,
                 body = body,
-                timestamp = DateTime.Now,
             };
 
             string mailJsonString = JsonConvert.SerializeObject(mail);

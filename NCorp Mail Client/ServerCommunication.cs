@@ -60,7 +60,16 @@ namespace NCorp_Mail_Client
 
             // concatenate to a single string, to macth the DeserializeObject<T> interface
             String strings = String.Join("", body);
-            List<Mail> fetchedMails = JsonConvert.DeserializeObject<List<Mail>>(strings);  // Deserialize fetched mails intoo bjects into a list of mails
+            //Console.WriteLine(strings);
+
+            var fetchedMails = new List<Mail>();
+            foreach(String str in body)
+            {
+                Mail mail = JsonConvert.DeserializeObject<Mail>(str);
+                fetchedMails.Add(mail);
+            }
+
+            // List<Mail> fetchedMails = JsonConvert.DeserializeObject<List<Mail>>(strings);  // Deserialize fetched mails intoo bjects into a list of mails
 
             string mailPath = Path.Combine(MAILDIR_ROOT, this.currentUser.username + ".json");
             List<Mail> existingMails = new List<Mail>();
@@ -69,10 +78,21 @@ namespace NCorp_Mail_Client
             {
                 string text = File.ReadAllText(mailPath);                               // Reading all existing mails in the found file
                 existingMails = JsonConvert.DeserializeObject<List<Mail>>(text);        // Deserialize existing mails into objects into a list of mails
-                fetchedMails.ForEach(mail => existingMails.Append(mail));               // Dump all existing fetchedMails into existingMails
-            }
+                                                                                        // fetchedMails.ForEach(mail => existingMails.Add(mail));               // Dump all existing fetchedMails into existingMails
 
-            string emailListString = JsonConvert.SerializeObject(existingMails);
+                if (fetchedMails != null)
+                {
+                    foreach (var mail in fetchedMails)
+                    {
+                        existingMails.Add(mail);
+                    }
+                }
+                
+            }
+            Console.WriteLine(existingMails);
+            this.currentUser.mails = existingMails;
+            string emailListString = JsonConvert.SerializeObject(existingMails, Formatting.Indented);
+
             File.WriteAllText(mailPath, emailListString);
         }
 

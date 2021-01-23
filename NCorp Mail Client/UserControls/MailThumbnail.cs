@@ -70,6 +70,7 @@ namespace NCorp_Mail_Client.UserControls
             newViewport.viewportWrapper = _viewportWrapper;
             newViewport.TitleLabel.Text = _currentMail.subject;
             newViewport.SenderLabel.Text = _currentMail.from;
+            newViewport.BodyLabel.Text = _currentMail.body;
             newViewport.ColourBtn.ForeColor = GetColour();
             newViewport.FlagBtn.Text = GetFlagIcon();
             _viewportWrapper.Controls.Add(newViewport);
@@ -114,7 +115,7 @@ namespace NCorp_Mail_Client.UserControls
             // Timestamp Label text binding
             //var bindingTimestamp = new Binding("Text", this, "timeStamp");
             //this.TimestampLabel.DataBindings.Add(bindingTimestamp);
-            this.TimestampLabel.Text = _mail.timestamp.ToShortTimeString();
+            this.TimestampLabel.Text = _mail.metadata.timestamp.ToShortTimeString();
 
             this.CheckRead();
 

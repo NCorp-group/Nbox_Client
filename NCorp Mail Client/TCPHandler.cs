@@ -92,7 +92,7 @@ namespace NCorp_Mail_Client
             // Sending the message over the connection
             stream.Write(message_bytes, 0, message_bytes.Length);
 
-            Byte[] response = new Byte[256];
+            Byte[] response = new Byte[1000000];
             String responseStr = String.Empty;
             Console.WriteLine("response length {0}", response.Length);
 
