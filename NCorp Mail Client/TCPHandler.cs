@@ -2,10 +2,12 @@
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace NCorp_Mail_Client
 {
-    class TCPHandler
+    public class TCPHandler
     {
         private TcpClient client;
         private int privatePort;
@@ -59,7 +61,7 @@ namespace NCorp_Mail_Client
             }
             return true;
         }
-        public (bool, string) message(string message_str)
+        public (int, List<String>) message(string message_str)
         {
             //
             // Following the Single-responsibility principle, this function encapsulates and simplifies the way clients interacts with the servers.
@@ -80,7 +82,7 @@ namespace NCorp_Mail_Client
                 else
                 {
                     Console.WriteLine("failed to reconnect to server, no further action is taken");
-                    return (false, "");
+                    return (11, "");
                 }      
             }
 
@@ -99,7 +101,9 @@ namespace NCorp_Mail_Client
             // Translating bytes to the responseData string variable
             responseStr = System.Text.Encoding.ASCII.GetString(response, 0, bytes);
 
-            return (true, responseStr);
+            NMAPResponse responseObj = JsonConvert.DeserializeObject<NMAPResponse>(responseStr);
+
+            return (responseObj.status, responseObj.body);
         }
 
     }

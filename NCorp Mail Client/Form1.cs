@@ -15,7 +15,7 @@ namespace NCorp_Mail_Client
 {
     public partial class EmailClient : Form
     {
-        private readonly string MAILDIR_ROOT = Path.Combine(Environment.GetEnvironmentVariable("appdata"), "NBox");
+        private readonly string MAILDIR_ROOT = Path.Combine(Environment.GetEnvironmentVariable("appdata"), "NBox", "client");
         private User currentUser;
         //private List<Mail> Mails = new List<Mail>();
         //private List<string> Folders = new List<string>();
@@ -288,6 +288,7 @@ namespace NCorp_Mail_Client
                 this.currentUser.folders.AddRange(getFolders());
                 this.LoginScreen.Hide();
             }
+
         }
 
         private void FolderBtn_Click(object sender, EventArgs e)

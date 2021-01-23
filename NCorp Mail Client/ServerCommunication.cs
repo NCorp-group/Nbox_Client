@@ -25,9 +25,9 @@ namespace NCorp_Mail_Client
     class NMAPResponse
     {
         public int status { get; set; }
-        public String[] body { get; set; }
+        public List<String> body { get; set; }
 
-        public NMAPResponse(int status, String[] body)
+        public NMAPResponse(int status, List<String> body)
         {
             this.status = status;
             this.body = body;
@@ -48,7 +48,7 @@ namespace NCorp_Mail_Client
             if (deep) opts.Add("deep");
 
             var body = new List<string>();
-            NMAPRequest message = new NMAPRequest("fetch_mail", opts, body);
+            NMAPRequest message = new NMAPRequest("fetch_mails", opts, body);
             string json_msg = JsonConvert.SerializeObject(message);
             (bool success, string response_raw) = TCPconnection.message(json_msg);
             if (!success) return;
@@ -57,7 +57,7 @@ namespace NCorp_Mail_Client
 
             if (response_obj.status != 200)
             {
-                throw new Exception(String.Format("Could not fetch emails, error code {0}", response_obj.status));
+                throw new Exception(String.Format("Could not fetch mails, error code {0}", response_obj.status));
             }
 
             // concatenate to a single string, to macth the DeserializeObject<T> interface
@@ -93,7 +93,7 @@ namespace NCorp_Mail_Client
             NMAPRequest message = new NMAPRequest("login", user_credentials, body );
             string json_msg = JsonConvert.SerializeObject(message);
             (bool success, string response_raw) = TCPconnection.message(json_msg);
-            if (!success) return 501;
+            if (!success) ;
             NMAPResponse response_obj = JsonConvert.DeserializeObject<NMAPResponse>(response_raw);
 
             return 200;
