@@ -75,7 +75,7 @@ namespace NCorp_Mail_Client.UserControls
             // Timestamp Label text binding
             //var bindingTimestamp = new Binding("Text", this, "timeStamp");
             //this.TimestampLabel.DataBindings.Add(bindingTimestamp);
-            this.TimestampLabel.Text = mail.timestamp.ToShortTimeString();
+            this.TimestampLabel.Text = mail.metadata.timestamp.ToShortTimeString();
 
             this.CheckRead();
 

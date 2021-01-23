@@ -37,7 +37,6 @@ namespace NCorp_Mail_Client.UserControls
                 to = newToList,
                 subject = newSubject,
                 body = newBody,
-                timestamp = DateTime.Now,
                 metadata = new Mail.Metadata("Drafts", "none", true)
             };
             this.client.currentUser.mails.Add(newDraft);

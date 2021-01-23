@@ -53,8 +53,8 @@ namespace NCorp_Mail_Client
             InitializeComponent();
 
             //this.FetchMails();
-            this.GetMails();
-            currentMail = currentUser.mails[0];
+            //this.GetMails();
+            //currentMail = currentUser.mails[0];
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -94,8 +94,8 @@ namespace NCorp_Mail_Client
             this.MenuSettingsBtn.ButtonLabel.Click += new System.EventHandler(this.MenuSettingsBtn_Click);
             this.MenuSettingsBtn.IconLabel.Click += new System.EventHandler(this.MenuSettingsBtn_Click);
 
-            this.ShowFolders();
-            this.ShowMails(null);
+            //this.ShowFolders();
+            //this.ShowMails(null);
             //this.LoginScreen.BringToFront();
         }
 
@@ -348,7 +348,7 @@ namespace NCorp_Mail_Client
             this.FetchMails();
             //this.GetMails();
             this.ClearMailList();
-            this.ShowMails();
+            this.ShowMails(null);
         }
 
         //
@@ -362,8 +362,8 @@ namespace NCorp_Mail_Client
             int status = login(user, pass);
             if (status == 200)
             {
+                this.currentUser = new User(user);
                 this.LoginScreen.Hide();
-                this.currentUser.username = user;
             }
             else
             {
@@ -526,8 +526,8 @@ namespace NCorp_Mail_Client
                 case ComposeType.Forward:
                     newComposer.SubjectTextBox.Text = currentMail.subject;
                     newComposer.BodyTextBox.Text = "Sent by: " + currentMail.from
-                                                 + "\nOn: " + currentMail.timestamp.ToShortDateString()
-                                                 + "\nAt time: " + currentMail.timestamp.ToShortTimeString()
+                                                 + "\nOn: " + currentMail.metadata.timestamp.ToShortDateString()
+                                                 + "\nAt time: " + currentMail.metadata.timestamp.ToShortTimeString()
                                                  + "\nSubject: " + currentMail.subject
                                                  + "\n\n" + currentMail.body;
                     break;

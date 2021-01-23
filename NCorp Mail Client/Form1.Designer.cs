@@ -256,7 +256,7 @@ namespace NCorp_Mail_Client
             this.MenuNewMailBtn.TabIndex = 29;
             this.MenuNewMailBtn.text = "New Mail";
             this.GeneralToolTip.SetToolTip(this.MenuNewMailBtn, "Compose new mail");
-            this.MenuNewMailBtn.Load += new System.EventHandler(this.MenuNewMailBtn_Click);
+            this.MenuNewMailBtn.Click += new System.EventHandler(this.MenuNewMailBtn_Click);
             // 
             // MenuBurgerBtn
             // 
