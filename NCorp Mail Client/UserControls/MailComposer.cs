@@ -14,11 +14,33 @@ namespace NCorp_Mail_Client.UserControls
     public partial class MailComposer : UserControl
     {
         private TCPHandler TCPconnection { get; set; }
-        public Form _parentForm { get; set; }
-        public MailComposer(TCPHandler TCPH)
+        private EmailClient client;
+        public MailComposer(TCPHandler TCPH, EmailClient client)
         {
             InitializeComponent();
             TCPconnection = TCPH;
+            this.client = client;
+        }
+        public void SaveAsDraft()
+        {
+            string newToString = this.ToTextBox.Text;
+
+            List<string> newToList = client.ToList(newToString);
+
+            string newFrom = this.FromTextBox.Text;
+            string newSubject = this.SubjectTextBox.Text;
+            string newBody = this.BodyTextBox.Text;
+
+            Mail newDraft = new Mail()
+            {
+                from = newFrom,
+                to = newToList,
+                subject = newSubject,
+                body = newBody,
+                timestamp = DateTime.Now,
+                metadata = new Mail.Metadata("Drafts", "none", true)
+            };
+            this.client.currentUser.mails.Add(newDraft);
         }
         private void SendBtn_Click(object sender, EventArgs e)
         {
@@ -45,18 +67,18 @@ namespace NCorp_Mail_Client.UserControls
             string mailMessageStr = JsonConvert.SerializeObject(mailMessage);
 
             (int response_status, List<String> response_body) = TCPconnection.message(mailMessageStr);
-
-            // Use _parentForm.currentUser.metadata.user_GUID &
-            //     _parentForm.currentUser.metadata.mail_adress
         }
         private void DiscardBtn_Click(object sender, EventArgs e)
         {
-
+            client.MVPWrapperPanel.Controls.Clear();
+            this.Dispose();
         }
 
-        private void FromTextBox_TextChanged(object sender, EventArgs e)
+        private void DraftBtn_Click(object sender, EventArgs e)
         {
-
+            this.SaveAsDraft();
+            client.MVPWrapperPanel.Controls.Clear();
+            this.Dispose();
         }
     }
 }

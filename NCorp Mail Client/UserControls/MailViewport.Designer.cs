@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.BodyLabel = new System.Windows.Forms.Label();
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.TitlePanel = new System.Windows.Forms.Panel();
@@ -40,6 +41,7 @@
             this.ReplyBtn = new System.Windows.Forms.Button();
             this.ForwardBtn = new System.Windows.Forms.Button();
             this.FlagBtn = new System.Windows.Forms.Button();
+            this.BtnTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.HeaderPanel.SuspendLayout();
             this.TitlePanel.SuspendLayout();
             this.ActionsPanel.SuspendLayout();
@@ -138,6 +140,7 @@
             this.ColourBtn.Size = new System.Drawing.Size(50, 50);
             this.ColourBtn.TabIndex = 33;
             this.ColourBtn.Text = "";
+            this.BtnTooltip.SetToolTip(this.ColourBtn, "Change colour");
             this.ColourBtn.UseVisualStyleBackColor = false;
             // 
             // ReplyAllBtn
@@ -155,6 +158,7 @@
             this.ReplyAllBtn.Size = new System.Drawing.Size(50, 50);
             this.ReplyAllBtn.TabIndex = 32;
             this.ReplyAllBtn.Text = "";
+            this.BtnTooltip.SetToolTip(this.ReplyAllBtn, "Reply All");
             this.ReplyAllBtn.UseVisualStyleBackColor = false;
             this.ReplyAllBtn.Click += new System.EventHandler(this.ReplyAllBtn_Click);
             // 
@@ -173,6 +177,7 @@
             this.ReplyBtn.Size = new System.Drawing.Size(50, 50);
             this.ReplyBtn.TabIndex = 31;
             this.ReplyBtn.Text = "";
+            this.BtnTooltip.SetToolTip(this.ReplyBtn, "Reply");
             this.ReplyBtn.UseVisualStyleBackColor = false;
             this.ReplyBtn.Click += new System.EventHandler(this.ReplyBtn_Click);
             // 
@@ -191,6 +196,7 @@
             this.ForwardBtn.Size = new System.Drawing.Size(50, 50);
             this.ForwardBtn.TabIndex = 30;
             this.ForwardBtn.Text = "";
+            this.BtnTooltip.SetToolTip(this.ForwardBtn, "Forward");
             this.ForwardBtn.UseVisualStyleBackColor = false;
             this.ForwardBtn.Click += new System.EventHandler(this.ForwardBtn_Click);
             // 
@@ -209,6 +215,7 @@
             this.FlagBtn.Size = new System.Drawing.Size(50, 50);
             this.FlagBtn.TabIndex = 29;
             this.FlagBtn.Text = "";
+            this.BtnTooltip.SetToolTip(this.FlagBtn, "Flag as spam");
             this.FlagBtn.UseVisualStyleBackColor = false;
             this.FlagBtn.Click += new System.EventHandler(this.FlagBtn_Click);
             // 
@@ -221,6 +228,7 @@
             this.Name = "MailViewport";
             this.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
             this.Size = new System.Drawing.Size(820, 688);
+            this.BtnTooltip.SetToolTip(this, "Reply");
             this.HeaderPanel.ResumeLayout(false);
             this.TitlePanel.ResumeLayout(false);
             this.ActionsPanel.ResumeLayout(false);
@@ -243,5 +251,6 @@
         private System.Windows.Forms.Button ReplyBtn;
         private System.Windows.Forms.Button ForwardBtn;
         public System.Windows.Forms.Button FlagBtn;
+        private System.Windows.Forms.ToolTip BtnTooltip;
     }
 }

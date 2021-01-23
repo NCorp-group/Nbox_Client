@@ -15,6 +15,14 @@ namespace NCorp_Mail_Client
 {
     public partial class EmailClient : Form
     {
+        public enum ComposeType
+        {
+            Standard,
+            Reply,
+            ReplyAll,
+            Forward
+        }
+
         public User currentUser;
         //private List<Mail> Mails = new List<Mail>();
         //private List<string> Folders = new List<string>();
@@ -86,7 +94,7 @@ namespace NCorp_Mail_Client
             this.MenuSettingsBtn.IconLabel.Click += new System.EventHandler(this.MenuSettingsBtn_Click);
 
             this.ShowFolders();
-            this.ShowMails();
+            this.ShowMails(null);
             //this.LoginScreen.BringToFront();
         }
 
@@ -180,11 +188,13 @@ namespace NCorp_Mail_Client
             {
                 this.WindowState = FormWindowState.Maximized;
                 MaxBtn.Text = "";
+                this.GeneralToolTip.SetToolTip(MaxBtn, "Normalize");
             }
             else
             {
                 this.WindowState = FormWindowState.Normal;
                 MaxBtn.Text = "";
+                this.GeneralToolTip.SetToolTip(MaxBtn, "Maximize");
             }
         }
 
@@ -203,18 +213,62 @@ namespace NCorp_Mail_Client
         // ShowMails method
         // Show all mails on client side
         // Inserts all mails from the Mail list mails into the MailListView
-        private void ShowMails()
+        public void ShowMails(string folderName)
         {
-            foreach (Mail mail in this.currentUser.mails)
+            this.ClearMailList();
+            if (folderName == null)
             {
-                var newThumbnail = new MailThumbnail(mail);
-                newThumbnail.Dock = DockStyle.Top;
-                newThumbnail._viewportWrapper = this.MVPWrapperPanel;
-                newThumbnail._currentMail = this.currentMail;
-                this.MailListView.Controls.Add(newThumbnail);
-                //Panel thumbnail = Builder.Thumbnail(mail);
-                //this.MailListView.Controls.Add(thumbnail);
+                foreach (Mail mail in this.currentUser.mails)
+                {
+                    var newThumbnail = new MailThumbnail(mail, this);
+                    newThumbnail.Dock = DockStyle.Top;
+                    this.MailListView.Controls.Add(newThumbnail);
+                }
             }
+            else
+            {
+                foreach (Mail mail in this.currentUser.mails)
+                {
+                    if (mail.metadata.folder == folderName)
+                    {
+                        var newThumbnail = new MailThumbnail(mail, this);
+                        newThumbnail.Dock = DockStyle.Top;
+                        this.MailListView.Controls.Add(newThumbnail);
+                    }
+                }
+            }
+        }
+
+        // Show Current Mail
+        public void ShowCurrentMail()
+        {
+            if (this.MVPWrapperPanel.HasChildren)
+            {
+                if (this.Controls["MailComposer"] != null)
+                {
+                    var mc = (MailComposer)this.Controls["MailComposer"];
+                    mc.SaveAsDraft();
+                    this.Controls.RemoveByKey("MailComposer");
+                }
+                else
+                {
+                    this.MVPWrapperPanel.Controls.Clear();
+                }
+            }
+            this.currentMail.metadata.read = true;
+
+            MailViewport newViewport = new MailViewport(this)
+            {
+                Dock = DockStyle.Fill,
+                Name = "MailViewport"
+            };
+            //newViewport.viewportWrapper = _viewportWrapper;
+            newViewport.TitleLabel.Text = this.currentMail.subject;
+            newViewport.SenderLabel.Text = this.currentMail.from;
+            newViewport.BodyLabel.Text = this.currentMail.body;
+            newViewport.ColourBtn.ForeColor = currentMail.GetColour();
+            newViewport.FlagBtn.Text = currentMail.GetFlagIcon();
+            this.MVPWrapperPanel.Controls.Add(newViewport);
         }
 
         // RefreshMailList method
@@ -291,7 +345,7 @@ namespace NCorp_Mail_Client
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             this.GetMails();
-            this.ShowMails();
+            this.ShowMails(null);
         }
 
         //
@@ -300,6 +354,7 @@ namespace NCorp_Mail_Client
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
+
             this.LoginScreen.Hide();
         }
 
@@ -376,101 +431,100 @@ namespace NCorp_Mail_Client
         //
         // NEW MAIL & REPLY
         //
-
-        public void SaveAsDraft()
+        public List<string> ToList(string inString)
         {
-            this.currentMail = new Mail("Drafts", "none", true);
-            this.currentUser.mails.Add(this.currentMail);
-        }
-        private void ComposeMail(bool reply)
-        {
-            // TODO: When the mail composer is hidden it should store the input values in a draft mail and delete the mailcomposer.
-            //       If nothing was typed in the mail composer a draft should not be created.
-            //       
-            //       Fix when clicking the Folder menu button the folders should be revealed instead of collapsing the button itself.
-
-            if (this.Controls["MailComposer"] != null)
-            {
-                this.SaveAsDraft();
-            }
-            this.MVPWrapperPanel.Controls.Clear();
-
-            MailComposer newComposer = new MailComposer(TCPconnection)
-            {
-                Dock = DockStyle.Fill,
-                Name = "MailComposer",
-                _parentForm = this
-            };
-
-            newComposer.FromTextBox.Text = currentUser.username + "@nbox.com";
-            if (reply)
-            {
-                newComposer.ToTextBox.Text = currentMail.from;
-            }
-            this.MVPWrapperPanel.Controls.Add(newComposer);
-            
-            /*
-            MailComposer theMailComposer = (MailComposer)this.Controls["MailComposer"];
-            
-            if (theMailComposer == null)
-            {
-                MailComposer newMail = new MailComposer();
-                newMail.Dock = System.Windows.Forms.DockStyle.Fill;
-                newMail.Location = MVPPanel.Location;
-                newMail.Name = "MailComposer";
-                newMail.FromTextBox.Text = currentUser.username + "@nbox.com";
-                newMail._parentForm = this;
-                this.MVPWrapperPanel.Controls.Add(newMail);
-            }
-            else
-            {
-                theMailComposer.ToTextBox.Clear();
-                theMailComposer.Show();
-            }
-
-            if (MVPPanel.Visible)
-            {
-                MVPPanel.Hide();
-            }
-            */
+            char[] delimiterChars = { ' ', ',', '.', ':', '\t' };
+            string[] arr = inString.Split(delimiterChars);
+            List<string> outList = new List<string>(arr);
+            return outList;
         }
         /*
-        private void ComposeMail_Reply()
+        public void SaveAsDraft()
         {
-            MailComposer theMailComposer = (MailComposer)this.Controls["MailComposer"];
-            if (theMailComposer == null)
+            if (this.Controls["MailComposer"] == null)
             {
-                MailComposer newMail = new MailComposer();
-                newMail.Dock = System.Windows.Forms.DockStyle.Fill;
-                newMail.Location = MVPPanel.Location;
-                newMail.Name = "MailComposer";
-                newMail.FromTextBox.Text = currentUser.username + "@nbox.com";
-                newMail.ToTextBox.Text = this.MVPSenderLabel.Text;
-                newMail._parentForm = this;
-                this.MVPWrapperPanel.Controls.Add(newMail);
+                Console.WriteLine("MailComposer not found");
+                return;
             }
-            else
-            {
-                theMailComposer.ToTextBox.Clear();
-                theMailComposer.Show();
-                theMailComposer.ToTextBox.Text = this.MVPSenderLabel.Text;
-            }
+            var mailComposer = this.Controls["MailComposer"];
+            string newToString = mailComposer.Controls["HeaderPanel"]
+                                             .Controls["ToPanel"]
+                                             .Controls["ToTextBox"].Text;
 
-            if (MVPPanel.Visible)
+            List<string> newToList = ToList(newToString);
+
+            string newFrom = this.Controls["MailComposer"].Controls["FromTextBox"].Text;
+            string newSubject = this.Controls["MailComposer"].Controls["SubjectTextBox"].Text;
+            string newBody = this.Controls["MailComposer"].Controls["BodyTextBox"].Text;
+
+            Mail newDraft = new Mail()
             {
-                MVPPanel.Hide();
-            }
+                from = newFrom,
+                to = newToList,
+                subject = newSubject,
+                body = newBody,
+                metadata = new Mail.Metadata("Drafts", "none", true)
+            };
+            this.currentUser.mails.Add(newDraft);
         }
         */
 
-        private void MenuNewMailBtn_Click(object sender, EventArgs e)
+        public void ComposeMail(ComposeType Type)
         {
-            this.ComposeMail(false);
+            if (this.Controls["MailComposer"] != null)
+            {
+                var mc = (MailComposer)this.Controls["MailComposer"];
+                mc.SaveAsDraft();
+                this.Controls.RemoveByKey("MailComposer");
+            }
+            this.MVPWrapperPanel.Controls.Clear();
+
+            MailComposer newComposer = new MailComposer(TCPconnection, this)
+            {
+                Dock = DockStyle.Fill,
+                Name = "MailComposer"
+            };
+
+            newComposer.FromTextBox.Text = currentUser.username + "@nbox.com";
+            switch (Type)
+            {
+                case ComposeType.Standard:
+                    break;
+                case ComposeType.Reply:
+                    newComposer.ToTextBox.Text = currentMail.from;
+                    break;
+                case ComposeType.ReplyAll:
+                    string toString = currentMail.from;
+                    int count = 0;
+                    foreach (string recipient in currentMail.to)
+                    {
+                        count++;
+                        if (recipient == currentUser.username + "@nbox.com")
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            toString += ", " + recipient;
+                        }
+                    }
+                    newComposer.ToTextBox.Text = toString;
+                    break;
+                case ComposeType.Forward:
+                    newComposer.SubjectTextBox.Text = currentMail.subject;
+                    newComposer.BodyTextBox.Text = "Sent by: " + currentMail.from
+                                                 + "\nOn: " + currentMail.timestamp.ToShortDateString()
+                                                 + "\nAt time: " + currentMail.timestamp.ToShortTimeString()
+                                                 + "\nSubject: " + currentMail.subject
+                                                 + "\n\n" + currentMail.body;
+                    break;
+            }
+            this.MVPWrapperPanel.Controls.Add(newComposer);
         }
 
-        private void ReplyBtn_Click(object sender, EventArgs e)
+        private void MenuNewMailBtn_Click(object sender, EventArgs e)
         {
-            this.ComposeMail(true);
+            this.ComposeMail(ComposeType.Standard);
         }
 
         //
@@ -483,9 +537,10 @@ namespace NCorp_Mail_Client
         {
             foreach (string folder in currentUser.folders)
             {
-                FolderButton newFolderButton = new FolderButton();
+                FolderButton newFolderButton = new FolderButton(this);
                 newFolderButton.Controls["FolderNameLabel"].Text = folder;
                 newFolderButton.Dock = DockStyle.Top;
+                newFolderButton.Name = folder + "Btn";
                 this.FolderListView.Controls.Add(newFolderButton);
             }
         }
