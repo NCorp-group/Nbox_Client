@@ -38,14 +38,10 @@ namespace NCorp_Mail_Client
             this.SettingsPanel = new System.Windows.Forms.Panel();
             this.LogoutBtn = new System.Windows.Forms.Button();
             this.SettingsOverline = new System.Windows.Forms.Panel();
-            this.MenuSettingsBtn = new NCorp_Mail_Client.UserControls.MenuButton();
             this.FoldersListPanel = new System.Windows.Forms.Panel();
             this.FolderListView = new System.Windows.Forms.Panel();
             this.NewFolderBtn = new System.Windows.Forms.Button();
             this.FolderUnderline = new System.Windows.Forms.Panel();
-            this.MenuFoldersBtn = new NCorp_Mail_Client.UserControls.MenuButton();
-            this.MenuNewMailBtn = new NCorp_Mail_Client.UserControls.MenuButton();
-            this.MenuBurgerBtn = new NCorp_Mail_Client.UserControls.MenuButton();
             this.LogoBtn = new System.Windows.Forms.Button();
             this.MailPanel = new System.Windows.Forms.Panel();
             this.MailListView = new System.Windows.Forms.Panel();
@@ -89,6 +85,10 @@ namespace NCorp_Mail_Client
             this.MailScreen = new System.Windows.Forms.Panel();
             this.MVPWrapperPanel = new System.Windows.Forms.Panel();
             this.GeneralToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.MenuSettingsBtn = new NCorp_Mail_Client.UserControls.MenuButton();
+            this.MenuFoldersBtn = new NCorp_Mail_Client.UserControls.MenuButton();
+            this.MenuNewMailBtn = new NCorp_Mail_Client.UserControls.MenuButton();
+            this.MenuBurgerBtn = new NCorp_Mail_Client.UserControls.MenuButton();
             this.ControlPanel.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
             this.FoldersListPanel.SuspendLayout();
@@ -165,21 +165,6 @@ namespace NCorp_Mail_Client
             this.SettingsOverline.Size = new System.Drawing.Size(220, 5);
             this.SettingsOverline.TabIndex = 34;
             // 
-            // MenuSettingsBtn
-            // 
-            this.MenuSettingsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
-            this.MenuSettingsBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.MenuSettingsBtn.icon = "";
-            this.MenuSettingsBtn.Location = new System.Drawing.Point(0, 0);
-            this.MenuSettingsBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MenuSettingsBtn.Name = "MenuSettingsBtn";
-            this.MenuSettingsBtn.Padding = new System.Windows.Forms.Padding(0, 18, 0, 18);
-            this.MenuSettingsBtn.Size = new System.Drawing.Size(220, 60);
-            this.MenuSettingsBtn.TabIndex = 33;
-            this.MenuSettingsBtn.text = "Settings";
-            this.GeneralToolTip.SetToolTip(this.MenuSettingsBtn, "Show settings");
-            this.MenuSettingsBtn.Click += new System.EventHandler(this.MenuSettingsBtn_Click);
-            // 
             // FoldersListPanel
             // 
             this.FoldersListPanel.Controls.Add(this.FolderListView);
@@ -227,51 +212,6 @@ namespace NCorp_Mail_Client
             this.FolderUnderline.Name = "FolderUnderline";
             this.FolderUnderline.Size = new System.Drawing.Size(220, 5);
             this.FolderUnderline.TabIndex = 33;
-            // 
-            // MenuFoldersBtn
-            // 
-            this.MenuFoldersBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
-            this.MenuFoldersBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MenuFoldersBtn.icon = "";
-            this.MenuFoldersBtn.Location = new System.Drawing.Point(0, 0);
-            this.MenuFoldersBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MenuFoldersBtn.Name = "MenuFoldersBtn";
-            this.MenuFoldersBtn.Padding = new System.Windows.Forms.Padding(0, 18, 0, 18);
-            this.MenuFoldersBtn.Size = new System.Drawing.Size(220, 60);
-            this.MenuFoldersBtn.TabIndex = 32;
-            this.MenuFoldersBtn.text = "Folders";
-            this.GeneralToolTip.SetToolTip(this.MenuFoldersBtn, "Show folders");
-            this.MenuFoldersBtn.Click += new System.EventHandler(this.MenuFoldersBtn_Click);
-            // 
-            // MenuNewMailBtn
-            // 
-            this.MenuNewMailBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
-            this.MenuNewMailBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MenuNewMailBtn.icon = "";
-            this.MenuNewMailBtn.Location = new System.Drawing.Point(0, 120);
-            this.MenuNewMailBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MenuNewMailBtn.Name = "MenuNewMailBtn";
-            this.MenuNewMailBtn.Padding = new System.Windows.Forms.Padding(0, 18, 0, 18);
-            this.MenuNewMailBtn.Size = new System.Drawing.Size(220, 60);
-            this.MenuNewMailBtn.TabIndex = 29;
-            this.MenuNewMailBtn.text = "New Mail";
-            this.GeneralToolTip.SetToolTip(this.MenuNewMailBtn, "Compose new mail");
-            this.MenuNewMailBtn.Click += new System.EventHandler(this.MenuNewMailBtn_Click);
-            // 
-            // MenuBurgerBtn
-            // 
-            this.MenuBurgerBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
-            this.MenuBurgerBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MenuBurgerBtn.icon = "";
-            this.MenuBurgerBtn.Location = new System.Drawing.Point(0, 60);
-            this.MenuBurgerBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MenuBurgerBtn.Name = "MenuBurgerBtn";
-            this.MenuBurgerBtn.Padding = new System.Windows.Forms.Padding(0, 18, 0, 18);
-            this.MenuBurgerBtn.Size = new System.Drawing.Size(220, 60);
-            this.MenuBurgerBtn.TabIndex = 28;
-            this.MenuBurgerBtn.text = "Menu";
-            this.GeneralToolTip.SetToolTip(this.MenuBurgerBtn, "Expand menu");
-            this.MenuBurgerBtn.Click += new System.EventHandler(this.BurgerBtn_Click);
             // 
             // LogoBtn
             // 
@@ -707,6 +647,7 @@ namespace NCorp_Mail_Client
             this.LoginPassTexBox.Name = "LoginPassTexBox";
             this.LoginPassTexBox.Size = new System.Drawing.Size(416, 22);
             this.LoginPassTexBox.TabIndex = 7;
+            this.LoginPassTexBox.UseSystemPasswordChar = true;
             // 
             // LoginPassUnderline
             // 
@@ -826,6 +767,66 @@ namespace NCorp_Mail_Client
             this.MVPWrapperPanel.Name = "MVPWrapperPanel";
             this.MVPWrapperPanel.Size = new System.Drawing.Size(660, 688);
             this.MVPWrapperPanel.TabIndex = 9;
+            // 
+            // MenuSettingsBtn
+            // 
+            this.MenuSettingsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
+            this.MenuSettingsBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.MenuSettingsBtn.icon = "";
+            this.MenuSettingsBtn.Location = new System.Drawing.Point(0, 0);
+            this.MenuSettingsBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MenuSettingsBtn.Name = "MenuSettingsBtn";
+            this.MenuSettingsBtn.Padding = new System.Windows.Forms.Padding(0, 18, 0, 18);
+            this.MenuSettingsBtn.Size = new System.Drawing.Size(220, 60);
+            this.MenuSettingsBtn.TabIndex = 33;
+            this.MenuSettingsBtn.text = "Settings";
+            this.GeneralToolTip.SetToolTip(this.MenuSettingsBtn, "Show settings");
+            this.MenuSettingsBtn.Click += new System.EventHandler(this.MenuSettingsBtn_Click);
+            // 
+            // MenuFoldersBtn
+            // 
+            this.MenuFoldersBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
+            this.MenuFoldersBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MenuFoldersBtn.icon = "";
+            this.MenuFoldersBtn.Location = new System.Drawing.Point(0, 0);
+            this.MenuFoldersBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MenuFoldersBtn.Name = "MenuFoldersBtn";
+            this.MenuFoldersBtn.Padding = new System.Windows.Forms.Padding(0, 18, 0, 18);
+            this.MenuFoldersBtn.Size = new System.Drawing.Size(220, 60);
+            this.MenuFoldersBtn.TabIndex = 32;
+            this.MenuFoldersBtn.text = "Folders";
+            this.GeneralToolTip.SetToolTip(this.MenuFoldersBtn, "Show folders");
+            this.MenuFoldersBtn.Click += new System.EventHandler(this.MenuFoldersBtn_Click);
+            // 
+            // MenuNewMailBtn
+            // 
+            this.MenuNewMailBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
+            this.MenuNewMailBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MenuNewMailBtn.icon = "";
+            this.MenuNewMailBtn.Location = new System.Drawing.Point(0, 120);
+            this.MenuNewMailBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MenuNewMailBtn.Name = "MenuNewMailBtn";
+            this.MenuNewMailBtn.Padding = new System.Windows.Forms.Padding(0, 18, 0, 18);
+            this.MenuNewMailBtn.Size = new System.Drawing.Size(220, 60);
+            this.MenuNewMailBtn.TabIndex = 29;
+            this.MenuNewMailBtn.text = "New Mail";
+            this.GeneralToolTip.SetToolTip(this.MenuNewMailBtn, "Compose new mail");
+            this.MenuNewMailBtn.Click += new System.EventHandler(this.MenuNewMailBtn_Click);
+            // 
+            // MenuBurgerBtn
+            // 
+            this.MenuBurgerBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
+            this.MenuBurgerBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MenuBurgerBtn.icon = "";
+            this.MenuBurgerBtn.Location = new System.Drawing.Point(0, 60);
+            this.MenuBurgerBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MenuBurgerBtn.Name = "MenuBurgerBtn";
+            this.MenuBurgerBtn.Padding = new System.Windows.Forms.Padding(0, 18, 0, 18);
+            this.MenuBurgerBtn.Size = new System.Drawing.Size(220, 60);
+            this.MenuBurgerBtn.TabIndex = 28;
+            this.MenuBurgerBtn.text = "Menu";
+            this.GeneralToolTip.SetToolTip(this.MenuBurgerBtn, "Expand menu");
+            this.MenuBurgerBtn.Click += new System.EventHandler(this.BurgerBtn_Click);
             // 
             // EmailClient
             // 
