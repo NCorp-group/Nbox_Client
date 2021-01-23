@@ -363,6 +363,12 @@ namespace NCorp_Mail_Client
             if (status == 200)
             {
                 this.currentUser = new User(user);
+
+                string user_path = Path.Combine(MAILDIR_ROOT, this.currentUser.username + ".json");
+                if (!File.Exists(user_path))
+                {
+                    using (FileStream fs = File.Create(user_path)) { }
+                }
                 this.LoginScreen.Hide();
             }
             else

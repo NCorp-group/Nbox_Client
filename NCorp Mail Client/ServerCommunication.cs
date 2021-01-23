@@ -79,12 +79,15 @@ namespace NCorp_Mail_Client
                 string text = File.ReadAllText(mailPath);                               // Reading all existing mails in the found file
                 existingMails = JsonConvert.DeserializeObject<List<Mail>>(text);        // Deserialize existing mails into objects into a list of mails
                                                                                         // fetchedMails.ForEach(mail => existingMails.Add(mail));               // Dump all existing fetchedMails into existingMails
-
+                if (existingMails == null) existingMails = new List<Mail>();
                 if (fetchedMails != null)
                 {
                     foreach (var mail in fetchedMails)
                     {
-                        existingMails.Add(mail);
+                        if (!existingMails.Any(m => m.metadata.mail_GUID == mail.metadata.mail_GUID))
+                        {
+                            existingMails.Add(mail);
+                        }
                     }
                 }
                 
