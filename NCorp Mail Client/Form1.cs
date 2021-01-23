@@ -19,6 +19,7 @@ namespace NCorp_Mail_Client
         //private List<Mail> Mails = new List<Mail>();
         //private List<string> Folders = new List<string>();
         public Mail currentMail;
+        private readonly string MAILDIR_ROOT = Path.Combine(Environment.GetEnvironmentVariable("appdata"), "NBox", "Client");
 
         //
         // Keeping track of menu expansions
@@ -394,7 +395,7 @@ namespace NCorp_Mail_Client
             }
             this.MVPWrapperPanel.Controls.Clear();
 
-            MailComposer newComposer = new MailComposer
+            MailComposer newComposer = new MailComposer(TCPconnection)
             {
                 Dock = DockStyle.Fill,
                 Name = "MailComposer",
@@ -407,6 +408,7 @@ namespace NCorp_Mail_Client
                 newComposer.ToTextBox.Text = currentMail.from;
             }
             this.MVPWrapperPanel.Controls.Add(newComposer);
+            
             /*
             MailComposer theMailComposer = (MailComposer)this.Controls["MailComposer"];
             

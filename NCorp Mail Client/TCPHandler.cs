@@ -82,7 +82,7 @@ namespace NCorp_Mail_Client
                 else
                 {
                     Console.WriteLine("failed to reconnect to server, no further action is taken");
-                    return (11, "");
+                    return (11, new List<string>());
                 }      
             }
 

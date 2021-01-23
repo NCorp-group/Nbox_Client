@@ -39,8 +39,12 @@ namespace NCorp_Mail_Client.UserControls
             };
 
             string mailJsonString = JsonConvert.SerializeObject(mail);
-            NMAPRequest message = new NMAPRequest("send_mails", new List<String>(),  new List<String> { mailJsonString });
-            (int response_status, List<String> response_body) = TCPconnection
+
+            NMAPRequest mailMessage = new NMAPRequest("send_mails", new List<String>(),  new List<String> { mailJsonString });
+
+            string mailMessageStr = JsonConvert.SerializeObject(mailMessage);
+
+            (int response_status, List<String> response_body) = TCPconnection.message(mailMessageStr);
 
             // Use _parentForm.currentUser.metadata.user_GUID &
             //     _parentForm.currentUser.metadata.mail_adress
