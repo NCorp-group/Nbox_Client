@@ -82,11 +82,13 @@ namespace NCorp_Mail_Client.UserControls
                 // Server has confirmed the mail is sent successfully
                 // Jens, could you make some UI feecback, that would be triggered in this scope?
                 // Until then, this print will do.
-                Console.WriteLine("Mail successfully sent!"); 
+                Console.WriteLine("Mail successfully sent!");
+                client.MVPWrapperPanel.Controls.Clear();
             }
             else
             {
                 Console.WriteLine("Mail not sent, error code {0}", response_status);
+                // Give feedback to user, that the email is not sent
             }
             
         }
