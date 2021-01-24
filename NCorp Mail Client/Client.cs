@@ -32,9 +32,9 @@ namespace NCorp_Mail_Client
         //
         // Keeping track of menu expansions
         //
-        private bool menuExpanded = false;
-        private bool foldersExpanded = false;
-        private bool settingsExpanded = false;
+        public bool menuExpanded = false;
+        public bool foldersExpanded = false;
+        public bool settingsExpanded = false;
 
         //
         // The TCPHandler
@@ -57,7 +57,7 @@ namespace NCorp_Mail_Client
             //currentMail = currentUser.mails[0];
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Client_Load(object sender, EventArgs e)
         {
             openMenuTimer.Interval = 10;
             openMenuTimer.Tick += new EventHandler(openMenuTimer_Tick);
@@ -369,13 +369,17 @@ namespace NCorp_Mail_Client
         // CONTROLS BUTTONS
         //
 
-        private void LoginBtn_Click(object sender, EventArgs e)
+        //
+        // Logging in
+        //
+        private void TryLogin()
         {
             string user = LoginMailTextBox.Text;
-            string pass = LoginPassTexBox.Text;
+            string pass = LoginPassTextBox.Text;
             int status = login(user, pass);
             if (status == 200)
             {
+                this.LoginErrorLabel.Text = "";
                 this.currentUser = new User(user);
 
                 string user_path = Path.Combine(MAILDIR_ROOT, this.currentUser.username + ".json");
@@ -385,10 +389,26 @@ namespace NCorp_Mail_Client
                 }
                 this.LoginScreen.Hide();
             }
+            else if (status == 401)
+            {
+                this.LoginErrorLabel.Text = "Incorrect username or password";
+            }
             else
             {
-                Console.WriteLine(String.Format("Could not login, error code {0}", status));
+                this.LoginErrorLabel.Text = "Server Error";
             }
+        }
+        private void LoginTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                this.TryLogin();
+                e.Handled = true;
+            }
+        }
+        private void LoginBtn_Click(object sender, EventArgs e)
+        {
+            this.TryLogin();
         }
 
         //
@@ -566,15 +586,162 @@ namespace NCorp_Mail_Client
         // Generates UI elements for each folder
         //
 
-        private void ShowFolders()
+        public FolderButton CreateNewFolder(string folderName)
+        {
+            FolderButton newFolderButton = new FolderButton(this)
+            {
+                labelText = folderName,
+                Dock = DockStyle.Top,
+                Name = folderName + "Btn"
+            };
+            return newFolderButton;
+        }
+
+        public void ShowFolders()
         {
             foreach (string folder in currentUser.folders)
             {
-                FolderButton newFolderButton = new FolderButton(this);
-                newFolderButton.Controls["FolderNameLabel"].Text = folder;
-                newFolderButton.Dock = DockStyle.Top;
-                newFolderButton.Name = folder + "Btn";
+                FolderButton newFolderButton = this.CreateNewFolder(folder);
                 this.FolderListView.Controls.Add(newFolderButton);
+            }
+        }
+
+        //
+        // CREATE NEW FOLDER
+        //
+
+        string newFolderName = "";
+
+        private void RemoveNewFolderInput()
+        {
+            this.creatingFolder = 0;
+            foreach (Control item in this.FoldersListPanel.Controls.OfType<Control>())
+            {
+                if (item.Name == "NewFolderInputPanel")
+                    this.FoldersListPanel.Controls.Remove(item);
+            }
+        }
+
+        private void NewFolderTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.newFolderName = (sender as TextBox).Text;
+        }
+
+        private void AddFolder()
+        {
+            string folderName = this.newFolderName;
+
+            if (!string.IsNullOrWhiteSpace(folderName))
+            {
+                if (this.currentUser.folders.Any(f => f == folderName))
+                {
+                    Console.WriteLine("Folder already exists");
+                }
+                else
+                {
+                    this.currentUser.folders.Add(folderName);
+                }
+            }
+            this.RemoveNewFolderInput();
+        }
+
+        // Keep track whether a folder is currently being created
+        // using an int to make it easier to resize the folders menu
+
+        private void NewFolderTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                this.AddFolder();
+                this.ShowFolders();
+                if (this.foldersExpanded)
+                {
+                    this.openFoldersTimer.Start();
+                }
+                e.Handled = true;
+            }
+        }
+
+        private int creatingFolder = 0;
+
+        public void NewFolderBtn_Click(object sender, EventArgs e)
+        {
+            if (creatingFolder > 0)
+            {
+                this.AddFolder();
+                this.ShowFolders();
+                if (this.foldersExpanded)
+                {
+                    this.openFoldersTimer.Start();
+                }
+                /*
+                Control[] foundControls = this.Controls.Find("NewFolderInputTextBox", false);
+                foreach (var item in foundControls)
+                {
+                    TextBox inputTextBox = item as TextBox;
+                    if (inputTextBox != null)
+                    {
+                        string inputString = inputTextBox.Text;
+                        if (!string.IsNullOrWhiteSpace(inputString))
+                        {
+                            this.createNewFolder("input");
+                            this.creatingFolder = 0;
+                        }
+                        else
+                        {
+                            this.Controls.RemoveByKey("NewFolderInputPanel");
+                            this.creatingFolder = 0;
+                        }
+                    }
+                }
+                
+                Panel inputPanel = this.FoldersListPanel.Controls.OfType<Panel>().FirstOrDefault(t => t.Name.Equals("NewFolderInputPanel"));
+                TextBox inputTextBox = inputPanel.Controls.OfType<TextBox>().FirstOrDefault(t => t.Name.Equals("NewFolderInputTextBox"));
+
+                if (inputTextBox != null)
+                {
+                    string inputString = inputTextBox.Text;
+                    if (!string.IsNullOrWhiteSpace(inputString))
+                    {
+                        this.currentUser.folders.Add(inputString);
+                        this.openFoldersTimer.Start();
+                        this.Controls.RemoveByKey("NewFolderInputPanel");
+                    }
+                    else
+                    {
+                        this.openFoldersTimer.Start();
+                        this.Controls.RemoveByKey("NewFolderInputPanel");
+                    }
+                }
+                */
+            }
+            else
+            {
+                this.creatingFolder = 1;
+                var wrapper = new Panel()
+                {
+                    Dock = DockStyle.Bottom,
+                    Padding = new Padding(60, 0, 10, 0),
+                    Size = new Size(220, 30),
+                    Name = "NewFolderInputPanel"
+                };
+                var input = new TextBox()
+                {
+                    Dock = DockStyle.Fill,
+                    Name = "NewFolderInputTextBox",
+                    BorderStyle = BorderStyle.None,
+                    BackColor = Properties.Settings.Default.bgd_01dp,
+                    ForeColor = Properties.Settings.Default.tds_00dp,
+                    Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
+                };
+                input.TextChanged += new EventHandler(NewFolderTextBox_TextChanged);
+                input.KeyPress += new System.Windows.Forms.KeyPressEventHandler(NewFolderTextBox_KeyPress);
+                wrapper.Controls.Add(input);
+                this.FoldersListPanel.Controls.Add(wrapper);
+                if (foldersExpanded)
+                {
+                    openFoldersTimer.Start();
+                }
             }
         }
 
@@ -588,15 +755,16 @@ namespace NCorp_Mail_Client
 
         void openFoldersTimer_Tick(object sender, EventArgs e)
         {
+            int offset = creatingFolder * 30;
             if (openMenuTimer.Enabled)
             {
                 return;
             }
-            if (FoldersListPanel.Height >= (currentUser.folders.Count * 30) + 95)
+            if (FoldersListPanel.Height >= (currentUser.folders.Count * 30) + 95 + offset)
             {
                 openFoldersTimer.Stop();
             }
-            else if (FoldersListPanel.Height >= (currentUser.folders.Count * 30) + 90)
+            else if (FoldersListPanel.Height >= (currentUser.folders.Count * 30) + 90 + offset)
             {
                 this.FoldersListPanel.Height += 5;
             }
@@ -622,7 +790,7 @@ namespace NCorp_Mail_Client
             }
         }
 
-        private void ExpandFolders()
+        public void ExpandFolders()
         {
             if (openFoldersTimer.Enabled)
             {
@@ -649,6 +817,10 @@ namespace NCorp_Mail_Client
             if (!menuExpanded)
             {
                 this.ExpandMenu();
+            }
+            if (creatingFolder != 0)
+            {
+                this.RemoveNewFolderInput();
             }
             this.ExpandFolders();
         }
@@ -718,6 +890,11 @@ namespace NCorp_Mail_Client
                 this.ExpandMenu();
             }
             this.ExpandSettings();
+        }
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+
         }
 
         //

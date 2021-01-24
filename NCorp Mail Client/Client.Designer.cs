@@ -75,8 +75,11 @@ namespace NCorp_Mail_Client
             this.LoginCloseBtn = new System.Windows.Forms.Button();
             this.LoginLeftPanel = new System.Windows.Forms.Panel();
             this.LoginInputPanelWrapper = new System.Windows.Forms.Panel();
+            this.LoginLeftSpacer3 = new System.Windows.Forms.Panel();
+            this.LoginErrorLabel = new System.Windows.Forms.Label();
+            this.LoginLeftSpacer2 = new System.Windows.Forms.Panel();
             this.LoginPassPanel = new System.Windows.Forms.Panel();
-            this.LoginPassTexBox = new System.Windows.Forms.TextBox();
+            this.LoginPassTextBox = new System.Windows.Forms.TextBox();
             this.LoginPassUnderline = new System.Windows.Forms.Panel();
             this.LoginPassLabel = new System.Windows.Forms.Label();
             this.LoginLeftSpacer = new System.Windows.Forms.Panel();
@@ -158,6 +161,7 @@ namespace NCorp_Mail_Client
             this.LogoutBtn.Text = "Log Out";
             this.LogoutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LogoutBtn.UseVisualStyleBackColor = false;
+            this.LogoutBtn.Click += new System.EventHandler(LogoutBtn_Click);
             // 
             // SettingsOverline
             // 
@@ -220,7 +224,9 @@ namespace NCorp_Mail_Client
             this.NewFolderBtn.TabIndex = 18;
             this.NewFolderBtn.Text = "";
             this.NewFolderBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GeneralToolTip.SetToolTip(this.NewFolderBtn, "New folder");
             this.NewFolderBtn.UseVisualStyleBackColor = false;
+            this.NewFolderBtn.Click += new System.EventHandler(this.NewFolderBtn_Click);
             // 
             // FolderUnderline
             // 
@@ -628,6 +634,7 @@ namespace NCorp_Mail_Client
             this.LoginMinBtn.Size = new System.Drawing.Size(46, 32);
             this.LoginMinBtn.TabIndex = 2;
             this.LoginMinBtn.Text = "";
+            this.GeneralToolTip.SetToolTip(this.LoginMinBtn, "Minimize");
             this.LoginMinBtn.UseVisualStyleBackColor = false;
             this.LoginMinBtn.Click += new System.EventHandler(this.MinBtn_Click);
             // 
@@ -645,6 +652,7 @@ namespace NCorp_Mail_Client
             this.LoginMaxBtn.Size = new System.Drawing.Size(46, 32);
             this.LoginMaxBtn.TabIndex = 1;
             this.LoginMaxBtn.Text = "";
+            this.GeneralToolTip.SetToolTip(this.LoginMaxBtn, "Maximise");
             this.LoginMaxBtn.UseVisualStyleBackColor = false;
             this.LoginMaxBtn.Click += new System.EventHandler(this.MaxBtn_Click);
             // 
@@ -662,6 +670,7 @@ namespace NCorp_Mail_Client
             this.LoginCloseBtn.Size = new System.Drawing.Size(46, 32);
             this.LoginCloseBtn.TabIndex = 0;
             this.LoginCloseBtn.Text = "";
+            this.GeneralToolTip.SetToolTip(this.LoginCloseBtn, "Close");
             this.LoginCloseBtn.UseVisualStyleBackColor = false;
             this.LoginCloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
@@ -678,6 +687,9 @@ namespace NCorp_Mail_Client
             // 
             // LoginInputPanelWrapper
             // 
+            this.LoginInputPanelWrapper.Controls.Add(this.LoginLeftSpacer3);
+            this.LoginInputPanelWrapper.Controls.Add(this.LoginErrorLabel);
+            this.LoginInputPanelWrapper.Controls.Add(this.LoginLeftSpacer2);
             this.LoginInputPanelWrapper.Controls.Add(this.LoginPassPanel);
             this.LoginInputPanelWrapper.Controls.Add(this.LoginPassLabel);
             this.LoginInputPanelWrapper.Controls.Add(this.LoginLeftSpacer);
@@ -692,35 +704,62 @@ namespace NCorp_Mail_Client
             this.LoginInputPanelWrapper.Size = new System.Drawing.Size(460, 688);
             this.LoginInputPanelWrapper.TabIndex = 7;
             // 
+            // LoginLeftSpacer3
+            // 
+            this.LoginLeftSpacer3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LoginLeftSpacer3.Location = new System.Drawing.Point(60, 323);
+            this.LoginLeftSpacer3.Name = "LoginLeftSpacer3";
+            this.LoginLeftSpacer3.Size = new System.Drawing.Size(340, 20);
+            this.LoginLeftSpacer3.TabIndex = 25;
+            // 
+            // LoginErrorLabel
+            // 
+            this.LoginErrorLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LoginErrorLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginErrorLabel.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.cm_red;
+            this.LoginErrorLabel.Location = new System.Drawing.Point(60, 300);
+            this.LoginErrorLabel.Name = "LoginErrorLabel";
+            this.LoginErrorLabel.Size = new System.Drawing.Size(340, 23);
+            this.LoginErrorLabel.TabIndex = 24;
+            // 
+            // LoginLeftSpacer2
+            // 
+            this.LoginLeftSpacer2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LoginLeftSpacer2.Location = new System.Drawing.Point(60, 280);
+            this.LoginLeftSpacer2.Name = "LoginLeftSpacer2";
+            this.LoginLeftSpacer2.Size = new System.Drawing.Size(340, 20);
+            this.LoginLeftSpacer2.TabIndex = 23;
+            // 
             // LoginPassPanel
             // 
-            this.LoginPassPanel.Controls.Add(this.LoginPassTexBox);
+            this.LoginPassPanel.Controls.Add(this.LoginPassTextBox);
             this.LoginPassPanel.Controls.Add(this.LoginPassUnderline);
             this.LoginPassPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LoginPassPanel.Location = new System.Drawing.Point(60, 258);
+            this.LoginPassPanel.Location = new System.Drawing.Point(60, 253);
             this.LoginPassPanel.Name = "LoginPassPanel";
             this.LoginPassPanel.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.LoginPassPanel.Size = new System.Drawing.Size(340, 32);
+            this.LoginPassPanel.Size = new System.Drawing.Size(340, 27);
             this.LoginPassPanel.TabIndex = 22;
             // 
-            // LoginPassTexBox
+            // LoginPassTextBox
             // 
-            this.LoginPassTexBox.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_00dp;
-            this.LoginPassTexBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.LoginPassTexBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LoginPassTexBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginPassTexBox.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_00dp;
-            this.LoginPassTexBox.Location = new System.Drawing.Point(4, 0);
-            this.LoginPassTexBox.Name = "LoginPassTexBox";
-            this.LoginPassTexBox.Size = new System.Drawing.Size(336, 22);
-            this.LoginPassTexBox.TabIndex = 7;
-            this.LoginPassTexBox.UseSystemPasswordChar = true;
+            this.LoginPassTextBox.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_00dp;
+            this.LoginPassTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LoginPassTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoginPassTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginPassTextBox.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_00dp;
+            this.LoginPassTextBox.Location = new System.Drawing.Point(4, 0);
+            this.LoginPassTextBox.Name = "LoginPassTextBox";
+            this.LoginPassTextBox.Size = new System.Drawing.Size(336, 22);
+            this.LoginPassTextBox.TabIndex = 7;
+            this.LoginPassTextBox.UseSystemPasswordChar = true;
+            this.LoginPassTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LoginTextBox_KeyPress);
             // 
             // LoginPassUnderline
             // 
             this.LoginPassUnderline.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_02dp;
             this.LoginPassUnderline.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LoginPassUnderline.Location = new System.Drawing.Point(4, 28);
+            this.LoginPassUnderline.Location = new System.Drawing.Point(4, 23);
             this.LoginPassUnderline.Name = "LoginPassUnderline";
             this.LoginPassUnderline.Size = new System.Drawing.Size(336, 4);
             this.LoginPassUnderline.TabIndex = 5;
@@ -730,7 +769,7 @@ namespace NCorp_Mail_Client
             this.LoginPassLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.LoginPassLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginPassLabel.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_00dp;
-            this.LoginPassLabel.Location = new System.Drawing.Point(60, 230);
+            this.LoginPassLabel.Location = new System.Drawing.Point(60, 225);
             this.LoginPassLabel.Name = "LoginPassLabel";
             this.LoginPassLabel.Size = new System.Drawing.Size(340, 28);
             this.LoginPassLabel.TabIndex = 21;
@@ -739,7 +778,7 @@ namespace NCorp_Mail_Client
             // LoginLeftSpacer
             // 
             this.LoginLeftSpacer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LoginLeftSpacer.Location = new System.Drawing.Point(60, 200);
+            this.LoginLeftSpacer.Location = new System.Drawing.Point(60, 195);
             this.LoginLeftSpacer.Name = "LoginLeftSpacer";
             this.LoginLeftSpacer.Size = new System.Drawing.Size(340, 30);
             this.LoginLeftSpacer.TabIndex = 20;
@@ -752,7 +791,7 @@ namespace NCorp_Mail_Client
             this.LoginMailPanel.Location = new System.Drawing.Point(60, 168);
             this.LoginMailPanel.Name = "LoginMailPanel";
             this.LoginMailPanel.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.LoginMailPanel.Size = new System.Drawing.Size(340, 32);
+            this.LoginMailPanel.Size = new System.Drawing.Size(340, 27);
             this.LoginMailPanel.TabIndex = 19;
             // 
             // LoginMailTextBox
@@ -766,12 +805,13 @@ namespace NCorp_Mail_Client
             this.LoginMailTextBox.Name = "LoginMailTextBox";
             this.LoginMailTextBox.Size = new System.Drawing.Size(336, 22);
             this.LoginMailTextBox.TabIndex = 7;
+            this.LoginMailTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LoginTextBox_KeyPress);
             // 
             // LoginMailUnderline
             // 
             this.LoginMailUnderline.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_02dp;
             this.LoginMailUnderline.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LoginMailUnderline.Location = new System.Drawing.Point(4, 28);
+            this.LoginMailUnderline.Location = new System.Drawing.Point(4, 23);
             this.LoginMailUnderline.Name = "LoginMailUnderline";
             this.LoginMailUnderline.Size = new System.Drawing.Size(336, 4);
             this.LoginMailUnderline.TabIndex = 5;
@@ -822,6 +862,7 @@ namespace NCorp_Mail_Client
             this.LoginBtn.Size = new System.Drawing.Size(340, 30);
             this.LoginBtn.TabIndex = 2;
             this.LoginBtn.Text = "Login";
+            this.GeneralToolTip.SetToolTip(this.LoginBtn, "Log in");
             this.LoginBtn.UseVisualStyleBackColor = true;
             this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
@@ -872,7 +913,7 @@ namespace NCorp_Mail_Client
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmailClient";
             this.Text = "     ";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Client_Load);
             this.ControlPanel.ResumeLayout(false);
             this.SettingsPanel.ResumeLayout(false);
             this.FoldersListPanel.ResumeLayout(false);
@@ -954,7 +995,7 @@ namespace NCorp_Mail_Client
         private UserControls.MenuButton MenuSettingsBtn;
         private ToolTip GeneralToolTip;
         public Panel LoginPassPanel;
-        public TextBox LoginPassTexBox;
+        public TextBox LoginPassTextBox;
         public Panel LoginPassUnderline;
         private Label LoginPassLabel;
         private Panel LoginLeftSpacer;
@@ -964,5 +1005,8 @@ namespace NCorp_Mail_Client
         private Label LoginMailLabel;
         private Panel LoginLogoPanel;
         private Panel LoginLogo;
+        private Label LoginErrorLabel;
+        private Panel LoginLeftSpacer2;
+        private Panel LoginLeftSpacer3;
     }
 }

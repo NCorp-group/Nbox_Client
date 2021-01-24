@@ -28,6 +28,7 @@ namespace NCorp_Mail_Client.UserControls
         private void FolderButton_Click(object sender, EventArgs e)
         {
             client.ShowMails(this.FolderNameLabel.Text);
+            //client.ExpandFolders();
         }
         private void Panel_MouseIn(object sender, EventArgs e)
         {
