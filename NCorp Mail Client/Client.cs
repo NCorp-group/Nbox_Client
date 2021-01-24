@@ -49,6 +49,7 @@ namespace NCorp_Mail_Client
             {
                 Directory.CreateDirectory(MAILDIR_ROOT);
             }
+            this.Icon = Properties.Resources.icon;
 
             InitializeComponent();
 

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBox_Mail_Client", "NCorp Mail Client\NBox_Mail_Client.csproj", "{C9D256AF-DB47-49A7-B3AD-AA02E59AB987}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBox", "NCorp Mail Client\NBox.csproj", "{C9D256AF-DB47-49A7-B3AD-AA02E59AB987}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "NboxClientSetup", "NboxClientSetup\NboxClientSetup.vdproj", "{4574561B-EABD-4C8D-8137-C6F45460EE9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C9D256AF-DB47-49A7-B3AD-AA02E59AB987}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C9D256AF-DB47-49A7-B3AD-AA02E59AB987}.Release|x64.ActiveCfg = Release|x64
 		{C9D256AF-DB47-49A7-B3AD-AA02E59AB987}.Release|x64.Build.0 = Release|x64
+		{4574561B-EABD-4C8D-8137-C6F45460EE9C}.Debug|Any CPU.ActiveCfg = Debug
+		{4574561B-EABD-4C8D-8137-C6F45460EE9C}.Debug|x64.ActiveCfg = Debug
+		{4574561B-EABD-4C8D-8137-C6F45460EE9C}.Release|Any CPU.ActiveCfg = Release
+		{4574561B-EABD-4C8D-8137-C6F45460EE9C}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

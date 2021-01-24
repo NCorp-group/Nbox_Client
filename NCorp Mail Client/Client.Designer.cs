@@ -744,7 +744,7 @@ namespace NCorp_Mail_Client
             // LoginLeftSpacer3
             // 
             this.LoginLeftSpacer3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LoginLeftSpacer3.Location = new System.Drawing.Point(60, 308);
+            this.LoginLeftSpacer3.Location = new System.Drawing.Point(60, 323);
             this.LoginLeftSpacer3.Margin = new System.Windows.Forms.Padding(2);
             this.LoginLeftSpacer3.Name = "LoginLeftSpacer3";
             this.LoginLeftSpacer3.Size = new System.Drawing.Size(340, 13);
@@ -758,7 +758,7 @@ namespace NCorp_Mail_Client
             this.LoginErrorLabel.Location = new System.Drawing.Point(60, 293);
             this.LoginErrorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LoginErrorLabel.Name = "LoginErrorLabel";
-            this.LoginErrorLabel.Size = new System.Drawing.Size(340, 15);
+            this.LoginErrorLabel.Size = new System.Drawing.Size(340, 30);
             this.LoginErrorLabel.TabIndex = 24;
             // 
             // LoginLeftSpacer2
