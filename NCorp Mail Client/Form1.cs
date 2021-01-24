@@ -183,20 +183,34 @@ namespace NCorp_Mail_Client
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void MaxBtn_Click(object sender, EventArgs e)
+        // Toggle Maximize
+        private void ToggleMaximize()
         {
             if (this.WindowState == FormWindowState.Normal)
             {
                 this.WindowState = FormWindowState.Maximized;
                 MaxBtn.Text = "";
+                LoginMaxBtn.Text = "";
                 this.GeneralToolTip.SetToolTip(MaxBtn, "Normalize");
             }
             else
             {
                 this.WindowState = FormWindowState.Normal;
                 MaxBtn.Text = "";
+                LoginMaxBtn.Text = "";
                 this.GeneralToolTip.SetToolTip(MaxBtn, "Maximize");
             }
+        }
+
+        private void MaxBtn_Click(object sender, EventArgs e)
+        {
+            this.ToggleMaximize();
+        }
+
+        // Maximize window when double clicking the titlebar
+        private void TitleBar_DoubleClick(object sender, EventArgs e)
+        {
+            this.ToggleMaximize();
         }
 
         //
