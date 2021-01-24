@@ -99,6 +99,13 @@ namespace NCorp_Mail_Client
             File.WriteAllText(mailPath, emailListString);
         }
 
+        public void updateUserFile()
+        {
+            string mailPath = Path.Combine(MAILDIR_ROOT, this.currentUser.username + ".json");
+            string userMailStr = JsonConvert.SerializeObject(this.currentUser.mails);
+            File.WriteAllText(mailPath, userMailStr);
+        }
+
         /// <summary>
         /// Use this for the user login screen to authenticate the user. 
         /// </summary>
@@ -110,6 +117,16 @@ namespace NCorp_Mail_Client
             var user_credentials = new List<String> { email, password };
             NMAPRequest message = new NMAPRequest("login", user_credentials, new List<string>());
             string messageJsonStr = JsonConvert.SerializeObject(message);
+            (int status, List<String> body) = TCPconnection.message(messageJsonStr);
+            return status;
+        }
+
+        public int markAsRead(Mail mail)
+        {
+            var arguments = new List<String> { mail.metadata.mail_GUID.ToString() };
+            NMAPRequest message = new NMAPRequest("mark_read", arguments, new List<string>());
+            string messageJsonStr = JsonConvert.SerializeObject(message);
+            Console.WriteLine("in markAsRead sending request NMAPRequest {0}", messageJsonStr);
             (int status, List<String> body) = TCPconnection.message(messageJsonStr);
             return status;
         }

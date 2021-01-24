@@ -49,13 +49,12 @@ namespace NCorp_Mail_Client
 
         public Mail(string folder, string colour, bool draft)
         {
-            this.metadata.timestamp = DateTime.Now;
             this.metadata = new Metadata(folder, colour, draft);
         }
 
         public Mail()
         {
-
+            this.metadata = new Metadata("Inbox", "none", false);
         }
 
         public void from_json(string in_mail)

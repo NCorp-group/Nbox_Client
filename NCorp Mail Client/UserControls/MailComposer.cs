@@ -43,8 +43,6 @@ namespace NCorp_Mail_Client.UserControls
         }
         private void SendBtn_Click(object sender, EventArgs e)
         {
-
-            // Go here Kevork
             string from = FromTextBox.Text;
             string to = ToTextBox.Text;
             string subject = SubjectTextBox.Text;
@@ -53,7 +51,7 @@ namespace NCorp_Mail_Client.UserControls
             var mail = new Mail
             {
                 to = new List<string> { to },
-                from = from,
+                from = client.currentUser.username,
                 subject = subject,
                 body = body,
             };
@@ -65,6 +63,19 @@ namespace NCorp_Mail_Client.UserControls
             string mailMessageStr = JsonConvert.SerializeObject(mailMessage);
 
             (int response_status, List<String> response_body) = TCPconnection.message(mailMessageStr);
+
+            if(response_status == 200)
+            {
+                // Server has confirmed the mail is sent successfully
+                // Jens, could you make some UI feecback, that would be triggered in this scope?
+                // Until then, this print will do.
+                Console.WriteLine("Mail successfully sent!"); 
+            }
+            else
+            {
+                Console.WriteLine("Mail not sent, error code {0}", response_status);
+            }
+            
         }
         private void DiscardBtn_Click(object sender, EventArgs e)
         {

@@ -360,8 +360,6 @@ namespace NCorp_Mail_Client
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             this.FetchMails();
-            //this.GetMails();
-            this.ClearMailList();
             this.ShowMails(null);
         }
 
@@ -383,6 +381,10 @@ namespace NCorp_Mail_Client
                 {
                     using (FileStream fs = File.Create(user_path)) { }
                 }
+
+                FetchMails(true);
+                this.ShowMails(null);
+
                 this.LoginScreen.Hide();
             }
             else

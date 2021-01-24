@@ -32,6 +32,21 @@ namespace NCorp_Mail_Client.UserControls
         private void MailThumbnail_Click(object sender, EventArgs e)
         {
             client.currentMail = this.mail;
+
+            if (this.mail.metadata.read == false)
+            {
+                this.mail.metadata.read = true;
+                int status = this.client.markAsRead(this.mail);
+
+                if(status != 200)
+                {
+                    Console.WriteLine("Could not mark mail as read, server returned {0}", status);
+                }
+                else
+                {
+                    client.updateUserFile();
+                }
+            }
             client.ShowCurrentMail();
             CheckRead();
         }
