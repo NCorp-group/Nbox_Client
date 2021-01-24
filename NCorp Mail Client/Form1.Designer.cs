@@ -126,7 +126,7 @@ namespace NCorp_Mail_Client
             this.ControlPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.ControlPanel.Location = new System.Drawing.Point(0, 0);
             this.ControlPanel.Name = "ControlPanel";
-            this.ControlPanel.Size = new System.Drawing.Size(220, 720);
+            this.ControlPanel.Size = new System.Drawing.Size(60, 720);
             this.ControlPanel.TabIndex = 3;
             // 
             // SettingsPanel
