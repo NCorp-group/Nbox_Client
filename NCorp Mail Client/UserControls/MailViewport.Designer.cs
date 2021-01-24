@@ -37,6 +37,7 @@
             this.ActionsPanel = new System.Windows.Forms.Panel();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
             this.ColourBtn = new System.Windows.Forms.Button();
+            this.FolderBtn = new System.Windows.Forms.Button();
             this.ReplyAllBtn = new System.Windows.Forms.Button();
             this.ReplyBtn = new System.Windows.Forms.Button();
             this.ForwardBtn = new System.Windows.Forms.Button();
@@ -52,6 +53,7 @@
             this.GreenBtn = new System.Windows.Forms.Button();
             this.CyanBtn = new System.Windows.Forms.Button();
             this.BlueBtn = new System.Windows.Forms.Button();
+            this.FoldersDropDown = new System.Windows.Forms.Panel();
             this.HeaderPanel.SuspendLayout();
             this.TitlePanel.SuspendLayout();
             this.ActionsPanel.SuspendLayout();
@@ -89,7 +91,7 @@
             this.TitlePanel.Location = new System.Drawing.Point(0, 0);
             this.TitlePanel.Name = "TitlePanel";
             this.TitlePanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.TitlePanel.Size = new System.Drawing.Size(460, 70);
+            this.TitlePanel.Size = new System.Drawing.Size(410, 70);
             this.TitlePanel.TabIndex = 1;
             // 
             // SenderLabel
@@ -99,7 +101,7 @@
             this.SenderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
             this.SenderLabel.Location = new System.Drawing.Point(0, 40);
             this.SenderLabel.Name = "SenderLabel";
-            this.SenderLabel.Size = new System.Drawing.Size(460, 21);
+            this.SenderLabel.Size = new System.Drawing.Size(410, 21);
             this.SenderLabel.TabIndex = 2;
             this.SenderLabel.Text = "sender@mail.com";
             // 
@@ -110,7 +112,7 @@
             this.TitleLabel.ForeColor = System.Drawing.Color.White;
             this.TitleLabel.Location = new System.Drawing.Point(0, 10);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(460, 30);
+            this.TitleLabel.Size = new System.Drawing.Size(410, 30);
             this.TitleLabel.TabIndex = 1;
             this.TitleLabel.Text = "Email Title";
             // 
@@ -118,14 +120,15 @@
             // 
             this.ActionsPanel.Controls.Add(this.ButtonsPanel);
             this.ActionsPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ActionsPanel.Location = new System.Drawing.Point(460, 0);
+            this.ActionsPanel.Location = new System.Drawing.Point(410, 0);
             this.ActionsPanel.Name = "ActionsPanel";
-            this.ActionsPanel.Size = new System.Drawing.Size(300, 70);
+            this.ActionsPanel.Size = new System.Drawing.Size(350, 70);
             this.ActionsPanel.TabIndex = 0;
             // 
             // ButtonsPanel
             // 
             this.ButtonsPanel.Controls.Add(this.ColourBtn);
+            this.ButtonsPanel.Controls.Add(this.FolderBtn);
             this.ButtonsPanel.Controls.Add(this.ReplyAllBtn);
             this.ButtonsPanel.Controls.Add(this.ReplyBtn);
             this.ButtonsPanel.Controls.Add(this.ForwardBtn);
@@ -134,7 +137,7 @@
             this.ButtonsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.ButtonsPanel.Location = new System.Drawing.Point(0, 0);
             this.ButtonsPanel.Name = "ButtonsPanel";
-            this.ButtonsPanel.Size = new System.Drawing.Size(300, 50);
+            this.ButtonsPanel.Size = new System.Drawing.Size(350, 50);
             this.ButtonsPanel.TabIndex = 0;
             // 
             // ColourBtn
@@ -156,6 +159,25 @@
             this.ColourBtn.UseVisualStyleBackColor = false;
             this.ColourBtn.Click += new System.EventHandler(this.ColourBtn_Click);
             // 
+            // FolderBtn
+            // 
+            this.FolderBtn.BackColor = System.Drawing.Color.Transparent;
+            this.FolderBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.FolderBtn.FlatAppearance.BorderSize = 0;
+            this.FolderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
+            this.FolderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.FolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FolderBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FolderBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
+            this.FolderBtn.Location = new System.Drawing.Point(50, 0);
+            this.FolderBtn.Name = "FolderBtn";
+            this.FolderBtn.Size = new System.Drawing.Size(50, 50);
+            this.FolderBtn.TabIndex = 35;
+            this.FolderBtn.Text = "";
+            this.BtnTooltip.SetToolTip(this.FolderBtn, "Flag as spam");
+            this.FolderBtn.UseVisualStyleBackColor = false;
+            this.FolderBtn.Click += new System.EventHandler(this.FolderBtn_Click);
+            // 
             // ReplyAllBtn
             // 
             this.ReplyAllBtn.BackColor = System.Drawing.Color.Transparent;
@@ -166,7 +188,7 @@
             this.ReplyAllBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReplyAllBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReplyAllBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
-            this.ReplyAllBtn.Location = new System.Drawing.Point(50, 0);
+            this.ReplyAllBtn.Location = new System.Drawing.Point(100, 0);
             this.ReplyAllBtn.Name = "ReplyAllBtn";
             this.ReplyAllBtn.Size = new System.Drawing.Size(50, 50);
             this.ReplyAllBtn.TabIndex = 32;
@@ -185,7 +207,7 @@
             this.ReplyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReplyBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReplyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
-            this.ReplyBtn.Location = new System.Drawing.Point(100, 0);
+            this.ReplyBtn.Location = new System.Drawing.Point(150, 0);
             this.ReplyBtn.Name = "ReplyBtn";
             this.ReplyBtn.Size = new System.Drawing.Size(50, 50);
             this.ReplyBtn.TabIndex = 31;
@@ -204,7 +226,7 @@
             this.ForwardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ForwardBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForwardBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
-            this.ForwardBtn.Location = new System.Drawing.Point(150, 0);
+            this.ForwardBtn.Location = new System.Drawing.Point(200, 0);
             this.ForwardBtn.Name = "ForwardBtn";
             this.ForwardBtn.Size = new System.Drawing.Size(50, 50);
             this.ForwardBtn.TabIndex = 30;
@@ -223,7 +245,7 @@
             this.FlagBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FlagBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FlagBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
-            this.FlagBtn.Location = new System.Drawing.Point(200, 0);
+            this.FlagBtn.Location = new System.Drawing.Point(250, 0);
             this.FlagBtn.Name = "FlagBtn";
             this.FlagBtn.Size = new System.Drawing.Size(50, 50);
             this.FlagBtn.TabIndex = 29;
@@ -242,7 +264,7 @@
             this.DeleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
-            this.DeleBtn.Location = new System.Drawing.Point(250, 0);
+            this.DeleBtn.Location = new System.Drawing.Point(300, 0);
             this.DeleBtn.Name = "DeleBtn";
             this.DeleBtn.Size = new System.Drawing.Size(50, 50);
             this.DeleBtn.TabIndex = 34;
@@ -263,7 +285,7 @@
             this.ColourDropDown.Controls.Add(this.GreenBtn);
             this.ColourDropDown.Controls.Add(this.CyanBtn);
             this.ColourDropDown.Controls.Add(this.BlueBtn);
-            this.ColourDropDown.Location = new System.Drawing.Point(490, 50);
+            this.ColourDropDown.Location = new System.Drawing.Point(440, 50);
             this.ColourDropDown.Name = "ColourDropDown";
             this.ColourDropDown.Size = new System.Drawing.Size(50, 0);
             this.ColourDropDown.TabIndex = 4;
@@ -412,10 +434,20 @@
             this.BlueBtn.UseVisualStyleBackColor = false;
             this.BlueBtn.Click += new System.EventHandler(this.BlueColourBtn_Click);
             // 
+            // FoldersDropDown
+            // 
+            this.FoldersDropDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FoldersDropDown.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_02dp;
+            this.FoldersDropDown.Location = new System.Drawing.Point(490, 50);
+            this.FoldersDropDown.Name = "FoldersDropDown";
+            this.FoldersDropDown.Size = new System.Drawing.Size(100, 0);
+            this.FoldersDropDown.TabIndex = 5;
+            // 
             // MailViewport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.FoldersDropDown);
             this.Controls.Add(this.ColourDropDown);
             this.Controls.Add(this.BodyLabel);
             this.Controls.Add(this.HeaderPanel);
@@ -457,5 +489,7 @@
         public System.Windows.Forms.Button CyanBtn;
         public System.Windows.Forms.Button BlueBtn;
         public System.Windows.Forms.Button DeleBtn;
+        public System.Windows.Forms.Button FolderBtn;
+        private System.Windows.Forms.Panel FoldersDropDown;
     }
 }

@@ -36,6 +36,9 @@ namespace NCorp_Mail_Client
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmailClient));
             this.ControlPanel = new System.Windows.Forms.Panel();
             this.SettingsPanel = new System.Windows.Forms.Panel();
+            this.CurrentAccountPanel = new System.Windows.Forms.Panel();
+            this.CurrentAccountLabel = new System.Windows.Forms.Label();
+            this.AccountUnderLine = new System.Windows.Forms.Panel();
             this.LogoutBtn = new System.Windows.Forms.Button();
             this.SettingsOverline = new System.Windows.Forms.Panel();
             this.MenuSettingsBtn = new NCorp_Mail_Client.UserControls.MenuButton();
@@ -96,6 +99,7 @@ namespace NCorp_Mail_Client
             this.GeneralToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.ControlPanel.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
+            this.CurrentAccountPanel.SuspendLayout();
             this.FoldersListPanel.SuspendLayout();
             this.FolderListView.SuspendLayout();
             this.MailPanel.SuspendLayout();
@@ -135,6 +139,8 @@ namespace NCorp_Mail_Client
             // 
             // SettingsPanel
             // 
+            this.SettingsPanel.Controls.Add(this.CurrentAccountPanel);
+            this.SettingsPanel.Controls.Add(this.AccountUnderLine);
             this.SettingsPanel.Controls.Add(this.LogoutBtn);
             this.SettingsPanel.Controls.Add(this.SettingsOverline);
             this.SettingsPanel.Controls.Add(this.MenuSettingsBtn);
@@ -144,6 +150,37 @@ namespace NCorp_Mail_Client
             this.SettingsPanel.Name = "SettingsPanel";
             this.SettingsPanel.Size = new System.Drawing.Size(90, 92);
             this.SettingsPanel.TabIndex = 34;
+            // 
+            // CurrentAccountPanel
+            // 
+            this.CurrentAccountPanel.Controls.Add(this.CurrentAccountLabel);
+            this.CurrentAccountPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CurrentAccountPanel.Location = new System.Drawing.Point(0, -80);
+            this.CurrentAccountPanel.Name = "CurrentAccountPanel";
+            this.CurrentAccountPanel.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.CurrentAccountPanel.Size = new System.Drawing.Size(60, 40);
+            this.CurrentAccountPanel.TabIndex = 37;
+            // 
+            // CurrentAccountLabel
+            // 
+            this.CurrentAccountLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CurrentAccountLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CurrentAccountLabel.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.tds_00dp;
+            this.CurrentAccountLabel.Location = new System.Drawing.Point(10, 0);
+            this.CurrentAccountLabel.Name = "CurrentAccountLabel";
+            this.CurrentAccountLabel.Size = new System.Drawing.Size(40, 40);
+            this.CurrentAccountLabel.TabIndex = 0;
+            this.CurrentAccountLabel.Text = "user not loaded";
+            this.CurrentAccountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // AccountUnderLine
+            // 
+            this.AccountUnderLine.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_01dp;
+            this.AccountUnderLine.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.AccountUnderLine.Location = new System.Drawing.Point(0, -40);
+            this.AccountUnderLine.Name = "AccountUnderLine";
+            this.AccountUnderLine.Size = new System.Drawing.Size(60, 5);
+            this.AccountUnderLine.TabIndex = 36;
             // 
             // LogoutBtn
             // 
@@ -962,6 +999,7 @@ namespace NCorp_Mail_Client
             this.Load += new System.EventHandler(this.Client_Load);
             this.ControlPanel.ResumeLayout(false);
             this.SettingsPanel.ResumeLayout(false);
+            this.CurrentAccountPanel.ResumeLayout(false);
             this.FoldersListPanel.ResumeLayout(false);
             this.FolderListView.ResumeLayout(false);
             this.MailPanel.ResumeLayout(false);
@@ -1054,5 +1092,8 @@ namespace NCorp_Mail_Client
         private Label LoginErrorLabel;
         private Panel LoginLeftSpacer2;
         private Panel LoginLeftSpacer3;
+        private Panel CurrentAccountPanel;
+        private Label CurrentAccountLabel;
+        private Panel AccountUnderLine;
     }
 }

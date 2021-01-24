@@ -397,6 +397,10 @@ namespace NCorp_Mail_Client
                 this.LoginScreen.Hide();
                 FetchMails(false);
                 this.ShowMails(null);
+                this.CurrentAccountLabel.Text = currentUser.username + "@nbox.com";
+                this.GeneralToolTip.SetToolTip(this.CurrentAccountLabel, this.CurrentAccountLabel.Text);
+
+                this.LoginScreen.Hide();
             }
             else if (status == 401)
             {
@@ -673,7 +677,7 @@ namespace NCorp_Mail_Client
                 e.Handled = true;
             }
         }
-
+        
         private int creatingFolder = 0;
 
         public void NewFolderBtn_Click(object sender, EventArgs e)
@@ -686,46 +690,6 @@ namespace NCorp_Mail_Client
                 {
                     this.openFoldersTimer.Start();
                 }
-                /*
-                Control[] foundControls = this.Controls.Find("NewFolderInputTextBox", false);
-                foreach (var item in foundControls)
-                {
-                    TextBox inputTextBox = item as TextBox;
-                    if (inputTextBox != null)
-                    {
-                        string inputString = inputTextBox.Text;
-                        if (!string.IsNullOrWhiteSpace(inputString))
-                        {
-                            this.createNewFolder("input");
-                            this.creatingFolder = 0;
-                        }
-                        else
-                        {
-                            this.Controls.RemoveByKey("NewFolderInputPanel");
-                            this.creatingFolder = 0;
-                        }
-                    }
-                }
-                
-                Panel inputPanel = this.FoldersListPanel.Controls.OfType<Panel>().FirstOrDefault(t => t.Name.Equals("NewFolderInputPanel"));
-                TextBox inputTextBox = inputPanel.Controls.OfType<TextBox>().FirstOrDefault(t => t.Name.Equals("NewFolderInputTextBox"));
-
-                if (inputTextBox != null)
-                {
-                    string inputString = inputTextBox.Text;
-                    if (!string.IsNullOrWhiteSpace(inputString))
-                    {
-                        this.currentUser.folders.Add(inputString);
-                        this.openFoldersTimer.Start();
-                        this.Controls.RemoveByKey("NewFolderInputPanel");
-                    }
-                    else
-                    {
-                        this.openFoldersTimer.Start();
-                        this.Controls.RemoveByKey("NewFolderInputPanel");
-                    }
-                }
-                */
             }
             else
             {
@@ -739,7 +703,7 @@ namespace NCorp_Mail_Client
                 };
                 var input = new TextBox()
                 {
-                    Dock = DockStyle.Fill,
+                    Dock = DockStyle.Top,
                     Name = "NewFolderInputTextBox",
                     BorderStyle = BorderStyle.None,
                     BackColor = Properties.Settings.Default.bgd_01dp,
@@ -850,7 +814,7 @@ namespace NCorp_Mail_Client
             {
                 return;
             }
-            if (SettingsPanel.Height >= 95)
+            if (SettingsPanel.Height >= 140)
             {
                 openSettingsTimer.Stop();
             }

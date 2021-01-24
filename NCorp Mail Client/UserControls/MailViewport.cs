@@ -15,13 +15,19 @@ namespace NCorp_Mail_Client.UserControls
         private EmailClient client;
         private MailThumbnail thumbnail;
 
-        private bool dropDownExpanded = false;
+        private bool colourDropDownExpanded = false;
+        private bool foldersDropDownExpanded = false;
         public MailViewport(EmailClient client, MailThumbnail thumbnail)
         {
-            openDropTimer.Interval = 10;
-            openDropTimer.Tick += new EventHandler(openDropTimer_Tick);
-            closeDropTimer.Interval = 10;
-            closeDropTimer.Tick += new EventHandler(closeDropTimer_Tick);
+            openColourDropTimer.Interval = 10;
+            openColourDropTimer.Tick += new EventHandler(openColourDropTimer_Tick);
+            closeColourDropTimer.Interval = 10;
+            closeColourDropTimer.Tick += new EventHandler(closeColourDropTimer_Tick);
+
+            openFoldersDropTimer.Interval = 10;
+            openFoldersDropTimer.Tick += new EventHandler(openFoldersDropTimer_Tick);
+            closeFoldersDropTimer.Interval = 10;
+            closeFoldersDropTimer.Tick += new EventHandler(closeFoldersDropTimer_Tick);
 
             InitializeComponent();
             this.client = client;
@@ -71,25 +77,26 @@ namespace NCorp_Mail_Client.UserControls
             }
         }
 
-        Timer openDropTimer = new Timer();
-        Timer closeDropTimer = new Timer();
+        Timer openColourDropTimer = new Timer();
+        Timer closeColourDropTimer = new Timer();
 
-        private void openDropTimer_Tick(object sender, EventArgs e)
+        private void openColourDropTimer_Tick(object sender, EventArgs e)
         {
             if (this.ColourDropDown.Height >= 400)
             {
-                this.openDropTimer.Stop();
+                this.openColourDropTimer.Stop();
             }
             else
             {
                 this.ColourDropDown.Height += 25;
             }
         }
-        private void closeDropTimer_Tick(object sender, EventArgs e)
+        private void closeColourDropTimer_Tick(object sender, EventArgs e)
         {
             if (this.ColourDropDown.Height <= 0)
             {
-                this.closeDropTimer.Stop();
+                this.closeColourDropTimer.Stop();
+                this.ColourBtn.BackColor = Properties.Settings.Default.bgd_00dp;
             }
             else
             {
@@ -97,36 +104,41 @@ namespace NCorp_Mail_Client.UserControls
             }
         }
 
-        private void ExpandDropDown()
+        private void ExpandColourDropDown()
         {
-            if (openDropTimer.Enabled)
+            if (foldersDropDownExpanded)
             {
-                openDropTimer.Stop();
+                this.ExpandFoldersDropDown();
             }
-            if (closeDropTimer.Enabled)
+            if (openColourDropTimer.Enabled)
             {
-                closeDropTimer.Stop();
+                openColourDropTimer.Stop();
+            }
+            if (closeColourDropTimer.Enabled)
+            {
+                closeColourDropTimer.Stop();
             }
 
-            if (dropDownExpanded)
+            if (colourDropDownExpanded)
             {
-                closeDropTimer.Start();
+                closeColourDropTimer.Start();
             }
             else
             {
-                openDropTimer.Start();
+                openColourDropTimer.Start();
+                this.ColourBtn.BackColor = Properties.Settings.Default.bgd_02dp;
             }
-            dropDownExpanded = !dropDownExpanded;
+            colourDropDownExpanded = !colourDropDownExpanded;
         }
 
         private void ColourBtn_Click(object sender, EventArgs e)
         {
-            this.ExpandDropDown();
+            this.ExpandColourDropDown();
         }
 
         private void BlueColourBtn_Click(object sender, EventArgs e)
         {
-            this.ExpandDropDown();
+            this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "blue";
             client.markColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
@@ -134,7 +146,7 @@ namespace NCorp_Mail_Client.UserControls
         }
         private void CyanColourBtn_Click(object sender, EventArgs e)
         {
-            this.ExpandDropDown();
+            this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "cyan";
             client.markColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
@@ -142,7 +154,7 @@ namespace NCorp_Mail_Client.UserControls
         }
         private void GreenColourBtn_Click(object sender, EventArgs e)
         {
-            this.ExpandDropDown();
+            this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "green";
             client.markColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
@@ -150,7 +162,7 @@ namespace NCorp_Mail_Client.UserControls
         }
         private void YellowColourBtn_Click(object sender, EventArgs e)
         {
-            this.ExpandDropDown();
+            this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "yellow";
             client.markColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
@@ -158,7 +170,7 @@ namespace NCorp_Mail_Client.UserControls
         }
         private void OrangeColourBtn_Click(object sender, EventArgs e)
         {
-            this.ExpandDropDown();
+            this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "orange";
             client.markColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
@@ -166,7 +178,7 @@ namespace NCorp_Mail_Client.UserControls
         }
         private void RedColourBtn_Click(object sender, EventArgs e)
         {
-            this.ExpandDropDown();
+            this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "red";
             client.markColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
@@ -174,7 +186,7 @@ namespace NCorp_Mail_Client.UserControls
         }
         private void MagentaColourBtn_Click(object sender, EventArgs e)
         {
-            this.ExpandDropDown();
+            this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "magenta";
             client.markColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
@@ -182,7 +194,7 @@ namespace NCorp_Mail_Client.UserControls
         }
         private void PurpleColourBtn_Click(object sender, EventArgs e)
         {
-            this.ExpandDropDown();
+            this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "purple";
             client.markColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
@@ -199,6 +211,101 @@ namespace NCorp_Mail_Client.UserControls
 
             client.ShowMails(null);
             this.Dispose();
+        }
+
+        Timer openFoldersDropTimer = new Timer();
+        Timer closeFoldersDropTimer = new Timer();
+
+        private void openFoldersDropTimer_Tick(object sender, EventArgs e)
+        {
+            if (this.FoldersDropDown.Height >= this.foldersDropHeight)
+            {
+                this.openFoldersDropTimer.Stop();
+            }
+            else
+            {
+                this.FoldersDropDown.Height += 20;
+            }
+        }
+        private void closeFoldersDropTimer_Tick(object sender, EventArgs e)
+        {
+            if (this.FoldersDropDown.Height <= 0)
+            {
+                this.closeFoldersDropTimer.Stop();
+                this.FolderBtn.BackColor = Properties.Settings.Default.bgd_00dp;
+            }
+            else
+            {
+                this.FoldersDropDown.Height -= 20;
+            }
+        }
+
+        private void ExpandFoldersDropDown()
+        {
+            if (colourDropDownExpanded)
+            {
+                this.ExpandColourDropDown();
+            }
+            if (openFoldersDropTimer.Enabled)
+            {
+                openFoldersDropTimer.Stop();
+            }
+            if (closeFoldersDropTimer.Enabled)
+            {
+                closeFoldersDropTimer.Stop();
+            }
+
+            if (foldersDropDownExpanded)
+            {
+                closeFoldersDropTimer.Start();
+            }
+            else
+            {
+                openFoldersDropTimer.Start();
+                this.FolderBtn.BackColor = Properties.Settings.Default.bgd_02dp;
+            }
+            foldersDropDownExpanded = !foldersDropDownExpanded;
+        }
+
+        private void ChangeFolder_Click(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            string folder = btn.Text;
+
+            client.currentMail.metadata.folder = folder;
+            client.ShowMails(folder);
+        }
+
+        private int foldersDropHeight = 0;
+
+        private void FolderBtn_Click(object sender, EventArgs e)
+        {
+            if (!client.currentUser.folders.Any())
+            {
+                return;
+            }
+            foreach (string folder in client.currentUser.folders)
+            {
+                var btn = new Button()
+                {
+                    Name = folder + "MVPBtn",
+                    Text = folder,
+                    Dock = DockStyle.Top,
+                    FlatStyle = FlatStyle.Flat,
+                    TextAlign = ContentAlignment.MiddleLeft,
+                    ForeColor = Properties.Settings.Default.tds_02dp,
+                    Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
+                    Size = new Size(100, 40)
+                };
+                btn.FlatAppearance.MouseOverBackColor = Properties.Settings.Default.bgd_06dp;
+                btn.FlatAppearance.MouseDownBackColor = Properties.Settings.Default.bgd_01dp;
+                btn.FlatAppearance.BorderSize = 0;
+                btn.Click += new System.EventHandler(ChangeFolder_Click);
+
+                this.FoldersDropDown.Controls.Add(btn);
+            }
+            this.foldersDropHeight = client.currentUser.folders.Count * 40;
+            this.ExpandFoldersDropDown();
         }
     }
 }
