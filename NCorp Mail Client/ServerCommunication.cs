@@ -68,6 +68,7 @@ namespace NCorp_Mail_Client
                 Mail mail = JsonConvert.DeserializeObject<Mail>(str);
                 fetchedMails.Add(mail);
             }
+            fetchedMails.Reverse();
 
             // List<Mail> fetchedMails = JsonConvert.DeserializeObject<List<Mail>>(strings);  // Deserialize fetched mails intoo bjects into a list of mails
 
@@ -146,5 +147,13 @@ namespace NCorp_Mail_Client
             return folders;
         }
 
+        public int logout()
+        {
+            NMAPRequest message = new NMAPRequest("logout", new List<string>(), new List<string>());
+            string messageStr = JsonConvert.SerializeObject(message);
+            (int status, List<String> body) = TCPconnection.message(messageStr);
+
+            return status;
+        }
     }
 }

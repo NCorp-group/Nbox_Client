@@ -384,12 +384,11 @@ namespace NCorp_Mail_Client
                 if (!File.Exists(user_path))
                 {
                     using (FileStream fs = File.Create(user_path)) { }
+                    FetchMails(true);
                 }
-
-                FetchMails(true);
-                this.ShowMails(null);
-
                 this.LoginScreen.Hide();
+                FetchMails(false);
+                this.ShowMails(null);
             }
             else if (status == 401)
             {
@@ -802,7 +801,6 @@ namespace NCorp_Mail_Client
             {
                 closeFoldersTimer.Stop();
             }
-
             if (foldersExpanded)
             {
                 closeFoldersTimer.Start();
@@ -896,11 +894,20 @@ namespace NCorp_Mail_Client
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
+            int status = logout();
+            if(status != 200)
+            {
+                // Logout failed
+                Console.WriteLine("Logout failed with server error {0}", status);
+            }
+            else
+            {
+                this.LoginMailTextBox.Text = "";
+                this.LoginPassTextBox.Text = "";
 
+                this.LoginScreen.Show();
+            }
+            
         }
-
-        //
-        // Showing a mail from the list
-        //
     }
 }

@@ -31,7 +31,7 @@ namespace NCorp_Mail_Client.UserControls
         }
         private void MailThumbnail_Click(object sender, EventArgs e)
         {
-            this.mail.metadata.read = true;
+            //this.mail.metadata.read = true;
             client.currentMail = this.mail;
 
             if (this.mail.metadata.read == false)
