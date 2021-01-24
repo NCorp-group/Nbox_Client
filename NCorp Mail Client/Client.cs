@@ -235,6 +235,10 @@ namespace NCorp_Mail_Client
             {
                 foreach (Mail mail in this.currentUser.mails)
                 {
+                    if (mail.metadata.deleted)
+                    {
+                        continue;
+                    }
                     var newThumbnail = new MailThumbnail(mail, this);
                     newThumbnail.Dock = DockStyle.Top;
                     this.MailListView.Controls.Add(newThumbnail);
@@ -246,6 +250,10 @@ namespace NCorp_Mail_Client
                 {
                     if (mail.metadata.folder == folderName)
                     {
+                        if (mail.metadata.deleted)
+                        {
+                            continue;
+                        }
                         var newThumbnail = new MailThumbnail(mail, this);
                         newThumbnail.Dock = DockStyle.Top;
                         this.MailListView.Controls.Add(newThumbnail);
@@ -255,7 +263,7 @@ namespace NCorp_Mail_Client
         }
 
         // Show Current Mail
-        public void ShowCurrentMail()
+        public void ShowCurrentMail(MailThumbnail thumbnail)
         {
             if (this.MVPWrapperPanel.HasChildren)
             {
@@ -272,7 +280,7 @@ namespace NCorp_Mail_Client
             }
             this.currentMail.metadata.read = true;
 
-            MailViewport newViewport = new MailViewport(this)
+            MailViewport newViewport = new MailViewport(this, thumbnail)
             {
                 Dock = DockStyle.Fill,
                 Name = "MailViewport"
@@ -526,11 +534,14 @@ namespace NCorp_Mail_Client
 
         public void ComposeMail(ComposeType Type)
         {
-            if (this.Controls["MailComposer"] != null)
+            foreach (Control control in this.MVPWrapperPanel.Controls)
             {
-                var mc = (MailComposer)this.Controls["MailComposer"];
-                mc.SaveAsDraft();
-                this.Controls.RemoveByKey("MailComposer");
+                if (control is MailComposer)
+                {
+                    var mc = control as MailComposer;
+                    mc.SaveAsDraft();
+                    this.MVPWrapperPanel.Controls.Remove(control);
+                }
             }
             this.MVPWrapperPanel.Controls.Clear();
 
@@ -898,9 +909,5 @@ namespace NCorp_Mail_Client
         {
 
         }
-
-        //
-        // Showing a mail from the list
-        //
     }
 }
