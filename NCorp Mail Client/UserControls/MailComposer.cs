@@ -23,6 +23,15 @@ namespace NCorp_Mail_Client.UserControls
         }
         public void SaveAsDraft()
         {
+            if (!client.currentUser.folders.Any(folder => folder == "Drafts"))
+            {
+                client.currentUser.folders.Add("Drafts");
+                client.ShowFolders();
+                if (client.foldersExpanded)
+                {
+                    client.openFoldersTimer.Start();
+                }
+            }
             string newToString = this.ToTextBox.Text;
 
             List<string> newToList = client.ToList(newToString);
