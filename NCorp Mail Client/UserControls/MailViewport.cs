@@ -13,9 +13,10 @@ namespace NCorp_Mail_Client.UserControls
     public partial class MailViewport : UserControl
     {
         private EmailClient client;
+        private MailThumbnail thumbnail;
 
         private bool dropDownExpanded = false;
-        public MailViewport(EmailClient client)
+        public MailViewport(EmailClient client, MailThumbnail thumbnail)
         {
             openDropTimer.Interval = 10;
             openDropTimer.Tick += new EventHandler(openDropTimer_Tick);
@@ -24,6 +25,7 @@ namespace NCorp_Mail_Client.UserControls
 
             InitializeComponent();
             this.client = client;
+            this.thumbnail = thumbnail;
         }
 
         private void ReplyBtn_Click(object sender, EventArgs e)
@@ -119,14 +121,72 @@ namespace NCorp_Mail_Client.UserControls
 
         private void ColourBtn_Click(object sender, EventArgs e)
         {
-            if (dropDownExpanded)
-            {
-                this.ExpandDropDown();
-            }
-            else
-            {
-                this.ExpandDropDown();
-            }
+            this.ExpandDropDown();
+        }
+
+        private void BlueColourBtn_Click(object sender, EventArgs e)
+        {
+            this.ExpandDropDown();
+            client.currentMail.metadata.colour = "blue";
+            this.ColourBtn.ForeColor = client.currentMail.GetColour();
+            this.thumbnail.CheckColour();
+        }
+        private void CyanColourBtn_Click(object sender, EventArgs e)
+        {
+            this.ExpandDropDown();
+            client.currentMail.metadata.colour = "cyan";
+            this.ColourBtn.ForeColor = client.currentMail.GetColour();
+            this.thumbnail.CheckColour();
+        }
+        private void GreenColourBtn_Click(object sender, EventArgs e)
+        {
+            this.ExpandDropDown();
+            client.currentMail.metadata.colour = "green";
+            this.ColourBtn.ForeColor = client.currentMail.GetColour();
+            this.thumbnail.CheckColour();
+        }
+        private void YellowColourBtn_Click(object sender, EventArgs e)
+        {
+            this.ExpandDropDown();
+            client.currentMail.metadata.colour = "yellow";
+            this.ColourBtn.ForeColor = client.currentMail.GetColour();
+            this.thumbnail.CheckColour();
+        }
+        private void OrangeColourBtn_Click(object sender, EventArgs e)
+        {
+            this.ExpandDropDown();
+            client.currentMail.metadata.colour = "orange";
+            this.ColourBtn.ForeColor = client.currentMail.GetColour();
+            this.thumbnail.CheckColour();
+        }
+        private void RedColourBtn_Click(object sender, EventArgs e)
+        {
+            this.ExpandDropDown();
+            client.currentMail.metadata.colour = "red";
+            this.ColourBtn.ForeColor = client.currentMail.GetColour();
+            this.thumbnail.CheckColour();
+        }
+        private void MagentaColourBtn_Click(object sender, EventArgs e)
+        {
+            this.ExpandDropDown();
+            client.currentMail.metadata.colour = "magenta";
+            this.ColourBtn.ForeColor = client.currentMail.GetColour();
+            this.thumbnail.CheckColour();
+        }
+        private void PurpleColourBtn_Click(object sender, EventArgs e)
+        {
+            this.ExpandDropDown();
+            client.currentMail.metadata.colour = "purple";
+            this.ColourBtn.ForeColor = client.currentMail.GetColour();
+            this.thumbnail.CheckColour();
+        }
+
+        private void DeleBtn_Click(object sender, EventArgs e)
+        {
+            client.currentMail.metadata.deleted = true;
+            client.MVPWrapperPanel.Controls.Clear();
+            client.ShowMails(null);
+            this.Dispose();
         }
     }
 }

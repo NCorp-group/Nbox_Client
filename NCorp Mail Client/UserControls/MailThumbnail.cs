@@ -31,7 +31,15 @@ namespace NCorp_Mail_Client.UserControls
         }
         private void MailThumbnail_Click(object sender, EventArgs e)
         {
-            //this.mail.metadata.read = true;
+            foreach (Control control in client.MVPWrapperPanel.Controls)
+            {
+                if (control is MailComposer)
+                {
+                    var mc = control as MailComposer;
+                    mc.SaveAsDraft();
+                    client.MVPWrapperPanel.Controls.Remove(control);
+                }
+            }
             client.currentMail = this.mail;
 
             if (this.mail.metadata.read == false)
@@ -48,11 +56,11 @@ namespace NCorp_Mail_Client.UserControls
                     client.updateUserFile();
                 }
             }
-            client.ShowCurrentMail();
+            client.ShowCurrentMail(this);
             CheckRead();
         }
 
-        private void CheckColour()
+        public void CheckColour()
         {
             // Colour mark calibration
             this.ColourMark.BackColor = this.mail.GetColour();

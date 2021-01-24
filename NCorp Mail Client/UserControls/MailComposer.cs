@@ -23,7 +23,8 @@ namespace NCorp_Mail_Client.UserControls
         }
         public void SaveAsDraft()
         {
-            if (!client.currentUser.folders.Any(folder => folder == "Drafts"))
+            // Make Drafts folder if it doesn't exist
+            if (!client.currentUser.folders.Any(f => f == "Drafts"))
             {
                 client.currentUser.folders.Add("Drafts");
                 client.ShowFolders();
@@ -47,6 +48,9 @@ namespace NCorp_Mail_Client.UserControls
                 subject = newSubject,
                 body = newBody,
                 metadata = new Mail.Metadata("Drafts", "none", true)
+                {
+                    read = true
+                }
             };
             this.client.currentUser.mails.Add(newDraft);
         }

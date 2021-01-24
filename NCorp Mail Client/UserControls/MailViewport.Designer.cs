@@ -41,6 +41,7 @@
             this.ReplyBtn = new System.Windows.Forms.Button();
             this.ForwardBtn = new System.Windows.Forms.Button();
             this.FlagBtn = new System.Windows.Forms.Button();
+            this.DeleBtn = new System.Windows.Forms.Button();
             this.BtnTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.ColourDropDown = new System.Windows.Forms.Panel();
             this.PurpleBtn = new System.Windows.Forms.Button();
@@ -129,6 +130,7 @@
             this.ButtonsPanel.Controls.Add(this.ReplyBtn);
             this.ButtonsPanel.Controls.Add(this.ForwardBtn);
             this.ButtonsPanel.Controls.Add(this.FlagBtn);
+            this.ButtonsPanel.Controls.Add(this.DeleBtn);
             this.ButtonsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.ButtonsPanel.Location = new System.Drawing.Point(0, 0);
             this.ButtonsPanel.Name = "ButtonsPanel";
@@ -145,7 +147,7 @@
             this.ColourBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ColourBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ColourBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
-            this.ColourBtn.Location = new System.Drawing.Point(50, 0);
+            this.ColourBtn.Location = new System.Drawing.Point(0, 0);
             this.ColourBtn.Name = "ColourBtn";
             this.ColourBtn.Size = new System.Drawing.Size(50, 50);
             this.ColourBtn.TabIndex = 33;
@@ -164,7 +166,7 @@
             this.ReplyAllBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReplyAllBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReplyAllBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
-            this.ReplyAllBtn.Location = new System.Drawing.Point(100, 0);
+            this.ReplyAllBtn.Location = new System.Drawing.Point(50, 0);
             this.ReplyAllBtn.Name = "ReplyAllBtn";
             this.ReplyAllBtn.Size = new System.Drawing.Size(50, 50);
             this.ReplyAllBtn.TabIndex = 32;
@@ -183,7 +185,7 @@
             this.ReplyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReplyBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReplyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
-            this.ReplyBtn.Location = new System.Drawing.Point(150, 0);
+            this.ReplyBtn.Location = new System.Drawing.Point(100, 0);
             this.ReplyBtn.Name = "ReplyBtn";
             this.ReplyBtn.Size = new System.Drawing.Size(50, 50);
             this.ReplyBtn.TabIndex = 31;
@@ -202,7 +204,7 @@
             this.ForwardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ForwardBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForwardBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
-            this.ForwardBtn.Location = new System.Drawing.Point(200, 0);
+            this.ForwardBtn.Location = new System.Drawing.Point(150, 0);
             this.ForwardBtn.Name = "ForwardBtn";
             this.ForwardBtn.Size = new System.Drawing.Size(50, 50);
             this.ForwardBtn.TabIndex = 30;
@@ -221,7 +223,7 @@
             this.FlagBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FlagBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FlagBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
-            this.FlagBtn.Location = new System.Drawing.Point(250, 0);
+            this.FlagBtn.Location = new System.Drawing.Point(200, 0);
             this.FlagBtn.Name = "FlagBtn";
             this.FlagBtn.Size = new System.Drawing.Size(50, 50);
             this.FlagBtn.TabIndex = 29;
@@ -229,6 +231,25 @@
             this.BtnTooltip.SetToolTip(this.FlagBtn, "Flag as spam");
             this.FlagBtn.UseVisualStyleBackColor = false;
             this.FlagBtn.Click += new System.EventHandler(this.FlagBtn_Click);
+            // 
+            // DeleBtn
+            // 
+            this.DeleBtn.BackColor = System.Drawing.Color.Transparent;
+            this.DeleBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.DeleBtn.FlatAppearance.BorderSize = 0;
+            this.DeleBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
+            this.DeleBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.DeleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
+            this.DeleBtn.Location = new System.Drawing.Point(250, 0);
+            this.DeleBtn.Name = "DeleBtn";
+            this.DeleBtn.Size = new System.Drawing.Size(50, 50);
+            this.DeleBtn.TabIndex = 34;
+            this.DeleBtn.Text = "";
+            this.BtnTooltip.SetToolTip(this.DeleBtn, "Flag as spam");
+            this.DeleBtn.UseVisualStyleBackColor = false;
+            this.DeleBtn.Click += new System.EventHandler(this.DeleBtn_Click);
             // 
             // ColourDropDown
             // 
@@ -242,7 +263,7 @@
             this.ColourDropDown.Controls.Add(this.GreenBtn);
             this.ColourDropDown.Controls.Add(this.CyanBtn);
             this.ColourDropDown.Controls.Add(this.BlueBtn);
-            this.ColourDropDown.Location = new System.Drawing.Point(540, 50);
+            this.ColourDropDown.Location = new System.Drawing.Point(490, 50);
             this.ColourDropDown.Name = "ColourDropDown";
             this.ColourDropDown.Size = new System.Drawing.Size(50, 0);
             this.ColourDropDown.TabIndex = 4;
@@ -263,6 +284,7 @@
             this.PurpleBtn.TabIndex = 49;
             this.PurpleBtn.Text = "";
             this.PurpleBtn.UseVisualStyleBackColor = false;
+            this.PurpleBtn.Click += new System.EventHandler(this.PurpleColourBtn_Click);
             // 
             // MagentaBtn
             // 
@@ -280,6 +302,7 @@
             this.MagentaBtn.TabIndex = 48;
             this.MagentaBtn.Text = "";
             this.MagentaBtn.UseVisualStyleBackColor = false;
+            this.MagentaBtn.Click += new System.EventHandler(this.MagentaColourBtn_Click);
             // 
             // RedBtn
             // 
@@ -297,6 +320,7 @@
             this.RedBtn.TabIndex = 47;
             this.RedBtn.Text = "";
             this.RedBtn.UseVisualStyleBackColor = false;
+            this.RedBtn.Click += new System.EventHandler(this.RedColourBtn_Click);
             // 
             // OrangeBtn
             // 
@@ -314,6 +338,7 @@
             this.OrangeBtn.TabIndex = 46;
             this.OrangeBtn.Text = "";
             this.OrangeBtn.UseVisualStyleBackColor = false;
+            this.OrangeBtn.Click += new System.EventHandler(this.OrangeColourBtn_Click);
             // 
             // YellowBtn
             // 
@@ -331,6 +356,7 @@
             this.YellowBtn.TabIndex = 45;
             this.YellowBtn.Text = "";
             this.YellowBtn.UseVisualStyleBackColor = false;
+            this.YellowBtn.Click += new System.EventHandler(this.YellowColourBtn_Click);
             // 
             // GreenBtn
             // 
@@ -348,6 +374,7 @@
             this.GreenBtn.TabIndex = 44;
             this.GreenBtn.Text = "";
             this.GreenBtn.UseVisualStyleBackColor = false;
+            this.GreenBtn.Click += new System.EventHandler(this.GreenColourBtn_Click);
             // 
             // CyanBtn
             // 
@@ -365,6 +392,7 @@
             this.CyanBtn.TabIndex = 43;
             this.CyanBtn.Text = "";
             this.CyanBtn.UseVisualStyleBackColor = false;
+            this.CyanBtn.Click += new System.EventHandler(this.CyanColourBtn_Click);
             // 
             // BlueBtn
             // 
@@ -382,6 +410,7 @@
             this.BlueBtn.TabIndex = 42;
             this.BlueBtn.Text = "";
             this.BlueBtn.UseVisualStyleBackColor = false;
+            this.BlueBtn.Click += new System.EventHandler(this.BlueColourBtn_Click);
             // 
             // MailViewport
             // 
@@ -427,5 +456,6 @@
         public System.Windows.Forms.Button GreenBtn;
         public System.Windows.Forms.Button CyanBtn;
         public System.Windows.Forms.Button BlueBtn;
+        public System.Windows.Forms.Button DeleBtn;
     }
 }
