@@ -156,6 +156,12 @@ namespace NCorp_Mail_Client.UserControls
         }
         private void DiscardBtn_Click(object sender, EventArgs e)
         {
+            if (client.currentMail.metadata.folder == "Drafts")
+            {
+                client.currentUser.mails.Remove(client.currentMail);
+                client.ShowFolders();
+                client.updateUserFile();
+            }
             client.MVPWrapperPanel.Controls.Clear();
             this.Dispose();
         }
