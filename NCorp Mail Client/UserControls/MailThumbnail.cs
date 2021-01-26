@@ -54,7 +54,7 @@ namespace NCorp_Mail_Client.UserControls
                 if (this.mail.metadata.read == false)
                 {
                     this.mail.metadata.read = true;
-                    int status = this.client.markAsRead(this.mail);
+                    int status = this.client.MarkAsRead(this.mail);
 
                     if (status != 200)
                     {
@@ -62,7 +62,7 @@ namespace NCorp_Mail_Client.UserControls
                     }
                     else
                     {
-                        client.updateUserFile();
+                        client.UpdateUserFile();
                     }
                 }
                 client.ShowCurrentMail(this);

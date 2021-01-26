@@ -141,7 +141,7 @@ namespace NCorp_Mail_Client.UserControls
         {
             this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "blue";
-            client.markColour(client.currentMail);
+            client.MarkColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
             this.thumbnail.CheckColour();
         }
@@ -149,7 +149,7 @@ namespace NCorp_Mail_Client.UserControls
         {
             this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "cyan";
-            client.markColour(client.currentMail);
+            client.MarkColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
             this.thumbnail.CheckColour();
         }
@@ -157,7 +157,7 @@ namespace NCorp_Mail_Client.UserControls
         {
             this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "green";
-            client.markColour(client.currentMail);
+            client.MarkColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
             this.thumbnail.CheckColour();
         }
@@ -165,7 +165,7 @@ namespace NCorp_Mail_Client.UserControls
         {
             this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "yellow";
-            client.markColour(client.currentMail);
+            client.MarkColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
             this.thumbnail.CheckColour();
         }
@@ -173,7 +173,7 @@ namespace NCorp_Mail_Client.UserControls
         {
             this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "orange";
-            client.markColour(client.currentMail);
+            client.MarkColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
             this.thumbnail.CheckColour();
         }
@@ -181,7 +181,7 @@ namespace NCorp_Mail_Client.UserControls
         {
             this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "red";
-            client.markColour(client.currentMail);
+            client.MarkColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
             this.thumbnail.CheckColour();
         }
@@ -189,7 +189,7 @@ namespace NCorp_Mail_Client.UserControls
         {
             this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "magenta";
-            client.markColour(client.currentMail);
+            client.MarkColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
             this.thumbnail.CheckColour();
         }
@@ -197,7 +197,7 @@ namespace NCorp_Mail_Client.UserControls
         {
             this.ExpandColourDropDown();
             client.currentMail.metadata.colour = "purple";
-            client.markColour(client.currentMail);
+            client.MarkColour(client.currentMail);
             this.ColourBtn.ForeColor = client.currentMail.GetColour();
             this.thumbnail.CheckColour();
         }
@@ -205,10 +205,10 @@ namespace NCorp_Mail_Client.UserControls
         private void DeleBtn_Click(object sender, EventArgs e)
         {
             client.currentMail.metadata.deleted = true;
-            client.deleteMail(this.client.currentMail);
+            client.DeleteMail(this.client.currentMail);
 
             client.MVPWrapperPanel.Controls.Clear();
-            client.updateUserFile();
+            client.UpdateUserFile();
 
             client.ShowMails();
             this.Dispose();
@@ -276,8 +276,8 @@ namespace NCorp_Mail_Client.UserControls
             client.currentMail.metadata.folder = folder;
             client.currentFolder = folder;
             client.ShowMails();
-            client.updateUserFile();
-            client.changeFolder(client.currentFolder, this.client.currentMail);
+            client.UpdateUserFile();
+            client.ChangeFolder(client.currentFolder, this.client.currentMail);
         }
 
         private int foldersDropHeight = 0;

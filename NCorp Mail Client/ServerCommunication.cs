@@ -97,7 +97,7 @@ namespace NCorp_Mail_Client
             File.WriteAllText(userPath, emailListString);
         }
 
-        public void updateUserFile()
+        public void UpdateUserFile()
         {
             string mailPath = Path.Combine(MAILDIR_ROOT, this.currentUser.username + ".json");
             this.currentUser.mails.RemoveAll(mail => mail.metadata.deleted == true);
@@ -111,7 +111,7 @@ namespace NCorp_Mail_Client
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns>Returns the error code, which should be handled by the caller.</returns>
-        public int login(string email, string password)
+        public int Login(string email, string password)
         {
             var user_credentials = new List<String> { email, password };
             NMAPRequest message = new NMAPRequest("login", user_credentials, new List<string>());
@@ -120,7 +120,7 @@ namespace NCorp_Mail_Client
             return status;
         }
 
-        public int markAsRead(Mail mail)
+        public int MarkAsRead(Mail mail)
         {
             var arguments = new List<String> { mail.metadata.mail_GUID.ToString() };
             NMAPRequest message = new NMAPRequest("mark_read", arguments, new List<string>());
@@ -129,7 +129,7 @@ namespace NCorp_Mail_Client
             return status;
         }
 
-        public int markColour(Mail mail)
+        public int MarkColour(Mail mail)
         {
             var arguments = new List<String> { mail.metadata.colour, mail.metadata.mail_GUID.ToString() };
             NMAPRequest message = new NMAPRequest("mark_colour", arguments, new List<string>());
@@ -138,7 +138,7 @@ namespace NCorp_Mail_Client
             return status;
         }
 
-        public int deleteMail(Mail mail)
+        public int DeleteMail(Mail mail)
         {
             var arguments = new List<String> { mail.metadata.mail_GUID.ToString() };
             NMAPRequest message = new NMAPRequest("delete_mail", arguments, new List<string>());
@@ -148,20 +148,7 @@ namespace NCorp_Mail_Client
 
         }
 
-        private HashSet<string> getFolders()
-        {
-            string path = Path.Combine(MAILDIR_ROOT, currentUser.username + ".json");
-            var folders = new HashSet<string>();
-            if (File.Exists(path))
-            {
-                var text = File.ReadAllText(path);
-                var mails = JsonConvert.DeserializeObject<List<Mail>>(text);
-                mails.ForEach(mail => folders.Add(mail.metadata.folder));
-            }
-            return folders;
-        }
-
-        public int logout()
+        public int Logout()
         {
             NMAPRequest message = new NMAPRequest("logout", new List<string>(), new List<string>());
             string messageStr = JsonConvert.SerializeObject(message);
@@ -170,7 +157,7 @@ namespace NCorp_Mail_Client
             return status;
         }
 
-        public int changeFolder(string folder, Mail mail)
+        public int ChangeFolder(string folder, Mail mail)
         {
             var arguments = new List<String> { folder , mail.metadata.mail_GUID.ToString()};
             NMAPRequest message = new NMAPRequest("change_folder", arguments, new List<string>());

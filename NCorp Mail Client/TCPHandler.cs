@@ -105,6 +105,5 @@ namespace NCorp_Mail_Client
 
             return (responseObj.status, responseObj.body);
         }
-
     }
 }

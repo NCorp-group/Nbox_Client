@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace NCorp_Mail_Client.UserControls
 {
@@ -60,7 +61,7 @@ namespace NCorp_Mail_Client.UserControls
             };
             this.client.currentUser.mails.Add(newDraft);
             client.ShowMails();
-            client.updateUserFile();
+            client.UpdateUserFile();
 
             // The following sends the draft to the server.
             string mailJsonString = JsonConvert.SerializeObject(newDraft);
@@ -136,7 +137,16 @@ namespace NCorp_Mail_Client.UserControls
                 }
                 client.MVPWrapperPanel.Controls.Clear();
                 client.ShowMails();
-                client.updateUserFile();
+                client.UpdateUserFile();
+            }
+            else if(response_status == 501)
+            {
+                while (this.client.Login(this.client.currentUser.username, this.client.currentUser.password) != 200)
+                {
+                    Thread.Sleep(1000);
+                    Console.WriteLine("Trying to reestablish connection to the server.");
+                }
+                SendBtn_Click(sender, e);
             }
             else
             {

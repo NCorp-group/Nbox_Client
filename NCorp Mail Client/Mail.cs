@@ -24,7 +24,7 @@ namespace NCorp_Mail_Client
             {
                 mail_GUID = Guid.NewGuid();
                 this.read = false;
-                this.seen = true;
+                this.seen = false;
                 this.draft = draft;
                 this.deleted = false;
                 this.folder = folder;

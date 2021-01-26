@@ -389,11 +389,13 @@ namespace NCorp_Mail_Client
         {
             string user = LoginMailTextBox.Text;
             string pass = LoginPassTextBox.Text;
-            int status = login(user, pass);
+            int status = Login(user, pass);
             if (status == 200)
             {
                 this.LoginErrorLabel.Text = "";
                 this.currentUser = new User(user);
+                this.currentUser.password = pass;
+
 
                 string user_path = Path.Combine(MAILDIR_ROOT, this.currentUser.username + ".json");
                 if (!File.Exists(user_path))
@@ -907,7 +909,7 @@ namespace NCorp_Mail_Client
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
-            int status = logout();
+            int status = Logout();
             if(status != 200)
             {
                 // Logout failed
