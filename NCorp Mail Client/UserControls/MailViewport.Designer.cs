@@ -454,9 +454,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.BodyLabel);
             this.Controls.Add(this.FoldersDropDown);
             this.Controls.Add(this.ColourDropDown);
+            this.Controls.Add(this.BodyLabel);
             this.Controls.Add(this.HeaderPanel);
             this.Name = "MailViewport";
             this.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
