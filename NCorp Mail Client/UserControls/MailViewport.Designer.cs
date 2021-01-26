@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.TitlePanel = new System.Windows.Forms.Panel();
+            this.SenderLabel = new System.Windows.Forms.TextBox();
+            this.TitleLabel = new System.Windows.Forms.TextBox();
             this.ActionsPanel = new System.Windows.Forms.Panel();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
             this.ColourBtn = new System.Windows.Forms.Button();
@@ -52,8 +54,6 @@
             this.BlueBtn = new System.Windows.Forms.Button();
             this.FoldersDropDown = new System.Windows.Forms.Panel();
             this.BodyLabel = new System.Windows.Forms.RichTextBox();
-            this.TitleLabel = new System.Windows.Forms.TextBox();
-            this.SenderLabel = new System.Windows.Forms.TextBox();
             this.HeaderPanel.SuspendLayout();
             this.TitlePanel.SuspendLayout();
             this.ActionsPanel.SuspendLayout();
@@ -82,6 +82,32 @@
             this.TitlePanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.TitlePanel.Size = new System.Drawing.Size(410, 70);
             this.TitlePanel.TabIndex = 1;
+            // 
+            // SenderLabel
+            // 
+            this.SenderLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
+            this.SenderLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SenderLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SenderLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SenderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
+            this.SenderLabel.Location = new System.Drawing.Point(0, 38);
+            this.SenderLabel.Name = "SenderLabel";
+            this.SenderLabel.ReadOnly = true;
+            this.SenderLabel.Size = new System.Drawing.Size(410, 22);
+            this.SenderLabel.TabIndex = 12;
+            // 
+            // TitleLabel
+            // 
+            this.TitleLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
+            this.TitleLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TitleLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TitleLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
+            this.TitleLabel.Location = new System.Drawing.Point(0, 10);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.ReadOnly = true;
+            this.TitleLabel.Size = new System.Drawing.Size(410, 28);
+            this.TitleLabel.TabIndex = 11;
             // 
             // ActionsPanel
             // 
@@ -141,7 +167,7 @@
             this.FolderBtn.Size = new System.Drawing.Size(50, 50);
             this.FolderBtn.TabIndex = 35;
             this.FolderBtn.Text = "";
-            this.BtnTooltip.SetToolTip(this.FolderBtn, "Flag as spam");
+            this.BtnTooltip.SetToolTip(this.FolderBtn, "Change folder");
             this.FolderBtn.UseVisualStyleBackColor = false;
             this.FolderBtn.Click += new System.EventHandler(this.FolderBtn_Click);
             // 
@@ -236,7 +262,7 @@
             this.DeleBtn.Size = new System.Drawing.Size(50, 50);
             this.DeleBtn.TabIndex = 34;
             this.DeleBtn.Text = "";
-            this.BtnTooltip.SetToolTip(this.DeleBtn, "Flag as spam");
+            this.BtnTooltip.SetToolTip(this.DeleBtn, "Delete");
             this.DeleBtn.UseVisualStyleBackColor = false;
             this.DeleBtn.Click += new System.EventHandler(this.DeleBtn_Click);
             // 
@@ -423,32 +449,6 @@
             this.BodyLabel.Size = new System.Drawing.Size(760, 598);
             this.BodyLabel.TabIndex = 8;
             this.BodyLabel.Text = "";
-            // 
-            // TitleLabel
-            // 
-            this.TitleLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
-            this.TitleLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TitleLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TitleLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
-            this.TitleLabel.Location = new System.Drawing.Point(0, 10);
-            this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.ReadOnly = true;
-            this.TitleLabel.Size = new System.Drawing.Size(410, 28);
-            this.TitleLabel.TabIndex = 11;
-            // 
-            // SenderLabel
-            // 
-            this.SenderLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
-            this.SenderLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SenderLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SenderLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SenderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
-            this.SenderLabel.Location = new System.Drawing.Point(0, 38);
-            this.SenderLabel.Name = "SenderLabel";
-            this.SenderLabel.ReadOnly = true;
-            this.SenderLabel.Size = new System.Drawing.Size(410, 22);
-            this.SenderLabel.TabIndex = 12;
             // 
             // MailViewport
             // 
