@@ -276,6 +276,8 @@ namespace NCorp_Mail_Client.UserControls
             client.currentMail.metadata.folder = folder;
             client.currentFolder = folder;
             client.ShowMails();
+            client.updateUserFile();
+            client.changeFolder(client.currentFolder, this.client.currentMail);
         }
 
         private int foldersDropHeight = 0;

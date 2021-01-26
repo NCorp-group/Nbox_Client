@@ -172,5 +172,15 @@ namespace NCorp_Mail_Client
 
             return status;
         }
+
+        public int changeFolder(string folder, Mail mail)
+        {
+            var arguments = new List<String> { folder , mail.metadata.mail_GUID.ToString()};
+            NMAPRequest message = new NMAPRequest("change_folder", arguments, new List<string>());
+            string messageJsonStr = JsonConvert.SerializeObject(message);
+            Console.WriteLine("in markAsRead sending request NMAPRequest {0}", messageJsonStr);
+            (int status, List<String> body) = TCPconnection.message(messageJsonStr);
+            return status;
+        }
     }
 }

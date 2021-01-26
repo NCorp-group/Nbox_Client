@@ -92,7 +92,7 @@ namespace NCorp_Mail_Client.UserControls
         {
             string from = FromTextBox.Text;
             string toString = ToTextBox.Text;
-            List<string> toList = client.ToList(toString);
+            List<string> toList = client.ToList(toString);  
             string subject = SubjectTextBox.Text;
             string body = BodyTextBox.Text;
 
