@@ -921,8 +921,27 @@ namespace NCorp_Mail_Client
                 this.LoginPassTextBox.Text = "";
 
                 this.LoginScreen.Show();
+                this.ResetView();
             }
-            
+        }
+
+        //
+        // Resets the view
+        //
+        private void ResetView()
+        {
+            if (menuExpanded)
+            {
+                this.ExpandMenu();
+            }
+            if (this.MVPWrapperPanel.HasChildren)
+            {
+                this.MVPWrapperPanel.Controls.Clear();
+            }
+            if (this.MailListView.HasChildren)
+            {
+                this.MailListView.Controls.Clear();
+            }
         }
     }
 }
