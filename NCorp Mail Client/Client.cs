@@ -506,9 +506,14 @@ namespace NCorp_Mail_Client
         //
         public List<string> ToList(string inString)
         {
-            char[] delimiterChars = { ' ', ',', '.', ':', '\t' };
-            string[] arr = inString.Split(delimiterChars);
+            char[] delimiterChars = { ',', '.', ':', '\t' };
+            string[] arr = inString.Split(delimiterChars); // name1 name2
             List<string> outList = new List<string>(arr);
+            for(int i = 0; i < outList.Count(); i++)
+            {
+                outList[i] = outList[i].Replace(" ", "");
+                outList[i] = outList[i].Replace(",", "");
+            }
             return outList;
         }
         /*
@@ -576,7 +581,7 @@ namespace NCorp_Mail_Client
                         string toString = currentMail.from;
                         foreach (string recipient in currentMail.to)
                         {
-                            if (recipient == currentUser.username + "@nbox.com")
+                            if (recipient == currentUser.username)
                             {
                                 continue;
                             }

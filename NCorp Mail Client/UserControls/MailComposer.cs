@@ -60,17 +60,45 @@ namespace NCorp_Mail_Client.UserControls
             };
             this.client.currentUser.mails.Add(newDraft);
             client.ShowMails();
+            client.updateUserFile();
+
+            // The following sends the draft to the server.
+            string mailJsonString = JsonConvert.SerializeObject(newDraft);
+
+            NMAPRequest mailMessage = new NMAPRequest("add_draft", new List<String>(), new List<String> { mailJsonString });
+
+            string mailMessageStr = JsonConvert.SerializeObject(mailMessage);
+
+            (int response_status, List<String> response_body) = TCPconnection.message(mailMessageStr);
+
+            if (response_status == 200)
+            {
+                // Server has confirmed the draft is sent successfully
+                Console.WriteLine("Draft successfully sent!");
+                if (client.currentMail != null && client.currentMail.metadata.folder == "Drafts")
+                {
+                    client.currentUser.mails.Remove(client.currentMail);
+                }
+                client.MVPWrapperPanel.Controls.Clear();
+                client.ShowMails();
+            }
+            else
+            {
+                Console.WriteLine("Mail not sent, error code {0}", response_status);
+            }
+
         }
         private void SendBtn_Click(object sender, EventArgs e)
         {
             string from = FromTextBox.Text;
-            string to = ToTextBox.Text;
+            string toString = ToTextBox.Text;
+            List<string> toList = client.ToList(toString);
             string subject = SubjectTextBox.Text;
             string body = BodyTextBox.Text;
 
             var mail = new Mail
             {
-                to = new List<string> { to },
+                to = toList,
                 from = client.currentUser.username,
                 subject = subject,
                 body = body,
@@ -90,18 +118,23 @@ namespace NCorp_Mail_Client.UserControls
                 // Jens, could you make some UI feecback, that would be triggered in this scope?
                 // Until then, this print will do.
                 Console.WriteLine("Mail successfully sent!");
-                if (client.currentMail.metadata.folder == "Drafts")
+                if (client.currentMail != null && client.currentMail.metadata.folder == "Drafts")
                 {
+                    client.currentMail.metadata.read = false;
+                    client.currentMail.metadata.folder = "Inbox";
+                    client.currentMail.metadata.seen = false;
                     client.currentUser.mails.Remove(client.currentMail);
                 }
                 client.MVPWrapperPanel.Controls.Clear();
                 client.ShowMails();
+                client.updateUserFile();
             }
             else
             {
                 Console.WriteLine("Mail not sent, error code {0}", response_status);
                 // Give feedback to user, that the email is not sent
             }
+
             
         }
         private void DiscardBtn_Click(object sender, EventArgs e)
