@@ -373,6 +373,7 @@ namespace NCorp_Mail_Client
         // Take all files in path C:/Program Files/NCorp/Nbox/mails/ and read them into Mail objects.
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
+            this.MVPWrapperPanel.Controls.Clear();
             this.FetchMails();
             this.ShowMails();
         }

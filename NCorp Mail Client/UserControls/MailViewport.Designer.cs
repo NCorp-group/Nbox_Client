@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.BodyLabel = new System.Windows.Forms.Label();
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.TitlePanel = new System.Windows.Forms.Panel();
-            this.SenderLabel = new System.Windows.Forms.Label();
-            this.TitleLabel = new System.Windows.Forms.Label();
+            this.SenderLabel = new System.Windows.Forms.TextBox();
+            this.TitleLabel = new System.Windows.Forms.TextBox();
             this.ActionsPanel = new System.Windows.Forms.Panel();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
             this.ColourBtn = new System.Windows.Forms.Button();
@@ -54,23 +53,13 @@
             this.CyanBtn = new System.Windows.Forms.Button();
             this.BlueBtn = new System.Windows.Forms.Button();
             this.FoldersDropDown = new System.Windows.Forms.Panel();
+            this.BodyLabel = new System.Windows.Forms.RichTextBox();
             this.HeaderPanel.SuspendLayout();
             this.TitlePanel.SuspendLayout();
             this.ActionsPanel.SuspendLayout();
             this.ButtonsPanel.SuspendLayout();
             this.ColourDropDown.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // BodyLabel
-            // 
-            this.BodyLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BodyLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BodyLabel.ForeColor = System.Drawing.Color.White;
-            this.BodyLabel.Location = new System.Drawing.Point(30, 90);
-            this.BodyLabel.Name = "BodyLabel";
-            this.BodyLabel.Size = new System.Drawing.Size(760, 598);
-            this.BodyLabel.TabIndex = 3;
-            this.BodyLabel.Text = "This is the body";
             // 
             // HeaderPanel
             // 
@@ -96,25 +85,29 @@
             // 
             // SenderLabel
             // 
+            this.SenderLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
+            this.SenderLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SenderLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SenderLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SenderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
-            this.SenderLabel.Location = new System.Drawing.Point(0, 40);
+            this.SenderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
+            this.SenderLabel.Location = new System.Drawing.Point(0, 38);
             this.SenderLabel.Name = "SenderLabel";
-            this.SenderLabel.Size = new System.Drawing.Size(410, 21);
-            this.SenderLabel.TabIndex = 2;
-            this.SenderLabel.Text = "sender@mail.com";
+            this.SenderLabel.ReadOnly = true;
+            this.SenderLabel.Size = new System.Drawing.Size(410, 22);
+            this.SenderLabel.TabIndex = 12;
             // 
             // TitleLabel
             // 
+            this.TitleLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
+            this.TitleLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TitleLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TitleLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.ForeColor = System.Drawing.Color.White;
+            this.TitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
             this.TitleLabel.Location = new System.Drawing.Point(0, 10);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(410, 30);
-            this.TitleLabel.TabIndex = 1;
-            this.TitleLabel.Text = "Email Title";
+            this.TitleLabel.ReadOnly = true;
+            this.TitleLabel.Size = new System.Drawing.Size(410, 28);
+            this.TitleLabel.TabIndex = 11;
             // 
             // ActionsPanel
             // 
@@ -174,7 +167,7 @@
             this.FolderBtn.Size = new System.Drawing.Size(50, 50);
             this.FolderBtn.TabIndex = 35;
             this.FolderBtn.Text = "";
-            this.BtnTooltip.SetToolTip(this.FolderBtn, "Flag as spam");
+            this.BtnTooltip.SetToolTip(this.FolderBtn, "Change folder");
             this.FolderBtn.UseVisualStyleBackColor = false;
             this.FolderBtn.Click += new System.EventHandler(this.FolderBtn_Click);
             // 
@@ -269,7 +262,7 @@
             this.DeleBtn.Size = new System.Drawing.Size(50, 50);
             this.DeleBtn.TabIndex = 34;
             this.DeleBtn.Text = "";
-            this.BtnTooltip.SetToolTip(this.DeleBtn, "Flag as spam");
+            this.BtnTooltip.SetToolTip(this.DeleBtn, "Delete");
             this.DeleBtn.UseVisualStyleBackColor = false;
             this.DeleBtn.Click += new System.EventHandler(this.DeleBtn_Click);
             // 
@@ -443,6 +436,20 @@
             this.FoldersDropDown.Size = new System.Drawing.Size(100, 0);
             this.FoldersDropDown.TabIndex = 5;
             // 
+            // BodyLabel
+            // 
+            this.BodyLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(29)))));
+            this.BodyLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BodyLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BodyLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BodyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
+            this.BodyLabel.Location = new System.Drawing.Point(30, 90);
+            this.BodyLabel.Name = "BodyLabel";
+            this.BodyLabel.ReadOnly = true;
+            this.BodyLabel.Size = new System.Drawing.Size(760, 598);
+            this.BodyLabel.TabIndex = 8;
+            this.BodyLabel.Text = "";
+            // 
             // MailViewport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -457,6 +464,7 @@
             this.BtnTooltip.SetToolTip(this, "Reply");
             this.HeaderPanel.ResumeLayout(false);
             this.TitlePanel.ResumeLayout(false);
+            this.TitlePanel.PerformLayout();
             this.ActionsPanel.ResumeLayout(false);
             this.ButtonsPanel.ResumeLayout(false);
             this.ColourDropDown.ResumeLayout(false);
@@ -465,12 +473,8 @@
         }
 
         #endregion
-
-        public System.Windows.Forms.Label BodyLabel;
         private System.Windows.Forms.Panel HeaderPanel;
         private System.Windows.Forms.Panel TitlePanel;
-        public System.Windows.Forms.Label SenderLabel;
-        public System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Panel ActionsPanel;
         private System.Windows.Forms.Panel ButtonsPanel;
         public System.Windows.Forms.Button ColourBtn;
@@ -491,5 +495,8 @@
         public System.Windows.Forms.Button DeleBtn;
         public System.Windows.Forms.Button FolderBtn;
         private System.Windows.Forms.Panel FoldersDropDown;
+        public System.Windows.Forms.RichTextBox BodyLabel;
+        public System.Windows.Forms.TextBox SenderLabel;
+        public System.Windows.Forms.TextBox TitleLabel;
     }
 }
