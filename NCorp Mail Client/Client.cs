@@ -20,13 +20,15 @@ namespace NCorp_Mail_Client
             Standard,
             Reply,
             ReplyAll,
-            Forward
+            Forward,
+            Draft
         }
 
         public User currentUser;
         //private List<Mail> Mails = new List<Mail>();
         //private List<string> Folders = new List<string>();
         public Mail currentMail;
+        public string currentFolder;
         private readonly string MAILDIR_ROOT = Path.Combine(Environment.GetEnvironmentVariable("appdata"), "NBox", "Client");
 
         //
@@ -229,7 +231,7 @@ namespace NCorp_Mail_Client
         // ShowMails method
         // Show all mails on client side
         // Inserts all mails from the Mail list mails into the MailListView
-        public void ShowMails(string folderName)
+        public void ShowMails(string folderName = null)
         {
             this.ClearMailList();
             if (folderName == null)
@@ -240,21 +242,24 @@ namespace NCorp_Mail_Client
                     {
                         continue;
                     }
-                    var newThumbnail = new MailThumbnail(mail, this);
-                    newThumbnail.Dock = DockStyle.Top;
-                    this.MailListView.Controls.Add(newThumbnail);
+                    if (mail.metadata.folder == currentFolder)
+                    {
+                        var newThumbnail = new MailThumbnail(mail, this);
+                        newThumbnail.Dock = DockStyle.Top;
+                        this.MailListView.Controls.Add(newThumbnail);
+                    }
                 }
             }
             else
             {
                 foreach (Mail mail in this.currentUser.mails)
                 {
+                    if (mail.metadata.deleted)
+                    {
+                        continue;
+                    }
                     if (mail.metadata.folder == folderName)
                     {
-                        if (mail.metadata.deleted)
-                        {
-                            continue;
-                        }
                         var newThumbnail = new MailThumbnail(mail, this);
                         newThumbnail.Dock = DockStyle.Top;
                         this.MailListView.Controls.Add(newThumbnail);
@@ -369,7 +374,7 @@ namespace NCorp_Mail_Client
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             this.FetchMails();
-            this.ShowMails(null);
+            this.ShowMails();
         }
 
         //
@@ -397,7 +402,8 @@ namespace NCorp_Mail_Client
                 }
                 this.LoginScreen.Hide();
                 FetchMails(false);
-                this.ShowMails(null);
+                this.currentFolder = "Inbox";
+                this.ShowMails();
                 this.CurrentAccountLabel.Text = currentUser.username + "@nbox.com";
                 this.GeneralToolTip.SetToolTip(this.CurrentAccountLabel, this.CurrentAccountLabel.Text);
 
@@ -561,32 +567,56 @@ namespace NCorp_Mail_Client
                 case ComposeType.Standard:
                     break;
                 case ComposeType.Reply:
-                    newComposer.ToTextBox.Text = currentMail.from;
+                    {
+                        newComposer.ToTextBox.Text = currentMail.from;
+                    }
                     break;
                 case ComposeType.ReplyAll:
-                    string toString = currentMail.from;
-                    int count = 0;
-                    foreach (string recipient in currentMail.to)
                     {
-                        count++;
-                        if (recipient == currentUser.username + "@nbox.com")
+                        string toString = currentMail.from;
+                        foreach (string recipient in currentMail.to)
                         {
-                            continue;
+                            if (recipient == currentUser.username + "@nbox.com")
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                toString += ", " + recipient;
+                            }
                         }
-                        else
-                        {
-                            toString += ", " + recipient;
-                        }
+                        newComposer.ToTextBox.Text = toString;
                     }
-                    newComposer.ToTextBox.Text = toString;
                     break;
                 case ComposeType.Forward:
-                    newComposer.SubjectTextBox.Text = currentMail.subject;
-                    newComposer.BodyTextBox.Text = "Sent by: " + currentMail.from
-                                                 + "\nOn: " + currentMail.metadata.timestamp.ToShortDateString()
-                                                 + "\nAt time: " + currentMail.metadata.timestamp.ToShortTimeString()
-                                                 + "\nSubject: " + currentMail.subject
-                                                 + "\n\n" + currentMail.body;
+                    {
+                        newComposer.SubjectTextBox.Text = currentMail.subject;
+                        newComposer.BodyTextBox.Text = "Sent by: " + currentMail.from
+                                                     + "\nOn: " + currentMail.metadata.timestamp.ToShortDateString()
+                                                     + "\nAt time: " + currentMail.metadata.timestamp.ToShortTimeString()
+                                                     + "\nSubject: " + currentMail.subject
+                                                     + "\n\n" + currentMail.body;
+                    }
+                    break;
+                case ComposeType.Draft:
+                    {
+                        newComposer.FromTextBox.Text = currentMail.from;
+                        string toString = "";
+                        foreach (string recipient in currentMail.to)
+                        {
+                            if (recipient == currentMail.to.First())
+                            {
+                                toString += recipient;
+                            }
+                            else
+                            {
+                                toString += ", " + recipient;
+                            }
+                        }
+                        newComposer.ToTextBox.Text = toString;
+                        newComposer.SubjectTextBox.Text = currentMail.subject;
+                        newComposer.BodyTextBox.Text = currentMail.body;
+                    }
                     break;
             }
             this.MVPWrapperPanel.Controls.Add(newComposer);

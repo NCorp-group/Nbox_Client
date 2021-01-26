@@ -31,33 +31,43 @@ namespace NCorp_Mail_Client.UserControls
         }
         private void MailThumbnail_Click(object sender, EventArgs e)
         {
+            client.currentMail = this.mail;
             foreach (Control control in client.MVPWrapperPanel.Controls)
             {
                 if (control is MailComposer)
                 {
                     var mc = control as MailComposer;
+
                     mc.SaveAsDraft();
                     client.MVPWrapperPanel.Controls.Remove(control);
+                    mc.Dispose();
                 }
             }
-            client.currentMail = this.mail;
+            client.MVPWrapperPanel.Controls.Clear();
 
-            if (this.mail.metadata.read == false)
+            if (this.mail.metadata.folder == "Drafts")
             {
-                this.mail.metadata.read = true;
-                int status = this.client.markAsRead(this.mail);
-
-                if(status != 200)
-                {
-                    Console.WriteLine("Could not mark mail as read, server returned {0}", status);
-                }
-                else
-                {
-                    client.updateUserFile();
-                }
+                client.ComposeMail(EmailClient.ComposeType.Draft);
             }
-            client.ShowCurrentMail(this);
-            CheckRead();
+            else
+            {
+                if (this.mail.metadata.read == false)
+                {
+                    this.mail.metadata.read = true;
+                    int status = this.client.markAsRead(this.mail);
+
+                    if (status != 200)
+                    {
+                        Console.WriteLine("Could not mark mail as read, server returned {0}", status);
+                    }
+                    else
+                    {
+                        client.updateUserFile();
+                    }
+                }
+                client.ShowCurrentMail(this);
+                CheckRead();
+            }
         }
 
         public void CheckColour()

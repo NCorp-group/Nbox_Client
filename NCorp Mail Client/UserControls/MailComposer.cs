@@ -33,6 +33,12 @@ namespace NCorp_Mail_Client.UserControls
                     client.openFoldersTimer.Start();
                 }
             }
+
+            if (client.currentMail != null && client.currentMail.metadata.folder == "Drafts")
+            {
+                client.currentUser.mails.Remove(client.currentMail);
+            }
+
             string newToString = this.ToTextBox.Text;
 
             List<string> newToList = client.ToList(newToString);
@@ -53,6 +59,7 @@ namespace NCorp_Mail_Client.UserControls
                 }
             };
             this.client.currentUser.mails.Add(newDraft);
+            client.ShowMails();
         }
         private void SendBtn_Click(object sender, EventArgs e)
         {
@@ -83,7 +90,12 @@ namespace NCorp_Mail_Client.UserControls
                 // Jens, could you make some UI feecback, that would be triggered in this scope?
                 // Until then, this print will do.
                 Console.WriteLine("Mail successfully sent!");
+                if (client.currentMail.metadata.folder == "Drafts")
+                {
+                    client.currentUser.mails.Remove(client.currentMail);
+                }
                 client.MVPWrapperPanel.Controls.Clear();
+                client.ShowMails();
             }
             else
             {

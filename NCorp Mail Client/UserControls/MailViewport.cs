@@ -65,14 +65,15 @@ namespace NCorp_Mail_Client.UserControls
             {
                 mail.metadata.folder = "Inbox";
                 FlagBtn.Text = client.currentMail.GetFlagIcon();
-                client.ShowMails("Spam");
+                //client.currentFolder = "Spam";
+                client.ShowMails();
                 client.MVPWrapperPanel.Controls.Clear();
             }
             else
             {
                 mail.metadata.folder = "Spam";
                 FlagBtn.Text = client.currentMail.GetFlagIcon();
-                client.ShowMails("Inbox");
+                client.ShowMails();
                 client.MVPWrapperPanel.Controls.Clear();
             }
         }
@@ -209,7 +210,7 @@ namespace NCorp_Mail_Client.UserControls
             client.MVPWrapperPanel.Controls.Clear();
             client.updateUserFile();
 
-            client.ShowMails(null);
+            client.ShowMails();
             this.Dispose();
         }
 
@@ -273,7 +274,8 @@ namespace NCorp_Mail_Client.UserControls
             string folder = btn.Text;
 
             client.currentMail.metadata.folder = folder;
-            client.ShowMails(folder);
+            client.currentFolder = folder;
+            client.ShowMails();
         }
 
         private int foldersDropHeight = 0;
