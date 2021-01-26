@@ -407,7 +407,8 @@ namespace NCorp_Mail_Client
                 this.ShowMails();
                 this.CurrentAccountLabel.Text = currentUser.username + "@nbox.com";
                 this.GeneralToolTip.SetToolTip(this.CurrentAccountLabel, this.CurrentAccountLabel.Text);
-
+                this.GetFolders();
+                this.ShowFolders();
                 this.LoginScreen.Hide();
             }
             else if (status == 401)

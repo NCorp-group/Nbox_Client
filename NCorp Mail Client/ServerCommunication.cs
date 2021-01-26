@@ -125,7 +125,6 @@ namespace NCorp_Mail_Client
             var arguments = new List<String> { mail.metadata.mail_GUID.ToString() };
             NMAPRequest message = new NMAPRequest("mark_read", arguments, new List<string>());
             string messageJsonStr = JsonConvert.SerializeObject(message);
-            Console.WriteLine("in markAsRead sending request NMAPRequest {0}", messageJsonStr);
             (int status, List<String> body) = TCPconnection.message(messageJsonStr);
             return status;
         }
@@ -135,7 +134,6 @@ namespace NCorp_Mail_Client
             var arguments = new List<String> { mail.metadata.colour, mail.metadata.mail_GUID.ToString() };
             NMAPRequest message = new NMAPRequest("mark_colour", arguments, new List<string>());
             string messageJsonStr = JsonConvert.SerializeObject(message);
-            Console.WriteLine("in markAsRead sending request NMAPRequest {0}", messageJsonStr);
             (int status, List<String> body) = TCPconnection.message(messageJsonStr);
             return status;
         }
@@ -145,7 +143,6 @@ namespace NCorp_Mail_Client
             var arguments = new List<String> { mail.metadata.mail_GUID.ToString() };
             NMAPRequest message = new NMAPRequest("delete_mail", arguments, new List<string>());
             string messageJsonStr = JsonConvert.SerializeObject(message);
-            Console.WriteLine("in markAsRead sending request NMAPRequest {0}", messageJsonStr);
             (int status, List<String> body) = TCPconnection.message(messageJsonStr);
             return status;
 
@@ -178,8 +175,19 @@ namespace NCorp_Mail_Client
             var arguments = new List<String> { folder , mail.metadata.mail_GUID.ToString()};
             NMAPRequest message = new NMAPRequest("change_folder", arguments, new List<string>());
             string messageJsonStr = JsonConvert.SerializeObject(message);
-            Console.WriteLine("in markAsRead sending request NMAPRequest {0}", messageJsonStr);
             (int status, List<String> body) = TCPconnection.message(messageJsonStr);
+            return status;
+        }
+
+        public int GetFolders()
+        {
+            NMAPRequest message = new NMAPRequest("get_folders", new List<String>(), new List<string>());
+            string messageJsonStr = JsonConvert.SerializeObject(message);
+            (int status, List<String> body) = TCPconnection.message(messageJsonStr);
+            foreach (string folder in body)
+            {
+                this.currentUser.folders.Add(folder);
+            }
             return status;
         }
     }

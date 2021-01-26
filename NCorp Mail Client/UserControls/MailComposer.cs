@@ -115,8 +115,17 @@ namespace NCorp_Mail_Client.UserControls
             if(response_status == 200)
             {
                 // Server has confirmed the mail is sent successfully
-                // Jens, could you make some UI feecback, that would be triggered in this scope?
-                // Until then, this print will do.
+
+                // If Sent folder does not exist, make one
+                if (!client.currentUser.folders.Any(f => f == "Sent"))
+                {
+                    client.currentUser.folders.Add("Sent");
+                    client.ShowFolders();
+                    if (client.foldersExpanded)
+                    {
+                        client.openFoldersTimer.Start();
+                    }
+                }
                 Console.WriteLine("Mail successfully sent!");
                 if (client.currentMail != null && client.currentMail.metadata.folder == "Drafts")
                 {
@@ -134,8 +143,6 @@ namespace NCorp_Mail_Client.UserControls
                 Console.WriteLine("Mail not sent, error code {0}", response_status);
                 // Give feedback to user, that the email is not sent
             }
-
-            
         }
         private void DiscardBtn_Click(object sender, EventArgs e)
         {
