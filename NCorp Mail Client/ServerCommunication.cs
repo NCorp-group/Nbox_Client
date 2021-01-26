@@ -145,7 +145,6 @@ namespace NCorp_Mail_Client
             string messageJsonStr = JsonConvert.SerializeObject(message);
             (int status, List<String> body) = TCPconnection.message(messageJsonStr);
             return status;
-
         }
 
         public int Logout()

@@ -205,6 +205,8 @@ namespace NCorp_Mail_Client.UserControls
         private void DeleBtn_Click(object sender, EventArgs e)
         {
             client.currentMail.metadata.deleted = true;
+            client.currentUser.mails.Remove(client.currentMail);
+            
             client.DeleteMail(this.client.currentMail);
 
             client.MVPWrapperPanel.Controls.Clear();

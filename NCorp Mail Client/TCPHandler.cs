@@ -83,7 +83,7 @@ namespace NCorp_Mail_Client
                 {
                     Console.WriteLine("failed to reconnect to server, no further action is taken");
                     return (11, new List<string>());
-                }      
+                }
             }
 
             NetworkStream stream = this.client.GetStream();

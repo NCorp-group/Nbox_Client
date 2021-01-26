@@ -160,7 +160,14 @@ namespace NCorp_Mail_Client.UserControls
             {
                 client.currentUser.mails.Remove(client.currentMail);
                 client.ShowFolders();
-                client.updateUserFile();
+                client.UpdateUserFile();
+                client.currentMail.metadata.deleted = true;
+
+                // Send discard to server
+                client.DeleteMail(client.currentMail);
+                // Delete mail
+                client.currentUser.mails.Remove(client.currentMail);
+                this.client.ShowMails();
             }
             client.MVPWrapperPanel.Controls.Clear();
             this.Dispose();
