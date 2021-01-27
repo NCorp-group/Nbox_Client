@@ -25,8 +25,6 @@ namespace NCorp_Mail_Client
         }
 
         public User currentUser;
-        //private List<Mail> Mails = new List<Mail>();
-        //private List<string> Folders = new List<string>();
         public Mail currentMail;
         public string currentFolder;
         private readonly string MAILDIR_ROOT = Path.Combine(Environment.GetEnvironmentVariable("appdata"), "NBox", "Client");
@@ -54,10 +52,6 @@ namespace NCorp_Mail_Client
             this.Icon = Properties.Resources.icon;
 
             InitializeComponent();
-
-            //this.FetchMails();
-            //this.GetMails();
-            //currentMail = currentUser.mails[0];
         }
 
         private void Client_Load(object sender, EventArgs e)
@@ -96,14 +90,12 @@ namespace NCorp_Mail_Client
             this.MenuSettingsBtn.TextPanel.Click += new System.EventHandler(this.MenuSettingsBtn_Click);
             this.MenuSettingsBtn.ButtonLabel.Click += new System.EventHandler(this.MenuSettingsBtn_Click);
             this.MenuSettingsBtn.IconLabel.Click += new System.EventHandler(this.MenuSettingsBtn_Click);
-
-            //this.ShowFolders();
-            //this.ShowMails(null);
-            //this.LoginScreen.BringToFront();
         }
 
         // 
         // DRAGGABLE WINDOW
+        // This was reused as explained in the article
+        // https://www.codeproject.com/Articles/11114/Move-window-form-without-Titlebar-in-C
         //
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -127,6 +119,13 @@ namespace NCorp_Mail_Client
         // SEARCH FIELD
         //
 
+        /// <summary>
+        /// On GotFocus Event of the search text box
+        /// Remove the placeholder in the search bar
+        /// Emphasise text by setting to the strongest colour
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void RemoveSearchPlaceholder(object sender, EventArgs e)
         {
             if (SearchText.Text == "Search")
@@ -136,6 +135,12 @@ namespace NCorp_Mail_Client
             }
         }
 
+        /// <summary>
+        /// On LostFocus event of the search text box
+        /// Adds the string "search" to the text box and makes the text colour disabled
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void AddSearchPlaceholder(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(SearchText.Text))
@@ -150,21 +155,45 @@ namespace NCorp_Mail_Client
         // Manipulates panel hover colour and mouse down colour
         //
 
+        /// <summary>
+        /// On MouseEnter event of the given panel
+        /// As the mouse hovers over the panel, change to a hover colour
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Panel_MouseIn(object sender, EventArgs e)
         {
             Panel panel = sender as Panel;
             panel.BackColor = Properties.Settings.Default.bgd_02dp;
         }
+        /// <summary>
+        /// On MouseLeave event of the given panel
+        /// Changes the colour back to default instead of the hover colour
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Panel_MouseOut(object sender, EventArgs e)
         {
             Panel panel = sender as Panel;
             panel.BackColor = Color.Transparent;
         }
+        /// <summary>
+        /// On MouseDown event of the given panel
+        /// Changes the colour of the panel to a much lighter colour
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Panel_Click(object sender, EventArgs e)
         {
             Panel panel = sender as Panel;
             panel.BackColor = Properties.Settings.Default.bgd_08dp;
         }
+        /// <summary>
+        /// On MouseUp event of the given panel
+        /// Resets the panels colour when the mouse isn't pressed anymore
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Panel_Reset(object sender, EventArgs e)
         {
             Panel panel = sender as Panel;
@@ -175,10 +204,15 @@ namespace NCorp_Mail_Client
         // TITLE BAR BUTTONS
         //
 
+        /// <summary>
+        /// On Click event of the close button
+        /// For both the login screen and after login
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-            //TCPconnection.close_connection();
         }
 
         private void MinBtn_Click(object sender, EventArgs e)
@@ -228,9 +262,12 @@ namespace NCorp_Mail_Client
             this.MailListView.Controls.Clear();
         }
 
-        // ShowMails method
-        // Show all mails on client side
-        // Inserts all mails from the Mail list mails into the MailListView
+        /// <summary>
+        /// Triggered whenever the Mail list panel should be updated
+        /// syncronising with the local memory.
+        /// Inserts all mails from the currentUser.mails list into the MailListView
+        /// </summary>
+        /// <param name="folderName"></param>
         public void ShowMails(string folderName = null)
         {
             this.ClearMailList();
@@ -268,7 +305,11 @@ namespace NCorp_Mail_Client
             }
         }
 
-        // Show Current Mail
+        /// <summary>
+        /// Shows the mail clicked on in the MailListView Panel
+        /// Generates a MailViewport with text from the currentMail
+        /// </summary>
+        /// <param name="thumbnail"></param>
         public void ShowCurrentMail(MailThumbnail thumbnail)
         {
             if (this.MVPWrapperPanel.HasChildren)
@@ -300,77 +341,14 @@ namespace NCorp_Mail_Client
             this.MVPWrapperPanel.Controls.Add(newViewport);
         }
 
-        // RefreshMailList method
-        // Refresh mails in list
-        // Takes the mails list of Mails and shows them in the list view, clearing it first
-        // TODO: Fetch new mails from server
-        /*
-        private void RefreshMailList()
-        {
-            this.ClearMailList();
-            this.ShowMails();
-        }
-        */
-
-        private void GetMails()
-        {
-            List<string> paths = Directory.EnumerateFiles(@"..\\..\\testing_assets", "*.json").ToList();
-            List<Mail> NewMails = new List<Mail>();
-            foreach (string filepath in paths)
-            {
-                string json;
-                using (var sr = new StreamReader(filepath))
-                {
-                    json = sr.ReadToEnd();
-                }
-
-                Mail new_mail = new Mail(json);
-
-                if (this.MailListView.HasChildren)
-                {
-                    this.MailListView.Controls.Clear();
-                }
-
-                bool exists = false;
-                foreach (Mail mail in currentUser.mails)
-                {
-                    if (mail.metadata.mail_GUID == new_mail.metadata.mail_GUID)
-                    {
-                        exists = true;
-                    }
-                }
-
-                if (!exists)
-                {
-                    this.currentUser.mails.Add(new_mail);
-                }
-
-                NewMails.Add(new_mail);
-            }
-
-            // Delete emails that are no longer as files
-            foreach (Mail mail in this.currentUser.mails)
-            {
-                bool match = false;
-                foreach (Mail new_mail in NewMails)
-                {
-                    if (mail.metadata.mail_GUID == new_mail.metadata.mail_GUID)
-                    {
-                        match = true;
-                    }
-                }
-
-                // If the file for the mail is no longer there
-                // remove it from the internal list
-                if (!match)
-                {
-                    currentUser.mails.Remove(mail);
-                }
-            }
-        }
-
-        // Refresh button
-        // Take all files in path C:/Program Files/NCorp/Nbox/mails/ and read them into Mail objects.
+        /// <summary>
+        /// On Click event of the Refresh Button
+        /// Clears any mail currently being shown, incoming or outgoing
+        /// Fetches mails from the server, not a deep fetch
+        /// Shows the mails in the MailListView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             this.MVPWrapperPanel.Controls.Clear();
@@ -382,9 +360,10 @@ namespace NCorp_Mail_Client
         // CONTROLS BUTTONS
         //
 
-        //
-        // Logging in
-        //
+        /// <summary>
+        /// On Click event of the Login Button
+        /// On KeyPress event of any of the two text boxes if the user presses Enter
+        /// </summary>
         private void TryLogin()
         {
             string user = LoginMailTextBox.Text;
@@ -407,7 +386,7 @@ namespace NCorp_Mail_Client
                 FetchMails(false);
                 this.currentFolder = "Inbox";
                 this.ShowMails();
-                this.CurrentAccountLabel.Text = currentUser.username + "@nbox.com";
+                this.CurrentAccountLabel.Text = currentUser.username;
                 this.GeneralToolTip.SetToolTip(this.CurrentAccountLabel, this.CurrentAccountLabel.Text);
                 this.GetFolders();
                 this.ShowFolders();
@@ -422,6 +401,13 @@ namespace NCorp_Mail_Client
                 this.LoginErrorLabel.Text = "Server Error";
             }
         }
+
+        /// <summary>
+        /// On KeyPress event of the username and password text boxes
+        /// Calls TryLogin as the user intends to log in
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoginTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -430,6 +416,13 @@ namespace NCorp_Mail_Client
                 e.Handled = true;
             }
         }
+
+        /// <summary>
+        /// On Click event of the login button
+        /// Calls TryLogin to log the user in
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             this.TryLogin();
@@ -437,6 +430,7 @@ namespace NCorp_Mail_Client
 
         //
         // MENU TRANSITION
+        // Timer logic to animate the opening and closing of the left menu panel
         //
 
         Timer openMenuTimer = new Timer();
@@ -500,6 +494,12 @@ namespace NCorp_Mail_Client
             menuExpanded = !menuExpanded;
         }
 
+        /// <summary>
+        /// On click Event of the burger button
+        /// Expand the left menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BurgerBtn_Click(object sender, EventArgs e)
         {
             this.ExpandMenu();
@@ -520,37 +520,14 @@ namespace NCorp_Mail_Client
             }
             return outList;
         }
-        /*
-        public void SaveAsDraft()
-        {
-            if (this.Controls["MailComposer"] == null)
-            {
-                Console.WriteLine("MailComposer not found");
-                return;
-            }
-            var mailComposer = this.Controls["MailComposer"];
-            string newToString = mailComposer.Controls["HeaderPanel"]
-                                             .Controls["ToPanel"]
-                                             .Controls["ToTextBox"].Text;
 
-            List<string> newToList = ToList(newToString);
-
-            string newFrom = this.Controls["MailComposer"].Controls["FromTextBox"].Text;
-            string newSubject = this.Controls["MailComposer"].Controls["SubjectTextBox"].Text;
-            string newBody = this.Controls["MailComposer"].Controls["BodyTextBox"].Text;
-
-            Mail newDraft = new Mail()
-            {
-                from = newFrom,
-                to = newToList,
-                subject = newSubject,
-                body = newBody,
-                metadata = new Mail.Metadata("Drafts", "none", true)
-            };
-            this.currentUser.mails.Add(newDraft);
-        }
-        */
-
+        /// <summary>
+        /// Called when the user intends to compose a mail
+        /// Composing a new mail, editing a draft or using the reply, replyall, forward functions
+        /// Takes a ComposeType which specifies which type of composer to generate
+        /// This determines if any text boxes should be prefilled.
+        /// </summary>
+        /// <param name="Type"></param>
         public void ComposeMail(ComposeType Type)
         {
             foreach (Control control in this.MVPWrapperPanel.Controls)
@@ -570,7 +547,7 @@ namespace NCorp_Mail_Client
                 Name = "MailComposer"
             };
 
-            newComposer.FromTextBox.Text = currentUser.username + "@nbox.com";
+            newComposer.FromTextBox.Text = currentUser.username;
             switch (Type)
             {
                 case ComposeType.Standard:
@@ -631,6 +608,13 @@ namespace NCorp_Mail_Client
             this.MVPWrapperPanel.Controls.Add(newComposer);
         }
 
+        /// <summary>
+        /// On Click event of the new mail button
+        /// Calls ComposeMail with the standard composition
+        /// No text boxes are prefilled
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MenuNewMailBtn_Click(object sender, EventArgs e)
         {
             this.ComposeMail(ComposeType.Standard);
@@ -642,6 +626,11 @@ namespace NCorp_Mail_Client
         // Generates UI elements for each folder
         //
 
+        /// <summary>
+        /// Generates a folder button UI element with the label foldername
+        /// </summary>
+        /// <param name="folderName"></param>
+        /// <returns></returns>
         public FolderButton CreateNewFolder(string folderName)
         {
             FolderButton newFolderButton = new FolderButton(this)
@@ -653,6 +642,11 @@ namespace NCorp_Mail_Client
             return newFolderButton;
         }
 
+        /// <summary>
+        /// Whenever the folder list for a user needs to be generated
+        /// Iterates through the currentUser.folders list
+        /// Generates the UI elements necessary for each folder by calling CreateNewFolder
+        /// </summary>
         public void ShowFolders()
         {
             foreach (string folder in currentUser.folders)
@@ -666,8 +660,12 @@ namespace NCorp_Mail_Client
         // CREATE NEW FOLDER
         //
 
+        // Empty new folder string, updated as user inputs a folder name
         string newFolderName = "";
 
+        /// <summary>
+        /// Removes the input field for a new folder
+        /// </summary>
         private void RemoveNewFolderInput()
         {
             this.creatingFolder = 0;
@@ -678,6 +676,12 @@ namespace NCorp_Mail_Client
             }
         }
 
+        /// <summary>
+        /// On TextChanged event for the new folder input text box
+        /// Updates the newFolderName string to be used to generate a new folder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NewFolderTextBox_TextChanged(object sender, EventArgs e)
         {
             this.newFolderName = (sender as TextBox).Text;
@@ -701,9 +705,12 @@ namespace NCorp_Mail_Client
             this.RemoveNewFolderInput();
         }
 
-        // Keep track whether a folder is currently being created
-        // using an int to make it easier to resize the folders menu
-
+        /// <summary>
+        /// On KeyPress event of the new folder input textbox
+        /// If the key press is Enter, then generale a new folder.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NewFolderTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -717,9 +724,19 @@ namespace NCorp_Mail_Client
                 e.Handled = true;
             }
         }
-        
+
+        // Keep track whether a folder is currently being created
+        // using an int to make it easier to resize the folders menu
+
         private int creatingFolder = 0;
 
+        /// <summary>
+        /// On Click event of the plus button in the folders menu
+        /// Generates an input field for the user to enter a new folder name
+        /// If the input field is already present, then the button generates a new folder with the given name
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void NewFolderBtn_Click(object sender, EventArgs e)
         {
             if (creatingFolder > 0)
@@ -764,6 +781,9 @@ namespace NCorp_Mail_Client
         //
         // FOLDERS MENU
         // Expanding the folders menu
+        // Timer logic to animate the expansion of the folder menu
+        // Can only expand this menu if the left menu is already expanded
+        // If it isn't this is done first
         //
 
         public Timer openFoldersTimer = new Timer();
@@ -843,6 +863,9 @@ namespace NCorp_Mail_Client
         //
         // SETTINGS MENU
         // Expanding the settings menu
+        // Timger logic to expand the settings menu
+        // Can only expand this menu as soon ad the left emnu is expanded
+        // If not expand the left menu first, then the settings menu
         //
 
         public Timer openSettingsTimer = new Timer();
@@ -907,6 +930,14 @@ namespace NCorp_Mail_Client
             this.ExpandSettings();
         }
 
+        /// <summary>
+        /// On Click event of the logout button
+        /// Calls Logout function defined in ServerCommunication.cs
+        /// If the log out is succesful the view is changed to the login screen
+        /// and the underlying UI is reset for the next user.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
             int status = Logout();
@@ -925,9 +956,11 @@ namespace NCorp_Mail_Client
             }
         }
 
-        //
-        // Resets the view
-        //
+        /// <summary>
+        /// Resets the UI
+        /// Called when the user logs out
+        /// On next log in the UI will be as familiar as each time
+        /// </summary>
         private void ResetView()
         {
             if (menuExpanded)

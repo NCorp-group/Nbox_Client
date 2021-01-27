@@ -29,6 +29,15 @@ namespace NCorp_Mail_Client.UserControls
             this.client = client;
             this.Bind();
         }
+
+        /// <summary>
+        /// On Click event of any MailThumbnail
+        /// Prompts the client to show the mail in the right side
+        /// If it's a draft the client opens a composer with the ComposeType.Draft type
+        /// Updates the read status of the mail if it is unread
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MailThumbnail_Click(object sender, EventArgs e)
         {
             client.currentMail = this.mail;
@@ -107,8 +116,6 @@ namespace NCorp_Mail_Client.UserControls
             this.BodyPreviewLabel.DataBindings.Add(bindingBody);
 
             // Timestamp Label text binding
-            //var bindingTimestamp = new Binding("Text", this, "timeStamp");
-            //this.TimestampLabel.DataBindings.Add(bindingTimestamp);
             this.TimestampLabel.Text = mail.metadata.timestamp.ToShortTimeString();
             this.DateLabel.Text = mail.metadata.timestamp.ToShortDateString();
 

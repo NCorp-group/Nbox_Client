@@ -41,7 +41,7 @@
             this.ReplyBtn = new System.Windows.Forms.Button();
             this.ForwardBtn = new System.Windows.Forms.Button();
             this.FlagBtn = new System.Windows.Forms.Button();
-            this.DeleBtn = new System.Windows.Forms.Button();
+            this.DeleteBtn = new System.Windows.Forms.Button();
             this.BtnTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.ColourDropDown = new System.Windows.Forms.Panel();
             this.PurpleBtn = new System.Windows.Forms.Button();
@@ -54,6 +54,7 @@
             this.BlueBtn = new System.Windows.Forms.Button();
             this.FoldersDropDown = new System.Windows.Forms.Panel();
             this.BodyLabel = new System.Windows.Forms.RichTextBox();
+            this.NoneBtn = new System.Windows.Forms.Button();
             this.HeaderPanel.SuspendLayout();
             this.TitlePanel.SuspendLayout();
             this.ActionsPanel.SuspendLayout();
@@ -126,7 +127,7 @@
             this.ButtonsPanel.Controls.Add(this.ReplyBtn);
             this.ButtonsPanel.Controls.Add(this.ForwardBtn);
             this.ButtonsPanel.Controls.Add(this.FlagBtn);
-            this.ButtonsPanel.Controls.Add(this.DeleBtn);
+            this.ButtonsPanel.Controls.Add(this.DeleteBtn);
             this.ButtonsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.ButtonsPanel.Location = new System.Drawing.Point(0, 0);
             this.ButtonsPanel.Name = "ButtonsPanel";
@@ -247,29 +248,30 @@
             this.FlagBtn.UseVisualStyleBackColor = false;
             this.FlagBtn.Click += new System.EventHandler(this.FlagBtn_Click);
             // 
-            // DeleBtn
+            // DeleteBtn
             // 
-            this.DeleBtn.BackColor = System.Drawing.Color.Transparent;
-            this.DeleBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.DeleBtn.FlatAppearance.BorderSize = 0;
-            this.DeleBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
-            this.DeleBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.DeleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
-            this.DeleBtn.Location = new System.Drawing.Point(300, 0);
-            this.DeleBtn.Name = "DeleBtn";
-            this.DeleBtn.Size = new System.Drawing.Size(50, 50);
-            this.DeleBtn.TabIndex = 34;
-            this.DeleBtn.Text = "";
-            this.BtnTooltip.SetToolTip(this.DeleBtn, "Delete");
-            this.DeleBtn.UseVisualStyleBackColor = false;
-            this.DeleBtn.Click += new System.EventHandler(this.DeleBtn_Click);
+            this.DeleteBtn.BackColor = System.Drawing.Color.Transparent;
+            this.DeleteBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.DeleteBtn.FlatAppearance.BorderSize = 0;
+            this.DeleteBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
+            this.DeleteBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
+            this.DeleteBtn.Location = new System.Drawing.Point(300, 0);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(50, 50);
+            this.DeleteBtn.TabIndex = 34;
+            this.DeleteBtn.Text = "";
+            this.BtnTooltip.SetToolTip(this.DeleteBtn, "Delete");
+            this.DeleteBtn.UseVisualStyleBackColor = false;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleBtn_Click);
             // 
             // ColourDropDown
             // 
             this.ColourDropDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ColourDropDown.BackColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_02dp;
+            this.ColourDropDown.Controls.Add(this.NoneBtn);
             this.ColourDropDown.Controls.Add(this.PurpleBtn);
             this.ColourDropDown.Controls.Add(this.MagentaBtn);
             this.ColourDropDown.Controls.Add(this.RedBtn);
@@ -450,6 +452,24 @@
             this.BodyLabel.TabIndex = 8;
             this.BodyLabel.Text = "";
             // 
+            // NoneBtn
+            // 
+            this.NoneBtn.BackColor = System.Drawing.Color.Transparent;
+            this.NoneBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.NoneBtn.FlatAppearance.BorderSize = 0;
+            this.NoneBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(41)))));
+            this.NoneBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(54)))));
+            this.NoneBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NoneBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NoneBtn.ForeColor = global::NCorp_Mail_Client.Properties.Settings.Default.bgd_08dp;
+            this.NoneBtn.Location = new System.Drawing.Point(0, 400);
+            this.NoneBtn.Name = "NoneBtn";
+            this.NoneBtn.Size = new System.Drawing.Size(50, 50);
+            this.NoneBtn.TabIndex = 50;
+            this.NoneBtn.Text = "";
+            this.NoneBtn.UseVisualStyleBackColor = false;
+            this.NoneBtn.Click += new System.EventHandler(this.NoneColourBtn_Click);
+            // 
             // MailViewport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,11 +512,12 @@
         public System.Windows.Forms.Button GreenBtn;
         public System.Windows.Forms.Button CyanBtn;
         public System.Windows.Forms.Button BlueBtn;
-        public System.Windows.Forms.Button DeleBtn;
+        public System.Windows.Forms.Button DeleteBtn;
         public System.Windows.Forms.Button FolderBtn;
         private System.Windows.Forms.Panel FoldersDropDown;
         public System.Windows.Forms.RichTextBox BodyLabel;
         public System.Windows.Forms.TextBox SenderLabel;
         public System.Windows.Forms.TextBox TitleLabel;
+        public System.Windows.Forms.Button NoneBtn;
     }
 }
