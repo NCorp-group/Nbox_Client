@@ -94,7 +94,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Builder.cs" />
     <Compile Include="ServerCommunication.cs" />
     <Compile Include="User.cs" />
     <Compile Include="TCPHandler.cs" />

@@ -12,7 +12,10 @@ namespace NCorp_Mail_Client.UserControls
 {
     public partial class MailViewport : UserControl
     {
+        // Reference to the EmailClient instance
         private EmailClient client;
+        // Reference to the mailthumbnail, that triggered the viewport
+        // Can update the thumbnail's variables
         private MailThumbnail thumbnail;
 
         private bool colourDropDownExpanded = false;
@@ -49,6 +52,14 @@ namespace NCorp_Mail_Client.UserControls
             client.ComposeMail(EmailClient.ComposeType.Forward);
         }
 
+        /// <summary>
+        /// On Click event of the flag as spam button
+        /// Moves the mail to the Spam folder
+        /// Generates spam folder if it doesn't exist
+        /// If mail is already marked as spam, the mail is moved back to the inbox folder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FlagBtn_Click(object sender, EventArgs e)
         {
             if (!client.currentUser.folders.Any(folder => folder == "Spam"))
@@ -273,6 +284,12 @@ namespace NCorp_Mail_Client.UserControls
             foldersDropDownExpanded = !foldersDropDownExpanded;
         }
 
+        /// <summary>
+        /// On Click event of one of the folder buttons from the drop down menu
+        /// Changes the current mail to the specified folder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChangeFolder_Click(object sender, EventArgs e)
         {
             var btn = sender as Button;
@@ -287,6 +304,13 @@ namespace NCorp_Mail_Client.UserControls
 
         private int foldersDropHeight = 0;
 
+        /// <summary>
+        /// On Click event of the folder button
+        /// Generates the UI elements necessary for the dropdown, one for each folder
+        /// Expands the drop-down menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FolderBtn_Click(object sender, EventArgs e)
         {
             if (!client.currentUser.folders.Any())
