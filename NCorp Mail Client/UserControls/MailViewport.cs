@@ -64,6 +64,7 @@ namespace NCorp_Mail_Client.UserControls
             if (mail.metadata.folder == "Spam")
             {
                 mail.metadata.folder = "Inbox";
+                client.ChangeFolder("Inbox", client.currentMail);
                 FlagBtn.Text = client.currentMail.GetFlagIcon();
                 //client.currentFolder = "Spam";
                 client.ShowMails();
@@ -75,7 +76,9 @@ namespace NCorp_Mail_Client.UserControls
                 FlagBtn.Text = client.currentMail.GetFlagIcon();
                 client.ShowMails();
                 client.MVPWrapperPanel.Controls.Clear();
+                client.ChangeFolder("spam", client.currentMail);
             }
+            client.UpdateUserFile();
         }
 
         Timer openColourDropTimer = new Timer();
