@@ -388,7 +388,7 @@ namespace NCorp_Mail_Client
                 FetchMails(false);
                 this.currentFolder = "Inbox";
                 this.ShowMails();
-                this.CurrentAccountLabel.Text = currentUser.username + "@nbox.com";
+                this.CurrentAccountLabel.Text = currentUser.username;
                 this.GeneralToolTip.SetToolTip(this.CurrentAccountLabel, this.CurrentAccountLabel.Text);
                 this.GetFolders();
                 this.ShowFolders();
@@ -549,7 +549,7 @@ namespace NCorp_Mail_Client
                 Name = "MailComposer"
             };
 
-            newComposer.FromTextBox.Text = currentUser.username + "@nbox.com";
+            newComposer.FromTextBox.Text = currentUser.username;
             switch (Type)
             {
                 case ComposeType.Standard:
