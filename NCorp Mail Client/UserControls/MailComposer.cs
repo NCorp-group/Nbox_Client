@@ -136,6 +136,7 @@ namespace NCorp_Mail_Client.UserControls
                     client.currentUser.mails.Remove(client.currentMail);
                 }
                 client.MVPWrapperPanel.Controls.Clear();
+                client.FetchMails();
                 client.ShowMails();
                 client.UpdateUserFile();
             }
