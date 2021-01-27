@@ -1,2 +1,2 @@
 # Nbox_Client
-NCorp mail client NBox
+NCorp's mail client NBox.
