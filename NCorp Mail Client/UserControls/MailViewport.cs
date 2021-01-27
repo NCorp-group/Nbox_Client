@@ -97,7 +97,7 @@ namespace NCorp_Mail_Client.UserControls
 
         private void openColourDropTimer_Tick(object sender, EventArgs e)
         {
-            if (this.ColourDropDown.Height >= 400)
+            if (this.ColourDropDown.Height >= 450)
             {
                 this.openColourDropTimer.Stop();
             }
@@ -150,7 +150,14 @@ namespace NCorp_Mail_Client.UserControls
         {
             this.ExpandColourDropDown();
         }
-
+        private void NoneColourBtn_Click(object sender, EventArgs e)
+        {
+            this.ExpandColourDropDown();
+            client.currentMail.metadata.colour = "none";
+            client.MarkColour(client.currentMail);
+            this.ColourBtn.ForeColor = client.currentMail.GetColour();
+            this.thumbnail.CheckColour();
+        }
         private void BlueColourBtn_Click(object sender, EventArgs e)
         {
             this.ExpandColourDropDown();
