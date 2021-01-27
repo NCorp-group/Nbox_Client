@@ -87,7 +87,7 @@ namespace NCorp_Mail_Client.UserControls
                 FlagBtn.Text = client.currentMail.GetFlagIcon();
                 client.ShowMails();
                 client.MVPWrapperPanel.Controls.Clear();
-                client.ChangeFolder("spam", client.currentMail);
+                client.ChangeFolder("Spam", client.currentMail);
             }
             client.UpdateUserFile();
         }
