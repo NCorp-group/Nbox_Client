@@ -25,8 +25,6 @@ namespace NCorp_Mail_Client
         }
 
         public User currentUser;
-        //private List<Mail> Mails = new List<Mail>();
-        //private List<string> Folders = new List<string>();
         public Mail currentMail;
         public string currentFolder;
         private readonly string MAILDIR_ROOT = Path.Combine(Environment.GetEnvironmentVariable("appdata"), "NBox", "Client");
